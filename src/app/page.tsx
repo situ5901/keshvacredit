@@ -310,10 +310,8 @@ function page() {
         </section>
       </div>
 
-      <div
-        className="flex justify-center items-center p-4 gap-5 bg-emerald-300"
-        borderRadius="10px"
-      >
+      <div className="flex justify-center items-center p-4 gap-5 bg-emerald-300 rounded-lg">
+
         <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
