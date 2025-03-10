@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 function page() {
   return (
     <>
@@ -181,11 +182,13 @@ function page() {
 
         {/* Right Side - Image */}
         <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-          <img
-            src="https://via.placeholder.com/400"
-            alt="Placeholder"
-            className="w-full max-w-sm rounded-lg shadow-lg"
-          />
+        <Image
+  src="https://via.placeholder.com/400"
+  alt="User profile"
+  width={50}
+  height={50}
+  className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
+/>
         </div>
       </div>
 
@@ -216,7 +219,7 @@ function page() {
                         ut eum vocent sensibus reprehendunt.
                       </p>
                       <div className="flex items-center mt-4 space-x-4">
-                        <img
+                        <Image
                           src="https://source.unsplash.com/50x50/?portrait?1"
                           alt=""
                           className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
@@ -238,7 +241,7 @@ function page() {
                         iudicabit consulatu cu.
                       </p>
                       <div className="flex items-center mt-4 space-x-4">
-                        <img
+                        <Image
                           src="https://source.unsplash.com/50x50/?portrait?2"
                           alt=""
                           className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
@@ -263,7 +266,7 @@ function page() {
                         movet ad est, sed tota vocent appetere ea.
                       </p>
                       <div className="flex items-center mt-4 space-x-4">
-                        <img
+                        <Image
                           src="https://source.unsplash.com/50x50/?portrait?3"
                           alt=""
                           className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
@@ -288,7 +291,7 @@ function page() {
                         patrioque qui, probo bonorum vivendum ex vim.
                       </p>
                       <div className="flex items-center mt-4 space-x-4">
-                        <img
+                        <Image
                           src="https://source.unsplash.com/50x50/?portrait?4"
                           alt=""
                           className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
@@ -391,12 +394,12 @@ function page() {
             <div className="h-[36px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[12px] top-[150px] rounded-s-lg"></div>
             <div className="h-[48px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[12px] top-[120px] rounded-e-lg"></div>
             <div className="rounded-[1.5rem] overflow-hidden w-[230px] h-[480px] bg-white dark:bg-gray-800">
-              <img
+              <Image
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-light.png"
                 className="dark:hidden w-full h-full"
                 alt="Mockup Light"
               />
-              <img
+              <Image
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-dark.png"
                 className="hidden dark:block w-full h-full"
                 alt="Mockup Dark"
