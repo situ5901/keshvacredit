@@ -78,7 +78,6 @@ function page() {
               <path
                 stroke="currentColor"
                 strokeLinejoin="round"
-                strokeLinejoin="round"
                 strokeWidth="2"
                 d="M5 1 1 5l4 4"
               />
@@ -101,7 +100,6 @@ function page() {
             >
               <path
                 stroke="currentColor"
-                strokeLinejoin="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="m1 9 4-4-4-4"
