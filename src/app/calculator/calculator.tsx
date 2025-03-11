@@ -33,7 +33,7 @@ export default function EmiCalculator() {
             (Math.pow(1 + monthlyInterestRate, loanTerm) - 1);
 
         let balance = loanAmount;
-        let emiTableData: EmiRow[] = [];
+        const emiTableData: EmiRow[] = [];
 
         for (let month = 1; month <= loanTerm; month++) {
             const interest = balance * monthlyInterestRate;
