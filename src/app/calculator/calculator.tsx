@@ -8,6 +8,8 @@ export default function EmiCalculator() {
     const [loanTerm, setLoanTerm] = useState(1);
     const [emiResult, setEmiResult] = useState('');
     const [tableData, setTableData] = useState([]);
+    const [totalInterest, setTotalInterest] = useState(0);
+    const [totalPayment, setTotalPayment] = useState(0);
     const [showResult, setShowResult] = useState(false);
 
     const formatCurrency = (amount: number) => {
@@ -26,16 +28,16 @@ export default function EmiCalculator() {
 
         let balance = loanAmount;
         let totalInterestPayable = 0;
-        let totalPayment = 0;
-        const emiTableData = []; // 🔥 Fixed: `const` instead of `let`
+        let totalPaymentAmount = 0;
+        const emiTableData = [];
 
         for (let month = 1; month <= loanTerm; month++) {
-            const interest = balance * monthlyInterestRate; // 🔥 Fixed: `const`
-            const principal = emi - interest; // 🔥 Fixed: `const`
+            const interest = balance * monthlyInterestRate;
+            const principal = emi - interest;
             balance -= principal;
 
             totalInterestPayable += interest;
-            totalPayment += emi;
+            totalPaymentAmount += emi;
 
             emiTableData.push({
                 month,
@@ -48,6 +50,8 @@ export default function EmiCalculator() {
 
         setEmiResult(`EMI: ${formatCurrency(emi)}`);
         setTableData(emiTableData);
+        setTotalInterest(totalInterestPayable);
+        setTotalPayment(totalPaymentAmount);
         setShowResult(true);
     };
 
@@ -57,6 +61,8 @@ export default function EmiCalculator() {
         setLoanTerm(1);
         setEmiResult('');
         setTableData([]);
+        setTotalInterest(0);
+        setTotalPayment(0);
         setShowResult(false);
     };
 
@@ -99,7 +105,6 @@ export default function EmiCalculator() {
                 </div>
                 
                 <div className="w-1/2 p-4 bg-blue-100 shadow-lg rounded-lg animate-fade-in">
-                    {/* Title aur subtitle jab tak result nahi aata */}
                     {!showResult && (
                         <div className="flex items-center justify-center h-full text-black text-center">
                             <div>
@@ -138,6 +143,12 @@ export default function EmiCalculator() {
                                     </table>
                                 </div>
                             )}
+
+                            {/* 🔥 Total Interest aur Payment ka Display 🔥 */}
+                            <div className="mt-4 text-center text-lg font-semibold">
+                                <p>Total Interest Payable: {formatCurrency(totalInterest)}</p>
+                                <p>Total Payment (Loan + Interest): {formatCurrency(totalPayment)}</p>
+                            </div>
                         </div>
                     )}
                 </div>
