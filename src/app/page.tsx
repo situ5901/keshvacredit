@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 function page() {
@@ -180,13 +181,13 @@ function page() {
 
         {/* Right Side - Image */}
         <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-        <Image
-  src="https://via.placeholder.com/400"
-  alt="User profile"
-  width={50}
-  height={50}
-  className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
-/>
+          <Image
+            src="https://via.placeholder.com/400"
+            alt="User profile"
+            width={50}
+            height={50}
+            className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
+          />
         </div>
       </div>
 
@@ -220,6 +221,9 @@ function page() {
                         <Image
                           src="https://source.unsplash.com/50x50/?portrait?1"
                           alt=""
+                          width={400}
+                          height={400}
+                          unoptimized
                           className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
                         />
                         <div>
@@ -242,6 +246,9 @@ function page() {
                         <Image
                           src="https://source.unsplash.com/50x50/?portrait?2"
                           alt=""
+                          width={400}
+                          height={400}
+                          unoptimized
                           className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
                         />
                         <div>
@@ -267,6 +274,9 @@ function page() {
                         <Image
                           src="https://source.unsplash.com/50x50/?portrait?3"
                           alt=""
+                          width={400}
+                          height={400}
+                          unoptimized
                           className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
                         />
                         <div>
@@ -292,6 +302,9 @@ function page() {
                         <Image
                           src="https://source.unsplash.com/50x50/?portrait?4"
                           alt=""
+                          width={400}
+                          height={400}
+                          unoptimized
                           className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
                         />
                         <div>
@@ -337,9 +350,9 @@ function page() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
@@ -394,11 +407,17 @@ function page() {
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-light.png"
                 className="dark:hidden w-full h-full"
                 alt="Mockup Light"
+                width={400}
+                height={400}
+                unoptimized
               />
               <Image
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-dark.png"
                 className="hidden dark:block w-full h-full"
                 alt="Mockup Dark"
+                width={400}
+                height={400}
+                unoptimized
               />
             </div>
           </div>
@@ -416,14 +435,14 @@ function page() {
                         className="size-6 text-white"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         aria-hidden="true"
                         data-slot="icon"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
                         />
                       </svg>
@@ -442,14 +461,14 @@ function page() {
                         className="size-6 text-white"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         aria-hidden="true"
                         data-slot="icon"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
                         />
                       </svg>
@@ -468,14 +487,14 @@ function page() {
                         className="size-6 text-white"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         aria-hidden="true"
                         data-slot="icon"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
                         />
                       </svg>
@@ -494,14 +513,14 @@ function page() {
                         className="size-6 text-white"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         aria-hidden="true"
                         data-slot="icon"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33"
                         />
                       </svg>

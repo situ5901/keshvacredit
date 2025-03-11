@@ -11,6 +11,8 @@ function Footer() {
                 <Image
                   src="https://flowbite.com/docs/images/logo.svg"
                   className="h-8 me-3"
+                  width={100}  // Required
+                  height={50}  // Required                
                   alt="FlowBite Logo"
                 />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
