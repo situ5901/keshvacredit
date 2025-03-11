@@ -1,30 +1,35 @@
-"use client";
-import React from "react";
-import Image from "next/image";
+import React from 'react'
+import Image from 'next/image'
+import EmiCalculator from './calculator/calculator'
 function page() {
   return (
     <>
-      <div
+       <div
         id="default-carousel"
         className="relative w-full"
         data-carousel="slide"
       >
         <div className="relative h-56 overflow-hidden rounded-lg md:h-100">
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
-
-          </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
-
-          </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
-
-          </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
-
-          </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
-
-          </div>
+          <div
+            className="hidden duration-700 ease-in-out"
+            data-carousel-item
+          ></div>
+          <div
+            className="hidden duration-700 ease-in-out"
+            data-carousel-item
+          ></div>
+          <div
+            className="hidden duration-700 ease-in-out"
+            data-carousel-item
+          ></div>
+          <div
+            className="hidden duration-700 ease-in-out"
+            data-carousel-item
+          ></div>
+          <div
+            className="hidden duration-700 ease-in-out"
+            data-carousel-item
+          ></div>
         </div>
         <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
           <button
@@ -324,7 +329,6 @@ function page() {
       </div>
 
       <div className="flex justify-center items-center p-4 gap-5 bg-emerald-300 rounded-lg">
-
         <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -537,9 +541,11 @@ function page() {
             </div>
           </div>
         </div>
-      </div>
+     </div>
+     <hr/>
+    <EmiCalculator/>
     </>
-  );
+  )
 }
 
-export default page;
+export default page
