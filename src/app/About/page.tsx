@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+
 function About() {
   return (
     <div>
@@ -14,7 +15,7 @@ function About() {
                   Empowerment
                 </h2>
                 <p className="text-gray-500 text-base font-normal leading-relaxed lg:text-start text-center">
-                  Through collaborationperse perspectives and strengths are
+                  Through collaboration, diverse perspectives and strengths are
                   leveraged to create inclusive environments where everyone has
                   the opportunity to thrive. This approach not only fosters
                   personal growth and achievement but also strengthens the
@@ -27,12 +28,12 @@ function About() {
                 </span>
               </button>
             </div>
-            <Image 
+            <Image
               className="lg:mx-0 mx-auto h-full rounded-3xl object-cover"
               src="https://pagedone.io/asset/uploads/1717751272.png"
-              alt="about Us image"
-              width={0}
-              height={0}
+              alt="About Us image"
+              width={500}
+              height={500}
             />
           </div>
         </div>
@@ -42,20 +43,20 @@ function About() {
           <div className="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
             <div className="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
               <div className="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
-                <Image 
-                  className=" rounded-xl object-cover"
+                <Image
+                  className="rounded-xl object-cover"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREodFxFquFM1bspwgPBj0G-1FY0dCFC4WRnKq83BpmvfdMLhboNtAF-u313XqGxB9s12g&usqp=CAU"
-                  alt="about Us image"
-                  width={0}
-              height={0}
+                  alt="About Us image"
+                  width={500}
+                  height={500}
                 />
               </div>
-              <Image 
+              <Image
                 className="sm:ml-0 ml-auto rounded-xl object-cover"
-                src="https://Image .freepik.com/premium-photo/employee-labor_1299778-9629.jpg?w=360"
-                alt="about Us image"
-                width={0}
-              height={0}
+                src="https://image.freepik.com/premium-photo/employee-labor_1299778-9629.jpg?w=360"
+                alt="About Us image"
+                width={500}
+                height={500}
               />
             </div>
             <div className="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
@@ -65,9 +66,9 @@ function About() {
                     Empowering Each Other to Succeed
                   </h2>
                   <p className="text-gray-500 text-base font-normal leading-relaxed lg:text-start text-center">
-                    Every project we've undertaken has been a collaborative
+                    Every project we&rsquo;ve undertaken has been a collaborative
                     effort, where every person involved has left their mark.
-                    Together, we've not only constructed buildings but also
+                    Together, we&rsquo;ve not only constructed buildings but also
                     built enduring connections that define our success story.
                   </p>
                 </div>
