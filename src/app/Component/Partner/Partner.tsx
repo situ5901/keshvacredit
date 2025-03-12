@@ -48,7 +48,7 @@ const Partner = () => {
         ))}
       </Slider>
       <p>
-        We work with partners who believe in &ldquo;quality over quantity&rdquo; and strive for excellence.
+        We work with partners who believe in &ldquo;quality over quantity&rdquo; and strive for excellence. Testing Messagae
       </p>
     </div>
   );
