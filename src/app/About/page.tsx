@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-
+import Image from "next/image";
 function About() {
   return (
     <div>
@@ -26,10 +27,12 @@ function About() {
                 </span>
               </button>
             </div>
-            <img
+            <Image 
               className="lg:mx-0 mx-auto h-full rounded-3xl object-cover"
               src="https://pagedone.io/asset/uploads/1717751272.png"
               alt="about Us image"
+              width={0}
+              height={0}
             />
           </div>
         </div>
@@ -39,16 +42,20 @@ function About() {
           <div className="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
             <div className="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
               <div className="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
-                <img
+                <Image 
                   className=" rounded-xl object-cover"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREodFxFquFM1bspwgPBj0G-1FY0dCFC4WRnKq83BpmvfdMLhboNtAF-u313XqGxB9s12g&usqp=CAU"
                   alt="about Us image"
+                  width={0}
+              height={0}
                 />
               </div>
-              <img
+              <Image 
                 className="sm:ml-0 ml-auto rounded-xl object-cover"
-                src="https://img.freepik.com/premium-photo/employee-labor_1299778-9629.jpg?w=360"
+                src="https://Image .freepik.com/premium-photo/employee-labor_1299778-9629.jpg?w=360"
                 alt="about Us image"
+                width={0}
+              height={0}
               />
             </div>
             <div className="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">

@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 function Footer() {
-  const currentYear = new Date().getFullYear(); // Automatically get current year
 
   return (
     <>
@@ -99,7 +98,7 @@ function Footer() {
           {/* Footer Bottom */}
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © {currentYear}{" "}
+              © 2025
               <a href="https://flowbite.com/" className="hover:underline">
                 Keshvacredit™
               </a>
