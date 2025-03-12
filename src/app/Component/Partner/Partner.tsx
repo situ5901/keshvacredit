@@ -33,7 +33,7 @@ const Partner = () => {
   };
 
   const logos = [
-    "/images/partner1.png", // Replace base64 with actual image paths
+    "/images/partner1.png", 
     "/images/partner2.png",
     "/images/partner3.png",
   ];
