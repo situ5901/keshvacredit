@@ -12,8 +12,8 @@ export default function Contact() {
               Get in Touch
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-gray-600">
-              We'd love to hear from you. Fill out the form below and we'll get
-              back to you soon.
+            We&apos;d love to hear from you. Fill out the form below and we&apos;ll get back to you soon.
+
             </p>
           </div>
 
@@ -43,7 +43,7 @@ export default function Contact() {
                 Monday - Friday: 08:00 - 17:00
               </p>
               <p className="text-gray-600 dark:text-gray">
-                Saturday & Sunday: 08:00 - 12:00
+                Saturday &amp; Sunday: 08:00 - 12:00
               </p>
             </div>
 
