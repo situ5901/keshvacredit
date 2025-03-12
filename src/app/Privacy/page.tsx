@@ -61,7 +61,7 @@ function page() {
 
           <p className="mb-4">
             A cookie is a small file that asks permission to be placed on your
-            computer's hard drive. Once you agree, the file is added, and the
+            computer&apos;s hard drive. Once you agree, the file is added, and the
             cookie helps analyze web traffic or lets you know when you visit a
             particular site. Cookies allow web applications to respond to you as
             an individual. The web application can tailor its operations to your
