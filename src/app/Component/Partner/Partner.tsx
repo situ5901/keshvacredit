@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Slider from "react-slick";
-import Image from "next/image"; // Import Next.js Image component
+import Image from "next/image"; // Next.js Image component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -26,7 +26,7 @@ const Partner = () => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
     ],
@@ -36,19 +36,28 @@ const Partner = () => {
     "/images/partner1.png", 
     "/images/partner2.png",
     "/images/partner3.png",
+    "/images/partner4.png",
+    "/images/partner5.png",
   ];
 
   return (
-    <div className="partner-slider">
+    <div className="partner-slider-container">
       <Slider {...settings}>
         {logos.map((logo, index) => (
-          <div key={index}>
-            <Image src={logo} alt={`Partner Logo ${index + 1}`} width={150} height={100} priority />
+          <div key={index} className="partner-logo">
+            <Image
+              src={logo}
+              alt={`Partner ${index + 1}`}
+              width={150}
+              height={100}
+              priority
+              className="partner-image"
+            />
           </div>
         ))}
       </Slider>
-      <p>
-        We work with partners who believe in &ldquo;quality over quantity&rdquo; and strive for excellence. Messagae
+      <p className="partner-text">
+        We work with partners who believe in &ldquo;quality over quantity&rdquo; and strive for excellence.
       </p>
     </div>
   );

@@ -1,191 +1,77 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-
-interface EmiRow {
-    month: number;
-    emi: string;
-    principal: string;
-    interest: string;
-    balance: string;
-}
+import { useState } from "react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function EmiCalculator() {
-    const [loanAmount, setLoanAmount] = useState<number>(1000);
-    const [interestRate, setInterestRate] = useState<number>(0);
-    const [loanTerm, setLoanTerm] = useState<number>(1);
-    const [emiResult, setEmiResult] = useState<string>('');
-    const [tableData, setTableData] = useState<EmiRow[]>([]);
-    const [showResult, setShowResult] = useState<boolean>(false);
+  const [loanAmount, setLoanAmount] = useState(500000);
+  const [interestRate, setInterestRate] = useState(10);
+  const [loanTenure, setLoanTenure] = useState(5);
 
-    const formatCurrency = (amount: number) => {
-        return "₹" + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    };
+  const calculateEMI = () => {
+    const monthlyInterest = interestRate / 100 / 12;
+    const totalMonths = loanTenure * 12;
+    const emi = (loanAmount * monthlyInterest * Math.pow(1 + monthlyInterest, totalMonths)) /
+                (Math.pow(1 + monthlyInterest, totalMonths) - 1);
+    return emi.toFixed(2);
+  };
 
-    const calculateEMI = () => {
-        if (!loanAmount || !interestRate || !loanTerm) {
-            setEmiResult('Please enter valid values');
-            return;
-        }
+  const generateGraphData = () => {
+    let data = [];
+    for (let i = 1; i <= loanTenure * 12; i++) {
+      data.push({ month: i, EMI: parseFloat(calculateEMI()) });
+    }
+    return data;
+  };
 
-        const monthlyInterestRate = interestRate / 100 / 12;
-        const emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) /
-            (Math.pow(1 + monthlyInterestRate, loanTerm) - 1);
-
-        let balance = loanAmount;
-        const emiTableData: EmiRow[] = [];
-
-        for (let month = 1; month <= loanTerm; month++) {
-            const interest = balance * monthlyInterestRate;
-            const principal = emi - interest;
-            balance -= principal;
-
-            emiTableData.push({
-                month,
-                emi: formatCurrency(emi),
-                principal: formatCurrency(principal),
-                interest: formatCurrency(interest),
-                balance: formatCurrency(balance < 0 ? 0 : balance)
-            });
-        }
-
-        setEmiResult(`EMI: ${formatCurrency(emi)}`);
-        setTableData(emiTableData);
-        setShowResult(true);
-    };
-
-    const resetForm = () => {
-        setLoanAmount(1000);
-        setInterestRate(0);
-        setLoanTerm(1);
-        setEmiResult('');
-        setTableData([]);
-        setShowResult(false);
-    };
-
-    return (
-        <div className="bg-white text-black min-h-screen flex items-center justify-center">
-            <div className="max-w-4xl mx-auto p-6 bg-red-100 rounded-2xl flex gap-10 shadow-lg">
-                {/* Left Side - Form */}
-                <div className="w-1/2 p-4 bg-white rounded-2xl shadow-md">
-                    <h1 className="text-center text-2xl font-bold mb-4">EMI Calculator</h1>
-
-                    <div className="mb-4">
-                        <label className="block font-bold">Loan Amount:</label>
-                        <input
-                            type="number"
-                            value={loanAmount}
-                            onChange={(e) => setLoanAmount(Number(e.target.value))}
-                            className="w-full p-2 border rounded"
-                        />
-                        <input
-                            type="range"
-                            min="1000"
-                            max="1000000"
-                            value={loanAmount}
-                            onChange={(e) => setLoanAmount(Number(e.target.value))}
-                            className="w-full mt-2"
-                        />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block font-bold">Interest Rate:</label>
-                        <input
-                            type="number"
-                            value={interestRate}
-                            onChange={(e) => setInterestRate(Number(e.target.value))}
-                            className="w-full p-2 border rounded"
-                        />
-                        <input
-                            type="range"
-                            min="0"
-                            max="20"
-                            step="0.1"
-                            value={interestRate}
-                            onChange={(e) => setInterestRate(Number(e.target.value))}
-                            className="w-full mt-2"
-                        />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block font-bold text-black">Loan Term (Months):</label>
-                        <input
-                            type="number"
-                            value={loanTerm}
-                            onChange={(e) => setLoanTerm(Number(e.target.value))}
-                            className="w-full p-2 border rounded"
-                        />
-                        <input
-                            type="range"
-                            min="1"
-                            max="60"
-                            value={loanTerm}
-                            onChange={(e) => setLoanTerm(Number(e.target.value))}
-                            className="w-full mt-2"
-                        />
-                    </div>
-
-                    <div className="flex justify-between mt-4">
-                        <button
-                            onClick={calculateEMI}
-                            className="px-4 py-2 bg-blue-900 text-white rounded"
-                        >
-                            Calculate EMI
-                        </button>
-                        <button
-                            onClick={resetForm}
-                            className="px-4 py-2 bg-red-600 text-white rounded"
-                        >
-                            Reset
-                        </button>
-                    </div>
-                </div>
-
-                {/* Right Side - Results */}
-                <div className="w-1/2 p-4 bg-blue-100 shadow-lg rounded-2xl animate-fade-in flex items-center justify-center">
-                    {/* Title & Subtitle - Show Until Result is Displayed */}
-                    {!showResult && (
-                        <div className="text-center text-black">
-                            <h2 className="text-xl font-semibold">Calculate Your EMI</h2>
-                            <p>Enter loan details to see the EMI breakdown</p>
-                        </div>
-                    )}
-
-                    {/* EMI Table - Show After Calculation */}
-                    {showResult && (
-                        <div className="w-full">
-                            <p className="text-center font-bold mb-4">{emiResult}</p>
-
-                            {tableData.length > 0 && (
-                                <div className="overflow-y-auto max-h-96 border border-gray-300 rounded-lg">
-                                    <table className="w-full border-collapse">
-                                        <thead>
-                                            <tr className="bg-gray-200">
-                                                <th className="border p-2">Month</th>
-                                                <th className="border p-2">EMI</th>
-                                                <th className="border p-2">Principal</th>
-                                                <th className="border p-2">Interest</th>
-                                                <th className="border p-2">Balance</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {tableData.map((row, index) => (
-                                                <tr key={index} className="text-center border">
-                                                    <td className="border p-2">{row.month}</td>
-                                                    <td className="border p-2">{row.emi}</td>
-                                                    <td className="border p-2">{row.principal}</td>
-                                                    <td className="border p-2">{row.interest}</td>
-                                                    <td className="border p-2">{row.balance}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </div>
-            </div>
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-200 to-purple-300 p-6">
+      <div className="bg-white bg-opacity-30 backdrop-blur-lg p-8 rounded-xl shadow-xl w-full max-w-lg border border-white/30">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Personal Loan EMI Calculator</h2>
+        <div className="mb-6">
+          <label className="block text-gray-900 font-medium">Loan Amount (₹): {loanAmount}</label>
+          <input 
+            type="range" 
+            min="100000" max="1000000" step="1000" 
+            value={loanAmount} 
+            onChange={(e) => setLoanAmount(e.target.value)}
+            className="w-full accent-blue-500"
+          />
         </div>
-    );
+        <div className="mb-6">
+          <label className="block text-gray-900 font-medium">Interest Rate (%): {interestRate}</label>
+          <input 
+            type="range" 
+            min="5" max="15" step="0.1" 
+            value={interestRate} 
+            onChange={(e) => setInterestRate(e.target.value)}
+            className="w-full accent-blue-500"
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block text-gray-900 font-medium">Loan Tenure (Years): {loanTenure}</label>
+          <input 
+            type="range" 
+            min="1" max="10" step="1" 
+            value={loanTenure} 
+            onChange={(e) => setLoanTenure(e.target.value)}
+            className="w-full accent-blue-500"
+          />
+        </div>
+        <h4 className="text-xl font-semibold text-gray-900 text-center bg-blue-500 text-white p-3 rounded-lg shadow-md">Monthly EMI: ₹{calculateEMI()}</h4>
+      </div>
+      <div className="bg-white bg-opacity-30 backdrop-blur-lg p-8 mt-8 rounded-xl shadow-xl w-full max-w-lg border border-white/30">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">EMI Trend Over Time</h2>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={generateGraphData()}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
+            <XAxis dataKey="month" label={{ value: "Months", position: "insideBottom", offset: -5 }} stroke="#555" />
+            <YAxis label={{ value: "EMI (₹)", angle: -90, position: "insideLeft" }} stroke="#555" />
+            <Tooltip contentStyle={{ backgroundColor: "white", borderRadius: "5px" }} />
+            <Line type="monotone" dataKey="EMI" stroke="#007BFF" strokeWidth={3} dot={{ r: 4 }} />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
 }
