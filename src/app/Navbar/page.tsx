@@ -1,11 +1,11 @@
-"use client";
-
+"use client"; // ✅ Make it a client component
 import Link from "next/link";
+import { useModal } from "@/app/context/ModalContext";
 import React, { useState } from "react";
 import Image from "next/image";
-
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { openModal } = useModal();
 
   const handleCloseMenu = () => {
     setIsOpen(false);
@@ -14,22 +14,18 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white border-gray-200 dark:bg-gray-900 shadow-md">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a
-  href="https://flowbite.com/"
-  className="flex items-center space-x-1 rtl:space-x-reverse"
->
-  <Image
-    src="https://flowbite.com/docs/images/logo.svg"
-    className="h-8"
-    width={100}
-    height={50}
-    alt="Flowbite Logo"
-  />
-  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-    KeshvaCredit
-  </span>
-</a>
-
+        <a
+          href="https://flowbite.com/"
+          className="flex items-center space-x-1 rtl:space-x-reverse"
+        >
+          <Image
+            src="/logo.png" // ✅ Correct path
+            className="h-10"
+            width={150}
+            height={150}
+            alt="Flowbite Logo"
+          />
+        </a>
 
         {/* Mobile Menu Button */}
         <button
@@ -88,7 +84,7 @@ function Navbar() {
             </li>
             <li>
               <Link
-                href="/Pricing"
+                href="/creditcard"
                 onClick={handleCloseMenu}
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white"
               >
@@ -98,7 +94,7 @@ function Navbar() {
             <li>
               <button
                 type="button"
-                onClick={handleCloseMenu}
+                onClick={openModal}
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
               >
                 Sign Up

@@ -2,7 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["pagedone.io", "via.placeholder.com"], // Ensure via.placeholder.com is added here
+    domains: [
+      "pagedone.io",
+      "via.placeholder.com",
+      "png.pngtree.com",
+      "images.unsplash.com",
+    ], // Ensure via.placeholder.com is added here
     remotePatterns: [
       {
         protocol: "https",

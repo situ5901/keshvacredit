@@ -1,77 +1,120 @@
-// "use client";
+"use client";
+import { useState } from "react";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
 
-// import { useState } from "react";
-// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+export default function EmiCalculator() {
+  const [loanAmount, setLoanAmount] = useState<number>(100000);
+  const [interestRate, setInterestRate] = useState<number>(10);
+  const [loanTenure, setLoanTenure] = useState<number>(12);
 
-// export default function EmiCalculator() {
-//   const [loanAmount, setLoanAmount] = useState(500000);
-//   const [interestRate, setInterestRate] = useState(10);
-//   const [loanTenure, setLoanTenure] = useState(5);
+  const calculateEMI = () => {
+    const monthlyRate = interestRate / 12 / 100;
+    if (monthlyRate === 0) return (loanAmount / loanTenure).toFixed(2); // Prevent division by zero
+    const emi =
+      (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, loanTenure)) /
+      (Math.pow(1 + monthlyRate, loanTenure) - 1);
+    return emi.toFixed(2);
+  };
 
-//   const calculateEMI = () => {
-//     const monthlyInterest = interestRate / 100 / 12;
-//     const totalMonths = loanTenure * 12;
-//     const emi = (loanAmount * monthlyInterest * Math.pow(1 + monthlyInterest, totalMonths)) /
-//                 (Math.pow(1 + monthlyInterest, totalMonths) - 1);
-//     return emi.toFixed(2);
-//   };
+  const emi = parseFloat(calculateEMI());
+  const totalPayment = (emi * loanTenure).toFixed(2);
+  const totalInterest = (Number(totalPayment) - loanAmount).toFixed(2);
 
-//   const generateGraphData = () => {
-//     let data = [];
-//     for (let i = 1; i <= loanTenure * 12; i++) {
-//       data.push({ month: i, EMI: parseFloat(calculateEMI()) });
-//     }
-//     return data;
-//   };
+  const chartOptions = {
+    chart: { type: "pie", height: 250 },
+    title: { text: "EMI Breakdown", style: { fontSize: "14px" } },
+    series: [
+      {
+        name: "Amount",
+        data: [
+          { name: "Principal", y: loanAmount },
+          { name: "Interest", y: Number(totalInterest) },
+        ],
+      },
+    ],
+  };
 
-//   return (
-//     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-200 to-purple-300 p-6">
-//       <div className="bg-white bg-opacity-30 backdrop-blur-lg p-8 rounded-xl shadow-xl w-full max-w-lg border border-white/30">
-//         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Personal Loan EMI Calculator</h2>
-//         <div className="mb-6">
-//           <label className="block text-gray-900 font-medium">Loan Amount (₹): {loanAmount}</label>
-//           <input 
-//             type="range" 
-//             min="100000" max="1000000" step="1000" 
-//             value={loanAmount} 
-//             onChange={(e) => setLoanAmount(e.target.value)}
-//             className="w-full accent-blue-500"
-//           />
-//         </div>
-//         <div className="mb-6">
-//           <label className="block text-gray-900 font-medium">Interest Rate (%): {interestRate}</label>
-//           <input 
-//             type="range" 
-//             min="5" max="15" step="0.1" 
-//             value={interestRate} 
-//             onChange={(e) => setInterestRate(e.target.value)}
-//             className="w-full accent-blue-500"
-//           />
-//         </div>
-//         <div className="mb-6">
-//           <label className="block text-gray-900 font-medium">Loan Tenure (Years): {loanTenure}</label>
-//           <input 
-//             type="range" 
-//             min="1" max="10" step="1" 
-//             value={loanTenure} 
-//             onChange={(e) => setLoanTenure(e.target.value)}
-//             className="w-full accent-blue-500"
-//           />
-//         </div>
-//         <h4 className="text-xl font-semibold text-gray-900 text-center bg-blue-500 text-white p-3 rounded-lg shadow-md">Monthly EMI: ₹{calculateEMI()}</h4>
-//       </div>
-//       <div className="bg-white bg-opacity-30 backdrop-blur-lg p-8 mt-8 rounded-xl shadow-xl w-full max-w-lg border border-white/30">
-//         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">EMI Trend Over Time</h2>
-//         <ResponsiveContainer width="100%" height={300}>
-//           <LineChart data={generateGraphData()}>
-//             <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
-//             <XAxis dataKey="month" label={{ value: "Months", position: "insideBottom", offset: -5 }} stroke="#555" />
-//             <YAxis label={{ value: "EMI (₹)", angle: -90, position: "insideLeft" }} stroke="#555" />
-//             <Tooltip contentStyle={{ backgroundColor: "white", borderRadius: "5px" }} />
-//             <Line type="monotone" dataKey="EMI" stroke="#007BFF" strokeWidth={3} dot={{ r: 4 }} />
-//           </LineChart>
-//         </ResponsiveContainer>
-//       </div>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <div className="w-full bg-white p-6">
+        <div className="text-center text-4xl font-bold">
+          <h1 className="text-black text-4xl font-bold">
+            Periodic <span className="text-blue-600">Loan EMI</span> Calculator
+          </h1>
+        </div>
+
+        <div className="w-full bg-white p-6 shadow-md flex flex-col md:flex-row gap-4">
+          <div className="w-full md:w-1/2 bg-blue-950 p-4 rounded-xl shadow-md">
+            <h2 className="text-xl font-bold mb-2">EMI Calculator</h2>
+            <div className="grid grid-cols-1 gap-3">
+              <div>
+                <label className="block text-sm font-semibold">
+                  Loan Amount
+                </label>
+                <input
+                  type="number"
+                  value={loanAmount}
+                  onChange={(e) => setLoanAmount(Number(e.target.value))}
+                  className="w-full p-1 border rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold">
+                  Interest Rate (%)
+                </label>
+                <input
+                  type="number"
+                  value={interestRate}
+                  onChange={(e) => setInterestRate(Number(e.target.value))}
+                  className="w-full p-1 border rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold">
+                  Loan Tenure (Months)
+                </label>
+                <input
+                  type="number"
+                  value={loanTenure}
+                  onChange={(e) => setLoanTenure(Number(e.target.value))}
+                  className="w-full p-1 border rounded text-sm"
+                />
+              </div>
+              <div className="mt-4 flex gap-8">
+                <p>
+                  <strong>Total Payment:</strong> ₹{totalPayment}
+                </p>
+                <p>
+                  <strong>Total Interest:</strong> ₹{totalInterest}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* EMI Result & Chart */}
+          <div className="w-full md:w-1/2 bg-white p-4 rounded-xl shadow-md border border-gray-300">
+            <h2 className="text-xl font-bold mb-2 text-blue-950">EMI Result</h2>
+            <hr />
+            <div className="grid grid-cols-1 md:grid-cols-3 text-black gap-4 text-sm">
+              <p>
+                <strong className="text-blue-950">EMI:</strong> ₹{emi}
+              </p>
+              <p>
+                <strong className="text-blue-950">Total Payment:</strong> ₹
+                {totalPayment}
+              </p>
+              <p>
+                <strong className="text-blue-950">Total Interest:</strong> ₹
+                {totalInterest}
+              </p>
+            </div>
+            <div className="mt-4 w-64 h-64 mx-auto">
+              <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -4,24 +4,20 @@ import Link from "next/link";
 import Image from "next/image";
 
 function Footer() {
-
   return (
     <>
       <footer className="bg-white dark:bg-gray-900">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
-            <div className="mb-6 md:mb-0">
+            <div className="-mt-5 md:mb-0">
               <a href="https://flowbite.com/" className="flex items-center">
                 <Image
-                  src="https://flowbite.com/docs/images/logo.svg"
-                  className="h-8 me-3"
-                  width={100}
-                  height={50}
+                  src="/logo.png" // ✅ Correct path
+                  className="h-15 me-3"
+                  width={200}
+                  height={230}
                   alt="FlowBite Logo"
                 />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                  Flowbite
-                </span>
               </a>
             </div>
 
@@ -33,16 +29,26 @@ function Footer() {
                 </h2>
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a href="https://flowbite.com/" className="hover:underline">
-                    Keshvacredit
-                    </a>
+                    <Link href="creditcard" className="hover:underline">
+                      Credit Card
+                    </Link>
                   </li>
+
                   <li>
                     <a
                       href="https://tailwindcss.com/"
                       className="hover:underline"
                     >
-                      Tailwind CSS
+                      Personal Loans
+                    </a>
+                  </li>
+                  <br />
+                  <li>
+                    <a
+                      href="https://tailwindcss.com/"
+                      className="hover:underline"
+                    >
+                      Business Loans
                     </a>
                   </li>
                 </ul>
@@ -82,6 +88,10 @@ function Footer() {
                   <li className="mb-4">
                     <Link href="/Privacy"> Privacy Policy</Link>
                   </li>
+
+                  <li className="mb-4">
+                    <Link href="/Privacy">Lender Contacts</Link>
+                  </li>
                   <li>
                     <a href="#" className="hover:underline">
                       Terms &amp; Conditions
@@ -96,8 +106,8 @@ function Footer() {
           <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
 
           {/* Footer Bottom */}
-          <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <div className="flex flex-col items-center text-center">
+            <span className="text-sm text-gray-500 dark:text-gray-400">
               © 2025
               <a href="https://flowbite.com/" className="hover:underline">
                 Keshvacredit™
@@ -106,24 +116,24 @@ function Footer() {
             </span>
 
             {/* Social Media Icons */}
-            <div className="flex mt-4 sm:justify-center sm:mt-0">
+            <div className="flex justify-center mt-4 space-x-5">
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white me-5"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <i className="fab fa-facebook"></i>
                 <span className="sr-only">Facebook</span>
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white me-5"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <i className="fab fa-twitter"></i>
                 <span className="sr-only">Twitter</span>
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white me-5"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <i className="fab fa-github"></i>
                 <span className="sr-only">Github</span>
