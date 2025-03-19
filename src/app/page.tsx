@@ -220,7 +220,12 @@ function Page() {
                   <div className="grid content-center gap-4">
                     <div className="p-6 rounded shadow-md dark:bg-gray-50">
                       <p>
-A credit card is a financial tool that allows users to borrow money from a bank or financial institution to make purchases, pay bills, or withdraw cash. It operates on a revolving credit system, where users can spend up to a pre-approved limit and repay the amount either in full or through monthly installments.
+                        A credit card is a financial tool that allows users to
+                        borrow money from a bank or financial institution to
+                        make purchases, pay bills, or withdraw cash. It operates
+                        on a revolving credit system, where users can spend up
+                        to a pre-approved limit and repay the amount either in
+                        full or through monthly installments.
                       </p>
                       <div className="flex items-center mt-4 space-x-4">
                         <Image
@@ -361,9 +366,21 @@ A credit card is a financial tool that allows users to borrow money from a bank 
                   },
 
                   {
-                    title: "Happy Customers",
+                    title: "Instant Approva",
                     description:
-                      "Trusted by over 5 lakh happy customers! Experience seamless service, secure transactions, and unmatched financial benefits with us.",
+                      "Get online loan approval within 48 hours with minimal documentation, ensuring quick access to funds for those in urgent need of financial assistance.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 12l2 2 4-4M4.5 4.5h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2z"
+                      />
+                    ),
+                  },
+                  {
+                    title: "100% Paperless & Hassle-Free Loans",
+                    description:
+                      "Apply for a loan from the comfort of your home with our fully digital process—fast, secure, and convenient!",
                     icon: (
                       <path
                         strokeLinecap="round"
@@ -373,21 +390,9 @@ A credit card is a financial tool that allows users to borrow money from a bank 
                     ),
                   },
                   {
-                    title: "Happy Customers",
+                    title: "No Hidden Charges",
                     description:
-                      "Trusted by over 5 lakh happy customers! Experience seamless service, secure transactions, and unmatched financial benefits with us.",
-                    icon: (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
-                      />
-                    ),
-                  },
-                  {
-                    title: "Loans Disbursed",
-                    description:
-                      "Over ₹1000 Cr in loans disbursed! Quick approvals, hassle-free processing, and secure transactions to meet your financial needs seamlessly.",
+                      "Our process is 100% transparent and fair, ensuring no hidden charges or unexpected fees",
                     icon: (
                       <path
                         strokeLinecap="round"
@@ -405,20 +410,20 @@ A credit card is a financial tool that allows users to borrow money from a bank 
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                        d="M3 10h18M3 14h18M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm13 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
                       />
                     ),
                   },
 
                   {
-                    title: "Loans Disbursed",
+                    title: "Flexible Loan Options",
                     description:
-                      "Over ₹1000 Cr in loans disbursed! Quick approvals, hassle-free processing, and secure transactions to meet your financial needs seamlessly.",
+                      "Customize your loan amount from ₹1,000 to ₹1,00,000 with a flexible tenure ranging from 3 months to 2 years designed to suit your financial needs.",
                     icon: (
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                        d="M12 8.25V3m0 0L8.25 6.75M12 3l3.75 3.75M3 12.75a1.5 1.5 0 0 1 1.5-1.5h9a1.5 1.5 0 1 1 0 3h-3l5.25 4.5m-2.25 0H15a1.5 1.5 0 1 0 0-3"
                       />
                     ),
                   },
