@@ -7,15 +7,25 @@ import EmiCalculator from "./calculator/calculator";
 import LottieAnimation from "./ LottieAnimation";
 import Lottie from "react-lottie-player";
 import { motion } from "framer-motion";
-import animationData from "../animations/help.json";
+import animationData from "../animations/sport.json";
+import { useModal } from "@/app/context/ModalContext";
+import Cookies from "js-cookie";
 
 function Page() {
   const [isOpen, setIsOpen] = useState(false);
+  const { openModal } = useModal();
+
+  const handleClick = () => {
+    const userData = Cookies.get("userData"); // Cookie se data check karo
+    if (!userData) {
+      openModal(); // Cookie nahi hai to modal open hoga
+    }
+  };
   return (
     <>
       <section className="bg-white dark:bg-white">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-          <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400 mt-5">
+          <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400 mt-10">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-blue-950">
               Empowering Every Indian with Instant Loans
             </h2>
@@ -33,14 +43,16 @@ function Page() {
             <div className="text-blue-950 flex gap-8">
               <button
                 type="button"
-                className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                onClick={handleClick}
+                className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
               >
-                Personal loans
+                Personal Loan
               </button>
 
               <button
                 type="button"
-                className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                onClick={handleClick}
+                className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 Business Loan
               </button>
@@ -51,8 +63,8 @@ function Page() {
           </div>
         </div>
       </section>
-      <div>
-        <div className="grid grid-cols-1i -mt-14 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-white p-5">
+      <div className="justify-center">
+        <div className="grid grid-cols-1 justify-center -mt-14 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-white p-5">
           <a
             href="#"
             className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
@@ -278,27 +290,14 @@ function Page() {
             Hassle-Free Process, Minimal Documentation, and Fast Fund Disbursal
             to Meet Your Financial Needs Effortlessly
           </p>
-          <a
-            href="#"
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+
+          <button
+            type="button"
+            onClick={handleClick}
+            className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
           >
-            Apply now
-            <svg
-              className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-          </a>
+            Apply Now
+          </button>
         </div>
 
         <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
@@ -312,42 +311,24 @@ function Page() {
             Hassle-Free Process, Minimal Documentation, and Quick Fund Disbursal
             to Grow Your Business Effortlessly
           </p>
-          <a
-            href="#"
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          <button
+            type="button"
+            onClick={handleClick}
+            className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
           >
-            Apply now
-            <svg
-              className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-          </a>
+            Apply Now
+          </button>
         </div>
       </div>
 
-      <div className="flex h-[85vh]">
-        {/* Left Side (70%) */}
-        <div className="w-[30%] bg-white p-4 flex justify-center items-center p-20">
-          <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[10px] rounded-[2rem] h-[500px] w-[250px]">
-            <div className="h-[24px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[12px] top-[50px] rounded-s-lg"></div>
-            <div className="h-[36px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[12px] top-[100px] rounded-s-lg"></div>
-            <div className="h-[36px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[12px] top-[150px] rounded-s-lg"></div>
-            <div className="h-[48px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[12px] top-[120px] rounded-e-lg"></div>
-            <div className="rounded-[1.5rem] overflow-hidden w-[230px] h-[480px] bg-white dark:bg-gray-800">
+      <div className="flex flex-col md:flex-row h-auto md:h-[85vh]">
+        {/* Left Side (Mockup) */}
+        <div className="w-full md:w-[30%] bg-white p-4 flex justify-center items-center">
+          <div className="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2rem] h-[400px] w-[200px] md:h-[500px] md:w-[250px]">
+            <div className="rounded-[1.5rem] overflow-hidden w-[180px] h-[380px] md:w-[230px] md:h-[480px] bg-white">
               <Image
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-light.png"
-                className="dark:hidden w-full h-full"
+                className="dark:hidden w-full h-auto"
                 alt="Mockup Light"
                 width={400}
                 height={400}
@@ -355,7 +336,7 @@ function Page() {
               />
               <Image
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-dark.png"
-                className="hidden dark:block w-full h-full"
+                className="hidden dark:block w-full h-auto"
                 alt="Mockup Dark"
                 width={400}
                 height={400}
@@ -365,120 +346,113 @@ function Page() {
           </div>
         </div>
 
-        {/* Right Side (30%) */}
-        <div className="bg-white">
-          <div className="mx-auto bg-white max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                <div className="relative pl-16">
-                  <dt className="text-base/7 font-semibold text-gray-900">
-                    <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+        {/* Right Side (Stats) */}
+        <div className="bg-gray-50 py-8 px-4 md:py-12 md:px-8 w-full gap-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-2xl gap-8 gap-y-8 lg:max-w-4xl">
+              <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 grid-cols-1">
+                {[
+                  {
+                    title: "Happy Customers",
+                    description:
+                      "Trusted by over 5 lakh happy customers! Experience seamless service, secure transactions, and unmatched financial benefits with us.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
+                      />
+                    ),
+                  },
+
+                  {
+                    title: "Happy Customers",
+                    description:
+                      "Trusted by over 5 lakh happy customers! Experience seamless service, secure transactions, and unmatched financial benefits with us.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
+                      />
+                    ),
+                  },
+                  {
+                    title: "Happy Customers",
+                    description:
+                      "Trusted by over 5 lakh happy customers! Experience seamless service, secure transactions, and unmatched financial benefits with us.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
+                      />
+                    ),
+                  },
+                  {
+                    title: "Loans Disbursed",
+                    description:
+                      "Over ₹1000 Cr in loans disbursed! Quick approvals, hassle-free processing, and secure transactions to meet your financial needs seamlessly.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                      />
+                    ),
+                  },
+
+                  {
+                    title: "Loans Disbursed",
+                    description:
+                      "Over ₹1000 Cr in loans disbursed! Quick approvals, hassle-free processing, and secure transactions to meet your financial needs seamlessly.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                      />
+                    ),
+                  },
+
+                  {
+                    title: "Loans Disbursed",
+                    description:
+                      "Over ₹1000 Cr in loans disbursed! Quick approvals, hassle-free processing, and secure transactions to meet your financial needs seamlessly.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                      />
+                    ),
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center sm:flex-row w-full"
+                  >
+                    <div className="flex size-10 md:size-12 items-center justify-center rounded-lg bg-indigo-600 shadow-lg">
                       <svg
                         className="size-6 text-white"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        aria-hidden="true"
-                        data-slot="icon"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
-                        />
+                        {item.icon}
                       </svg>
                     </div>
-                    Happy customers
-                  </dt>
-                  <dd className="mt-2 text-base/7 text-gray-600">
-                    Trusted by over 5 lakh happy customers! Experience seamless
-                    service, secure transactions, and unmatched financial
-                    benefits with us.
-                  </dd>
-                </div>
-                <div className="relative pl-16">
-                  <dt className="text-base/7 font-semibold text-gray-900">
-                    <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                      <svg
-                        className="size-6 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                        data-slot="icon"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-                        />
-                      </svg>
+                    <div className="sm:ml-4 mt-4 sm:mt-0 text-center sm:text-left w-full">
+                      <dt className="text-lg font-semibold text-gray-900">
+                        {item.title}
+                      </dt>
+                      <dd className="mt-2 text-sm md:text-base text-gray-600">
+                        {item.description}
+                      </dd>
                     </div>
-                    Loans disbursed
-                  </dt>
-                  <dd className="mt-2 text-base/7 text-gray-600">
-                    Over ₹1000 Cr in loans disbursed! Quick approvals,
-                    hassle-free processing, and secure transactions to meet your
-                    financial needs seamlessly. dolor eget. Sem sodales gravida
-                    quam turpis enim lacus amet.
-                  </dd>
-                </div>
-                <div className="relative pl-16">
-                  <dt className="text-base/7 font-semibold text-gray-900">
-                    <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                      <svg
-                        className="size-6 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                        data-slot="icon"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
-                        />
-                      </svg>
-                    </div>
-                    Years of service
-                  </dt>
-                  <dd className="mt-2 text-base/7 text-gray-600">
-                    Celebrating 2 years of trust, reliability, and seamless
-                    financial solutions. Empowering customers with secure, fast,
-                    and hassle-free credit services!
-                  </dd>
-                </div>
-                <div className="relative pl-16">
-                  <dt className="text-base/7 font-semibold text-gray-900">
-                    <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                      <svg
-                        className="size-6 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                        data-slot="icon"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33"
-                        />
-                      </svg>
-                    </div>
-                    Trusted Lenders
-                  </dt>
-                  <dd className="mt-2 text-base/7 text-gray-600">
-                    Partnering with verified and reliable lenders to provide you
-                    with safe, transparent, and hassle-free financial solutions
-                    tailored to your needs.
-                  </dd>
-                </div>
+                  </div>
+                ))}
               </dl>
             </div>
           </div>
@@ -529,7 +503,7 @@ function Page() {
         {/* Speed Dial Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center border border-black text-white bg-white rounded-full w-14 h-14 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 shadow-lg transition-transform transform hover:scale-110"
+          className="flex items-center justify-center border border-black text-white bg-blue-950 rounded-full w-14 h-14 hover:bg-blue-800 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
         >
           <Lottie
             loop

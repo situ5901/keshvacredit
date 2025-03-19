@@ -12,31 +12,31 @@ export default function Contact() {
               Get in Touch
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-gray-600">
-            We&apos;d love to hear from you. Fill out the form below and we&apos;ll get back to you soon.
-
+              We&apos;d love to hear from you. Fill out the form below and
+              we&apos;ll get back to you soon.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-10">
             <div className="space-y-4">
-              <h3 className="text-lg font-medium text-gray-900 dark:text-gray-600">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-blue-950">
                 Our Address
               </h3>
               <p className="text-gray-600 dark:text-gray">
-                1230 Maecenas Street Donec Road, New York, EEUU
+                8237, SHASTRI NAGAR, AMBEDEKAR COLONY, FATEHABAD-125050, HARYANA
               </p>
 
-              <h3 className="text-lg font-medium text-gray-900 dark:text-gray">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-blue-950">
                 Contact
               </h3>
               <p className="text-gray-600 dark:text-gray">
                 Mobile: +1 (123) 456-7890
               </p>
               <p className="text-gray-600 dark:text-gray">
-                Mail: tailnext@gmail.com
+                Mail: info@keshvacredit.com
               </p>
 
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-blue-950">
                 Working Hours
               </h3>
               <p className="text-gray-600 dark:text-gray">

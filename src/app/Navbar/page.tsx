@@ -14,10 +14,7 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white border-gray-200 dark:bg-gray-900 shadow-md">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center space-x-1 rtl:space-x-reverse"
-        >
+        <Link href="/" className="flex items-center space-x-1 rtl:space-x-reverse">
           <Image
             src="/logo.png" // ✅ Correct path
             className="h-10"
@@ -25,7 +22,7 @@ function Navbar() {
             height={150}
             alt="Flowbite Logo"
           />
-        </a>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
@@ -75,6 +72,16 @@ function Navbar() {
             </li>
             <li>
               <Link
+                href="/creditcard"
+                onClick={handleCloseMenu}
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white"
+              >
+                Credit Card
+              </Link>
+            </li>
+
+            <li>
+              <Link
                 href="/Contact"
                 onClick={handleCloseMenu}
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white"
@@ -83,19 +90,10 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link
-                href="/creditcard"
-                onClick={handleCloseMenu}
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white"
-              >
-                Credit Card
-              </Link>
-            </li>
-            <li>
               <button
                 type="button"
                 onClick={openModal}
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
+                className="text-white bg-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 hover:bg-blue-800 focus:ring-4 shadow-lg shadow-blue-500/50 dark:shadow-blue-800/80 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
               >
                 Sign Up
               </button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { motion } from "framer-motion";
 import { useModal } from "../../context/ModalContext";
 
@@ -7,12 +7,23 @@ const GlobalModal: React.FC = () => {
   const [step, setStep] = useState<"phone" | "otp">("phone");
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
-  const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
+  const [message, setMessage] = useState<{
+    text: string;
+    type: "success" | "error";
+  } | null>(null);
 
   const showMessage = (text: string, type: "success" | "error") => {
     setMessage({ text, type });
     setTimeout(() => setMessage(null), 3000);
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setPhone("");
+      setOtp("");
+      setStep("phone");
+    }
+  }, [isOpen]);
 
   const handleSendOtp = () => {
     if (phone.length === 10) {
@@ -63,7 +74,10 @@ const GlobalModal: React.FC = () => {
             <h3 className="text-xl font-semibold text-black">
               {step === "phone" ? "Enter Mobile Number" : "Verify OTP"}
             </h3>
-            <button onClick={closeModal} className="text-gray-500 hover:text-red-500 text-xl">
+            <button
+              onClick={closeModal}
+              className="text-gray-500 hover:text-red-500 text-xl"
+            >
               ✕
             </button>
           </div>
@@ -72,7 +86,9 @@ const GlobalModal: React.FC = () => {
           <div className="mt-4 space-y-4">
             {step === "phone" && (
               <>
-                <p className="text-gray-500">Enter your mobile number to receive an OTP.</p>
+                <p className="text-gray-500">
+                  Enter your mobile number to receive an OTP.
+                </p>
                 <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
                   <span className="px-3 bg-gray-200 text-gray-600">+91</span>
                   <input
@@ -95,7 +111,9 @@ const GlobalModal: React.FC = () => {
 
             {step === "otp" && (
               <>
-                <p className="text-gray-500">Enter the 6-digit OTP sent to {phone}.</p>
+                <p className="text-gray-500">
+                  Enter the 6-digit OTP sent to {phone}.
+                </p>
                 <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
                   <input
                     type="text"
