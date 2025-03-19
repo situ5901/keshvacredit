@@ -220,12 +220,7 @@ function Page() {
                   <div className="grid content-center gap-4">
                     <div className="p-6 rounded shadow-md dark:bg-gray-50">
                       <p>
-                        Putant omnium elaboraret per ut. Id dicta tritani
-                        nominavi quo, mea id justo errem elaboraret. Agam mollis
-                        scripserit ea his, ut nec postea verear persecuti. Ea
-                        noster senserit eam, ferri omittantur ei nec. Id mel
-                        solet libris efficiantur, commune explicari et eos. Case
-                        movet ad est, sed tota vocent appetere ea.
+A credit card is a financial tool that allows users to borrow money from a bank or financial institution to make purchases, pay bills, or withdraw cash. It operates on a revolving credit system, where users can spend up to a pre-approved limit and repay the amount either in full or through monthly installments.
                       </p>
                       <div className="flex items-center mt-4 space-x-4">
                         <Image
