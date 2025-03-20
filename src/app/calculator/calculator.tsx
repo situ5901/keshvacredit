@@ -37,14 +37,14 @@ export default function EmiCalculator() {
 
   return (
     <div>
-      <div className="w-full bg-white p-6">
+      <div className="w-full  p-6">
         <div className="text-center text-4xl font-bold">
-          <h1 className="text-black text-4xl font-bold">
+          <h1 className=" text-4xl font-bold">
             Periodic <span className="text-blue-600">Loan EMI</span> Calculator
           </h1>
         </div>
 
-        <div className="w-full bg-white p-6 shadow-md flex flex-col md:flex-row gap-4">
+        <div className="w-full  p-6 shadow-md flex flex-col md:flex-row gap-4">
           <div className="w-full md:w-1/2 bg-blue-950 p-4 rounded-xl shadow-md">
             <h2 className="text-xl font-bold mb-2">EMI Calculator</h2>
             <div className="grid grid-cols-1 gap-3">

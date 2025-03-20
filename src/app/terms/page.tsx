@@ -3,7 +3,7 @@ import React from "react";
 
 const Page = () => {
   return (
-    <div className="p-10 text-gray-900 bg-white">
+    <div className="p-10 ">
       <h1 className="text-3xl font-bold text-center mb-6">
         Terms and Conditions for Use of the Website
       </h1>

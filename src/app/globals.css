@@ -23,4 +23,128 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  @apply bg-white text-gray-900;
 }
+
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+/* Default Light Theme */
+#navbar {
+  @apply bg-gray-100 text-gray-900 border-gray-300 transition-colors duration-300;
+}
+
+/* Dark Theme */
+.dark #navbar {
+  @apply bg-gray-900 text-white border-gray-700;
+}
+
+#footer {
+  @apply bg-gray-100 text-gray-900 border-t border-gray-300 transition-colors duration-300;
+}
+
+.dark #footer {
+  @apply bg-gray-900 text-white border-gray-700;
+}
+
+/* ✅ Modal Overlay */
+#global-modal {
+  @apply fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-md z-40;
+}
+
+/* ✅ Modal Container */
+#global-modal-content {
+  @apply p-6 rounded-2xl shadow-2xl max-w-lg w-full border bg-white text-gray-900 border-gray-300;
+}
+
+/* ✅ Dark Mode */
+.dark #global-modal-content {
+  @apply bg-gray-900 text-white border-gray-700;
+}
+
+/* ✅ Modal Header */
+#global-modal-header {
+  @apply flex justify-between items-center;
+}
+
+/* ✅ Close Button */
+#global-modal-close {
+  @apply text-gray-500 hover:text-red-500 text-xl transition-colors;
+}
+
+.dark #global-modal-close {
+  @apply text-gray-400 hover:text-red-400;
+}
+
+/* ✅ Form Fields */
+#global-modal-input-container {
+  @apply flex items-center border border-gray-300 rounded-lg overflow-hidden;
+}
+
+#global-modal-input {
+  @apply w-full p-3 outline-none text-gray-900;
+}
+
+#global-modal-input-otp {
+  @apply w-full p-3 text-center tracking-widest text-black outline-none;
+}
+
+/* ✅ Dark Mode for Inputs */
+.dark #global-modal-input-container {
+  @apply border-gray-600;
+}
+
+.dark #global-modal-input {
+  @apply bg-gray-800 text-white placeholder-gray-400;
+}
+
+.dark #global-modal-input-otp {
+  @apply bg-gray-800 text-white;
+}
+
+/* ✅ Buttons */
+#global-modal-button {
+  @apply w-full py-3 rounded-lg transition-all text-white;
+}
+
+/* ✅ Send OTP Button (Full Background in Both Modes) */
+#send-otp {
+  @apply bg-blue-700 hover:bg-blue-800 text-white;
+}
+
+.dark #send-otp {
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-900;
+}
+
+/* ✅ Verify OTP Button */
+#verify-otp {
+  @apply bg-green-600 hover:bg-green-700 text-white;
+}
+
+.dark #verify-otp {
+  @apply bg-green-500 hover:bg-green-600 text-white;
+}
+
+/* ✅ Success/Error Notification */
+#global-modal-message {
+  @apply fixed top-5 right-5 px-4 py-2 text-white rounded-md shadow-lg z-50;
+}
+
+/* ✅ Success Message */
+#global-modal-message.success {
+  @apply bg-green-600;
+}
+
+.dark #global-modal-message.success {
+  @apply bg-green-500;
+}
+
+/* ✅ Error Message */
+#global-modal-message.error {
+  @apply bg-red-600;
+}
+
+.dark #global-modal-message.error {
+  @apply bg-red-500;
+}
+

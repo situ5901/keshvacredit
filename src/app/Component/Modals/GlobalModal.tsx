@@ -62,21 +62,21 @@ const GlobalModal: React.FC = () => {
       )}
 
       {/* ✅ Main Modal */}
-      <div className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-md z-40">
+      <div className="fixed inset-0 flex items-center justify-center  backdrop-blur-md z-40">
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="bg-white p-6 rounded-2xl shadow-2xl max-w-lg w-full border border-gray-300"
+          className=" p-6 rounded-2xl shadow-2xl max-w-lg w-full border border-gray-300"
         >
           {/* Modal Header */}
           <div className="flex justify-between items-center">
-            <h3 className="text-xl font-semibold text-black">
+            <h3 className="text-xl font-semibold ">
               {step === "phone" ? "Enter Mobile Number" : "Verify OTP"}
             </h3>
             <button
               onClick={closeModal}
-              className="text-gray-500 hover:text-red-500 text-xl"
+              className=" hover:text-red-500 text-xl"
             >
               ✕
             </button>
@@ -86,15 +86,15 @@ const GlobalModal: React.FC = () => {
           <div className="mt-4 space-y-4">
             {step === "phone" && (
               <>
-                <p className="text-gray-500">
+                <p className="">
                   Enter your mobile number to receive an OTP.
                 </p>
                 <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-                  <span className="px-3 bg-gray-200 text-gray-600">+91</span>
+                  <span className="px-3  ">+91</span>
                   <input
                     type="text"
                     maxLength={10}
-                    className="w-full p-3 text-black outline-none"
+                    className="w-full p-3  outline-none"
                     placeholder="Enter Mobile Number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value.replace(/\D/, ""))}
@@ -102,7 +102,7 @@ const GlobalModal: React.FC = () => {
                 </div>
                 <button
                   onClick={handleSendOtp}
-                  className="w-full py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-all"
+                  className="w-full py-3 rounded-lg hover:bg-blue-800 transition-all"
                 >
                   Send OTP
                 </button>
@@ -111,14 +111,14 @@ const GlobalModal: React.FC = () => {
 
             {step === "otp" && (
               <>
-                <p className="text-gray-500">
+                <p className="">
                   Enter the 6-digit OTP sent to {phone}.
                 </p>
                 <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
                   <input
                     type="text"
                     maxLength={6}
-                    className="w-full p-3 text-center tracking-widest text-black outline-none"
+                    className="w-full p-3 text-center tracking-widest  outline-none"
                     placeholder="Enter OTP"
                     value={otp}
                     onChange={(e) => setOtp(e.target.value.replace(/\D/, ""))}
@@ -126,7 +126,7 @@ const GlobalModal: React.FC = () => {
                 </div>
                 <button
                   onClick={handleVerifyOtp}
-                  className="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all"
+                  className="w-full py-3 rounded-lg hover:bg-green-700 transition-all"
                 >
                   Verify OTP
                 </button>

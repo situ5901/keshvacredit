@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function About() {
   return (
-    <div className="bg-white">
+    <div className="">
       <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
         <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
@@ -17,15 +17,15 @@ function About() {
           </p>
         </div>
       </section>
-      <section className="py-24 relative bg-white">
+      <section className="py-24 relative">
         <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
           <div className="w-full justify-start items-center gap-8 grid lg:grid-cols-2 grid-cols-1">
             <div className="w-full flex-col justify-start lg:items-start items-center gap-10 inline-flex">
               <div className="w-full flex-col justify-start lg:items-start items-center gap-4 flex">
-                <h2 className="text-gray-900 text-4xl font-bold leading-normal lg:text-start text-5xl text-center">
+                <h2 className=" text-4xl font-bold leading-normal lg:text-start text-5xl text-center">
                   What Makes Us Special
                 </h2>
-                <p className="text-gray-500 text-base font-normal leading-relaxed lg:text-start text-center">
+                <p className=" text-base font-normal leading-relaxed lg:text-start text-center">
                   Our offerings shine with their competitive interest rates and
                   user-friendly processes, liberating our customers from the
                   constraints of traditional, convoluted financial procedures.
@@ -51,7 +51,7 @@ function About() {
         </div>
       </section>
 
-      <section className="py-24 -mt-16 relative bg-amber-50">
+      <section className="py-24 -mt-16 relative">
         <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
           <div className="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
             <div className="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
@@ -84,10 +84,10 @@ function About() {
             <div className="w-full -mt-6 flex-col justify-center lg:items-start items-center gap-10 inline-flex">
               <div className="w-full flex-col justify-center items-start gap-8 flex">
                 <div className="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
-                  <h2 className="text-gray-900 text-4xl font-bold leading-normal lg:text-start text-center">
+                  <h2 className=" text-4xl font-bold leading-normal lg:text-start text-center">
                     Empowering Each Other to Succeed
                   </h2>
-                  <p className="text-gray-500 text-base font-normal leading-relaxed lg:text-start text-center">
+                  <p className=" text-base font-normal leading-relaxed lg:text-start text-center">
                     Every project we&rsquo;ve undertaken has been a
                     collaborative effort, where every person involved has left
                     their mark.
@@ -95,8 +95,8 @@ function About() {
                 </div>
                 <div className="w-full lg:justify-start justify-center items-center sm:gap-10 gap-5 inline-flex">
                   <div className="flex-col justify-start items-start inline-flex">
-                    <h3 className="text-gray-900 text-4xl font-bold">33+</h3>
-                    <h6 className="text-gray-500 text-base font-normal">
+                    <h3 className=" text-4xl font-bold">33+</h3>
+                    <h6 className=" text-base font-normal">
                       Years of Experience
                     </h6>
                   </div>
@@ -124,13 +124,13 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+      <section className=" dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
           <a
             href="#"
-            className="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800"
+            className="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm  rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800"
           >
-            <span className="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 me-3">
+            <span className="text-xs bg-blue-600 rounded-full  px-4 py-1.5 me-3">
               New
             </span>{" "}
             <span className="text-sm font-medium">
@@ -152,10 +152,10 @@ function About() {
               />
             </svg>
           </a>
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl">
             Empowering Dreams, Financing the Future
           </h1>
-          <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">
+          <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 ">
             At Keshvacredit, we connect borrowers with the right lenders,
             leveraging technology and innovation to unlock financial
             opportunities and drive sustainable growth.
@@ -198,10 +198,10 @@ className="absolute end-2.5 bottom-2.5 text-white bg-gradient-to-r from-blue-500
         </div>
         <div className="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
       </section>
-      <div className="bg-white h-10">
+      <div className=" h-10">
         <div className="flex items-center my-4">
           <div className="flex-grow border-t border-gray-300"></div>
-          <span className="px-3 text-gray-500">ॐ नमो भगवते वासुदेवाय</span>
+          <span className="px-3 ">ॐ नमो भगवते वासुदेवाय</span>
           <div className="flex-grow border-t border-gray-300"></div>
         </div>
       </div>

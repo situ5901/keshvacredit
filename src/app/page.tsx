@@ -23,24 +23,24 @@ function Page() {
   };
   return (
     <>
-      <section className="bg-white dark:bg-white">
+      <section className="">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-          <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400 mt-10">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-blue-950">
+          <div className="font-light  sm:text-lg  mt-10">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold ">
               Empowering Every Indian with Instant Loans
             </h2>
-            <p className="mb-4 text-blue-950">
+            <p className="mb-4 ">
               Quick approvals, minimal documentation, and seamless disbursal.
               Small loans or big, we ensure financial access at the pace you
               need, empowering every Indian with hassle-free loan solutions
               tailored to their needs.
             </p>
-            <p className="text-blue-950">
+            <p className="">
               We are strategists, designers and developers. Innovators and
               problem solvers. Small enough to be simple and quick.
             </p>
             <br />
-            <div className="text-blue-950 flex gap-8">
+            <div className="flex gap-8">
               <button
                 type="button"
                 onClick={handleClick}
@@ -64,69 +64,50 @@ function Page() {
         </div>
       </section>
       <div className="justify-center">
-        <div className="grid grid-cols-1 justify-center -mt-14 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-white p-5">
-          <a
-            href="#"
-            className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-          >
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Your Trust is Enough
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              We believe in you—no collateral, no security deposits, just simple
-              and accessible credit.
-            </p>
-          </a>
+  <div className="grid grid-cols-1 justify-center -mt-14 md:grid-cols-2 lg:grid-cols-4 gap-4 p-5">
+    {[
+      {
+        title: "Your Trust is Enough",
+        description:
+          "We believe in you—no collateral, no security deposits, just simple and accessible credit.",
+      },
+      {
+        title: "Fast Support, Anytime",
+        description:
+          "Stuck with something? Contact us at info@keshvacredit.com. Quick responses, reliable solutions!",
+      },
+      {
+        title: "Unlimited Credit Access",
+        description:
+          "Apply once with Keshvacredit and enjoy instant credit. Withdraw and use funds anytime, 24/7, all year round.",
+      },
+      {
+        title: "Safe, Secure & Trusted",
+        description:
+          "We uphold the highest data security standards, ensuring privacy with RBI-approved financial institutions.",
+      },
+    ].map((card, index) => (
+      <a
+        key={index}
+        href="#"
+        className="block max-w-sm p-6 border rounded-lg shadow-sm transition-colors duration-300 hover:opacity-80"
+      >
+        <h5 className="mb-2 text-2xl font-bold tracking-tight">{card.title}</h5>
+        <p className="font-normal">{card.description}</p>
+      </a>
+    ))}
+  </div>
+</div>
 
-          <a
-            href="#"
-            className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-          >
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Fast Support, Anytime
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              Stuck with something? Contact us at info@keshvacredit.com. Quick
-              responses, reliable solutions!
-            </p>
-          </a>
 
-          <a
-            href="#"
-            className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-          >
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Unlimited Credit Access
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              Apply once with Keshvacredit and enjoy instant credit. Withdraw
-              and use funds anytime, 24/7, all year round
-            </p>
-          </a>
-
-          <a
-            href="#"
-            className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-          >
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Safe, Secure & Trusted
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              We uphold the highest data security standards, ensuring privacy
-              with RBI-approved financial institutions.
-            </p>
-          </a>
-        </div>
-      </div>
-
-      <div className="flex flex-col md:flex-row items-center justify-between p-8 bg-gray-100">
+      <div className="flex flex-col md:flex-row items-center justify-between p-8 ">
         {/* Left Side - Title & Subtitle */}
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold ">
             Avail Instant Loans from ₹2,000 to ₹20 Lakhs Quick, Hassle-Free, and
             Secure
           </h1>
-          <p className="text-lg text-gray-600 mt-2">
+          <p className="text-lg  mt-2">
             With Keshvacredit, achieve your financial goals effortlessly. We are
             on a mission to ensure financial inclusion for every Indian!
           </p>
@@ -139,13 +120,13 @@ function Page() {
             alt="User profile"
             width={250}
             height={250}
-            className="w-50 h-50 bg-center bg-cover rounded-full dark:bg-gray-500"
+            className="w-50 h-50 bg-center bg-cover rounded-full "
           />
         </div>
       </div>
 
       <div>
-        <section className="bg-blue-200 dark:text-gray-800">
+        <section className=" ">
           <div className="container px-6 py-12 mx-auto">
             <div className="grid items-center gap-4 xl:grid-cols-5">
               <div className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left">
@@ -161,7 +142,7 @@ function Page() {
               <div className="p-6 xl:col-span-3">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="grid content-center gap-4">
-                    <div className="p-6 rounded shadow-md dark:bg-gray-50">
+                    <div className="p-6 rounded shadow-md ">
                       <p>
                         Get instant personal loans with KeshvaCredit at
                         competitive rates. Enjoy a seamless application process,
@@ -177,7 +158,7 @@ function Page() {
                           width={400}
                           height={400}
                           unoptimized
-                          className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
+                          className="w-12 h-12 bg-center bg-cover rounded-full  "
                         />
                         <div>
                           <p className="text-lg font-semibold">
@@ -189,7 +170,7 @@ function Page() {
                         </div>
                       </div>
                     </div>
-                    <div className="p-6 rounded shadow-md dark:bg-gray-50">
+                    <div className="p-6 rounded shadow-md dark:  ">
                       <p>
                         Get affordable home loans with KeshvaCredit at
                         competitive interest rates. Enjoy quick approvals,
@@ -206,7 +187,7 @@ function Page() {
                           width={400}
                           height={400}
                           unoptimized
-                          className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
+                          className="w-12 h-12 bg-center bg-cover rounded-full  "
                         />
                         <div>
                           <p className="text-lg font-semibold">Home Loan</p>
@@ -218,7 +199,7 @@ function Page() {
                     </div>
                   </div>
                   <div className="grid content-center gap-4">
-                    <div className="p-6 rounded shadow-md dark:bg-gray-50">
+                    <div className="p-6 rounded shadow-md dark:  ">
                       <p>
                         A credit card is a financial tool that allows users to
                         borrow money from a bank or financial institution to
@@ -234,7 +215,7 @@ function Page() {
                           width={400}
                           height={400}
                           unoptimized
-                          className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
+                          className="w-12 h-12 bg-center bg-cover rounded-full  "
                         />
                         <div>
                           <p className="text-lg font-semibold">Credit Card</p>
@@ -244,7 +225,7 @@ function Page() {
                         </div>
                       </div>
                     </div>
-                    <div className="p-6 rounded shadow-md dark:bg-gray-50">
+                    <div className="p-6 rounded shadow-md dark:  ">
                       <p>
                         Unlock exclusive benefits with KeshvaCredit! Enjoy
                         seamless transactions, top-tier security, and exciting
@@ -260,7 +241,7 @@ function Page() {
                           width={400}
                           height={400}
                           unoptimized
-                          className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500"
+                          className="w-12 h-12 bg-center bg-cover rounded-full  "
                         />
                         <div>
                           <p className="text-lg font-semibold">Business Loan</p>
@@ -278,14 +259,14 @@ function Page() {
         </section>
       </div>
 
-      <div className="flex justify-center items-center p-6 gap-5 bg-yellow-50">
-        <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex justify-center items-center p-6 gap-5    ">
+        <div className="max-w-sm p-6    border border-gray-200 rounded-lg shadow-sm    dark:border-gray-700">
           <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight    dark:text-white">
               instant personal loan 2025
             </h5>
           </a>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal      ">
             Secure Instant Personal Loans with KashaveCredit – Quick Approvals,
             Hassle-Free Process, Minimal Documentation, and Fast Fund Disbursal
             to Meet Your Financial Needs Effortlessly
@@ -300,13 +281,13 @@ function Page() {
           </button>
         </div>
 
-        <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <div className="max-w-sm p-6    border border-gray-200 rounded-lg shadow-sm    dark:border-gray-700">
           <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight    dark:text-white">
               instant business loan 2025
             </h5>
           </a>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal      ">
             Secure Instant Business Loans with KashaveCredit – Fast Approvals,
             Hassle-Free Process, Minimal Documentation, and Quick Fund Disbursal
             to Grow Your Business Effortlessly
@@ -323,9 +304,9 @@ function Page() {
 
       <div className="flex flex-col md:flex-row h-auto md:h-[85vh]">
         {/* Left Side (Mockup) */}
-        <div className="w-full md:w-[30%] bg-white p-4 flex justify-center items-center">
+        <div className="w-full md:w-[30%]    p-4 flex justify-center items-center">
           <div className="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2rem] h-[400px] w-[200px] md:h-[500px] md:w-[250px]">
-            <div className="rounded-[1.5rem] overflow-hidden w-[180px] h-[380px] md:w-[230px] md:h-[480px] bg-white">
+            <div className="rounded-[1.5rem] overflow-hidden w-[180px] h-[380px] md:w-[230px] md:h-[480px]   ">
               <Image
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-light.png"
                 className="dark:hidden w-full h-auto"
@@ -347,7 +328,7 @@ function Page() {
         </div>
 
         {/* Right Side (Stats) */}
-        <div className="bg-gray-50 py-8 px-4 md:py-12 md:px-8 w-full gap-8">
+        <div className="   py-8 px-4 md:py-12 md:px-8 w-full gap-8">
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-2xl gap-8 gap-y-8 lg:max-w-4xl">
               <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 grid-cols-1">
@@ -444,10 +425,10 @@ function Page() {
                       </svg>
                     </div>
                     <div className="sm:ml-4 mt-4 sm:mt-0 text-center sm:text-left w-full">
-                      <dt className="text-lg font-semibold text-gray-900">
+                      <dt className="text-lg font-semibold   ">
                         {item.title}
                       </dt>
-                      <dd className="mt-2 text-sm md:text-base text-gray-600">
+                      <dd className="mt-2 text-sm md:text-base">
                         {item.description}
                       </dd>
                     </div>
@@ -472,28 +453,28 @@ function Page() {
             className="absolute bottom-16 end-0 w-64 rounded-lg shadow-lg border overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-blue-950 text-white p-3 flex justify-between items-center">
+            <div className=" p-3 flex bg-blue-950 text-white justify-between items-center">
               <h3 className="text-sm font-bold">Live Chat</h3>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-gray-300"
+                className=""
               >
                 ✕
               </button>
             </div>
 
             {/* Chat Body */}
-            <div className="bg-white h-32 overflow-y-auto p-2 text-sm">
-              <p className="text-gray-700 bg-gray-50 p-1 rounded">
+            <div className="h-32 overflow-y-auto p-2 text-sm bg-white text-black">
+              <p className=" p-1 rounded">
                 Hello! This is under construction?
               </p>
             </div>
 
             {/* Footer */}
-            <div className="p-2 bg-blue-950">
+            <div className="p-2 bg-blue-950 text-gray-400">
               <input
                 type="text"
-                className="w-full text-black p-2 border border-gray-400 rounded text-sm focus:border-blue-500 focus:ring-1 bg-white focus:ring-blue-500"
+                className="w-full p-2 border bg-white text-gray-500 border-gray-400 rounded text-sm focus:border-blue-500 focus:ring-1    focus:ring-blue-500"
                 placeholder="Type a message..."
               />
             </div>
@@ -524,11 +505,11 @@ export default Page;
 // function page() {
 //   return (
 //     <div>
-//      <section className="h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+//      <section className="h-screen flex items-center justify-center    dark:bg-gray-900">
 //     <div className="py-8 px-4 mx-auto max-w-screen-md text-center lg:py-16 lg:px-12">
 //         <svg className="mx-auto mb-4 w-10 h-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M331.8 224.1c28.29 0 54.88 10.99 74.86 30.97l19.59 19.59c40.01-17.74 71.25-53.3 81.62-96.65c5.725-23.92 5.34-47.08 .2148-68.4c-2.613-10.88-16.43-14.51-24.34-6.604l-68.9 68.9h-75.6V97.2l68.9-68.9c7.912-7.912 4.275-21.73-6.604-24.34c-21.32-5.125-44.48-5.51-68.4 .2148c-55.3 13.23-98.39 60.22-107.2 116.4C224.5 128.9 224.2 137 224.3 145l82.78 82.86C315.2 225.1 323.5 224.1 331.8 224.1zM384 278.6c-23.16-23.16-57.57-27.57-85.39-13.9L191.1 158L191.1 95.99l-127.1-95.99L0 63.1l96 127.1l62.04 .0077l106.7 106.6c-13.67 27.82-9.251 62.23 13.91 85.39l117 117.1c14.62 14.5 38.21 14.5 52.71-.0016l52.75-52.75c14.5-14.5 14.5-38.08-.0016-52.71L384 278.6zM227.9 307L168.7 247.9l-148.9 148.9c-26.37 26.37-26.37 69.08 0 95.45C32.96 505.4 50.21 512 67.5 512s34.54-6.592 47.72-19.78l119.1-119.1C225.5 352.3 222.6 329.4 227.9 307zM64 472c-13.25 0-24-10.75-24-24c0-13.26 10.75-24 24-24S88 434.7 88 448C88 461.3 77.25 472 64 472z"/></svg>
-//         <h1 className="mb-4 text-4xl font-bold tracking-tight leading-none text-gray-900 lg:mb-6 md:text-5xl xl:text-6xl dark:text-white">Under Maintenance</h1>
-//         <p className="font-light text-gray-500 md:text-lg xl:text-xl dark:text-gray-400">Our Enterprise administrators are performing scheduled maintenance.</p>
+//         <h1 className="mb-4 text-4xl font-bold tracking-tight leading-none    lg:mb-6 md:text-5xl xl:text-6xl dark:text-white">Under Maintenance</h1>
+//         <p className="font-light text-gray-500 md:text-lg xl:text-xl   ">Our Enterprise administrators are performing scheduled maintenance.</p>
 //     </div>
 // </section>
 //
