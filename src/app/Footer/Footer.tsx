@@ -12,24 +12,44 @@ function Footer() {
         <div className="md:flex md:justify-between">
           <div className="-mt-5 md:mb-0">
             <Link href="/" className="flex items-center">
-              <Image src="/logo.png" className="h-15 me-3" width={200} height={230} alt="Logo" />
+              <Image
+                src="/logo.png"
+                className="h-15 me-3"
+                width={200}
+                height={230}
+                alt="Logo"
+              />
             </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             {/* Resources Section */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase">Resources</h2>
+              <h2 className="mb-6 text-sm font-semibold uppercase">
+                Resources
+              </h2>
               <ul className="font-medium">
                 <li className="mb-4">
-                  <Link href="/creditcard" className="hover:underline">Credit Card</Link>
+                  <Link href="/creditcard" className="hover:underline">
+                    Credit Card
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={openModal} className="hover:underline text-left">Personal Loan</button>
+                  <button
+                    onClick={openModal}
+                    className="hover:underline text-left"
+                  >
+                    Personal Loan
+                  </button>
                 </li>
                 <br />
                 <li>
-                  <button onClick={openModal} className="hover:underline text-left">Business Loan</button>
+                  <button
+                    onClick={openModal}
+                    className="hover:underline text-left"
+                  >
+                    Business Loan
+                  </button>
                 </li>
               </ul>
             </div>
@@ -39,7 +59,9 @@ function Footer() {
               <h2 className="mb-6 text-sm font-semibold">Follow us</h2>
               <ul className="font-medium">
                 <li className="mb-4">
-                  <Link href="#" className="hover:underline">On Working</Link>
+                  <Link href="#" className="hover:underline">
+                    On Working
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -55,7 +77,9 @@ function Footer() {
                   <Link href="/">Lender Contacts</Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="hover:underline">Terms &amp; Conditions</Link>
+                  <Link href="/terms" className="hover:underline">
+                    Terms &amp; Conditions
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -68,7 +92,7 @@ function Footer() {
         {/* Footer Bottom */}
         <div className="flex flex-col items-center text-center">
           <span className="text-sm">
-            © 2025 <a href="https://flowbite.com/" className="hover:underline">Keshvacredit™</a>. All Rights Reserved.
+            © 2025 Keshvacredit™. All Rights Reserved.
           </span>
 
           {/* Social Media Icons */}
