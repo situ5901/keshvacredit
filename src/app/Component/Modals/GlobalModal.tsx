@@ -67,10 +67,10 @@ const GlobalModal: React.FC = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className=" p-6 rounded-2xl shadow-2xl max-w-lg w-full border border-gray-300"
+          className=" custom-box p-6 rounded-2xl bg-amber-400 shadow-2xl max-w-lg w-full border  border-gray-300"
         >
           {/* Modal Header */}
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center ">
             <h3 className="text-xl font-semibold ">
               {step === "phone" ? "Enter Mobile Number" : "Verify OTP"}
             </h3>
@@ -102,7 +102,7 @@ const GlobalModal: React.FC = () => {
                 </div>
                 <button
                   onClick={handleSendOtp}
-                  className="w-full py-3 rounded-lg hover:bg-blue-800 transition-all"
+                  className="w-full py-3 rounded-lg  bg-blue-600 transition-all"
                 >
                   Send OTP
                 </button>

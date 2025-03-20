@@ -170,6 +170,25 @@ body {
   @apply bg-red-500;
 }
 
+/* Default styles */
+.custom-box {
+  padding: 1.5rem; /* p-6 */
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* shadow-2xl */
+  max-width: 32rem; /* max-w-lg */
+  width: 100%; /* w-full */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  background-color: black; /* Default (Light Mode) */
+  color: white; /* Text color for light mode */
+}
+
+/* Dark Mode */
+.dark .custom-box {
+  background-color: white; /* Background in dark mode */
+  color: black; /* Text color in dark mode */
+}
+
+
 
 
 
