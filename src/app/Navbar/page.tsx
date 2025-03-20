@@ -56,11 +56,11 @@ function Navbar() {
 
         <div className={`${isOpen ? "block" : "hidden"} w-full md:flex md:items-center md:w-auto`}>
           <ul className="font-medium flex flex-col md:flex-row md:space-x-8">
-            <li><Link href="/" onClick={handleCloseMenu} className="block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Home</Link></li>
-            <li><Link href="/About" onClick={handleCloseMenu} className="block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">About</Link></li>
-            <li><Link href="/creditcard" onClick={handleCloseMenu} className="block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Credit Card</Link></li>
-            <li><Link href="/Contact" onClick={handleCloseMenu} className="block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Contact</Link></li>
-            <li><LightModeSwitcher /></li>
+            <li><Link href="/" onClick={handleCloseMenu} className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Home</Link></li>
+            <li><Link href="/About" onClick={handleCloseMenu} className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">About</Link></li>
+            <li><Link href="/creditcard" onClick={handleCloseMenu} className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Credit Card</Link></li>
+            <li><Link href="/Contact" onClick={handleCloseMenu} className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Contact</Link></li>
+            <li ><LightModeSwitcher /></li>
             <li>
               <button
                 type="button"
