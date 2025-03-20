@@ -64,41 +64,42 @@ function Page() {
         </div>
       </section>
       <div className="justify-center">
-  <div className="grid grid-cols-1 justify-center -mt-14 md:grid-cols-2 lg:grid-cols-4 gap-4 p-5">
-    {[
-      {
-        title: "Your Trust is Enough",
-        description:
-          "We believe in you—no collateral, no security deposits, just simple and accessible credit.",
-      },
-      {
-        title: "Fast Support, Anytime",
-        description:
-          "Stuck with something? Contact us at info@keshvacredit.com. Quick responses, reliable solutions!",
-      },
-      {
-        title: "Unlimited Credit Access",
-        description:
-          "Apply once with Keshvacredit and enjoy instant credit. Withdraw and use funds anytime, 24/7, all year round.",
-      },
-      {
-        title: "Safe, Secure & Trusted",
-        description:
-          "We uphold the highest data security standards, ensuring privacy with RBI-approved financial institutions.",
-      },
-    ].map((card, index) => (
-      <a
-        key={index}
-        href="#"
-        className="block max-w-sm p-6 border rounded-lg shadow-sm transition-colors duration-300 hover:opacity-80"
-      >
-        <h5 className="mb-2 text-2xl font-bold tracking-tight">{card.title}</h5>
-        <p className="font-normal">{card.description}</p>
-      </a>
-    ))}
-  </div>
-</div>
-
+        <div className="grid grid-cols-1 justify-center -mt-14 md:grid-cols-2 lg:grid-cols-4 gap-4 p-5">
+          {[
+            {
+              title: "Your Trust is Enough",
+              description:
+                "We believe in you—no collateral, no security deposits, just simple and accessible credit.",
+            },
+            {
+              title: "Fast Support, Anytime",
+              description:
+                "Stuck with something? Contact us at info@keshvacredit.com. Quick responses, reliable solutions!",
+            },
+            {
+              title: "Unlimited Credit Access",
+              description:
+                "Apply once with Keshvacredit and enjoy instant credit. Withdraw and use funds anytime, 24/7, all year round.",
+            },
+            {
+              title: "Safe, Secure & Trusted",
+              description:
+                "We uphold the highest data security standards, ensuring privacy with RBI-approved financial institutions.",
+            },
+          ].map((card, index) => (
+            <a
+              key={index}
+              href="#"
+              className="block max-w-sm p-6 border rounded-lg shadow-sm transition-colors duration-300 hover:opacity-80"
+            >
+              <h5 className="mb-2 text-2xl font-bold tracking-tight">
+                {card.title}
+              </h5>
+              <p className="font-normal">{card.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
 
       <div className="flex flex-col md:flex-row items-center justify-between p-8 ">
         {/* Left Side - Title & Subtitle */}
@@ -133,7 +134,7 @@ function Page() {
                 <h2 className="text-4xl font-bold">
                   Instant Funds, Endless Possibilities
                 </h2>
-                <p className="dark:text-gray-600">
+                <p className="">
                   Get quick access to funds whenever you need them! Fast
                   approvals, hassle-free processing, and secure transactions
                   make fulfilling your financial needs easier than ever.
@@ -164,9 +165,7 @@ function Page() {
                           <p className="text-lg font-semibold">
                             Personal loans
                           </p>
-                          <p className="text-sm dark:text-gray-600">
-                            CTO of Company Co.
-                          </p>
+                          <p className="text-sm dark:text-gray-600"></p>
                         </div>
                       </div>
                     </div>
@@ -191,9 +190,7 @@ function Page() {
                         />
                         <div>
                           <p className="text-lg font-semibold">Home Loan</p>
-                          <p className="text-sm dark:text-gray-600">
-                            CTO of Company Co.
-                          </p>
+                          <p className="text-sm dark:text-gray-600"></p>
                         </div>
                       </div>
                     </div>
@@ -219,9 +216,7 @@ function Page() {
                         />
                         <div>
                           <p className="text-lg font-semibold">Credit Card</p>
-                          <p className="text-sm dark:text-gray-600">
-                            CTO of Company Co.
-                          </p>
+                          <p className="text-sm dark:text-gray-600"></p>
                         </div>
                       </div>
                     </div>
@@ -245,9 +240,7 @@ function Page() {
                         />
                         <div>
                           <p className="text-lg font-semibold">Business Loan</p>
-                          <p className="text-sm dark:text-gray-600">
-                            CTO of Company Co.
-                          </p>
+                          <p className="text-sm dark:text-gray-600"></p>
                         </div>
                       </div>
                     </div>
@@ -425,9 +418,7 @@ function Page() {
                       </svg>
                     </div>
                     <div className="sm:ml-4 mt-4 sm:mt-0 text-center sm:text-left w-full">
-                      <dt className="text-lg font-semibold   ">
-                        {item.title}
-                      </dt>
+                      <dt className="text-lg font-semibold   ">{item.title}</dt>
                       <dd className="mt-2 text-sm md:text-base">
                         {item.description}
                       </dd>
@@ -455,19 +446,14 @@ function Page() {
             {/* Header */}
             <div className=" p-3 flex bg-blue-950 text-white justify-between items-center">
               <h3 className="text-sm font-bold">Live Chat</h3>
-              <button
-                onClick={() => setIsOpen(false)}
-                className=""
-              >
+              <button onClick={() => setIsOpen(false)} className="">
                 ✕
               </button>
             </div>
 
             {/* Chat Body */}
             <div className="h-32 overflow-y-auto p-2 text-sm bg-white text-black">
-              <p className=" p-1 rounded">
-                Hello! This is under construction?
-              </p>
+              <p className=" p-1 rounded">Hello! This is under construction?</p>
             </div>
 
             {/* Footer */}

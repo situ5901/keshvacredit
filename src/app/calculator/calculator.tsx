@@ -45,7 +45,7 @@ export default function EmiCalculator() {
         </div>
 
         <div className="w-full  p-6 shadow-md flex flex-col md:flex-row gap-4">
-          <div className="w-full md:w-1/2 bg-blue-950 p-4 rounded-xl shadow-md">
+          <div className="w-full md:w-1/2 bg-blue-950 text-amber-50 p-4 rounded-xl shadow-md">
             <h2 className="text-xl font-bold mb-2">EMI Calculator</h2>
             <div className="grid grid-cols-1 gap-3">
               <div>
