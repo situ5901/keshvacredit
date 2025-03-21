@@ -4,12 +4,12 @@ function Page() {
   return (
     <>
       <div className="justify-center mb-20 items-center min-h-screen">
-        <div className="mt-24 mx-[16rem] text-center text-[34px]">
+        <div className="mt-24 mx-auto max-w-[90%] md:max-w-[50rem] text-center text-[28px] md:text-[34px]">
           <h1 className="font-bold">
             Business Loans starting at{" "}
             <span className="text-blue-700">10.25%* </span> Interest Rates.
           </h1>
-          <ul className="text-[18px] font-medium ml-8 mt-2 text-left list-disc">
+          <ul className="text-[16px] md:text-[18px] font-medium ml-4 md:ml-8 mt-2 text-left list-disc">
             <li>Minimal Documentation</li>
             <li>Quick Processing</li>
             <li>Lowest interest rate guaranteed</li>
@@ -17,10 +17,10 @@ function Page() {
           </ul>
         </div>
         <form className="max-w-lg mx-auto mt-5 -mt-10 p-6 border-2 border-gray-300 mb-20 rounded-lg shadow-2xl shadow-gray-500 dark:shadow-gray-800 gap-3">
-
-			         <h1 className="text-center font-bold text-[24px]">Basic Information</h1>
-		    <div className="flex space-x-4 gap-5">
-
+          <h1 className="text-center font-bold text-[24px]">
+            Basic Information
+          </h1>
+          <div className="flex space-x-4 gap-5">
             {/* Name Input */}
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
               <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
@@ -271,7 +271,7 @@ function Page() {
               </label>
             </div>
           </div>
-  <br/>
+          <br />
 
           <div className="flex items-center">
             <input
