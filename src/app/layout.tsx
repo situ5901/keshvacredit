@@ -26,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="fast2sms" content="hrlKAztOKsIXhHeNdufteV7s6Ol2XU3h" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* ✅ Wrap everything in ClientLayout so chat is fixed across all pages */}
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

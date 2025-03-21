@@ -29,7 +29,7 @@ body {
 .dark body {
   @apply bg-gray-900 text-gray-100;
 }
-/* Default Light Theme */
+/* custom css for navbar dark and light mode change */
 #navbar {
   @apply bg-gray-100 text-gray-900 border-gray-300 transition-colors duration-300;
 }
@@ -39,7 +39,7 @@ body {
   @apply bg-gray-900 text-white border-gray-700;
 }
 
-/* globals.css */
+/* custom css for menu itemns in navbar dark and light mode change */
 
 .menu-item {
   /* The default styles are kept as in your Tailwind classes.
@@ -60,7 +60,7 @@ body {
   color: #000000; /* black */
 }
 
-
+/* custom css for footer dark and light mode change */
 #footer {
   @apply bg-gray-100 text-gray-900 border-t border-gray-300 transition-colors duration-300;
 }
@@ -70,6 +70,49 @@ body {
 }
 
 /* ✅ Modal Overlay */
+
+
+/* Default styles */
+.custom-box {
+  padding: 1.5rem; /* p-6 */
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* shadow-2xl */
+  max-width: 32rem; /* max-w-lg */
+  width: 100%; /* w-full */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  background-color: black; /* Default (Light Mode) */
+  color: white; /* Text color for light mode */
+}
+
+/* Dark Mode */
+.dark .custom-box {
+  background-color: white; /* Background in dark mode */
+  color: black; /* Text color in dark mode */
+}
+
+
+/* global css for short term loan */
+.form {
+  
+  background-color: #1A202C; ;
+  color: white;
+}
+/* Dark mode hover styles */
+.dark .form {
+  background-color: #ffffff; /* white */
+  color: #000000; /* black */
+}
+
+
+
+
+
+
+
+
+
+
+
 #global-modal {
   @apply fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-md z-40;
 }
@@ -169,25 +212,6 @@ body {
 .dark #global-modal-message.error {
   @apply bg-red-500;
 }
-
-/* Default styles */
-.custom-box {
-  padding: 1.5rem; /* p-6 */
-  border-radius: 1rem; /* rounded-2xl */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* shadow-2xl */
-  max-width: 32rem; /* max-w-lg */
-  width: 100%; /* w-full */
-  border: 1px solid #d1d5db; /* border-gray-300 */
-  background-color: black; /* Default (Light Mode) */
-  color: white; /* Text color for light mode */
-}
-
-/* Dark Mode */
-.dark .custom-box {
-  background-color: white; /* Background in dark mode */
-  color: black; /* Text color in dark mode */
-}
-
 
 
 

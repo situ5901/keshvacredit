@@ -16,14 +16,14 @@ function Page() {
             <li>Now compare pre-qualified offers from 70+ Top Lenders</li>
           </ul>
         </div>
-        <form className="max-w-lg mx-auto mt-5 -mt-10 p-6 border-2 border-gray-300 mb-20 rounded-lg shadow-2xl shadow-gray-500 dark:shadow-gray-800 gap-3">
+        <form className=" form  max-w-lg mx-auto mt-5 -mt-10 p-6 border-2 border-gray-300 mb-20 rounded-lg shadow-2xl shadow-gray-500 dark:shadow-gray-800 gap-3">
           <h1 className="text-center font-bold text-[24px]">
             Basic Information
           </h1>
-          <div className="flex space-x-4 gap-5">
+          <div className=" flex space-x-4 gap-5">
             {/* Name Input */}
-            <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
-              <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
+            <div className=" relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
+              <span className=" pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -42,7 +42,7 @@ function Page() {
               />
               <label
                 htmlFor="floating-name"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="absolute text-sm  duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
                 Name
               </label>
@@ -50,7 +50,7 @@ function Page() {
 
             {/* Phone Input */}
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
-              <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
+              <span className="  pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -69,7 +69,7 @@ function Page() {
               />
               <label
                 htmlFor="floating-phone-number"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
                 Phone Number
               </label>
@@ -79,7 +79,7 @@ function Page() {
           <div className="flex space-x-4 mt-6 gap-5">
             {/* Email Input */}
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
-              <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
+              <span className="  pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -98,7 +98,7 @@ function Page() {
               />
               <label
                 htmlFor="floating-email"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
                 Email
               </label>
@@ -138,7 +138,7 @@ function Page() {
           <div className="flex space-x-4 mt-6 gap-5">
             {/* Email Input */}
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
-              <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
+              <span className="  pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -157,14 +157,14 @@ function Page() {
               />
               <label
                 htmlFor="floating-pancard"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
                 Pancard
               </label>
             </div>
 
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
-              <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
+              <span className="  pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -183,7 +183,7 @@ function Page() {
               />
               <label
                 htmlFor="floating-pincode"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
                 PinCode
               </label>
@@ -192,7 +192,7 @@ function Page() {
 
           <div className="flex space-x-4 mt-6 gap-5">
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
-              <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
+              <span className="  pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -211,14 +211,14 @@ function Page() {
               />
               <label
                 htmlFor="floating-loanAmount"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
                 LoanAmount
               </label>
             </div>
 
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
-              <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
+              <span className="  pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -237,7 +237,7 @@ function Page() {
               />
               <label
                 htmlFor="floating-Income"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
                 Income
               </label>
@@ -246,7 +246,7 @@ function Page() {
 
           <div className="flex space-x-4 mt-6 gap-5">
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
-              <span className="text-gray-500 dark:text-gray-400 pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
+              <span className="  pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -265,7 +265,7 @@ function Page() {
               />
               <label
                 htmlFor="floating-dob"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
                 Date of Birth
               </label>
@@ -299,7 +299,7 @@ function Page() {
             type="button"
             className="w-full mt-5 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br active:bg-transparent active:ring-0 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
           >
-            Button
+            submit
           </button>
         </form>
       </div>
