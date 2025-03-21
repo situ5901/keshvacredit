@@ -140,10 +140,11 @@ function Page() {
                   make fulfilling your financial needs easier than ever.
                 </p>
               </div>
+
               <div className="p-6 xl:col-span-3">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="grid content-center gap-4">
-                    <div className="p-6 rounded shadow-md ">
+                    <div className="p-6 rounded shadow-md border-gray-700 border-1 rounded-lg dark:border-gray-700">
                       <p>
                         Get instant personal loans with KeshvaCredit at
                         competitive rates. Enjoy a seamless application process,
@@ -169,7 +170,7 @@ function Page() {
                         </div>
                       </div>
                     </div>
-                    <div className="p-6 rounded shadow-md dark:  ">
+                    <div className="p-6 rounded shadow-md  border-gray-700 border-1 rounded-lg dark:border-gray-700">
                       <p>
                         Get affordable home loans with KeshvaCredit at
                         competitive interest rates. Enjoy quick approvals,
@@ -196,7 +197,7 @@ function Page() {
                     </div>
                   </div>
                   <div className="grid content-center gap-4">
-                    <div className="p-6 rounded shadow-md dark:  ">
+                    <div className="p-6 rounded shadow-md border-gray-700 border-1 rounded-lg dark:border-gray-700 ">
                       <p>
                         A credit card is a financial tool that allows users to
                         borrow money from a bank or financial institution to
@@ -220,7 +221,7 @@ function Page() {
                         </div>
                       </div>
                     </div>
-                    <div className="p-6 rounded shadow-md dark:  ">
+                    <div className="p-6 rounded shadow-md  border-gray-700 border-1 rounded-lg dark:border-gray-700">
                       <p>
                         Unlock exclusive benefits with KeshvaCredit! Enjoy
                         seamless transactions, top-tier security, and exciting
@@ -295,6 +296,13 @@ function Page() {
         </div>
       </div>
 
+      <div className=" h-10">
+        <div className="flex items-center my-4">
+          <div className="flex-grow border-t border-gray-300"></div>
+          <span className="px-3 ">ॐ Keshvacredit ॐ</span>
+          <div className="flex-grow border-t border-gray-300"></div>
+        </div>
+      </div>
       <div className="flex flex-col md:flex-row h-auto md:h-[85vh]">
         {/* Left Side (Mockup) */}
         <div className="w-full md:w-[30%]    p-4 flex justify-center items-center">
