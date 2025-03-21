@@ -64,7 +64,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             exit={{ opacity: 0, y: -20 }} // Exit animation
             transition={{ duration: 0.3, ease: "easeOut" }} // Smooth timing
             // Increase width on mobile: full width on mobile, fixed on small screens and up
-            className="absolute bottom-16 right-0 w-[270px]  md:w-[450px]  max-w-sm sm:w-64 rounded-lg shadow-lg border overflow-hidden bg-white"
+            className="absolute bottom-16 right-0 w-[270px]  md:w-[280px]  max-w-sm sm:w-64 rounded-lg shadow-lg border overflow-hidden bg-white"
           >
             {/* Chat Header */}
             <div className="p-3 flex bg-blue-950 text-white justify-between items-center">

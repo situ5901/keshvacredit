@@ -5,7 +5,7 @@ function Page() {
     <>
       <div className="justify-center mb-20 items-center min-h-screen">
         <div className="mt-24 mx-auto max-w-[90%] md:max-w-[50rem] text-center text-[28px] md:text-[34px]">
-          <h1 className="font-bold">
+          <h1 className="font-bold text-[34px]">
             Business Loans starting at{" "}
             <span className="text-blue-700">10.25%* </span> Interest Rates.
           </h1>
@@ -120,12 +120,16 @@ function Page() {
               <select
                 id="employee-type"
                 className="block py-2.5 pl-8 w-full text-sm border-0 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                defaultValue="" // Use defaultValue instead of setting selected on option
               >
-                <option value="" disabled selected hidden></option>
+                <option value="" disabled hidden>
+                  Select Employee Type
+                </option>
                 <option value="salaried">Salaried</option>
                 <option value="non-salaried">Non-Salaried</option>
                 <option value="self-employed">Self-Employed</option>
               </select>
+
               <label
                 htmlFor="employee-type"
                 className="absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 left-8 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-blue-600"
