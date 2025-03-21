@@ -1,18 +1,15 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useState } from "react";
+
 import EmiCalculator from "./calculator/calculator";
 // import Partner from "./Component/Partner/Partner";
 import LottieAnimation from "./ LottieAnimation";
-import Lottie from "react-lottie-player";
-import { motion } from "framer-motion";
-import animationData from "../animations/sport.json";
 import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
 
 function Page() {
-  const [isOpen, setIsOpen] = useState(false);
+ 
   const { openModal } = useModal();
 
   const handleClick = () => {
@@ -23,7 +20,7 @@ function Page() {
   };
   return (
     <>
-      <section className="">
+      <section className="py-8 px-4 md:py-12 md:px-8 w-full gap-8">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div className="font-light  sm:text-lg  mt-10">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold ">
@@ -253,48 +250,49 @@ function Page() {
         </section>
       </div>
 
-      <div className="flex justify-center items-center p-6 gap-5    ">
-        <div className="max-w-sm p-6    border border-gray-200 rounded-lg shadow-sm    dark:border-gray-700">
-          <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight    dark:text-white">
-              instant personal loan 2025
-            </h5>
-          </a>
-          <p className="mb-3 font-normal      ">
-            Secure Instant Personal Loans with KashaveCredit – Quick Approvals,
-            Hassle-Free Process, Minimal Documentation, and Fast Fund Disbursal
-            to Meet Your Financial Needs Effortlessly
-          </p>
+      <div className="flex flex-col md:flex-row justify-center items-center p-6 gap-5">
+  <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+    <a href="#">
+      <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+        instant personal loan 2025
+      </h5>
+    </a>
+    <p className="mb-3 font-normal">
+      Secure Instant Personal Loans with KashaveCredit – Quick Approvals,
+      Hassle-Free Process, Minimal Documentation, and Fast Fund Disbursal to
+      Meet Your Financial Needs Effortlessly
+    </p>
 
-          <button
-            type="button"
-            onClick={handleClick}
-            className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-          >
-            Apply Now
-          </button>
-        </div>
+    <button
+      type="button"
+      onClick={handleClick}
+      className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+    >
+      Apply Now
+    </button>
+  </div>
 
-        <div className="max-w-sm p-6    border border-gray-200 rounded-lg shadow-sm    dark:border-gray-700">
-          <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight    dark:text-white">
-              instant business loan 2025
-            </h5>
-          </a>
-          <p className="mb-3 font-normal      ">
-            Secure Instant Business Loans with KashaveCredit – Fast Approvals,
-            Hassle-Free Process, Minimal Documentation, and Quick Fund Disbursal
-            to Grow Your Business Effortlessly
-          </p>
-          <button
-            type="button"
-            onClick={handleClick}
-            className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-          >
-            Apply Now
-          </button>
-        </div>
-      </div>
+  <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+    <a href="#">
+      <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+        instant business loan 2025
+      </h5>
+    </a>
+    <p className="mb-3 font-normal">
+      Secure Instant Business Loans with KashaveCredit – Fast Approvals,
+      Hassle-Free Process, Minimal Documentation, and Quick Fund Disbursal to
+      Grow Your Business Effortlessly
+    </p>
+    <button
+      type="button"
+      onClick={handleClick}
+      className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+    >
+      Apply Now
+    </button>
+  </div>
+</div>
+
 
       <div className=" h-10">
         <div className="flex items-center my-4">
@@ -441,53 +439,7 @@ function Page() {
       <hr />
       <EmiCalculator />
       {/* <Partner /> */}
-      <div className="fixed bottom-6 end-6">
-        {/* Floating Chat Box with Animation */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }} // Start position (slightly above)
-            animate={{ opacity: 1, y: 0 }} // End position (smooth drop)
-            exit={{ opacity: 0, y: -20 }} // Exit animation
-            transition={{ duration: 0.3, ease: "easeOut" }} // Smooth timing
-            className="absolute bottom-16 end-0 w-64 rounded-lg shadow-lg border overflow-hidden"
-          >
-            {/* Header */}
-            <div className=" p-3 flex bg-blue-950 text-white justify-between items-center">
-              <h3 className="text-sm font-bold">Live Chat</h3>
-              <button onClick={() => setIsOpen(false)} className="">
-                ✕
-              </button>
-            </div>
-
-            {/* Chat Body */}
-            <div className="h-32 overflow-y-auto p-2 text-sm bg-white text-black">
-              <p className=" p-1 rounded">Hello! This is under construction?</p>
-            </div>
-
-            {/* Footer */}
-            <div className="p-2 bg-blue-950 text-gray-400">
-              <input
-                type="text"
-                className="w-full p-2 border bg-white text-gray-500 border-gray-400 rounded text-sm focus:border-blue-500 focus:ring-1    focus:ring-blue-500"
-                placeholder="Type a message..."
-              />
-            </div>
-          </motion.div>
-        )}
-
-        {/* Speed Dial Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center border border-black text-white bg-blue-950 rounded-full w-14 h-14 hover:bg-blue-800 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
-        >
-          <Lottie
-            loop
-            animationData={animationData}
-            play
-            style={{ width: 200, height: 200 }} // Adjust size as needed
-          />
-        </button>
-      </div>
+      
     </>
   );
 }

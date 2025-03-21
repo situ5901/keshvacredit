@@ -21,7 +21,8 @@ const LottieAnimation = () => {
         animationData={animations[currentIndex]}
         loop={false}
         onComplete={handleAnimationComplete}
-        className="w-[450px] h-[450px] mx-auto"
+        className="w-[342px] md:w-[450px] h-[450px] mx-auto"
+
       />
     </div>
   );
