@@ -1,10 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { submitUserInfo } from "../APIS/UserData/UserInfoApi"; // Assuming you have an API function to handle the submission
 import { Route, Router } from "lucide-react";
-import { useRouter } from "next/router"; // Import useRouter
+import { useRouter } from "next/navigation"; // Changed from next/router to next/navigation
 
 function Page() {
+  const router = useRouter();
+
+  // Check localStorage on component mount
+  useEffect(() => {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      router.push('/About'); // Redirect to about page if user data exists
+    }
+  }, [router]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -37,12 +46,26 @@ function Page() {
       // Assuming submitUserInfo is a function that returns a promise
       await submitUserInfo(formData);
 
+      // Save user data to localStorage
+      const userData = {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email
+      };
+      localStorage.setItem('userData', JSON.stringify(userData));
+
       // Set success message and type for state
       setMessage("Form submitted successfully!");
       setMessageType("success");
 
       // Call the showPopup function to show a success message on the screen
       showPopup("success", "Form submitted successfully!");
+
+      // Redirect to about page after successful submission
+      setTimeout(() => {
+        router.push('/about');
+      }, 2000);
+
     } catch (error) {
       // Set error message and type for state
       setMessage("Error submitting form. Please try again.");
@@ -99,7 +122,9 @@ function Page() {
         popup.remove(); // Remove the popup element from the DOM
       }, 500); // Wait for the fade-out transition to complete
     }, 3000); // Keep the popup visible for 3 seconds
-  };  return (
+  };
+
+  return (
     <>
       <div className="justify-center mb-20 items-center min-h-screen">
         <div className="mt-24 mx-auto max-w-[90%] md:max-w-[50rem] text-center text-[28px] md:text-[34px]">
