@@ -13,16 +13,12 @@ function Page() {
   const router = useRouter();
 
   const handleClick = () => {
-    // const userData = Cookies.get("userData"); // ✅ Check if cookie exists
-
-    openModal(); // ✅ Modal open karo agar cookie nahi hai
-    // if (!userData) {
-    //      openModal(); // ✅ Modal open karo agar cookie nahi hai
-    //    } else {
-    //      router.push("/short-term-loan"); // ✅ Navigate to this URL
-    //    }
-    //
-    router.push("/short-term-loan"); // ✅ Navigate to this URL
+    const userData = Cookies.get("userData"); // ✅ Check if cookie exists
+    if (!userData) {
+      openModal(); // ✅ Modal open karo agar cookie nahi hai
+    } else {
+      router.push("/short-term-loan"); // ✅ Navigate to this URL
+    }
   };
   return (
     <>

@@ -63,7 +63,7 @@ function Page() {
 
       // Redirect to about page after successful submission
       setTimeout(() => {
-        router.push('/about');
+        router.push('/About');
       }, 2000);
 
     } catch (error) {
