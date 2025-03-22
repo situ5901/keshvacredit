@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 import EmiCalculator from "./calculator/calculator";
 // import Partner from "./Component/Partner/Partner";
 import LottieAnimation from "./ LottieAnimation";
@@ -9,14 +9,20 @@ import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
 
 function Page() {
- 
   const { openModal } = useModal();
+  const router = useRouter();
 
   const handleClick = () => {
-    const userData = Cookies.get("userData"); // Cookie se data check karo
-    if (!userData) {
-      openModal(); // Cookie nahi hai to modal open hoga
-    }
+    // const userData = Cookies.get("userData"); // ✅ Check if cookie exists
+
+    openModal(); // ✅ Modal open karo agar cookie nahi hai
+    // if (!userData) {
+    //      openModal(); // ✅ Modal open karo agar cookie nahi hai
+    //    } else {
+    //      router.push("/short-term-loan"); // ✅ Navigate to this URL
+    //    }
+    //
+    router.push("/short-term-loan"); // ✅ Navigate to this URL
   };
   return (
     <>
@@ -40,7 +46,7 @@ function Page() {
             <div className="flex gap-8">
               <button
                 type="button"
-                // onClick={handleClick}
+                onClick={handleClick}
                 className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
               >
                 Personal Loan
@@ -251,48 +257,47 @@ function Page() {
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-center p-6 gap-5">
-  <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
-    <a href="#">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
-        instant personal loan 2025
-      </h5>
-    </a>
-    <p className="mb-3 font-normal">
-      Secure Instant Personal Loans with KashaveCredit – Quick Approvals,
-      Hassle-Free Process, Minimal Documentation, and Fast Fund Disbursal to
-      Meet Your Financial Needs Effortlessly
-    </p>
+        <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+          <a href="#">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+              instant personal loan 2025
+            </h5>
+          </a>
+          <p className="mb-3 font-normal">
+            Secure Instant Personal Loans with KashaveCredit – Quick Approvals,
+            Hassle-Free Process, Minimal Documentation, and Fast Fund Disbursal
+            to Meet Your Financial Needs Effortlessly
+          </p>
 
-    <button
-      type="button"
-      onClick={handleClick}
-      className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-    >
-      Apply Now
-    </button>
-  </div>
+          <button
+            type="button"
+            onClick={handleClick}
+            className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          >
+            Apply Now
+          </button>
+        </div>
 
-  <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
-    <a href="#">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
-        instant business loan 2025
-      </h5>
-    </a>
-    <p className="mb-3 font-normal">
-      Secure Instant Business Loans with KashaveCredit – Fast Approvals,
-      Hassle-Free Process, Minimal Documentation, and Quick Fund Disbursal to
-      Grow Your Business Effortlessly
-    </p>
-    <button
-      type="button"
-      onClick={handleClick}
-      className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-    >
-      Apply Now
-    </button>
-  </div>
-</div>
-
+        <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+          <a href="#">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+              instant business loan 2025
+            </h5>
+          </a>
+          <p className="mb-3 font-normal">
+            Secure Instant Business Loans with KashaveCredit – Fast Approvals,
+            Hassle-Free Process, Minimal Documentation, and Quick Fund Disbursal
+            to Grow Your Business Effortlessly
+          </p>
+          <button
+            type="button"
+            onClick={handleClick}
+            className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          >
+            Apply Now
+          </button>
+        </div>
+      </div>
 
       <div className=" h-10">
         <div className="flex items-center my-4">
@@ -439,7 +444,6 @@ function Page() {
       <hr />
       <EmiCalculator />
       {/* <Partner /> */}
-      
     </>
   );
 }

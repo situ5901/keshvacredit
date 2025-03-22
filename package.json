@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
     "framer-motion": "^12.5.0",
     "highcharts": "^12.1.2",
@@ -23,6 +24,7 @@
     "react-dom": "^19.0.0",
     "react-lottie": "^1.2.10",
     "react-lottie-player": "^2.1.0",
+    "react-router-dom": "^7.4.0",
     "react-slick": "^0.30.3",
     "recharts": "^2.15.1",
     "slick-carousel": "^1.8.1"
