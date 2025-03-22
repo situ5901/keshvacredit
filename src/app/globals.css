@@ -102,6 +102,17 @@ body {
   background-color: #ffffff; /* white */
   color: #000000; /* black */
 }
+/* for lender  */
+.lender {
+  background-color: #1A202C;
+  color: white;
+}
+
+/* Dark mode hover styles */
+.dark .lender {
+  background-color: #ffffff; /* white */
+  color: #000000; /* black */
+}
 
 
 

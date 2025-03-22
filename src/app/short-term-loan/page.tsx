@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { submitUserInfo } from "../APIS/UserData/UserInfoApi"; // Assuming you have an API function to handle the submission
-import { Route, Router } from "lucide-react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Route, Router } from "lucide-react"; 
+import { submitUserInfo } from "../APIS/UserData/UserInfoApi";
 import { useRouter } from "next/navigation"; // Changed from next/router to next/navigation
 
 function Page() {
@@ -9,9 +10,9 @@ function Page() {
 
   // Check localStorage on component mount
   useEffect(() => {
-    const userData = localStorage.getItem('userData');
+    const userData = localStorage.getItem("userData");
     if (userData) {
-      router.push('/About'); // Redirect to about page if user data exists
+      router.push("/About"); // Redirect to about page if user data exists
     }
   }, [router]);
 
@@ -27,8 +28,10 @@ function Page() {
     dob: "",
   });
 
-  // Handle input field changes
-  const handleChange = (e: any) => {
+  // Handle input field changes with proper event types for input and select elements
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -36,11 +39,14 @@ function Page() {
     }));
   };
 
-  const [message, setMessage] = useState(""); // For success/failure message
-  const [messageType, setMessageType] = useState(""); // success or error type
+  // For success/failure message state (unused for now)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [message, setMessage] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [messageType, setMessageType] = useState("");
 
-  // Handle form submission
-  const handleSubmit = async (e: any) => {
+  // Handle form submission with proper event type
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       // Assuming submitUserInfo is a function that returns a promise
@@ -50,9 +56,9 @@ function Page() {
       const userData = {
         name: formData.name,
         phone: formData.phone,
-        email: formData.email
+        email: formData.email,
       };
-      localStorage.setItem('userData', JSON.stringify(userData));
+      localStorage.setItem("userData", JSON.stringify(userData));
 
       // Set success message and type for state
       setMessage("Form submitted successfully!");
@@ -63,10 +69,11 @@ function Page() {
 
       // Redirect to about page after successful submission
       setTimeout(() => {
-        router.push('/About');
+        router.push("/About");
       }, 2000);
-
-    } catch (error) {
+    } catch (_error) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const error = _error; // kept for potential future logging
       // Set error message and type for state
       setMessage("Error submitting form. Please try again.");
       setMessageType("error");
@@ -136,7 +143,9 @@ function Page() {
             <li>Minimal Documentation</li>
             <li>Quick Processing</li>
             <li>Lowest interest rate guaranteed</li>
-            <li>Now compare pre-qualified offers from 70+ Top Lenders</li>
+            <li>
+              Now compare pre-qualified offers from 70+ Top Lenders
+            </li>
           </ul>
         </div>
 
