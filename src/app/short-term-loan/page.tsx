@@ -1,21 +1,18 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
+import { useState } from "react";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Route, Router } from "lucide-react"; 
+import { Route, Router } from "lucide-react";
 import { submitUserInfo } from "../APIS/UserData/UserInfoApi";
 import { useRouter } from "next/navigation"; // Changed from next/router to next/navigation
+import Loading from "../../animations/Loading.json"
+import Lottie from "lottie-react";
 
 function Page() {
   const router = useRouter();
 
-  // Check localStorage on component mount
-  useEffect(() => {
-    const userData = localStorage.getItem("userData");
-    if (userData) {
-      router.push("/About"); // Redirect to about page if user data exists
-    }
-  }, [router]);
-
+  // Declare all hooks at the top
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -27,8 +24,23 @@ function Page() {
     income: "",
     dob: "",
   });
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const [popupMessage, setPopupMessage] = useState("");
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const [popupMessageType, setPopupMessageType] = useState("");
 
-  // Handle input field changes with proper event types for input and select elements
+
+  // Check localStorage on component mount
+  useEffect(() => {
+    const userData = localStorage.getItem("userData");
+    if (userData) {
+      router.push("/eligibleLenders"); // Redirect if user data exists
+    } else {
+      setLoading(false);
+    }
+  }, [router]);
+
+  // Define event handlers (declared after hooks are set up)
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -39,17 +51,10 @@ function Page() {
     }));
   };
 
-  // For success/failure message state (unused for now)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [message, setMessage] = useState("");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [messageType, setMessageType] = useState("");
-
-  // Handle form submission with proper event type
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // Assuming submitUserInfo is a function that returns a promise
+      // Assuming submitUserInfo returns a promise
       await submitUserInfo(formData);
 
       // Save user data to localStorage
@@ -60,25 +65,18 @@ function Page() {
       };
       localStorage.setItem("userData", JSON.stringify(userData));
 
-      // Set success message and type for state
-      setMessage("Form submitted successfully!");
-      setMessageType("success");
-
-      // Call the showPopup function to show a success message on the screen
+      setPopupMessage("Form submitted successfully!");
+      setPopupMessageType("success");
       showPopup("success", "Form submitted successfully!");
 
-      // Redirect to about page after successful submission
+      // Redirect after submission
       setTimeout(() => {
-        router.push("/About");
+        router.push("/eligibleLenders");
       }, 2000);
-    } catch (_error) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const error = _error; // kept for potential future logging
-      // Set error message and type for state
-      setMessage("Error submitting form. Please try again.");
-      setMessageType("error");
-
-      // Call the showPopup function to show an error message on the screen
+    } catch  {
+      
+      setPopupMessage("Error submitting form. Please try again.");
+      setPopupMessageType("error");
       showPopup("error", "Error submitting form. Please try again.");
     }
 
@@ -96,11 +94,9 @@ function Page() {
   };
 
   const showPopup = (type: string, message: string) => {
-    // Create a new div for the popup
     const popup = document.createElement("div");
     popup.innerText = message;
 
-    // Apply styles based on the message type (success or error)
     if (type === "success") {
       popup.style.backgroundColor = "green";
       popup.style.color = "white";
@@ -109,7 +105,6 @@ function Page() {
       popup.style.color = "white";
     }
 
-    // Common styling for positioning and appearance
     popup.style.position = "fixed";
     popup.style.top = "20px";
     popup.style.right = "20px";
@@ -119,17 +114,31 @@ function Page() {
     popup.style.zIndex = "1000";
     popup.style.transition = "opacity 0.5s ease-in-out";
 
-    // Append the popup to the body of the document
     document.body.appendChild(popup);
 
-    // Remove the popup after 3 seconds, with a fade-out effect
     setTimeout(() => {
-      popup.style.opacity = "0"; // Apply fade-out effect
+      popup.style.opacity = "0";
       setTimeout(() => {
-        popup.remove(); // Remove the popup element from the DOM
-      }, 500); // Wait for the fade-out transition to complete
-    }, 3000); // Keep the popup visible for 3 seconds
+        popup.remove();
+      }, 500);
+    }, 3000);
   };
+
+  // Conditional return after all hooks are declared
+  if (loading) {
+    return (
+      <div className="flex flex-col justify-center items-center min-h-screen">
+        <Lottie
+          animationData={Loading}
+          loop={true}
+          className="w-[300px] md:w-[450px] h-[450px] mx-auto"
+        />
+        <p className="mt-4 text-xl font-semibold text-gray-700">
+          Fetching Eligible Lenders...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -266,12 +275,14 @@ function Page() {
                 name="employeeType"
                 value={formData.employeeType}
                 onChange={handleChange}
-                className="block py-2.5 pl-8 w-full text-sm bg-transparent border-0 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className="block py-2.5 pl-8 w-full text-sm border-0 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer custom-select"
               >
                 <option value="">Select Employee Type</option>
                 <option value="employee">Employee</option>
                 <option value="selfEmployed">Self Employed</option>
               </select>
+
+
             </div>
           </div>
 

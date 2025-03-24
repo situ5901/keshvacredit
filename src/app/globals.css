@@ -94,7 +94,7 @@ body {
 /* global css for short term loan */
 .form {
   
-  background-color: #1A202C; ;
+  background-color: #1A202C; 
   color: white;
 }
 /* Dark mode hover styles */
@@ -102,6 +102,16 @@ body {
   background-color: #ffffff; /* white */
   color: #000000; /* black */
 }
+/* globals.css */
+.custom-select {
+  @apply bg-[#1A202C] text-white;
+}
+
+
+.dark .custom-select {
+  @apply bg-white text-black;
+}
+
 /* for lender  */
 .lender {
   background-color: #1A202C;
@@ -113,6 +123,9 @@ body {
   background-color: #ffffff; /* white */
   color: #000000; /* black */
 }
+/* loading spinner */
+
+
 
 
 

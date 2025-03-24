@@ -7,6 +7,7 @@ const nextConfig = {
       "via.placeholder.com",
       "png.pngtree.com",
       "images.unsplash.com",
+      "cdn-icons-png.flaticon.com",
     ], // Ensure via.placeholder.com is added here
     remotePatterns: [
       {

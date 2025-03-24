@@ -22,7 +22,7 @@ function About() {
           <div className="w-full justify-start items-center gap-8 grid lg:grid-cols-2 grid-cols-1">
             <div className="w-full flex-col justify-start lg:items-start items-center gap-10 inline-flex">
               <div className="w-full flex-col justify-start lg:items-start items-center gap-4 flex">
-                <h2 className=" text-4xl font-bold leading-normal lg:text-start text-5xl text-center">
+                <h2 className="font-bold leading-normal lg:text-start text-5xl text-center">
                   What Makes Us Special
                 </h2>
                 <p className=" text-base font-normal leading-relaxed lg:text-start text-center">
@@ -124,7 +124,7 @@ function About() {
         </div>
       </section>
 
-      <section className=" dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+      <section className="  bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
           <a
             href="#"
