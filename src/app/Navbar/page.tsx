@@ -5,6 +5,7 @@ import { useModal } from "@/app/context/ModalContext";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Sun, Moon } from "lucide-react";
+import { FaUser } from "react-icons/fa";
 
 const LightModeSwitcher = () => {
   const [theme, setTheme] = useState("light");
@@ -60,13 +61,30 @@ function Navbar() {
             <li><Link href="/About" onClick={handleCloseMenu} className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">About</Link></li>
             <li><Link href="/creditcard" onClick={handleCloseMenu} className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Credit Card</Link></li>
             <li><Link href="/Contact" onClick={handleCloseMenu} className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Contact</Link></li>
-            <li ><LightModeSwitcher /></li>
+            <div className="custom-profile flex items-center pl-1 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm py-2 w-30 md:w-auto md:h-10">{/* Minimal gap */}
+      <li>
+        <Link 
+          href="/Profile" 
+          onClick={handleCloseMenu} 
+          className="menu-item flex items-center rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+        >
+          <FaUser className="text-lg" /> {/* Profile Icon */}
+        </Link>
+      </li>
+      <div className="h-6 border-l border-gray-300 mx-2"></div>
+
+
+      <li className="p-1">
+        <LightModeSwitcher />
+      </li>
+    </div>
             <li>
               <button
                 type="button"
                 onClick={openModal}
-                className="bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-700 shadow-md dark:shadow-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"
-              >
+                className="bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-700 shadow-md dark:shadow-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-[5] md:mt-0 w-[120px] h-[50px] md:w-auto"
+
+                >
                 Sign Up
               </button>
             </li>
