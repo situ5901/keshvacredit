@@ -56,7 +56,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-5 mt-20">
+    <div className=" custom-profilepage max-w-4xl mx-auto p-5 mt-25 mb-5 rounded-2xl">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-2xl font-bold">My Profile</h1>
@@ -105,7 +105,7 @@ export default function ProfilePage() {
       <section>
         <h2 className="text-xl font-semibold mb-2">Applications Applied For</h2>
         <div className="custom-profilepage border border-gray-200 rounded p-4">
-          <p className="text-gray-600">
+          <p className="text-gray-700">
             {/* Replace with dynamic content if needed */}
             No applications found.
           </p>

@@ -116,8 +116,8 @@ body {
 }
 .custom-profilepage {
   
-  background-color: white; 
-  color: black;
+  background-color: #012141; 
+  color: white;
 }
 /* Dark mode hover styles */
 .dark .custom-profilepage {
