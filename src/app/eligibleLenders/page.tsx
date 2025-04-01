@@ -1,6 +1,18 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 export default function Page() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("userData");
+    if (!userData) {
+      router.push("/short-term-loan"); // Redirect back if no user data
+    }
+  }, [router]);
+
   return (
     <div className="max-w-[90rem] mx-auto ">
     <div className="max-w-[90rem] mx-auto px-4 py-12 ">

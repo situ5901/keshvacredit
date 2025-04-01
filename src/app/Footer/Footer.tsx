@@ -20,6 +20,26 @@ function Footer() {
                 alt="Logo"
               />
             </Link>
+
+            {/* Social Media Icons - Always Aligned Left */}
+            <div className="flex justify-start mt-3 ml-2 mb-1 space-x-3 sm:space-x-4 lg:space-x-5">
+              <a href="#" className="hover:opacity-80 text-xl">
+                <i className="fab fa-facebook"></i>
+                <span className="sr-only">Facebook</span>
+              </a>
+              <a href="#" className="hover:opacity-80 text-xl">
+                <i className="fab fa-twitter"></i>
+                <span className="sr-only">Twitter</span>
+              </a>
+              <a href="#" className="hover:opacity-80 text-xl">
+                <i className="fab fa-github"></i>
+                <span className="sr-only">Github</span>
+              </a>
+              <a href="#" className="hover:opacity-80 text-xl">
+                <i className="fab fa-instagram"></i>
+                <span className="sr-only">Instagram</span>
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -87,33 +107,13 @@ function Footer() {
         </div>
 
         {/* Divider */}
-        <hr className="my-6 sm:mx-auto lg:my-8" />
+        <hr className="w-full sm:mx-auto mt-1 mb-2 " />
 
         {/* Footer Bottom */}
-        <div className="flex flex-col items-center text-center">
-          <span className="text-sm">
+        <div className=" text-center h-2 ">
+          <span className="text-sm ">
             © 2025 Keshvacredit™. All Rights Reserved.
           </span>
-
-          {/* Social Media Icons */}
-          <div className="flex justify-center mt-4 space-x-5">
-            <a href="#" className="hover:opacity-80">
-              <i className="fab fa-facebook"></i>
-              <span className="sr-only">Facebook</span>
-            </a>
-            <a href="#" className="hover:opacity-80">
-              <i className="fab fa-twitter"></i>
-              <span className="sr-only">Twitter</span>
-            </a>
-            <a href="#" className="hover:opacity-80">
-              <i className="fab fa-github"></i>
-              <span className="sr-only">Github</span>
-            </a>
-            <a href="#" className="hover:opacity-80">
-              <i className="fab fa-instagram"></i>
-              <span className="sr-only">Instagram</span>
-            </a>
-          </div>
         </div>
       </div>
     </footer>

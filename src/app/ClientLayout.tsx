@@ -1,6 +1,7 @@
 "use client"; // ✅ Enables client-side hooks
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Cookies from "js-cookie"; // ✅ Import js-cookie
 import { ModalProvider } from "@/app/context/ModalContext";
 import Navbar from "./Navbar/page";
 import Footer from "./Footer/Footer";
@@ -9,9 +10,6 @@ import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import animationData from "../animations/sport.json";
 
-// Dummy authentication state (Replace with your actual authentication logic)
-const isLoggedIn = false; // Change to 'true' to test logged-in behavior
-
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
@@ -19,13 +17,17 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   ]);
   const [selectedLoan, setSelectedLoan] = useState<string | null>(null);
   const [input, setInput] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // ✅ Login state
 
-  // Accepts the user message, then shows appropriate bot response.
+  // ✅ Fetch `isLoggedIn` from cookies on mount
+  useEffect(() => {
+    const loginStatus = Cookies.get("isLoggedIn"); // Retrieve cookie
+    setIsLoggedIn(loginStatus === "true"); // Convert to boolean
+  }, []);
+
   const handleUserMessage = (message: string) => {
-    // Append user's message
     setChatMessages((prev) => [...prev, { type: "user", text: message }]);
 
-    // Delay bot response for a natural feel
     setTimeout(() => {
       if (!isLoggedIn) {
         setChatMessages((prev) => [
@@ -44,10 +46,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     }, 500);
   };
 
-  const handleLoanSelection = (loanType: string) => {
-    setSelectedLoan(loanType);
-  };
-
   return (
     <ModalProvider>
       <Navbar />
@@ -59,14 +57,12 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }} // Start position (slightly above)
-            animate={{ opacity: 1, y: 0 }} // End position (smooth drop)
-            exit={{ opacity: 0, y: -20 }} // Exit animation
-            transition={{ duration: 0.3, ease: "easeOut" }} // Smooth timing
-            // Increase width on mobile: full width on mobile, fixed on small screens and up
-            className="absolute bottom-16 right-0 w-[270px]  md:w-[280px]  max-w-sm sm:w-64 rounded-lg shadow-lg border overflow-hidden bg-white"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute bottom-16 right-0 w-[270px] md:w-[280px] max-w-sm sm:w-64 rounded-lg shadow-lg border overflow-hidden bg-white"
           >
-            {/* Chat Header */}
             <div className="p-3 flex bg-blue-950 text-white justify-between items-center">
               <h3 className="text-sm font-bold">Live Chat</h3>
               <button onClick={() => setIsOpen(false)} className="text-lg font-bold">
@@ -74,72 +70,40 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               </button>
             </div>
 
-            {/* Chat Body */}
             <div className="h-40 overflow-y-auto p-2 text-sm text-black space-y-2">
-              {chatMessages.map((msg, index) => {
-                if (msg.type === "bot") {
-                  return (
-                    <div key={index} className="flex">
-                      <p className="inline-block max-w-fit px-1 py-2 rounded-lg bg-gray-200 text-left">
-                        {msg.text}
-                      </p>
-                    </div>
-                  );
-                }
-                if (msg.type === "user") {
-                  return (
-                    <div key={index} className="flex justify-end">
-                      <p className="inline-block max-w-fit px-1 py-2 rounded-lg bg-blue-100 text-right">
-                        {msg.text}
-                      </p>
-                    </div>
-                  );
-                }
-                if (msg.type === "signup") {
-                  return (
-                    <button
-                      key={index}
-                      type="button"
-                      onClick={() => {
-                        // Open the signup modal (ensure your ModalContext supports this)
-                        // For example: openModal("signup");
-                      }}
-                      className="mt-2 p-2 bg-red-500 text-white rounded-lg w-full text-xs"
-                    >
-                      Sign Up
-                    </button>
-                  );
-                }
-                return null;
-              })}
+              {chatMessages.map((msg, index) => (
+                <div key={index} className={msg.type === "bot" ? "flex" : "flex justify-end"}>
+                  <p className={`inline-block max-w-fit px-1 py-2 rounded-lg ${msg.type === "bot" ? "bg-gray-200 text-left" : "bg-blue-100 text-right"}`}>
+                    {msg.text}
+                  </p>
+                </div>
+              ))}
+
+              {!isLoggedIn && chatMessages.some((msg) => msg.type === "signup") && (
+                <button
+                  className="mt-2 p-2 bg-red-500 text-white rounded-lg w-full text-xs"
+                  onClick={() => alert("Redirect to Signup Page")}
+                >
+                  Sign Up
+                </button>
+              )}
 
               {isLoggedIn && chatMessages.some((msg) => msg.type === "options") && (
                 <div className="flex justify-between">
-                  <button
-                    onClick={() => handleLoanSelection("Personal Loan")}
-                    className="p-2 bg-blue-600 text-white rounded-lg text-xs"
-                  >
+                  <button onClick={() => setSelectedLoan("Personal Loan")} className="p-2 bg-blue-600 text-white rounded-lg text-xs">
                     Personal Loan
                   </button>
-                  <button
-                    onClick={() => handleLoanSelection("Business Loan")}
-                    className="p-2 bg-green-600 text-white rounded-lg text-xs"
-                  >
+                  <button onClick={() => setSelectedLoan("Business Loan")} className="p-2 bg-green-600 text-white rounded-lg text-xs">
                     Business Loan
                   </button>
                 </div>
               )}
             </div>
 
-            {/* Loan Images */}
             {selectedLoan && (
               <div className="p-2">
                 <Image
-                  src={
-                    selectedLoan === "Personal Loan"
-                      ? "/images/personal-loan.jpg"
-                      : "/images/business-loan.jpg"
-                  }
+                  src={selectedLoan === "Personal Loan" ? "/images/personal-loan.jpg" : "/images/business-loan.jpg"}
                   alt={selectedLoan}
                   className="w-full h-28 object-cover rounded-lg"
                 />
@@ -147,7 +111,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               </div>
             )}
 
-            {/* Chat Footer */}
             <div className="p-2 bg-blue-950 text-gray-400">
               <div className="flex">
                 <input

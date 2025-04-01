@@ -7,7 +7,7 @@ export default function Contact() {
     <>
       <section className="" id="contact">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <div className="mb-4 text-center">
+          <div className="mb-4 text-center mt-2">
             <h2 className="font-heading mb-4 font-bold  dark:text-blue-500 text-3xl sm:text-5xl">
               Get in Touch
             </h2>
@@ -32,9 +32,16 @@ export default function Contact() {
               <p className="   ">
                 Mobile: +1 (123) 456-7890
               </p>
-              <p className="   ">
-                Mail: info@keshvacredit.com
-              </p>
+              <p>
+  Mail:{" "}
+  <a
+    href="mailto:info@keshvacredit.com"
+    className=" hover:underline"
+  >
+    info@keshvacredit.com
+  </a>
+</p>
+
 
               <h3 className="text-lg font-bold text-gray-900 dark:text-blue-950">
                 Working Hours
