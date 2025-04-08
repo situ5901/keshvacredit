@@ -116,6 +116,7 @@ body {
   background-color: green; /* white */
   color: white; /* black */
 }
+
 .custom-profilepage {
   
   background-color: #012141; 
@@ -126,6 +127,7 @@ body {
   background-color: white; /* white */
   color: black; /* black */
 }
+
 .profile-edit-button {
   
   background-color: blue; 
@@ -133,6 +135,18 @@ body {
 }
 /* Dark mode hover styles */
 .dark .profile-edit-button {
+  background-color: white; /* white */
+  color: black; /* black */
+}
+
+
+.admin-box {
+  
+  background-color: #012141; 
+  color: white;
+}
+/* Dark mode hover styles */
+.dark .admin-box {
   background-color: white; /* white */
   color: black; /* black */
 }
