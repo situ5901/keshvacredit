@@ -7,8 +7,7 @@ import Image from "next/image";
 import { Sun, Moon } from "lucide-react";
 import { FaUser } from "react-icons/fa";
 import Cookies from "js-cookie";
-
-
+import { useRouter } from "next/navigation";
 
 const LightModeSwitcher = () => {
   const [theme, setTheme] = useState("light");
@@ -39,17 +38,55 @@ const LightModeSwitcher = () => {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useModal();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
 
-const handleClick = () => {
-  const token = Cookies.get("user_token");
-  const phone = Cookies.get("user_phone");
+  // On mount, check if the user is logged in by looking for user_token
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      const token = Cookies.get("user_token");
+      setIsLoggedIn(!!token);
+    };
 
-  if (token && phone) {
-    router.push("/short-term-loan"); // ✅ Token & Phone both exist
-  } else {
-    openModal(); // ❌ If either is missing, open modal
-  }
-};
+    // Initial check
+    checkLoginStatus();
+
+    // Listen for custom login status changes (e.g., after OTP verification)
+    window.addEventListener("login-status-changed", checkLoginStatus);
+
+    return () => {
+      window.removeEventListener("login-status-changed", checkLoginStatus);
+    };
+  }, []);
+
+  const handleClick = () => {
+    const token = Cookies.get("user_token");
+    const phone = Cookies.get("user_phone");
+
+    if (token && phone) {
+      router.push("/short-term-loan");
+    } else {
+      openModal();
+    }
+  };
+  const handleNavItemClick = (requiresAuth = false) => {
+    setIsOpen(false); // Close mobile menu
+    if (requiresAuth) {
+      handleClick(); // Run auth logic
+    }
+  };
+  
+
+  const handleAuthClick = () => {
+    if (isLoggedIn) {
+      Cookies.remove("user_token");
+      Cookies.remove("user_phone");
+      setIsLoggedIn(false);
+    } else {
+      openModal();
+    }
+  };
+  
 
   return (
     <nav
@@ -91,14 +128,16 @@ const handleClick = () => {
         </button>
 
         <div
-          className={`${isOpen ? "block" : "hidden"} w-full md:flex md:items-center md:w-auto`}
+          className={`${
+            isOpen ? "block" : "hidden"
+          } w-full md:flex md:items-center md:w-auto`}
         >
           <ul className="font-medium flex flex-col md:flex-row md:space-x-8">
             <li>
               <Link
                 href="/"
-                onClick={handleClick}
-                className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+                onClick={() => handleNavItemClick()}
+                className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 Home
               </Link>
@@ -106,8 +145,8 @@ const handleClick = () => {
             <li>
               <Link
                 href="/About"
-                onClick={handleClick}
-                className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+                onClick={() => handleNavItemClick()}
+                className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 About
               </Link>
@@ -115,7 +154,11 @@ const handleClick = () => {
             <li>
               <Link
                 href="/creditcard"
-                onClick={handleClick}
+                onClick={() => {
+                  handleNavItemClick()
+                  handleClick();
+               
+                }}
                 className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 Credit Card
@@ -124,8 +167,8 @@ const handleClick = () => {
             <li>
               <Link
                 href="/Contact"
-                onClick={handleClick}
-                className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+                onClick={() => handleNavItemClick()}
+                className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 Contact
               </Link>
@@ -134,10 +177,15 @@ const handleClick = () => {
               <li>
                 <Link
                   href="/Profile"
-                  onClick={handleClick}
-                  className="menu-item flex items-center rounded hover:bg-gray-200 dark:hover:bg-gray-700 "
+                  onClick={() => {
+                    handleNavItemClick()
+                    handleClick();
+                 
+                  }}
+                  
+                  className="menu-item flex items-center rounded hover:bg-gray-200 dark:hover:bg-gray-700"
                 >
-                  <FaUser className="text-lg" /> {/* Profile Icon */}
+                  <FaUser className="text-lg" />
                 </Link>
               </li>
               <div className="h-6 border-l border-gray-300 mx-2"></div>
@@ -148,10 +196,14 @@ const handleClick = () => {
             <li>
               <button
                 type="button"
-                onClick={handleClick}
+                onClick={() => {
+                  handleNavItemClick();
+                  handleAuthClick();
+                }}
+                
                 className="bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-700 shadow-md dark:shadow-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-[5px] md:mt-0 w-[120px] h-[38px] md:w-auto"
               >
-                Sign Up
+                {isLoggedIn ? "Sign Out" : "Sign In"}
               </button>
             </li>
           </ul>
