@@ -7,7 +7,10 @@ import Navbar from "./Navbar/page";
 import Footer from "./Footer/Footer";
 import GlobalModal from "./Component/Modals/GlobalModal";
 import { motion } from "framer-motion";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic"; // ✅ Import dynamic for client-side rendering
+
+// Dynamically import Lottie
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import animationData from "../animations/sport.json";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
@@ -18,11 +21,13 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const [selectedLoan, setSelectedLoan] = useState<string | null>(null);
   const [input, setInput] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // ✅ Login state
+  const [isClient, setIsClient] = useState(false); // ✅ Check if running on the client
 
   // ✅ Fetch `isLoggedIn` from cookies on mount
   useEffect(() => {
     const loginStatus = Cookies.get("isLoggedIn"); // Retrieve cookie
     setIsLoggedIn(loginStatus === "true"); // Convert to boolean
+    setIsClient(true); // ✅ Set client-side flag
   }, []);
 
   const handleUserMessage = (message: string) => {
@@ -143,12 +148,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         )}
 
         {/* Floating Chat Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center border border-black text-white bg-blue-950 rounded-full w-14 h-14 hover:bg-blue-800 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
-        >
-          <Lottie animationData={animationData} loop autoplay className="w-10 h-10" />
-        </button>
+        {isClient && (
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center justify-center border border-black text-white bg-blue-950 rounded-full w-14 h-14 hover:bg-blue-800 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
+          >
+            <Lottie animationData={animationData} loop autoplay className="w-10 h-10" />
+          </button>
+        )}
       </div>
     </ModalProvider>
   );
