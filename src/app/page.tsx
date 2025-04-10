@@ -12,14 +12,16 @@ function Page() {
   const { openModal } = useModal();
   const router = useRouter();
 
-  const handleClick = () => {
-    const userData = Cookies.get("userData"); // ✅ Check if cookie exists
-    if (!userData) {
-      openModal(); // ✅ Modal open karo agar cookie nahi hai
-    } else {
-      router.push("/short-term-loan"); // ✅ Navigate to this URL
-    }
-  };
+const handleClick = () => {
+  const token = Cookies.get("user_token");
+  const phone = Cookies.get("user_phone");
+
+  if (token && phone) {
+    router.push("/short-term-loan"); // ✅ Token & Phone both exist
+  } else {
+    openModal(); // ❌ If either is missing, open modal
+  }
+};
   return (
     <>
       <section className="py-8 px-4 md:py-12 md:px-8 w-full gap-8">

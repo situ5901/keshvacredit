@@ -1,6 +1,8 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useModal } from "../../context/ModalContext";
+import { sendOtp, verifyOtp } from "../../APIS/UserData/UserInfoApi"; // update the path as needed
+import Cookies from "js-cookie";
 
 const GlobalModal: React.FC = () => {
   const { isOpen, closeModal } = useModal();
@@ -25,29 +27,47 @@ const GlobalModal: React.FC = () => {
     }
   }, [isOpen]);
 
-  const handleSendOtp = () => {
-    if (phone.length === 10) {
+  const handleSendOtp = async () => {
+    if (phone.length !== 10) {
+      return showMessage("Invalid Mobile Number!", "error");
+    }
+    try {
+      await sendOtp(phone);
       setStep("otp");
       showMessage("OTP Sent Successfully!", "success");
-    } else {
-      showMessage("Invalid Mobile Number!", "error");
+    } catch (err) {
+      showMessage("Failed to send OTP!", "error");
+      console.error(err);
     }
   };
 
-  const handleVerifyOtp = () => {
-    if (otp.length === 6) {
+const handleVerifyOtp = async () => {
+  if (otp.length !== 6) {
+    return showMessage("Invalid OTP!", "error");
+  }
+  try {
+    const response = await verifyOtp(phone, otp);
+    const token = response?.token;
+
+    if (token) {
+      Cookies.set("user_token", token);     // ✅ Token Save
+      Cookies.set("user_phone", phone);     // ✅ Phone Save
       showMessage("OTP Verified Successfully!", "success");
       setTimeout(closeModal, 1000);
     } else {
-      showMessage("Invalid OTP! Please try again.", "error");
+      showMessage("Verification failed!", "error");
     }
-  };
+  } catch (err) {
+    showMessage("Invalid OTP! Please try again.", "error");
+    console.error(err);
+  }
+};
 
   if (!isOpen) return null;
 
   return (
     <>
-      {/* ✅ Success/Error Notification in Top-Right */}
+      {/* Notification */}
       {message && (
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -61,48 +81,43 @@ const GlobalModal: React.FC = () => {
         </motion.div>
       )}
 
-      {/* ✅ Main Modal */}
-      <div className="fixed inset-0 flex items-center justify-center  backdrop-blur-md z-40">
+      {/* Main Modal */}
+      <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md z-40">
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className=" custom-box p-6 rounded-2xl bg-amber-400 shadow-2xl max-w-lg w-full border  border-gray-300"
+          className="custom-box p-6 rounded-2xl bg-amber-400 shadow-2xl max-w-lg w-full border border-gray-300"
         >
-          {/* Modal Header */}
-          <div className="flex justify-between items-center ">
-            <h3 className="text-xl font-semibold ">
+          <div className="flex justify-between items-center">
+            <h3 className="text-xl font-semibold">
               {step === "phone" ? "Enter Mobile Number" : "Verify OTP"}
             </h3>
-            <button
-              onClick={closeModal}
-              className=" hover:text-red-500 text-xl"
-            >
+            <button onClick={closeModal} className="hover:text-red-500 text-xl">
               ✕
             </button>
           </div>
 
-          {/* Form Container */}
           <div className="mt-4 space-y-4">
             {step === "phone" && (
               <>
-                <p className="">
-                  Enter your mobile number to receive an OTP.
-                </p>
+                <p>Enter your mobile number to receive an OTP.</p>
                 <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-                  <span className="px-3  ">+91</span>
+                  <span className="px-3">+91</span>
                   <input
                     type="text"
                     maxLength={10}
-                    className="w-full p-3  outline-none"
+                    className="w-full p-3 outline-none"
                     placeholder="Enter Mobile Number"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value.replace(/\D/, ""))}
+                    onChange={(e) =>
+                      setPhone(e.target.value.replace(/\D/g, ""))
+                    }
                   />
                 </div>
                 <button
                   onClick={handleSendOtp}
-                  className="w-full py-3 rounded-lg  bg-blue-600 transition-all"
+                  className="w-full py-3 rounded-lg bg-blue-600 text-white"
                 >
                   Send OTP
                 </button>
@@ -111,22 +126,20 @@ const GlobalModal: React.FC = () => {
 
             {step === "otp" && (
               <>
-                <p className="">
-                  Enter the 6-digit OTP sent to {phone}.
-                </p>
+                <p>Enter the 6-digit OTP sent to {phone}.</p>
                 <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
                   <input
                     type="text"
                     maxLength={6}
-                    className="w-full p-3 text-center tracking-widest  outline-none"
+                    className="w-full p-3 text-center tracking-widest outline-none"
                     placeholder="Enter OTP"
                     value={otp}
-                    onChange={(e) => setOtp(e.target.value.replace(/\D/, ""))}
+                    onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
                   />
                 </div>
                 <button
                   onClick={handleVerifyOtp}
-                  className="w-full py-3 rounded-lg hover:bg-green-700 transition-all"
+                  className="w-full py-3 rounded-lg bg-green-600 text-white"
                 >
                   Verify OTP
                 </button>
