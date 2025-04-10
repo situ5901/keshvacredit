@@ -7,7 +7,8 @@ import Image from "next/image";
 import { Sun, Moon } from "lucide-react";
 import { FaUser } from "react-icons/fa";
 import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
+
+
 
 const LightModeSwitcher = () => {
   const [theme, setTheme] = useState("light");
@@ -38,49 +39,17 @@ const LightModeSwitcher = () => {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useModal();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const router = useRouter();
 
-  // On mount, check if the user is logged in by looking for user_token
-  useEffect(() => {
-    const checkLoginStatus = () => {
-      const token = Cookies.get("user_token");
-      setIsLoggedIn(!!token);
-    };
+const handleClick = () => {
+  const token = Cookies.get("user_token");
+  const phone = Cookies.get("user_phone");
 
-    // Initial check
-    checkLoginStatus();
-
-    // Listen for custom login status changes (e.g., after OTP verification)
-    window.addEventListener("login-status-changed", checkLoginStatus);
-
-    return () => {
-      window.removeEventListener("login-status-changed", checkLoginStatus);
-    };
-  }, []);
-
-  const handleClick = () => {
-    const token = Cookies.get("user_token");
-    const phone = Cookies.get("user_phone");
-
-    if (token && phone) {
-      router.push("/short-term-loan");
-    } else {
-      openModal();
-    }
-  };
-
-  const handleAuthClick = () => {
-    if (isLoggedIn) {
-      // Log out: remove cookies and update state immediately
-      Cookies.remove("user_token");
-      Cookies.remove("user_phone");
-      setIsLoggedIn(false);
-    } else {
-      openModal();
-    }
-  };
-  
+  if (token && phone) {
+    router.push("/short-term-loan"); // ✅ Token & Phone both exist
+  } else {
+    openModal(); // ❌ If either is missing, open modal
+  }
+};
 
   return (
     <nav
@@ -122,15 +91,14 @@ function Navbar() {
         </button>
 
         <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } w-full md:flex md:items-center md:w-auto`}
+          className={`${isOpen ? "block" : "hidden"} w-full md:flex md:items-center md:w-auto`}
         >
           <ul className="font-medium flex flex-col md:flex-row md:space-x-8">
             <li>
               <Link
                 href="/"
-                className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+                onClick={handleClick}
+                className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 Home
               </Link>
@@ -138,7 +106,8 @@ function Navbar() {
             <li>
               <Link
                 href="/About"
-                className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+                onClick={handleClick}
+                className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 About
               </Link>
@@ -155,7 +124,8 @@ function Navbar() {
             <li>
               <Link
                 href="/Contact"
-                className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+                onClick={handleClick}
+                className=" menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 Contact
               </Link>
@@ -165,9 +135,9 @@ function Navbar() {
                 <Link
                   href="/Profile"
                   onClick={handleClick}
-                  className="menu-item flex items-center rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+                  className="menu-item flex items-center rounded hover:bg-gray-200 dark:hover:bg-gray-700 "
                 >
-                  <FaUser className="text-lg" />
+                  <FaUser className="text-lg" /> {/* Profile Icon */}
                 </Link>
               </li>
               <div className="h-6 border-l border-gray-300 mx-2"></div>
@@ -178,10 +148,10 @@ function Navbar() {
             <li>
               <button
                 type="button"
-                onClick={handleAuthClick}
+                onClick={handleClick}
                 className="bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-700 shadow-md dark:shadow-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-[5px] md:mt-0 w-[120px] h-[38px] md:w-auto"
               >
-                {isLoggedIn ? "Sign Out" : "Sign In"}
+                Sign Up
               </button>
             </li>
           </ul>
