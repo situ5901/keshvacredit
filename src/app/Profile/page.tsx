@@ -95,12 +95,10 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="custom-profilepage max-w-4xl mx-auto p-5 mt-20 mb-5 rounded-2xl">
+    <div className="custom-profilepage max-w-4xl mx-auto p-5 mt-22 mb-5 rounded-2xl">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-2xl font-bold">My Profile</h1>
-        <button onClick={handleEditSave} className="profile-edit-button px-4 py-2 rounded">
-          {isEditing ? 'Save' : 'Edit'}
-        </button>
+       
       </div>
 
       <section className="mb-6">
