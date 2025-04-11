@@ -4,7 +4,6 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 export default function ProfilePage() {
-  // Added the income property to the initial state.
   const [profileData, setProfileData] = useState({
     name: '',
     dateOfBirth: '',
