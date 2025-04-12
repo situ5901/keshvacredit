@@ -60,3 +60,19 @@ export const verifyOtp = async (phone: string, otp: string) => {
     console.error("Error Verifying OTP:", error);
   }
 };
+
+
+export const crmramfin = async () => {
+  try {
+    const response = await axios.get(
+      "https://keshvacredit.com/api/v1/Crm/get-ramfin-leads",
+    );
+    console.log("API Response", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching CRM data:", error);
+    throw error;
+  }
+};
+
+

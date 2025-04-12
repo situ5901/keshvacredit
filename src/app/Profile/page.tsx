@@ -21,7 +21,7 @@ export default function ProfilePage() {
     companyName: '',
   });
 
-  const [isEditing, setIsEditing] = useState(false);
+  // const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -68,9 +68,9 @@ export default function ProfilePage() {
     }));
   };
 
-  const handleEditSave = () => {
-    setIsEditing(prev => !prev);
-  };
+  // const handleEditSave = () => {
+  //   setIsEditing(prev => !prev);
+  // };
 
   // Updated renderField function to work with dynamic properties including "income"
   const renderField = (label: string, name: keyof typeof profileData, placeholder = '') => (

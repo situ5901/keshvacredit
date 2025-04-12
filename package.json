@@ -34,14 +34,14 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/js-cookie": "^3.0.6",
-    "@types/node": "22.13.11",
-    "@types/react": "19.0.12",
+    "@types/node": "22.14.1",
+    "@types/react": "19.1.1",
     "@types/react-dom": "^19",
     "@types/react-slick": "^0.23.13",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "tailwindcss": "^4",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "rules": {
     "@next/next/no-img-element": "off"
