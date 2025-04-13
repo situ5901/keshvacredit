@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import animationOne from "../animations/one.json";
 import animationTwo from "../animations/two.json";
 import animationThree from "../animations/three.json";
@@ -22,11 +23,8 @@ const LottieAnimation = () => {
         loop={false}
         onComplete={handleAnimationComplete}
         className="w-[300px] md:w-[450px] h-[450px] mx-auto flex items-center justify-center"
-
-
       />
     </div>
   );
 };
-
 export default LottieAnimation;

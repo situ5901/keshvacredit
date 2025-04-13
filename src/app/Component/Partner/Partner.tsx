@@ -8,15 +8,15 @@ import "slick-carousel/slick/slick-theme.css";
 const Partner = () => {
   const settings = {
     dots: false,
-    infinite: true,
-    speed: 5000, 
+    infinite: true, // Ensures infinite looping
+    speed: 5000, // Controls transition speed between slides
     slidesToShow: 6,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 0, 
-    cssEase: "linear", 
-    pauseOnHover: false,
-    arrows: false,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 0, // Set speed to 0 for continuous sliding
+    cssEase: "linear", // Smooth linear transition
+    pauseOnHover: false, // Prevent pausing on hover
+    arrows: false, // Disable arrows
     responsive: [
       {
         breakpoint: 1024,
@@ -32,28 +32,27 @@ const Partner = () => {
       },
     ],
   };
+
   const logos = [
-    "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp", 
+    "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
     "https://www.ramfincorp.com/images/logo.png",
     "https://web.fatakpay.com/assets/images/logo/Logo.svg",
-    "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp", 
+    "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
+    "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
+    "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
     "https://www.ramfincorp.com/images/logo.png",
     "https://web.fatakpay.com/assets/images/logo/Logo.svg",
-    "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp", 
-    "https://www.ramfincorp.com/images/logo.png",
-    "https://web.fatakpay.com/assets/images/logo/Logo.svg",
-    "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp", 
-    "https://www.ramfincorp.com/images/logo.png",
-    "https://web.fatakpay.com/assets/images/logo/Logo.svg",
+    "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
+    "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
   ];
 
   return (
     <div className="partner-slider-container" style={{ width: "100%" }}>
       <h1 className="text-center text-4xl font-bold text-gray-800 my-2">
-  Our Partners
-</h1>
-<p className="partner-text text-center" style={{ marginTop: "10px" }}>
-        We work with partners who believe in &ldquo;quality over quantity&rdquo; and strive for excellence.
+        Our Partners
+      </h1>
+      <p className="partner-text text-center" style={{ marginTop: "10px" }}>
+        We work with partners who believe in “quality over quantity” and strive for excellence.
       </p>
 
       <Slider {...settings}>
@@ -72,22 +71,21 @@ const Partner = () => {
             <div
               style={{
                 position: "relative",
-                width: "150px",   // Fixed width for each image container
-                height: "150px",  // Fixed height for each image container
+                width: "150px", // Fixed width for each image container
+                height: "150px", // Fixed height for each image container
               }}
             >
               <Image
                 src={logo}
                 alt={`Partner ${index + 1}`}
-                fill
-                style={{ objectFit: "contain", padding: "10px" }} // Ensures the image is centered & scaled
+                layout="fill" // Fill the container
+                objectFit="contain" // Scale and maintain aspect ratio
                 priority
               />
             </div>
           </div>
         ))}
       </Slider>
-      
     </div>
   );
 };

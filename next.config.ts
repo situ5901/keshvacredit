@@ -10,6 +10,8 @@ const nextConfig = {
       "cdn-icons-png.flaticon.com",
       "www.getzype.com",
       "www.ramfincorp.com",
+      "framerusercontent.com",
+      "myflot.com",
     ], // Ensure via.placeholder.com is added here
     remotePatterns: [
       {

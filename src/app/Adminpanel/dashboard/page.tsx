@@ -184,12 +184,12 @@ export default function DashboardPage() {
       </div>
 
       {/* Shared Entries Dropdown */}
-      <div className="flex items-center space-x-2 mt-10 mb-4">
+      <div className="flex items-center space-x-1 mt-10 mb-4">
         <label className="font-medium">Show</label>
         <select
           value={entriesPerPage}
           onChange={handleEntriesChange}
-          className="border rounded p-2"
+          className="option-b border rounded p-2"
         >
           <option value={5}>5</option>
           <option value={10}>10</option>
