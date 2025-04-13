@@ -81,11 +81,14 @@ function Navbar() {
     if (isLoggedIn) {
       Cookies.remove("user_token");
       Cookies.remove("user_phone");
+      Cookies.remove("isLoggedIn");
       setIsLoggedIn(false);
+      window.dispatchEvent(new Event("login-status-changed")); // ✅ notify app of logout
     } else {
-      openModal();
+      openModal(); 
     }
   };
+  
   
 
   return (

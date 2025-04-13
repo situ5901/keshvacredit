@@ -8,6 +8,8 @@ const nextConfig = {
       "png.pngtree.com",
       "images.unsplash.com",
       "cdn-icons-png.flaticon.com",
+      "www.getzype.com",
+      "www.ramfincorp.com",
     ], // Ensure via.placeholder.com is added here
     remotePatterns: [
       {

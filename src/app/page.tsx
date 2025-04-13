@@ -3,8 +3,8 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import EmiCalculator from "./calculator/calculator";
-// import Partner from "./Component/Partner/Partner";
 import LottieAnimation from "./ LottieAnimation";
+import Partner from "./Component/Partner/Partner";
 import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
 
@@ -438,7 +438,9 @@ const handleClick = () => {
       </div>
       <hr />
       <EmiCalculator />
-      {/* <Partner /> */}
+           <Partner /> 
+
+    
     </>
   );
 }

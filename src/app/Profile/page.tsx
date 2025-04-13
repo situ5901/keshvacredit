@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-//asdfghj//fghjk
-//ghjkl/hjkl
+
 export default function ProfilePage() {
   const [profileData, setProfileData] = useState({
     name: '',
@@ -21,7 +20,6 @@ export default function ProfilePage() {
     companyName: '',
   });
 
-  // const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -61,32 +59,10 @@ export default function ProfilePage() {
     }
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setProfileData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  // const handleEditSave = () => {
-  //   setIsEditing(prev => !prev);
-  // };
-
-  // Updated renderField function to work with dynamic properties including "income"
-  const renderField = (label: string, name: keyof typeof profileData, placeholder = '') => (
+  const renderField = (label: string, name: keyof typeof profileData) => (
     <div>
       <p className="text-gray-600">{label}</p>
-      {isEditing ? (
-        <input
-          name={name}
-          value={profileData[name]}
-          onChange={handleChange}
-          placeholder={placeholder}
-          className="w-full p-2 mt-1 border rounded"
-        />
-      ) : (
-        <p className="font-medium mt-1">{profileData[name] || 'NA'}</p>
-      )}
+      <p className="font-medium mt-1">{profileData[name] || 'NA'}</p>
     </div>
   );
 
@@ -98,7 +74,6 @@ export default function ProfilePage() {
     <div className="custom-profilepage max-w-4xl mx-auto p-5 mt-22 mb-5 rounded-2xl">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-2xl font-bold">My Profile</h1>
-       
       </div>
 
       <section className="mb-6">
@@ -107,9 +82,6 @@ export default function ProfilePage() {
           {renderField('Name', 'name')}
           {renderField('Date Of Birth', 'dateOfBirth')}
           {renderField('Income', 'income')}
-          {/* Uncomment these lines if needed:
-          {renderField('Gender', 'gender')}
-          {renderField('Marital Status', 'maritalStatus')} */}
           {renderField('Email', 'email')}
           {renderField('Phone', 'phone')}
           {renderField('Pan', 'pan')}
@@ -118,7 +90,8 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      {/*
+      {/* Uncomment these sections if you need them later:
+
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Residential Information</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-gray-200 rounded p-4">
@@ -126,24 +99,21 @@ export default function ProfilePage() {
           {renderField('City', 'city')}
         </div>
       </section>
-      */}
 
-      {/*
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Employer Information</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-200 rounded p-4">
           {renderField('Company Name', 'companyName')}
         </div>
       </section>
-      */}
 
-      {/*
       <section>
         <h2 className="text-xl font-semibold mb-2">Applications Applied For</h2>
         <div className="border border-gray-200 rounded p-4">
           <p className="text-gray-700">No applications found.</p>
         </div>
       </section>
+
       */}
     </div>
   );

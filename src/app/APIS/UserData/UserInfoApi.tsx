@@ -48,16 +48,18 @@ export const verifyOtp = async (phone: string, otp: string) => {
     );
 
     const data = response.data;
-    if (data && data.token) {
+    if (data?.token) {
       Cookies.set("user_token", data.token);
       Cookies.set("user_phone", phone);
+      Cookies.set("isLoggedIn", "true");
 
-      window.dispatchEvent(new Event("login-status-changed"));
+      window.dispatchEvent(new Event("login-status-changed")); 
     }
-    
+
     return data;
   } catch (error) {
     console.error("Error Verifying OTP:", error);
+    throw error;
   }
 };
 
@@ -65,7 +67,7 @@ export const verifyOtp = async (phone: string, otp: string) => {
 export const crmramfin = async () => {
   try {
     const response = await axios.get(
-      "https://keshvacredit.com/api/v1/Crm/get-ramfin-leads",
+      "https://keshvacredit.com/api/v1/Crm/get-all-leads",
     );
     console.log("API Response", response.data);
     return response.data;
