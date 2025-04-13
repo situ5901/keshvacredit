@@ -90,7 +90,7 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      {/* Uncomment these sections if you need them later:
+      {/* Uncomment these sections if you need them later: hh
 
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Residential Information</h2>
