@@ -48,7 +48,7 @@ const Partner = () => {
 
   return (
     <div className="partner-slider-container" style={{ width: "100%" }}>
-      <h1 className="text-center text-4xl font-bold text-gray-800 my-2">
+      <h1 className="text-center text-4xl font-bold  my-2">
         Our Partners
       </h1>
       <p className="partner-text text-center" style={{ marginTop: "10px" }}>
