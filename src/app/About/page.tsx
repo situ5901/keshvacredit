@@ -71,33 +71,34 @@ function About() {
 
       {/* Who We Are Section */}
       <section className="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2 text-center lg:text-left">
-              <h2 className="text-4xl font-bold text-gray-800 animate__animated animate__fadeInLeft">
-                Who We Are
-              </h2>
-              <p className="mt-4 text-gray-700 text-lg animate__animated animate__fadeInLeft animate__delay-1s">
-                At KeshvaCredit, we revolutionize the lending experience by connecting borrowers with trusted lenders. Our dynamic platform makes securing a loan—be it personal, business, or emergency—fast, transparent, and stress-free.
-              </p>
-              <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition transform hover:-translate-y-1 animate__animated animate__fadeInUp animate__delay-2s">
-                Learn More
-              </button>
-            </div>
-            <div className="lg:w-1/2 relative  overflow-hidden  animate__animated animate__fadeInRight">
-              <Image
-                className="h-full rounded-3xl object-cover"
-                src="/nice.png"
-                alt="Community Collaboration"
-                width={400}
-                height={400}
-                priority
-              />
-              <div className="absolute inset-0"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="px-4 lg:px-[10%]">
+    <div className="flex flex-col lg:flex-row items-center gap-16">
+      <div className="lg:w-1/2 text-center lg:text-left">
+        <h2 className="text-4xl font-bold text-gray-800 animate__animated animate__fadeInLeft">
+          Who We Are
+        </h2>
+        <p className="mt-4 text-gray-700 text-lg animate__animated animate__fadeInLeft animate__delay-1s">
+          At KeshvaCredit, we revolutionize the lending experience by connecting borrowers with trusted lenders. Our dynamic platform makes securing a loan—be it personal, business, or emergency—fast, transparent, and stress-free.
+        </p>
+        <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition transform hover:-translate-y-1 animate__animated animate__fadeInUp animate__delay-2s">
+          Learn More
+        </button>
+      </div>
+      <div className="lg:w-1/2 relative overflow-hidden animate__animated animate__fadeInRight">
+        <Image
+          className="h-full rounded-3xl object-cover"
+          src="/nice.png"
+          alt="Community Collaboration"
+          width={400}
+          height={400}
+          priority
+        />
+        <div className="absolute inset-0"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Partners Section */}
       <section className="py-20 mt-5">
