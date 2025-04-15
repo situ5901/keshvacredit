@@ -2,9 +2,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useModal } from "@/app/context/ModalContext";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 function Footer() {
+  const router = useRouter();
   const { openModal } = useModal();
+  const handleClick = () => {
+    const token = Cookies.get("user_token");
+    const phone = Cookies.get("user_phone");
+  
+    if (token && phone) {
+      router.push("/short-term-loan"); // ✅ Token & Phone both exist
+    } else {
+      openModal(); // ❌ If either is missing, open modal
+    }
+  };
 
   return (
     <footer id="footer" className="border-t transition-colors duration-300">
@@ -56,7 +69,7 @@ function Footer() {
                 </li>
                 <li>
                   <button
-                    onClick={openModal}
+                    onClick={handleClick}
                     className="hover:underline text-left"
                   >
                     Personal Loan
@@ -65,7 +78,7 @@ function Footer() {
                 <br />
                 <li>
                   <button
-                    onClick={openModal}
+                    onClick={handleClick}
                     className="hover:underline text-left"
                   >
                     Business Loan

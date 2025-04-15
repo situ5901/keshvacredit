@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import loanAnimation from "../../animations/loan.json";
 import 'animate.css';
 import Partner from "../Component/Partner/Partner";
-
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 function About() {
   return (
     <div className="">
@@ -23,81 +25,72 @@ function About() {
 
       {/* What Makes Us Special Section */}
       <section className="py-20 ">
-  <div className="container mx-auto px-4 text-center">
-    <h2 className="text-4xl font-bold  animate__animated animate__fadeInDown">
-      What Makes Us Special
-    </h2>
-    <p className="mt-4  text-lg animate__animated animate__fadeInDown animate__delay-1s max-w-4xl mx-auto">
-      At <strong>KeshvaCredit</strong>, we believe that financial solutions should be simple, transparent, and tailored to your needs. That’s why we’ve built a platform designed for convenience, speed, and trust. Whether you’re applying for a loan or exploring financial products, KeshvaCredit empowers you with seamless digital experiences and complete peace of mind.
-    </p>
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold  animate__animated animate__fadeInDown">
+            What Makes Us Special
+          </h2>
+          <p className="mt-4  text-lg animate__animated animate__fadeInDown animate__delay-1s max-w-4xl mx-auto">
+            At <strong>KeshvaCredit</strong>, we believe that financial solutions should be simple, transparent, and tailored to your needs. That’s why we’ve built a platform designed for convenience, speed, and trust. Whether you’re applying for a loan or exploring financial products, KeshvaCredit empowers you with seamless digital experiences and complete peace of mind.
+          </p>
 
-    <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center items-start">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center items-start">
 
-  <div className="flex flex-col items-center">
-    <img src="https://cdn-icons-gif.flaticon.com/7920/7920939.gif" alt="Fast Approval" className="w-16 h-16 mb-2" />
-    <span className=" font-semibold text-center">Fast Approval</span>
-  </div>
-
-  <div className="flex flex-col items-center">
-    <img src="https://cdn-icons-png.flaticon.com/128/7325/7325279.png" alt="Quick Disbursal" className="w-16 h-16 mb-2" />
-    <span className=" font-semibold text-center">Quick Disbursal</span>
-  </div>
-
-  <div className="flex flex-col items-center">
-    <img src="https://cdn-icons-png.flaticon.com/128/4660/4660937.png" alt="100% Paperless" className="w-16 h-16 mb-2" />
-    <span className=" font-semibold text-center">100% Paperless</span>
-  </div>
-
-  <div className="flex flex-col items-center">
-    <img src="https://cdn-icons-png.flaticon.com/128/3875/3875894.png" alt="Wide Product Range" className="w-16 h-16 mb-2" />
-    <span className=" font-semibold text-center">Wide Product Range</span>
-  </div>
-
-  <div className="flex flex-col items-center">
-    <img src="https://cdn-icons-png.flaticon.com/128/5579/5579459.png" alt="Hassle-free Docs" className="w-16 h-16 mb-2" />
-    <span className=" font-semibold text-center">Hassle-free Docs</span>
-  </div>
-
-  <div className="flex flex-col items-center">
-    <img src="https://cdn-icons-gif.flaticon.com/6569/6569170.gif" alt="Safe Data" className="w-16 h-16 mb-2" />
-    <span className=" font-semibold text-center">Safe Data Ecosystem</span>
-  </div>
+<div className="flex flex-col items-center">
+  <Image src="https://cdn-icons-gif.flaticon.com/7920/7920939.gif" alt="Fast Approval" width={64} height={64} className="mb-2" />
+  <span className="font-semibold text-center">Fast Approval</span>
 </div>
 
-  </div>
-</section>
+<div className="flex flex-col items-center">
+  <Image src="https://cdn-icons-png.flaticon.com/128/7325/7325279.png" alt="Quick Disbursal" width={64} height={64} className="mb-2" />
+  <span className="font-semibold text-center">Quick Disbursal</span>
+</div>
+
+<div className="flex flex-col items-center">
+  <Image src="https://cdn-icons-png.flaticon.com/128/4660/4660937.png" alt="100% Paperless" width={64} height={64} className="mb-2" />
+  <span className="font-semibold text-center">100% Paperless</span>
+</div>
+
+<div className="flex flex-col items-center">
+  <Image src="https://cdn-icons-png.flaticon.com/128/3875/3875894.png" alt="Wide Product Range" width={64} height={64} className="mb-2" />
+  <span className="font-semibold text-center">Wide Product Range</span>
+</div>
+
+<div className="flex flex-col items-center">
+  <Image src="https://cdn-icons-png.flaticon.com/128/5579/5579459.png" alt="Hassle-free Docs" width={64} height={64} className="mb-2" />
+  <span className="font-semibold text-center">Hassle-free Docs</span>
+</div>
+
+<div className="flex flex-col items-center">
+  <Image src="https://cdn-icons-gif.flaticon.com/6569/6569170.gif" alt="Safe Data" width={64} height={64} className="mb-2" />
+  <span className="font-semibold text-center">Safe Data Ecosystem</span>
+</div>
+
+</div>
+
+        </div>
+      </section>
 
 
 
       {/* Who We Are Section */}
       <section className="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
-  <div className="px-4 lg:px-[10%]">
-    <div className="flex flex-col lg:flex-row items-center gap-16">
-      <div className="lg:w-1/2 text-center lg:text-left">
-        <h2 className="text-4xl font-bold text-gray-800 animate__animated animate__fadeInLeft">
-          Who We Are
-        </h2>
-        <p className="mt-4 text-gray-700 text-lg animate__animated animate__fadeInLeft animate__delay-1s">
-          At KeshvaCredit, we revolutionize the lending experience by connecting borrowers with trusted lenders. Our dynamic platform makes securing a loan—be it personal, business, or emergency—fast, transparent, and stress-free.
-        </p>
-        <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition transform hover:-translate-y-1 animate__animated animate__fadeInUp animate__delay-2s">
-          Learn More
-        </button>
-      </div>
-      <div className="lg:w-1/2 relative overflow-hidden animate__animated animate__fadeInRight">
-        <Image
-          className="h-full rounded-3xl object-cover"
-          src="/nice.png"
-          alt="Community Collaboration"
-          width={400}
-          height={400}
-          priority
-        />
-        <div className="absolute inset-0"></div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div className="px-4 lg:px-[10%]">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2 text-center lg:text-left">
+              <h2 className="text-4xl font-bold text-gray-800 animate__animated animate__fadeInLeft">
+                Who We Are
+              </h2>
+              <p className="mt-4 text-gray-700 text-lg animate__animated animate__fadeInLeft animate__delay-1s">
+                At KeshvaCredit, we revolutionize the lending experience by connecting borrowers with trusted lenders. Our dynamic platform makes securing a loan—be it personal, business, or emergency—fast, transparent, and stress-free.
+              </p>
+
+            </div>
+            <div className="lg:w-1/2 flex items-center justify-center animate__animated animate__fadeInRight">
+  <Lottie animationData={loanAnimation} loop={true} className="w-full h-full" />
+</div>
+          </div>
+        </div>
+      </section>
 
 
       {/* Partners Section */}

@@ -189,6 +189,16 @@ body {
   background-color: #ffffff; /* white */
   color: #000000; /* black */
 }
+.eligiblity {
+  background-color: #1A202C;
+  color: white;
+}
+
+/* Dark mode hover styles */
+.dark .eligiblity {
+  background-color: #ffffff; /* white */
+  color: #000000; /* black */
+}
 
 
 

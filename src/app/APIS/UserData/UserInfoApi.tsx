@@ -77,4 +77,49 @@ export const crmramfin = async () => {
   }
 };
 
+export const eligiblyramfin = async (userData: {
+  mobile: string;
+  name: string;
+  loanAmount: string;
+  email: string;
+  employeeType: string;
+  dob: string;
+  pancard: string;
+  partnerid: string;
+}) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/ramfineligbly`, userData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error submitting user info:", error);
+    throw error;
+  }
+};
+export const eligiblyzype = async (userData: {
+  mobile: string;
+  name: string;
+  loanAmount: string;
+  email: string;
+  employeeType: string;
+  dob: string;
+  pancard: string;
+  partnerid: string;
+}) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/zypeeligibly`, userData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error submitting user info:", error);
+    throw error;
+  }
+};
+
 
