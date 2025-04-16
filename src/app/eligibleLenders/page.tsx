@@ -121,13 +121,15 @@ export default function Page() {
               </span>
             </div>
 
-            {/* Apply Button */}
-            <button
-              className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-2 rounded-lg"
-              onClick={() => window.open('https://www.ramfincorp.com/', '_blank')}
-            >
-              Apply Now
-            </button>
+           <button>
+            <a
+  href="/Eligiblity-Ramfin"
+  className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-2 rounded-lg inline-block"
+>
+  Apply Now
+</a>
+</button>
+
 
           </div>
         </div>

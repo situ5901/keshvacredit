@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image"; // ✅ Next.js optimized image import
-import { eligiblyzype } from "../APIS/UserData/UserInfoApi"; // adjust the path as needed
+import Image from "next/image"; 
+import { eligiblyzype } from "../APIS/UserData/UserInfoApi"; 
 
 const EligibilityForm = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +12,7 @@ const EligibilityForm = () => {
     dob: "",
     pancard: "",
     loanAmount: "",
-    employeeType: "Salered",
+    employeeType: "",
   });
 
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
@@ -46,7 +46,7 @@ const EligibilityForm = () => {
 
   return (
     <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border">
-      <h2 className="text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3">
+      <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-3">
         <Image
           src="https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp"
           alt="Zype Logo"
@@ -54,7 +54,7 @@ const EligibilityForm = () => {
           height={40}
           className="object-contain"
         />
-        <span>Eligibility Form</span>
+        <span>Form</span>
       </h2>
 
       <form
@@ -123,11 +123,12 @@ const EligibilityForm = () => {
           name="employeeType"
           value={formData.employeeType}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="findrop border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          <option value="Salered">Select Employee Type</option>
-          <option value="Salered">Salaried</option>
-          <option value="Self Employed">Self Employed</option>
+         <option value="">Select Employee Type</option> {/* This is a placeholder */}
+<option value="Salaried">Salaried</option>
+<option value="Self Employed">Self Employed</option>
+
         </select>
 
         <button

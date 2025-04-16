@@ -1,92 +1,56 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 
 const lenders = [
   {
-    name: "ramfin corporation",
-    contactPerson: "John Smith",
-    email: "ramfin@gmail.com",
-    phone: "+91 9876543210",
-    address: "123 Ram Street, Chennai",
-    website: "https://www.ramfin.com",
+    name: "Ramfin Corporation",
+    website: "https://www.ramfincorp.com/contact-us",
   },
   {
-    name: "zype",
-    contactPerson: "John Doe",
-    email: "support@zype.in",
-    phone: "+91 1234567890",
-    address: "456 Zype Avenue, Delhi",
-    website: "https://www.zype.in",
+    name: "Zype",
+    website: "https://www.getzype.com/contact-us/",
   },
+  {
+    name: "float",
+    website: "https://www.myflot.com/",
+  },
+  {
+    name: "fatakpay",
+    website: "https://fatakpay.com/contact-us",
+  },
+  {
+    name: "m-pokket",
+    website: "https://www.mpokket.in/contact",
+  },
+  {
+    name: "olyv",
+    website: "https://www.olyv.co.in/contactus",
+  },
+
 ];
 
-function Page() {
+function LenderContactPage() {
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Lender Contacts</h1>
+    <div className="min-h-screen bg-gray-100 py-10 px-4 mt-12">
+      <h1 className="text-3xl font-bold text-center text-gray-800 mb-10">
+        Contact Our Lenders
+      </h1>
 
-      <div className="space-y-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {lenders.map((lender, idx) => (
           <div
             key={idx}
-            className="flex bg-white shadow-lg rounded-xl overflow-hidden"
+            className="bg-white rounded-xl shadow-md p-6 flex flex-col justify-between items-center text-center"
           >
-            {/* Left Container */}
-            <div className="bg-blue-950 text-white w-1/5 flex items-center justify-center text-center p-4 text-lg font-semibold">
-              {lender.name}
-            </div>
-
-            {/* Right Container */}
-            <div className="w-4/5 p-4 space-y-2">
-              {[
-                {
-                  label: "Contact Person",
-                  value: lender.contactPerson,
-                },
-                {
-                  label: "Email",
-                  value: lender.email,
-                },
-                {
-                  label: "Phone",
-                  value: lender.phone,
-                },
-                {
-                  label: "Address",
-                  value: lender.address,
-                },
-                {
-                  label: "Website",
-                  value: lender.website,
-                  link: true,
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <Image
-                    src="https://cdn-icons-gif.flaticon.com/7740/7740748.gif" // 🔄 Your animated arrow path here
-                    alt="arrow"
-                    width={20}
-                    height={20}
-                  />
-                  <span className="text-gray-800 font-medium">
-                    {item.label}:
-                  </span>
-                  {item.link ? (
-                    <a
-                      href={item.value}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <span className="text-gray-600">{item.value}</span>
-                  )}
-                </div>
-              ))}
-            </div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">{lender.name}</h2>
+            <a
+              href={lender.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition"
+            >
+              Contact Us
+            </a>
           </div>
         ))}
       </div>
@@ -94,4 +58,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default LenderContactPage;

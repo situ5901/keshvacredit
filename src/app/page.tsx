@@ -8,20 +8,21 @@ import Partner from "./Component/Partner/Partner";
 import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
 
+
 function Page() {
   const { openModal } = useModal();
   const router = useRouter();
 
-const handleClick = () => {
-  const token = Cookies.get("user_token");
-  const phone = Cookies.get("user_phone");
+  const handleClick = () => {
+    const token = Cookies.get("user_token");
+    const phone = Cookies.get("user_phone");
 
-  if (token && phone) {
-    router.push("/short-term-loan"); // ✅ Token & Phone both exist
-  } else {
-    openModal(); // ❌ If either is missing, open modal
-  }
-};
+    if (token && phone) {
+      router.push("/short-term-loan"); // ✅ Token & Phone both exist
+    } else {
+      openModal(); // ❌ If either is missing, open modal
+    }
+  };
   return (
     <>
       <section className="py-8 px-4 md:py-12 md:px-8 w-full gap-8">
@@ -126,7 +127,7 @@ const handleClick = () => {
           />
         </div>
       </div>
-
+      <Partner />
       <div>
         <section className=" ">
           <div className="container px-6 py-12 mx-auto">
@@ -331,116 +332,170 @@ const handleClick = () => {
 
         {/* Right Side (Stats) */}
         <div className="py-8 px-4 md:py-12 md:px-8 w-full">
-  <div className="mx-auto max-w-7xl">
-    <div className="mx-auto max-w-2xl lg:max-w-4xl">
-      <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-        {[
-          {
-            title: "Happy Customers",
-            description:
-              "Trusted by over 5 lakh happy customers! Experience seamless service, secure transactions, and unmatched financial benefits with us.",
-            icon: (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
-              />
-            ),
-          },
-          {
-            title: "Instant Approval",
-            description:
-              "Get online loan approval within 48 hours with minimal documentation, ensuring quick access to funds for those in urgent need of financial assistance.",
-            icon: (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 2L3 6v6c0 5.523 3.582 10.432 9 12 5.418-1.568 9-6.477 9-12V6l-9-4zm0 14.25l-3.75-3.75 1.5-1.5L12 13.5l3.75-3.75 1.5 1.5-5.25 5.25z"
-              />
-            ),
-          },
-          
-          {
-            title: "100% Paperless & Hassle-Free Loans",
-            description:
-              "Apply for a loan from the comfort of your home with our fully digital process—fast, secure, and convenient!",
-            icon: (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
-              />
-            ),
-          },
-          {
-            title: "No Hidden Charges",
-            description:
-              "Our process is 100% transparent and fair, ensuring no hidden charges or unexpected fees",
-            icon: (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-              />
-            ),
-          },
-          {
-            title: "Loans Disbursed",
-            description:
-              "Over ₹1000 Cr in loans disbursed! Quick approvals, hassle-free processing, and secure transactions to meet your financial needs seamlessly.",
-            icon: (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 10h18M3 14h18M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm13 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-              />
-            ),
-          },
-          {
-            title: "Flexible Loan Options",
-            description:
-              "Customize your loan amount from ₹1,000 to ₹1,00,000 with a flexible tenure ranging from 3 months to 2 years designed to suit your financial needs.",
-            icon: (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 8.25V3m0 0L8.25 6.75M12 3l3.75 3.75M3 12.75a1.5 1.5 0 0 1 1.5-1.5h9a1.5 1.5 0 1 1 0 3h-3l5.25 4.5m-2.25 0H15a1.5 1.5 0 1 0 0-3"
-              />
-            ),
-          },
-        ].map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center sm:flex-row w-full space-y-6 sm:space-y-0 sm:space-x-6"
-          >
-            <div className="flex size-10 md:size-12 items-center justify-center rounded-lg bg-indigo-600 shadow-lg">
-              <svg
-                className="size-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-              >
-                {item.icon}
-              </svg>
-            </div>
-            <div className="sm:ml-4 mt-4 sm:mt-0 text-center sm:text-left w-full">
-              <dt className="text-lg font-semibold">{item.title}</dt>
-              <dd className="mt-2 text-sm md:text-base">{item.description}</dd>
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-2xl lg:max-w-4xl">
+              <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+                {[
+                  {
+                    title: "Happy Customers",
+                    description:
+                      "Trusted by over 5 lakh happy customers! Experience seamless service, secure transactions, and unmatched financial benefits with us.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
+                      />
+                    ),
+                  },
+                  {
+                    title: "Instant Approval",
+                    description:
+                      "Get online loan approval within 48 hours with minimal documentation, ensuring quick access to funds for those in urgent need of financial assistance.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 2L3 6v6c0 5.523 3.582 10.432 9 12 5.418-1.568 9-6.477 9-12V6l-9-4zm0 14.25l-3.75-3.75 1.5-1.5L12 13.5l3.75-3.75 1.5 1.5-5.25 5.25z"
+                      />
+                    ),
+                  },
+
+                  {
+                    title: "100% Paperless & Hassle-Free Loans",
+                    description:
+                      "Apply for a loan from the comfort of your home with our fully digital process—fast, secure, and convenient!",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
+                      />
+                    ),
+                  },
+                  {
+                    title: "No Hidden Charges",
+                    description:
+                      "Our process is 100% transparent and fair, ensuring no hidden charges or unexpected fees",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                      />
+                    ),
+                  },
+                  {
+                    title: "Loans Disbursed",
+                    description:
+                      "Over ₹1000 Cr in loans disbursed! Quick approvals, hassle-free processing, and secure transactions to meet your financial needs seamlessly.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 10h18M3 14h18M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm13 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                      />
+                    ),
+                  },
+                  {
+                    title: "Flexible Loan Options",
+                    description:
+                      "Customize your loan amount from ₹1,000 to ₹1,00,000 with a flexible tenure ranging from 3 months to 2 years designed to suit your financial needs.",
+                    icon: (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 8.25V3m0 0L8.25 6.75M12 3l3.75 3.75M3 12.75a1.5 1.5 0 0 1 1.5-1.5h9a1.5 1.5 0 1 1 0 3h-3l5.25 4.5m-2.25 0H15a1.5 1.5 0 1 0 0-3"
+                      />
+                    ),
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center sm:flex-row w-full space-y-6 sm:space-y-0 sm:space-x-6"
+                  >
+                    <div className="flex size-10 md:size-12 items-center justify-center rounded-lg bg-indigo-600 shadow-lg">
+                      <svg
+                        className="size-6 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                      >
+                        {item.icon}
+                      </svg>
+                    </div>
+                    <div className="sm:ml-4 mt-4 sm:mt-0 text-center sm:text-left w-full">
+                      <dt className="text-lg font-semibold">{item.title}</dt>
+                      <dd className="mt-2 text-sm md:text-base">{item.description}</dd>
+                    </div>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
-        ))}
-      </dl>
-    </div>
-  </div>
-</div>
+        </div>
 
       </div>
       <hr />
       <EmiCalculator />
-           <Partner /> 
+      <section className="py-16  text-center">
+        <h2 className="text-3xl font-semibold  mb-8">Our Statistics </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+          <div className="flex flex-col items-center">
+            <div className="w-20 h-20 relative">
+              <Image
+                src="https://cdn-icons-gif.flaticon.com/14251/14251538.gif" // Replace with an image representing loan selection
+                alt="happy customer"
+                fill
+                className="rounded-full shadow-lg object-cover"
+              />
+            </div>
+            <h3 className="text-2xl font-medium ">35000+</h3>
+            <p className="text-gray-500">Happy Customers</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-20 h-20 relative">
+              <Image
+                src="https://cdn-icons-gif.flaticon.com/15370/15370761.gif" // Replace with an image representing loan selection
+                alt="relationship"
+                fill
+                className="rounded-full shadow-lg object-cover"
+              />
+            </div>
+            <h3 className="text-2xl font-medium ">2,500+</h3>
+            <p className="text-gray-500">Relationship Managers</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-20 h-20 relative">
+              <Image
+                src="https://cdn-icons-gif.flaticon.com/7994/7994401.gif" // Replace with an image representing loan selection
+                alt="bank"
+                fill
+                className="rounded-full shadow-lg object-cover"
+              />
+            </div>
+            <h3 className="text-2xl font-medium ">30+</h3>
+            <p className="text-gray-500">Banks & NBFCs</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-20 h-20 relative">
+              <Image
+                src="https://cdn-icons-gif.flaticon.com/10051/10051256.gif" // Replace with an image representing loan selection
+                alt="business"
+                fill
+                className="rounded-full shadow-lg object-cover"
+              />
+            </div>
+            <h3 className="text-2xl font-medium ">65000+</h3>
+            <p className="text-gray-500">Business Conducted</p>
+          </div>
 
-    
+        </div>
+      </section>
+
+
+
     </>
   );
 }

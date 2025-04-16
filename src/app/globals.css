@@ -151,6 +151,36 @@ body {
   color: black; /* black */
 }
 
+.findrop {
+  
+  background-color: white; 
+  color: black;
+}
+/* Dark mode hover styles */
+.dark .findrop {
+  background-color: #101828; /* white */
+  color: white; /* black */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
