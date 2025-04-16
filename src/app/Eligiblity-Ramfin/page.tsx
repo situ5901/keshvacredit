@@ -4,8 +4,18 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { eligiblyramfin } from "../APIS/UserData/UserInfoApi";
 
+interface FormData {
+  name: string;
+  mobile: string;
+  email: string;
+  dob: string;
+  pancard: string;
+  loanAmount: string;
+  employeeType: string;
+}
+
 const EligibilityForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     mobile: "",
     email: "",
@@ -17,7 +27,7 @@ const EligibilityForm = () => {
 
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
 
-  // ✅ Auto-hide popup after 2 seconds
+  // Auto-hide popup after 2 seconds
   useEffect(() => {
     if (responseMsg) {
       const timer = setTimeout(() => setResponseMsg(null), 2000);
@@ -42,18 +52,32 @@ const EligibilityForm = () => {
         ...formData,
         partnerid: "keshvacredit",
       };
-  
+
       const data = await eligiblyramfin(payload);
       setResponseMsg(data.message || "✅ Submitted successfully!");
-    } catch (error: any) {
-      console.error("Submission error:", error?.response?.data || error);
-      setResponseMsg(
-        error?.response?.data?.apiError?.message ||
-          "❌ Something went wrong. Please try again."
-      );
+    } catch (error: unknown) {
+      let errorMessage = "❌ Something went wrong. Please try again.";
+      
+      // Narrow down error type before accessing properties
+      if (
+        error &&
+        typeof error === "object" &&
+        "response" in error &&
+        error.response &&
+        typeof error.response === "object"
+      ) {
+        const errResponse = (error as { response?: { data?: { apiError?: { message?: string } } } })
+          .response;
+        console.error("Submission error:", errResponse?.data || error);
+        errorMessage =
+          errResponse?.data?.apiError?.message || errorMessage;
+      } else {
+        console.error("Submission error:", error);
+      }
+      
+      setResponseMsg(errorMessage);
     }
-  
-    // ✅ Clear form in both success and error
+
     setFormData({
       name: "",
       mobile: "",
@@ -64,9 +88,10 @@ const EligibilityForm = () => {
       employeeType: "",
     });
   };
+
   return (
     <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border">
-   {responseMsg && (
+      {responseMsg && (
         <div className="fixed top-20 right-7 z-50 bg-white border border-gray-300 px-4 py-2 rounded-lg shadow-lg text-sm text-gray-800 animate-slide-in">
           {responseMsg}
         </div>
@@ -78,7 +103,7 @@ const EligibilityForm = () => {
           alt="Zype Logo"
           width={120}
           height={40}
-          className="object-contain "
+          className="object-contain"
         />
         <span>Form</span>
       </h2>
@@ -96,7 +121,6 @@ const EligibilityForm = () => {
           required
           className="col-span-1 md:col-span-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-
 
         <input
           type="text"
@@ -155,7 +179,6 @@ const EligibilityForm = () => {
           <option value="">Select Employee Type</option>
           <option value="Salaried">Salaried</option>
           <option value="Self Employed">Self Employed</option>
-
         </select>
         <button
           type="submit"
@@ -164,7 +187,6 @@ const EligibilityForm = () => {
           Submit
         </button>
       </form>
-
     </div>
   );
 };

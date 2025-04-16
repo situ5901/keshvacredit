@@ -107,7 +107,7 @@ function Footer() {
                   <Link href="/Privacy">Privacy Policy</Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/">Lender Contacts</Link>
+                  <Link href="/Lendercontact">Lender Contacts</Link>
                 </li>
                 <li>
                   <Link href="/terms" className="hover:underline">
