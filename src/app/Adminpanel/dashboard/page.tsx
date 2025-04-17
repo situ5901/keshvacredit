@@ -1,81 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { crmramfin } from "../../APIS/UserData/UserInfoApi";
-
-interface PartnerInfo {
-  data?: string[];
-}
-
-type PartnerData = {
-  [partner: string]: PartnerInfo;
-};
-
+import React  from "react";
+import Fatakpay from "./fatakpay"
+import Zype from "./zype"
+import Samfin from "./Ramfin"
 export default function DashboardPage() {
-  // Shared entries per page state.
-  const [entriesPerPage, setEntriesPerPage] = useState(5);
-
-  // Separate current page state for each partner.
-  const [currentPageRamFin, setCurrentPageRamFin] = useState(1);
-  const [currentPageZype, setCurrentPageZype] = useState(1);
-
-  // API data and loading state.
-  const [partnerData, setPartnerData] = useState<PartnerData | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchPartnerData = async () => {
-      try {
-        const response = await crmramfin();
-        if (response && response.success) {
-          setPartnerData(response);
-        }
-      } catch (error) {
-        console.error("Error fetching partner data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPartnerData();
-  }, []);
-
-  // Extract data for each partner (defaulting to empty arrays if missing)
-  const ramfinData: string[] =
-    partnerData && partnerData["RamFin"] && Array.isArray(partnerData["RamFin"].data)
-      ? partnerData["RamFin"].data!
-      : [];
-  const zypeData: string[] =
-    partnerData && partnerData["Zype"] && Array.isArray(partnerData["Zype"].data)
-      ? partnerData["Zype"].data!
-      : [];
-
-  // Paginate RamFin Data
-  const totalEntriesRamFin = ramfinData.length;
-  const totalPagesRamFin = Math.ceil(totalEntriesRamFin / entriesPerPage);
-  const showingFromRamFin = (currentPageRamFin - 1) * entriesPerPage + 1;
-  const showingToRamFin = Math.min(currentPageRamFin * entriesPerPage, totalEntriesRamFin);
-  const paginatedRamFin = ramfinData.slice(
-    (currentPageRamFin - 1) * entriesPerPage,
-    currentPageRamFin * entriesPerPage
-  );
-
-  // Paginate Zype Data
-  const totalEntriesZype = zypeData.length;
-  const totalPagesZype = Math.ceil(totalEntriesZype / entriesPerPage);
-  const showingFromZype = (currentPageZype - 1) * entriesPerPage + 1;
-  const showingToZype = Math.min(currentPageZype * entriesPerPage, totalEntriesZype);
-  const paginatedZype = zypeData.slice(
-    (currentPageZype - 1) * entriesPerPage,
-    currentPageZype * entriesPerPage
-  );
-
-  // Handle changes to entries per page (shared for both partners)
-  const handleEntriesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newEntries = parseInt(e.target.value);
-    setEntriesPerPage(newEntries);
-    setCurrentPageRamFin(1);
-    setCurrentPageZype(1);
-  };
-
   return (
     <div className="p-6">
       {/* Header */}
@@ -184,144 +112,14 @@ export default function DashboardPage() {
       </div>
 
       {/* Shared Entries Dropdown */}
-      <div className="flex items-center space-x-1 mt-10 mb-4">
-        <label className="font-medium">Show</label>
-        <select
-          value={entriesPerPage}
-          onChange={handleEntriesChange}
-          className="option-b border rounded p-2"
-        >
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={25}>25</option>
-          <option value={50}>50</option>
-          <option value={100}>100</option>
-        </select>
-        <span>entries</span>
-      </div>
+      <div className="space-y-8">
+  <Samfin />
+  <Zype />
+  <Fatakpay />
+</div>
 
-      {loading ? (
-        <p>Loading partner data...</p>
-      ) : (
-        <div className="space-y-8">
-          {/* RamFin Section  hh*/}
-          <div>
-            <h2 className="text-xl font-semibold mb-4">RamFin</h2>
-            <div className="overflow-x-auto">
-              <table className="min-w-full border rounded-lg">
-                <thead>
-                  <tr>
-                    <th className="px-4 py-2 border">Sr.No</th>
-                    <th className="px-4 py-2 border">Phone</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {paginatedRamFin.map((phone, index) => (
-                    <tr key={`ramfin-${index}`}>
-                      <td className="border px-4 py-2">
-                        {(currentPageRamFin - 1) * entriesPerPage + index + 1}
-                      </td>
-                      <td className="border px-4 py-2">{phone}</td>
-                    </tr>
-                  ))}
-                  <tr className="font-bold">
-                    <td className="border px-4 py-2" colSpan={2}>
-                      Total Entries: {totalEntriesRamFin}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            {/* Pagination Controls for RamFin */}
-            <div className="mt-4 flex flex-col md:flex-row justify-between items-center gap-4">
-              <span className="text-sm font-medium">
-                Showing {showingFromRamFin} to {showingToRamFin} of {totalEntriesRamFin} entries
-              </span>
-              <div className="flex items-center space-x-3">
-                <button
-                  onClick={() => setCurrentPageRamFin(Math.max(currentPageRamFin - 1, 1))}
-                  disabled={currentPageRamFin === 1}
-                  className="px-3 py-1 border rounded p-2 disabled:opacity-50"
-                >
-                  Prev
-                </button>
-                <button
-                  onClick={() =>
-                    setCurrentPageRamFin(
-                      currentPageRamFin < totalPagesRamFin ? currentPageRamFin + 1 : currentPageRamFin
-                    )
-                  }
-                  disabled={currentPageRamFin === totalPagesRamFin}
-                  className="px-3 py-1 border rounded p-2 disabled:opacity-50"
-                >
-                  Next
-                </button>
-                <span className="text-sm">
-                  Page {currentPageRamFin} of {totalPagesRamFin}
-                </span>
-              </div>
-            </div>
-          </div>
 
-          {/* Zype Section */}
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Zype</h2>
-            <div className="overflow-x-auto">
-              <table className="min-w-full border rounded-lg">
-                <thead>
-                  <tr>
-                    <th className="px-4 py-2 border">Sr.No</th>
-                    <th className="px-4 py-2 border">Phone</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {paginatedZype.map((phone, index) => (
-                    <tr key={`zype-${index}`}>
-                      <td className="border px-4 py-2">
-                        {(currentPageZype - 1) * entriesPerPage + index + 1}
-                      </td>
-                      <td className="border px-4 py-2">{phone}</td>
-                    </tr>
-                  ))}
-                  <tr className="font-bold">
-                    <td className="border px-4 py-2" colSpan={2}>
-                      Total Entries: {totalEntriesZype}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-4 flex flex-col md:flex-row justify-between items-center gap-4">
-              <span className="text-sm font-medium">
-                Showing {showingFromZype} to {showingToZype} of {totalEntriesZype} entries
-              </span>
-              <div className="flex items-center space-x-3">
-                <button
-                  onClick={() => setCurrentPageZype(Math.max(currentPageZype - 1, 1))}
-                  disabled={currentPageZype === 1}
-                  className="px-3 py-1 border rounded p-2 disabled:opacity-50"
-                >
-                  Prev
-                </button>
-                <button
-                  onClick={() =>
-                    setCurrentPageZype(
-                      currentPageZype < totalPagesZype ? currentPageZype + 1 : currentPageZype
-                    )
-                  }
-                  disabled={currentPageZype === totalPagesZype}
-                  className="px-3 py-1 border rounded p-2 disabled:opacity-50"
-                >
-                  Next
-                </button>
-                <span className="text-sm">
-                  Page {currentPageZype} of {totalPagesZype}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+
     </div>
   );
 }
