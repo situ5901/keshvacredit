@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Cookies from 'js-cookie'
 
 export default function Login() {
   const [username, setUsername] = useState('')
@@ -15,7 +16,9 @@ export default function Login() {
     const staticPassword = 'parveen123'
 
     if (username === staticUsername && password === staticPassword) {
-      router.push('/Adminpanel') 
+      // ✅ Set cookie on successful login
+      Cookies.set('admin_login', 'true', { expires: 7 }) // Expires in 1 day
+      router.push('/Adminpanel')
     } else {
       setError('Invalid username or password')
     }
@@ -23,42 +26,45 @@ export default function Login() {
 
   return (
     <div
-    className="min-h-screen flex items-center justify-center bg-cover bg-center"
-    style={{ backgroundImage: "url('https://img.freepik.com/free-vector/gradient-style-network-connection-background_23-2148879891.jpg?semt=ais_country_boost&w=740')" }}
-  >
-    <form
-      onSubmit={handleLogin}
-      className="bg-white/30 backdrop-blur-lg p-6 rounded-lg shadow-lg w-full max-w-sm"
+      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://img.freepik.com/free-vector/gradient-style-network-connection-background_23-2148879891.jpg?semt=ais_country_boost&w=740')",
+      }}
     >
-      <h2 className="text-2xl font-semibold mb-4 text-center text-white">
-        Admin Login
-      </h2>
-
-      {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
-
-      <input
-        type="text"
-        placeholder="Username"
-        className="w-full p-3 border border-gray-300 rounded-lg bg-white/70 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-3"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-
-      <input
-        type="password"
-        placeholder="Password"
-        className="w-full p-3 border border-gray-300 rounded-lg bg-white/70 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <button
-        type="submit"
-        className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+      <form
+        onSubmit={handleLogin}
+        className="bg-white/30 backdrop-blur-lg p-6 rounded-lg shadow-lg w-full max-w-sm"
       >
-        Login
-      </button>
-    </form>
-  </div>
+        <h2 className="text-2xl font-semibold mb-4 text-center text-white">
+          Admin Login
+        </h2>
+
+        {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+
+        <input
+          type="text"
+          placeholder="Username"
+          className="w-full p-3 border border-gray-300 rounded-lg bg-white/70 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-3"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full p-3 border border-gray-300 rounded-lg bg-white/70 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+        >
+          Login
+        </button>
+      </form>
+    </div>
   )
 }

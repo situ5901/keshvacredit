@@ -1,54 +1,44 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 export default function AdminPanelHome() {
-  const [turn, setTurn] = useState<'X' | 'O'>('X');
-  const [cells, setCells] = useState(Array(9).fill(''));
+  const router = useRouter();
 
-  const handleClick = (i: number) => {
-    if (cells[i] !== '') return;
-    const newCells = [...cells];
-    newCells[i] = turn;
-    setCells(newCells);
-    setTurn(turn === 'X' ? 'O' : 'X');
-  };
-
-  const resetGame = () => {
-    setCells(Array(9).fill(''));
-    setTurn('X');
-  };
+  useEffect(() => {
+    const isLoggedIn = Cookies.get('admin_login');
+    if (!isLoggedIn) {
+      router.push('/Admin-panel-login');
+    }
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100 p-6">
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-2xl text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">👋 Welcome, Admin!</h1>
-        <p className="text-lg text-gray-600 mb-6">
-          You&apos;re logged into the admin panel. Use the sidebar to manage your dashboard, users, services, and more.
-        </p>
-
-        <div className="bg-gray-50 rounded-xl p-6 mt-6">
-          <h2 className="text-xl font-semibold mb-4 text-gray-700">🎮 Take a break: Play Tic-Tac-Toe</h2>
-          <div className="grid grid-cols-3 gap-2 max-w-xs mx-auto">
-            {cells.map((cell, index) => (
-              <button
-                key={index}
-                className="w-20 h-20 text-2xl font-bold text-gray-800 bg-white border-2 border-gray-300 rounded-md hover:bg-blue-100"
-                onClick={() => handleClick(index)}
-              >
-                {cell}
-              </button>
-            ))}
-          </div>
-          <p className="mt-4 text-gray-600">
-            Current Turn: <span className="font-semibold">{turn}</span>
+    <div className="rounded-3xl flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-8">
+      <div className=" w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden animate-fadeIn">
+        <div className="p-10 space-y-8 text-center">
+          <h1 className="text-5xl font-extrabold text-gray-800">
+            🚀 Welcome <span className="text-purple-600">Dixit Asija sir</span>!
+          </h1>
+          <p className="text-lg text-gray-600">
+            You’ve made it! You’re officially the king of this digital empire. Welcome to the <span className="font-semibold text-blue-600">Admin Panel</span>, where you get to make all the important decisions.!
           </p>
-          <button
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-            onClick={resetGame}
-          >
-            Reset Game
-          </button>
+          <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium rounded-full shadow-md animate-pulse">
+            Admin Mode: Engaged 🔐
+          </span>
+          <div className="mt-10 bg-gradient-to-r from-white via-gray-50 to-white rounded-2xl p-6 border border-dashed border-purple-300 shadow-inner text-left space-y-4 text-gray-700">
+            <h2 className="text-2xl font-bold text-purple-600">🛠 What You Can Do as the Big Boss:</h2>
+            <ul className="list-disc list-inside text-lg space-y-2">
+              <li>✅ Say goodbye to spreadsheets, now you get the numbers in real time!</li>
+              <li>✅ Put on your superhero cape and manage all services.</li>
+              <li>✅ Respond to user questions (because you’re the best at solving problems, obviously).</li>
+              <li>✅ Keep track of the platform’s growth without needing a magnifying glass.</li>
+            </ul>
+            <p className="pt-4 text-base text-gray-500">
+              Grab your coffee, take a deep breath (or 10), and let the admin chaos begin! Just remember, even superheroes need a break sometimes. So, if you need to step away, just hit that logout button and let the world know you’re off saving the day (or taking a nap). 😴
+            </p>
+          </div>
         </div>
       </div>
     </div>
