@@ -30,6 +30,18 @@ const lenders = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/Eligiblity-Zype",
   },
+  {
+    id: "Flot",
+    name: "flot",
+    logo: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Starting from 22% to 28%",
+    tenure: "Up to 18 months",
+    fee: "Up to 2%",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D ",
+  },
 ];
 
 export default function Page() {
