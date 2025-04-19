@@ -12,10 +12,10 @@ export default function AdminPanelHome() {
     if (!isLoggedIn) {
       router.push('/Admin-panel-login');
     }
-  }, []);
-
+  }, [router]);
+  
   return (
-    <div className="rounded-3xl flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-8">
+    <div className="rounded-3xl mt-15 flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-8">
       <div className=" w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden animate-fadeIn">
         <div className="p-10 space-y-8 text-center">
           <h1 className="text-5xl font-extrabold text-gray-800">

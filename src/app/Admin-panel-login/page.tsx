@@ -17,7 +17,7 @@ export default function Login() {
 
     if (username === staticUsername && password === staticPassword) {
       // ✅ Set cookie on successful login
-      Cookies.set('admin_login', 'true', { expires: 7 }) // Expires in 1 day
+      Cookies.set('admin_login', 'true', { expires: 7 }) 
       router.push('/Adminpanel')
     } else {
       setError('Invalid username or password')
@@ -29,14 +29,14 @@ export default function Login() {
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://img.freepik.com/free-vector/gradient-style-network-connection-background_23-2148879891.jpg?semt=ais_country_boost&w=740')",
+          "url('/pattern.png')",
       }}
     >
       <form
         onSubmit={handleLogin}
         className="bg-white/30 backdrop-blur-lg p-6 rounded-lg shadow-lg w-full max-w-sm"
       >
-        <h2 className="text-2xl font-semibold mb-4 text-center text-white">
+        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">
           Admin Login
         </h2>
 
@@ -45,7 +45,7 @@ export default function Login() {
         <input
           type="text"
           placeholder="Username"
-          className="w-full p-3 border border-gray-300 rounded-lg bg-white/70 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-3"
+          className="w-full p-3 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 mb-3"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -53,7 +53,7 @@ export default function Login() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full p-3 border border-gray-300 rounded-lg bg-white/70 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+          className="w-full p-3 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
