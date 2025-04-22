@@ -162,32 +162,6 @@ body {
   color: white; /* black */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* globals.css */
 .custom-select {
   @apply bg-[#1A202C] text-white;
@@ -200,15 +174,24 @@ body {
 
 /* for lender  */
 .lender {
-  background-color: #1A202C;
-  color: white;
+  background-image: 
+    url('/lendercard.png'),
+    linear-gradient(135deg, #1A202C, #2D3748); /* Dark navy to charcoal */
+  background-size: cover;
+  background-position: center;
+  color: rgb(32, 21, 21);
 }
+
 
 /* Dark mode hover styles */
 .dark .lender {
-  background-color: #ffffff; /* white */
-  color: #000000; /* black */
+  background: linear-gradient(110deg, #f1d598, #ffffff); /* Soft pink to white */
+  color: #000;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
 .option-b {
   background-color: #1A202C;
   color: white;
@@ -229,6 +212,12 @@ body {
   background-color: #ffffff; /* white */
   color: #000000; /* black */
 }
+
+
+
+
+
+
 
 
 

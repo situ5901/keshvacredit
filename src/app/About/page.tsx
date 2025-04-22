@@ -12,9 +12,14 @@ function About() {
       {/* Hero Section */}
       <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
         <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+          <h1
+            className="mb-4 text-3xl font-extrabold tracking-tight leading-tight text-white animate__animated animate__bounce md:text-5xl lg:text-6xl"
+            style={{ animationDuration: '5s' }}
+          >
             1ST Loan Marketplace – Simplifying Your Loan Journey
           </h1>
+
+
           <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
             Simplifying the Borrowing Experience with Instant Approvals, Best
             Interest Rates, and Trusted Lenders for Personal, Business, and
@@ -22,6 +27,7 @@ function About() {
           </p>
         </div>
       </section>
+   
 
       {/* What Makes Us Special Section */}
       <section className="py-20 ">
@@ -35,37 +41,37 @@ function About() {
 
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center items-start">
 
-<div className="flex flex-col items-center">
-  <Image src="https://cdn-icons-gif.flaticon.com/7920/7920939.gif" alt="Fast Approval" width={64} height={64} className="mb-2" />
-  <span className="font-semibold text-center">Fast Approval</span>
-</div>
+            <div className="flex flex-col items-center">
+              <Image src="https://cdn-icons-gif.flaticon.com/7920/7920939.gif" alt="Fast Approval" width={64} height={64} className="mb-2" />
+              <span className="font-semibold text-center">Fast Approval</span>
+            </div>
 
-<div className="flex flex-col items-center">
-  <Image src="https://cdn-icons-png.flaticon.com/128/7325/7325279.png" alt="Quick Disbursal" width={64} height={64} className="mb-2" />
-  <span className="font-semibold text-center">Quick Disbursal</span>
-</div>
+            <div className="flex flex-col items-center">
+              <Image src="https://cdn-icons-png.flaticon.com/128/7325/7325279.png" alt="Quick Disbursal" width={64} height={64} className="mb-2" />
+              <span className="font-semibold text-center">Quick Disbursal</span>
+            </div>
 
-<div className="flex flex-col items-center">
-  <Image src="https://cdn-icons-png.flaticon.com/128/4660/4660937.png" alt="100% Paperless" width={64} height={64} className="mb-2" />
-  <span className="font-semibold text-center">100% Paperless</span>
-</div>
+            <div className="flex flex-col items-center">
+              <Image src="https://cdn-icons-png.flaticon.com/128/4660/4660937.png" alt="100% Paperless" width={64} height={64} className="mb-2" />
+              <span className="font-semibold text-center">100% Paperless</span>
+            </div>
 
-<div className="flex flex-col items-center">
-  <Image src="https://cdn-icons-png.flaticon.com/128/3875/3875894.png" alt="Wide Product Range" width={64} height={64} className="mb-2" />
-  <span className="font-semibold text-center">Wide Product Range</span>
-</div>
+            <div className="flex flex-col items-center">
+              <Image src="https://cdn-icons-png.flaticon.com/128/3875/3875894.png" alt="Wide Product Range" width={64} height={64} className="mb-2" />
+              <span className="font-semibold text-center">Wide Product Range</span>
+            </div>
 
-<div className="flex flex-col items-center">
-  <Image src="https://cdn-icons-png.flaticon.com/128/5579/5579459.png" alt="Hassle-free Docs" width={64} height={64} className="mb-2" />
-  <span className="font-semibold text-center">Hassle-free Docs</span>
-</div>
+            <div className="flex flex-col items-center">
+              <Image src="https://cdn-icons-png.flaticon.com/128/5579/5579459.png" alt="Hassle-free Docs" width={64} height={64} className="mb-2" />
+              <span className="font-semibold text-center">Hassle-free Docs</span>
+            </div>
 
-<div className="flex flex-col items-center">
-  <Image src="https://cdn-icons-gif.flaticon.com/6569/6569170.gif" alt="Safe Data" width={64} height={64} className="mb-2" />
-  <span className="font-semibold text-center">Safe Data Ecosystem</span>
-</div>
+            <div className="flex flex-col items-center">
+              <Image src="https://cdn-icons-gif.flaticon.com/6569/6569170.gif" alt="Safe Data" width={64} height={64} className="mb-2" />
+              <span className="font-semibold text-center">Safe Data Ecosystem</span>
+            </div>
 
-</div>
+          </div>
 
         </div>
       </section>
@@ -86,8 +92,8 @@ function About() {
 
             </div>
             <div className="lg:w-1/2 flex items-center justify-center animate__animated animate__fadeInRight">
-  <Lottie animationData={loanAnimation} loop={true} className="w-full h-full" />
-</div>
+              <Lottie animationData={loanAnimation} loop={true} className="w-full h-full" />
+            </div>
           </div>
         </div>
       </section>

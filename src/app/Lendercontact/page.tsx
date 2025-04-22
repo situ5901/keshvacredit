@@ -3,7 +3,7 @@ import React from "react";
 
 const lenders = [
   {
-    name: "Ramfin Corporation",
+    name: "Ram FinCorp",
     website: "https://www.ramfincorp.com/contact-us",
   },
   {
@@ -11,43 +11,42 @@ const lenders = [
     website: "https://www.getzype.com/contact-us/",
   },
   {
-    name: "float",
+    name: "Flot",
     website: "https://www.myflot.com/",
   },
   {
-    name: "fatakpay",
+    name: "FatakPay",
     website: "https://fatakpay.com/contact-us",
   },
   {
-    name: "m-pokket",
+    name: "Mpokket",
     website: "https://www.mpokket.in/contact",
   },
   {
-    name: "olyv",
+    name: "Olyv",
     website: "https://www.olyv.co.in/contactus",
   },
-
 ];
 
 function LenderContactPage() {
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 mt-12">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-10">
-        Contact Our Lenders
+    <div className="min-h-screen py-16 px-4 ">
+      <h1 className="text-4xl font-bold text-center  mb-14 mt-15 drop-shadow-lg">
+        Lender Contact
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
         {lenders.map((lender, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-xl shadow-md p-6 flex flex-col justify-between items-center text-center"
+            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-6 flex flex-col justify-between items-center text-center transition-transform transform hover:scale-105 hover:shadow-2xl"
           >
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">{lender.name}</h2>
+            <h2 className="text-xl font-semibold mb-4">{lender.name}</h2>
             <a
               href={lender.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition"
+              className="bg-blue-700 text-white font-semibold px-5 py-2 rounded-full hover:bg-[#2da385] hover:text-white transition-all"
             >
               Contact Us
             </a>
