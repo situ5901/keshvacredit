@@ -18,7 +18,7 @@ const lenders = [
   },
   {
     name: "mPokket",
-    image:"https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
+    image: "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
     GrievanceOfficername: "Ridham",
     email: "support@mpokket.com",
   },
@@ -33,67 +33,68 @@ const lenders = [
 
 function Page() {
   return (
-    <div className="min-h-screen  p-6 py-16 mt-4">
-      <h1 className="text-4xl font-bold text-center  mb-12">Lender Grievance</h1>
+    <div className="min-h-screen  p-6 py-20">
+      <h1 className="text-5xl font-extrabold text-center mb-16 ">
+        Lender Grievance
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
         {lenders.map((lender, idx) => (
           <div
             key={idx}
-            className="flex flex-col md:flex-row bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_6px_30px_rgba(0,0,0,0.2)] rounded-2xl overflow-hidden transition-all"
+            className="group bg-white/30 backdrop-blur-md border border-white/40 shadow-lg hover:shadow-2xl rounded-3xl overflow-hidden transition-all duration-300 hover:scale-[1.02]"
           >
-            {/* Left Side */}
-            <div className="bg-gradient-to-br from-[#b66b7d] to-[#1d2323]  md:w-1/3 w-full flex flex-col items-center justify-center text-center p-6 transition-colors duration-300">
-              <Image
-                src={lender.image}
-                alt={lender.name}
-                width={130}
-                height={60}
-                className="mb-3 rounded-full object-contain"
-              />
-              {/* <div className="text-lg font-semibold capitalize">{lender.name}</div> */}
+            {/* Top Section */}
+            <div className="bg-gradient-to-tr from-[#beabd0] to-[#4f46e5] text-white flex flex-col items-center justify-center text-center p-8">
+
+              <div className="w-[160px] h-[60px] flex items-center justify-center  overflow-hidden">
+                <Image
+                  src={lender.image}
+                  alt={lender.name}
+                  width={160}
+                  height={130}
+                  className="object-contain"
+                />
+              </div>
+
+
+
+              {/* <h2 className="text-xl font-semibold tracking-wide">
+                {lender.name}
+              </h2> */}
             </div>
 
-            {/* Right Side */}
-            <div className="md:w-2/3 w-full p-5 space-y-5">
-              {[
-                {
-                  label: "Grievance Officer Name",
-                  value: lender.GrievanceOfficername,
-                },
-                {
-                  label: "Email",
-                  value: lender.email,
-                  link: `mailto:${lender.email}`,
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <Image
-                    src="https://cdn-icons-png.flaticon.com/128/724/724927.png"
-                    alt="arrow"
-                    width={20}
-                    height={20}
-                    className="mt-1 shrink-0"
-                  />
-                  <div className="flex flex-col">
-                    <span className=" font-semibold mb-1">{item.label}:</span>
-                    {item.link ? (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline break-words"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span className=" break-words whitespace-pre-wrap">
-                        {item.value}
-                      </span>
-                    )}
-                  </div>
+            {/* Bottom Section */}
+            <div className="p-6 bg-white space-y-5">
+              <div className="flex items-start gap-4">
+                <Image
+                  src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
+                  alt="Officer"
+                  width={24}
+                  height={24}
+                />
+                <div>
+                  <p className="font-medium text-gray-700">Grievance Officer :</p>
+                  <p className="text-gray-900">{lender.GrievanceOfficername}</p>
                 </div>
-              ))}
+              </div>
+              <div className="flex items-start gap-4">
+                <Image
+                  src="https://cdn-icons-png.flaticon.com/128/561/561127.png"
+                  alt="Email"
+                  width={24}
+                  height={24}
+                />
+                <div>
+                  <p className="font-medium text-gray-700">Email :</p>
+                  <a
+                    href={`mailto:${lender.email}`}
+                    className="text-blue-600 hover:underline break-words"
+                  >
+                    {lender.email}
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         ))}
