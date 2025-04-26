@@ -11,7 +11,7 @@ function Footer() {
   const handleClick = () => {
     const token = Cookies.get("user_token");
     const phone = Cookies.get("user_phone");
-  
+
     if (token && phone) {
       router.push("/short-term-loan"); // ✅ Token & Phone both exist
     } else {
@@ -44,10 +44,11 @@ function Footer() {
                 <i className="fab fa-twitter"></i>
                 <span className="sr-only">Twitter</span>
               </a>
-              <a href="#" className="hover:opacity-80 text-xl">
-                <i className="fab fa-github"></i>
-                <span className="sr-only">Github</span>
+              <a href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19 " className="hover:opacity-80 text-xl">
+                <i className="fab fa-whatsapp"></i>
+                <span className="sr-only">WhatsApp</span>
               </a>
+
               <a href="#" className="hover:opacity-80 text-xl">
                 <i className="fab fa-instagram"></i>
                 <span className="sr-only">Instagram</span>
@@ -88,17 +89,19 @@ function Footer() {
             </div>
 
             {/* Follow Us Section */}
-            <div>
-              <h2 className="mb-6 text-sm font-semibold">Follow us</h2>
-              <ul className="font-medium">
-                <li className="mb-4">
-                  <Link href="#" className="hover:underline">
-                    On Working
+            <div className="text-center">
+              <h2 className="mb-6 text-sm font-semibold">FOLLOW US</h2>
+              <ul className="font-medium flex flex-col items-center gap-4">
+                <li>
+                  <Link
+                    href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19"
+                    className="hover:opacity-80 text-3xl text-green-500"
+                  >
+                    <i className="fab fa-whatsapp"></i>
                   </Link>
                 </li>
               </ul>
             </div>
-
             {/* Legal Section */}
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>

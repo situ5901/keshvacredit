@@ -2,135 +2,108 @@ import React from "react";
 
 function page() {
   return (
-    <div>
-      <div className="   ">
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
+    <div className="container mx-auto px-4 py-8 mt-12">
+      <h1 className="text-3xl font-bold mb-4">Privacy Policy &ldquo;KeshvaCredit&rdquo;:</h1>
 
-          <p className="mb-4">
-            This privacy policy sets out how our website uses and protects any
-            information that you give us when you use this website.
-          </p>
+      <hr className="mb-4" />
 
-          <h2 className="text-2xl font-bold mb-2">Information We Collect</h2>
+      <p className="mb-4 font-semibold">Last Updated: September 24, 2024</p>
 
-          <p className="mb-4">We may collect the following information:</p>
+      <p className="mb-4">
+        This Privacy Policy (&ldquo;Policy&rdquo;)
+        outlines how KeshvaCredit Private Limited and its affiliates, successors, and assigns (“KeshvaCredit,” “We,” “Us,” or “Our”) collect, use, store, and disclose your personal information. This Policy applies to our website www.KeshvaCredit.com and the KeshvaCredit mobile application (together, the “Platform”).
+      </p>
 
-          <ul className="list-disc list-inside mb-4">
-            <li>Your name and contact information</li>
-            <li>Demographic information</li>
-            <li>
-              Other information relevant to customer surveys and/or offers
-            </li>
-          </ul>
+      <p className="mb-4">
+        By accessing or using the Platform, you (&ldquo;User,&rdquo; &ldquo;You,&rdquo; &ldquo;Your&rdquo;)
+        consent to the terms of this Policy, including how We collect and use your data in accordance with the Information Technology Act, 2000, IT Rules 2011, and relevant RBI guidelines. If you disagree with any terms in this Policy, please do not use the Platform.
+      </p>
 
-          <h2 className="text-2xl font-bold mb-2">
-            How We Use the Information
-          </h2>
+      <p className="mb-4">
+        This Company is a loan marketplace and does not directly provide loans. We only suggest RBI-registered NBFCs and banks as per user eligibility.
+      </p>
 
-          <p className="mb-4">
-            We require this information to understand your needs and provide you
-            with a better service, and in particular for the following reasons:
-          </p>
+      <h2 className="text-2xl font-bold mb-2">1. Scope and Application</h2>
+      <p className="mb-4">
+        This Policy applies to Users who visit, access, or transact through the Platform. It excludes third-party websites and apps linked to the Platform, which are governed by their own privacy policies.
+      </p>
 
-          <ul className="list-disc list-inside mb-4">
-            <li>Internal record keeping</li>
-            <li>Improving our products and services</li>
-            <li>
-              Sending promotional emails about new products, special offers, or
-              other information which we think you may find interesting
-            </li>
-            <li>
-              From time to time, we may also use your information to contact you
-              for market research purposes. We may contact you by email, phone,
-              or mail. We may use the information to customize the website
-              according to your interests.
-            </li>
-          </ul>
+      <h2 className="text-2xl font-bold mb-2">2. Services We Provide</h2>
+      <p className="mb-2 font-semibold">a. Credit Reports</p>
+      <ul className="list-disc list-inside mb-4">
+        <li>Data Collected: Your name, address, email, mobile number, PAN, gender, age, and date of birth.</li>
+        <li>Purpose: To obtain your credit report from credit bureaus with your explicit consent and offer insights into your financial health.</li>
+        <li>Sharing: We do not share your credit report with any third party.</li>
+      </ul>
 
-          <h2 className="text-2xl font-bold mb-2">Security</h2>
+      <p className="mb-2 font-semibold">b. Loans and Credit Cards</p>
+      <ul className="list-disc list-inside mb-4">
+        <li>Partnerships: We connect Users with our Lending Partners (banks, NBFCs).</li>
+        <li>Data Collected: Information such as Aadhaar, salary details, employment history, KYC documents, and banking information is collected with your consent for loan and credit card application processing.</li>
+        <li>Sharing: We share necessary data with Lending Partners to facilitate your loan or credit card application.</li>
+      </ul>
 
-          <p className="mb-4">
-            We are committed to ensuring that your information is secure. In
-            order to prevent unauthorized access or disclosure, we have put in
-            place suitable physical, electronic, and managerial procedures to
-            safeguard and secure the information we collect online.
-          </p>
+      <p className="mb-2 font-semibold">c. Marketing and Promotional Campaigns</p>
+      <p className="mb-4">
+        By using the Platform and furnishing information about the Services, You hereby agree that You are interested in acquiring knowledge of and availing various products, services, offers, or campaigns that KeshvaCredit displays on its Platform, including but not limited to pre-approved loan and credit card offers provided by Our Lending Partners.
+      </p>
+      <p className="mb-4">
+        You, while providing information, expressly consent to Us (including Our IVR, third-party marketing channels, and network of Lending Partners) contacting and communicating with You through SMS, call, e-mail, WhatsApp, and/or other modes of communication and conducting follow-up calls in relation to the Services, i.e., for imparting credit product and Services knowledge, informing about promotional offers running on the Platform, and various other offers as provided by Our Lending Partners with respect to their products and services.
+      </p>
+      <ul className="list-disc list-inside mb-4">
+        <li>Information that We Collect: Information collected as detailed under Clause 1(b) and employment-related information as mentioned under Clause 2(b) shall be collected/utilized to provide Services enlisted in this Clause.</li>
+        <li>Sharing of Information: We share Your information with third parties and a network of Lending Partners to enable them to contact You in relation to the marketing and promotional campaigns as detailed under this Clause 3.</li>
+      </ul>
 
-          <h2 className="text-2xl font-bold mb-2">Cookies</h2>
+      <p className="mb-2 font-semibold">d. Customer Support</p>
+      <ul className="list-disc list-inside mb-4">
+        <li>Data Collected: Information you provide during interactions with customer service, including recorded calls.</li>
+        <li>Purpose: To enhance our services and address your concerns.</li>
+      </ul>
 
-          <p className="mb-4">
-            A cookie is a small file that asks permission to be placed on your
-            computer&apos;s hard drive. Once you agree, the file is added, and the
-            cookie helps analyze web traffic or lets you know when you visit a
-            particular site. Cookies allow web applications to respond to you as
-            an individual. The web application can tailor its operations to your
-            needs, likes, and dislikes by gathering and remembering information
-            about your preferences.
-          </p>
+      <h2 className="text-2xl font-bold mb-2">3. Cookies</h2>
+      <p className="mb-4">
+        We use cookies to identify users, enhance user experience, and show relevant advertisements. You can disable cookies, though this may limit the functionality of the Platform.
+      </p>
 
-          <p className="mb-4">
-            Overall, cookies help us provide you with a better website by
-            enabling us to monitor which pages you find useful and which you do
-            not. A cookie in no way gives us access to your computer or any
-            information about you, other than the data you choose to share with
-            us.
-          </p>
+      <h2 className="text-2xl font-bold mb-2">4. Your Rights</h2>
+      <ul className="list-disc list-inside mb-4">
+        <li><strong>Right to Deny or Withdraw Consent:</strong> You can refuse to provide data or withdraw your consent for data collection and use. However, this may affect our ability to provide services to you.</li>
+        <li><strong>Right to Be Forgotten:</strong> You can request the deletion of your data unless We are legally required to retain it.</li>
+        <li><strong>Right to Rectify:</strong> You can request corrections to your personal data to ensure it is accurate and up to date.</li>
+      </ul>
 
-          <h2 className="text-2xl font-bold mb-2">Links to Other Websites</h2>
+      <h2 className="text-2xl font-bold mb-2">5. Data Storage and Security</h2>
+      <p className="mb-4">
+        We store your data on secure servers in India with Microsoft Azure, following reasonable security practices. However, we cannot guarantee absolute security for data transmitted over the internet.
+      </p>
 
-          <p className="mb-4">
-            Our website may contain links to other websites of interest.
-            However, once you have used these links to leave our site, you
-            should note that we do not have any control over that other website.
-            Therefore, we cannot be responsible for the protection and privacy
-            of any information which you provide whilst visiting such sites and
-            such sites are not governed by this privacy statement. You should
-            exercise caution and look at the privacy statement applicable to the
-            website in question.
-          </p>
+      <h2 className="text-2xl font-bold mb-2">6. Confidentiality Agreements</h2>
+      <p className="mb-4">
+        We ensure that third parties with whom We share your data are bound by confidentiality agreements that restrict further disclosure.
+      </p>
 
-          <h2 className="text-2xl font-bold mb-2">
-            Controlling Your Personal Information
-          </h2>
+      <h2 className="text-2xl font-bold mb-2">7. Grievance Redressal</h2>
+      <p className="mb-4">
+        For any issues regarding your data, contact our Grievance Redressal Officer:
+      </p>
+      <ul className="list-inside mb-4">
+        <li><strong>Name:</strong> Vishal Grewal</li>
+        <li><strong>Email:</strong> info@keshvacredit.com</li>
+        <li><strong>Phone:</strong> 8607205215</li>
+        <li><strong>Address:</strong> KeshvaCredit Pvt. Ltd, 8237, SHASTRI NAGAR, AMBEDEKAR COLONY, FATEHABAD, FATEHABAD (FATEHABAD), FATEHABAD-125050, HARYANA</li>
+      </ul>
+      <p className="mb-4">We will respond to your requests within 48 hours.</p>
 
-          <p className="mb-4">
-            You may choose to restrict the collection or use of your personal
-            information in the following ways:
-          </p>
+      <h2 className="text-2xl font-bold mb-2">8. Phishing Protection</h2>
+      <p className="mb-4">
+        We will never ask for your payment details, usernames, or passwords via email. Any communication that does so may be an attempt at phishing.
+      </p>
 
-          <ul className="list-disc list-inside mb-4">
-            <li>
-              If you have previously agreed to us using your personal
-              information for direct marketing purposes, you may change your
-              mind at any time by writing to or emailing us at [email protected]
-            </li>
-            <li>
-              We will not sell, distribute, or lease your personal information
-              to third parties unless we have your permission or are required by
-              law to do so. We may use your personal information to send you
-              promotional information about third parties which we think you may
-              find interesting if you tell us that you wish this to happen.
-            </li>
-            <li>
-              You may request details of personal information which we hold
-              about you. If you would like a copy of the information held on
-              you, please write to [Your Company Name, Address, City, State, Zip
-              Code] or email [email protected]
-            </li>
-            <li>
-              If you believe that any information we are holding on you is
-              incorrect or incomplete, please write to or email us as soon as
-              possible at the above address. We will promptly correct any
-              information found to be incorrect.
-            </li>
-          </ul>
-
-          <p className="mb-4">
-            This privacy policy is subject to change without notice.
-          </p>
-        </div>
-      </div>
+      <h2 className="text-2xl font-bold mb-2">9. Legal and Governing Law</h2>
+      <p className="mb-4">
+        This Policy is governed by the laws of India, and any disputes will be subject to the jurisdiction outlined in our Terms & Conditions.
+      </p>
     </div>
   );
 }

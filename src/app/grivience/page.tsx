@@ -56,9 +56,6 @@ function Page() {
                   className="object-contain"
                 />
               </div>
-
-
-
               {/* <h2 className="text-xl font-semibold tracking-wide">
                 {lender.name}
               </h2> */}

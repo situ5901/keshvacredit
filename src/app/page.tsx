@@ -451,7 +451,7 @@ function Page() {
                 className="rounded-full shadow-lg object-cover"
               />
             </div>
-            <h3 className="text-2xl font-medium ">35000+</h3>
+            <h3 className="text-2xl font-medium ">60000+</h3>
             <p className="text-gray-500">Happy Customers</p>
           </div>
           <div className="flex flex-col items-center">
@@ -463,8 +463,8 @@ function Page() {
                 className="rounded-full shadow-lg object-cover"
               />
             </div>
-            <h3 className="text-2xl font-medium ">2,500+</h3>
-            <p className="text-gray-500">Relationship Managers</p>
+            <h3 className="text-2xl font-medium ">50+</h3>
+            <p className="text-gray-500">Relationship</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 relative">
@@ -476,7 +476,7 @@ function Page() {
               />
             </div>
             <h3 className="text-2xl font-medium ">30+</h3>
-            <p className="text-gray-500">Banks & NBFCs</p>
+            <p className="text-gray-500"> NBFCs</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 relative">
@@ -487,8 +487,10 @@ function Page() {
                 className="rounded-full shadow-lg object-cover"
               />
             </div>
-            <h3 className="text-2xl font-medium ">65000+</h3>
-            <p className="text-gray-500">Business Conducted</p>
+            <h3 className="text-2xl font-medium">✔</h3>
+<p className="text-gray-500">Fast disbursement</p>
+
+
           </div>
 
         </div>
