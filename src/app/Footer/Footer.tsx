@@ -13,9 +13,9 @@ function Footer() {
     const phone = Cookies.get("user_phone");
 
     if (token && phone) {
-      router.push("/short-term-loan"); // ✅ Token & Phone both exist
+      router.push("/short-term-loan");
     } else {
-      openModal(); // ❌ If either is missing, open modal
+      openModal(); 
     }
   };
 
@@ -36,20 +36,21 @@ function Footer() {
 
             {/* Social Media Icons - Always Aligned Left */}
             <div className="flex justify-start mt-3 ml-2 mb-1 space-x-3 sm:space-x-4 lg:space-x-5">
-              <a href="#" className="hover:opacity-80 text-xl">
+              <a href="https://www.facebook.com/share/1ATVmsgGNK/" className="hover:opacity-80 text-xl text-blue-600">
                 <i className="fab fa-facebook"></i>
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="#" className="hover:opacity-80 text-xl">
-                <i className="fab fa-twitter"></i>
-                <span className="sr-only">Twitter</span>
+              <a href="https://www.linkedin.com/company/keshvacredit/" className="hover:opacity-80 text-xl text-blue-700">
+                <i className="fab fa-linkedin"></i>
+                <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19 " className="hover:opacity-80 text-xl">
+
+              <a href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19 " className="hover:opacity-80 text-xl text-green-500">
                 <i className="fab fa-whatsapp"></i>
                 <span className="sr-only">WhatsApp</span>
               </a>
 
-              <a href="#" className="hover:opacity-80 text-xl">
+              <a href="https://www.instagram.com/keshva_credit" className="hover:opacity-80 text-xl text-pink-500">
                 <i className="fab fa-instagram"></i>
                 <span className="sr-only">Instagram</span>
               </a>
@@ -91,7 +92,8 @@ function Footer() {
             {/* Follow Us Section */}
             <div className="text-center">
               <h2 className="mb-6 text-sm font-semibold">FOLLOW US</h2>
-              <ul className="font-medium flex flex-col items-center gap-4">
+              <ul className="font-medium flex flex-col items-center gap-1">
+                {/* WhatsApp */}
                 <li>
                   <Link
                     href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19"
@@ -100,7 +102,37 @@ function Footer() {
                     <i className="fab fa-whatsapp"></i>
                   </Link>
                 </li>
+
+                {/* Facebook */}
+                <li>
+                  <Link
+                    href="https://www.facebook.com/share/1ATVmsgGNK/" // <-- yahan apna Facebook link daal
+                    className="hover:opacity-80 text-3xl text-blue-600"
+                  >
+                    <i className="fab fa-facebook"></i>
+                  </Link>
+                </li>
+
+                {/* Instagram */}
+                <li>
+                  <Link
+                    href="https://www.instagram.com/keshva_credit" // <-- yahan apna Insta link daal
+                    className="hover:opacity-80 text-3xl text-pink-500"
+                  >
+                    <i className="fab fa-instagram"></i>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/company/keshvacredit/" // <-- apna LinkedIn profile link daalna
+                    className="hover:opacity-80 text-3xl text-blue-700"
+                    target="_blank"
+                  >
+                    <i className="fab fa-linkedin"></i>
+                  </Link>
+                </li>
               </ul>
+
             </div>
             {/* Legal Section */}
             <div>
