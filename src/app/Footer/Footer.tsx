@@ -35,26 +35,7 @@ function Footer() {
             </Link>
 
             {/* Social Media Icons - Always Aligned Left */}
-            <div className="flex justify-start mt-3 ml-2 mb-1 space-x-3 sm:space-x-4 lg:space-x-5">
-              <a href="https://www.facebook.com/share/1ATVmsgGNK/" className="hover:opacity-80 text-xl text-blue-600">
-                <i className="fab fa-facebook"></i>
-                <span className="sr-only">Facebook</span>
-              </a>
-              <a href="https://www.linkedin.com/company/keshvacredit/" className="hover:opacity-80 text-xl text-blue-700">
-                <i className="fab fa-linkedin"></i>
-                <span className="sr-only">LinkedIn</span>
-              </a>
-
-              <a href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19 " className="hover:opacity-80 text-xl text-green-500">
-                <i className="fab fa-whatsapp"></i>
-                <span className="sr-only">WhatsApp</span>
-              </a>
-
-              <a href="https://www.instagram.com/keshva_credit" className="hover:opacity-80 text-xl text-pink-500">
-                <i className="fab fa-instagram"></i>
-                <span className="sr-only">Instagram</span>
-              </a>
-            </div>
+           
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
