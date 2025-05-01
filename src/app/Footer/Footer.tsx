@@ -73,7 +73,7 @@ function Footer() {
             {/* Follow Us Section */}
             <div className="text-center">
               <h2 className="mb-6 text-sm font-semibold">FOLLOW US</h2>
-              <ul className="font-medium flex flex-col items-center gap-1">
+              <ul className="font-medium flex flex-col items-center gap-0">
                 {/* WhatsApp */}
                 <li>
                   <Link
