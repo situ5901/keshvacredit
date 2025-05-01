@@ -69,49 +69,43 @@ function Footer() {
                 </li>
               </ul>
             </div>
-
-            {/* Follow Us Section */}
-            <div className="text-center">
+            <div className="ml-3">
               <h2 className="mb-6 text-sm font-semibold">FOLLOW US</h2>
-              <ul className="font-medium flex flex-col items-center gap-0">
-                {/* WhatsApp */}
-                <li>
+              <ul className="font-medium flex flex-col  gap-4">
+              <li>
                   <Link
-                    href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19"
-                    className="hover:opacity-80 text-3xl text-green-500"
+                    href="https://www.linkedin.com/company/keshvacredit/" // <-- apna LinkedIn profile link daalna
+                      className="hover:opacity-80 "
                   >
-                    <i className="fab fa-whatsapp"></i>
+                   Linkedin
                   </Link>
+              
                 </li>
-
-                {/* Facebook */}
                 <li>
                   <Link
                     href="https://www.facebook.com/share/1ATVmsgGNK/" // <-- yahan apna Facebook link daal
-                    className="hover:opacity-80 text-3xl text-blue-600"
+                    className="hover:opacity-80 "
                   >
-                    <i className="fab fa-facebook"></i>
+                    Facebook
                   </Link>
                 </li>
-
-                {/* Instagram */}
                 <li>
                   <Link
                     href="https://www.instagram.com/keshva_credit" // <-- yahan apna Insta link daal
-                    className="hover:opacity-80 text-3xl text-pink-500"
+                    className="hover:opacity-80 "
                   >
-                    <i className="fab fa-instagram"></i>
+                     Instagram
                   </Link>
                 </li>
-                <li>
+                   <li>
                   <Link
-                    href="https://www.linkedin.com/company/keshvacredit/" // <-- apna LinkedIn profile link daalna
-                    className="hover:opacity-80 text-3xl text-blue-700"
-                    target="_blank"
+                    href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19"
+                   className="hover:opacity-80 "
                   >
-                    <i className="fab fa-linkedin"></i>
+                    WhatsApp
                   </Link>
                 </li>
+               
               </ul>
 
             </div>
