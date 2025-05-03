@@ -15,6 +15,7 @@ const nextConfig = {
       "cdn-icons-gif.flaticon.com",
     "www.rupee112.com",
     "www.bharatloan.com",
+    "themoneyfair.com",
     ], // Ensure via.placeholder.com is added here
     remotePatterns: [
       {
