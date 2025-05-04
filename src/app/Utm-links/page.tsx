@@ -14,7 +14,7 @@ const lenderData = [
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-        tag: "Quick Approval",
+       
         applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
         detailsLink: "/",
     },
@@ -25,7 +25,7 @@ const lenderData = [
         interestRate: "Starting @12.5%",
         maxLoan: "Up to ₹25 Lakhs",
         benefit: "Low interest & flexible repayment",
-        tag: "Business Boost",
+        
         applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
         detailsLink: "/",
     },
@@ -36,7 +36,7 @@ const lenderData = [
         interestRate: "Starting @12.5%",
         maxLoan: "Up to ₹25 Lakhs",
         benefit: "Low interest & flexible repayment",
-        tag: "Business Boost",
+        
         applyLink: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
         detailsLink: "/",
     },
@@ -47,7 +47,7 @@ const lenderData = [
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-        tag: "Quick Approval",
+       
         applyLink: "/Eligiblity-Ramfin",
         detailsLink: "/",
     },
@@ -58,7 +58,7 @@ const lenderData = [
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-        tag: "Quick Approval",
+       
         applyLink: "/Eligiblity-Zype",
         detailsLink: "/",
     },
@@ -69,7 +69,7 @@ const lenderData = [
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-        tag: "Quick Approval",
+        
         applyLink: "/",
         detailsLink: "/",
     },
@@ -80,7 +80,7 @@ const lenderData = [
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-        tag: "Quick Approval",
+        
         applyLink: "/",
         detailsLink: "/",
     },
@@ -91,7 +91,7 @@ const lenderData = [
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-        tag: "Quick Approval",
+        
         applyLink: "/",
         detailsLink: "/",
     },
@@ -159,7 +159,7 @@ export default function UTMLendersPage() {
                     Compare loan offers from trusted partners and apply instantly.
                 </p>
                 <a
-                    href="/apply"
+                     href="#form"
                     className="bg-white text-green-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition"
                 >
                     Apply Now
@@ -177,7 +177,7 @@ export default function UTMLendersPage() {
                 {/* Right: Apply Form */}
                 <div className="w-full lg:w-1/3 rounded-2xl shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] h-[800px] overflow-y-auto">
 
-                    <div className=" flex flex-col items-center justify-center  p-4">
+                    <div  id="form" className=" flex flex-col items-center justify-center  p-4">
                         <h1 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-indigo-600 mb-2">
                             Eligibility Form
                         </h1>
@@ -289,7 +289,6 @@ function LenderCard({
     interestRate,
     maxLoan,
     benefit,
-    tag,
     applyLink,
     detailsLink,
 }: {
@@ -299,7 +298,6 @@ function LenderCard({
     interestRate: string;
     maxLoan: string;
     benefit: string;
-    tag: string;
     applyLink: string;
     detailsLink: string;
 }) {
@@ -307,9 +305,7 @@ function LenderCard({
         <div className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)]">
 
 
-            <div className="absolute top-4 right-4 bg-green-600 text-white text-xs px-3 py-1 rounded-full">
-                {tag}
-            </div>
+          
             <Image src={image} alt={lender} width={128} height={80} className="object-contain" />
             <div className="flex-1">
                 <h3 className="font-bold text-lg">{lender} – {loanType}</h3>
@@ -323,7 +319,6 @@ function LenderCard({
                 <div className="mt-4 flex gap-3 flex-wrap">
                     <a
                         href={detailsLink}
-                        target="_blank"
                         rel="noopener noreferrer"
                         className="border border-blue-800 text-blue-800 px-4 py-1 rounded hover:bg-blue-50"
                     >
