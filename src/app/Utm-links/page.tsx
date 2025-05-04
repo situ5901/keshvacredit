@@ -92,7 +92,7 @@ const lenderData = [
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
         tag: "Quick Approval",
-        applyLink: "/Eligiblity-Zype",
+        applyLink: "/",
         detailsLink: "/",
     },
 
@@ -153,7 +153,8 @@ export default function UTMLendersPage() {
     return (
         <div className="min-h-screen px-4 py-8 mt-13">
             <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16 px-6 text-center rounded-2xl">
-                <h1 className="text-4xl font-bold mb-4">quick loans</h1>
+            <h1 className="text-4xl font-bold mb-4 animate__animated animate__heartBeat">quick loans</h1>
+
                 <p className="text-lg mb-6">
                     Compare loan offers from trusted partners and apply instantly.
                 </p>
@@ -174,15 +175,16 @@ export default function UTMLendersPage() {
                 </div>
 
                 {/* Right: Apply Form */}
-                <div className="w-full lg:w-1/3 rounded-2xl shadow-lg bg-gray-100 h-[800px] overflow-y-auto">
-                    <div className=" flex flex-col items-center justify-center bg-gray-100 p-4">
+                <div className="w-full lg:w-1/3 rounded-2xl shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] h-[800px] overflow-y-auto">
+
+                    <div className=" flex flex-col items-center justify-center  p-4">
                         <h1 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-indigo-600 mb-2">
                             Eligibility Form
                         </h1>
                         <p className="text-gray-500 max-w-xl mx-auto">
                             Let’s see which lenders you pre-qualify for! Fill out this quick form, and we’ll match you with the best loan offers based on your profile.
                         </p>
-                        <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-6 rounded-lg shadow-md space-y-4 mt-2">
+                        <form onSubmit={handleSubmit} className="w-full max-w-md  p-6 rounded-lg shadow-md space-y-4 mt-2">
                             <input
                                 name="name"
                                 type="text"
@@ -302,7 +304,9 @@ function LenderCard({
     detailsLink: string;
 }) {
     return (
-        <div className="bg-white rounded-xl shadow p-4 flex flex-col md:flex-row items-center gap-4 relative">
+        <div className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)]">
+
+
             <div className="absolute top-4 right-4 bg-green-600 text-white text-xs px-3 py-1 rounded-full">
                 {tag}
             </div>
@@ -313,7 +317,7 @@ function LenderCard({
                     <li>• Interest Rate: {interestRate}</li>
                     <li>• Max Loan: {maxLoan}</li>
                 </ul>
-                <p className="bg-blue-50 mt-2 px-3 py-2 rounded text-sm flex items-center gap-2">
+                <p className="bg-blue-50 text-black mt-2 px-3 py-2 rounded text-sm flex items-center gap-2">
                     <span>⚡</span>{benefit}
                 </p>
                 <div className="mt-4 flex gap-3 flex-wrap">
