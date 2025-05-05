@@ -156,15 +156,14 @@ function Navbar() {
             </li>
             <li>
               <Link
-                href="/creditcard"
+                href="/Utm-links"
                 onClick={() => {
                   handleNavItemClick()
-                  handleClick();
                
                 }}
                 className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
-                Credit Card
+                Quick loans
               </Link>
             </li>
             <li>

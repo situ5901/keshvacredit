@@ -307,7 +307,7 @@ function LenderCard({
     detailsLink: string;
 }) {
     return (
-        <div className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)]">
+        <div className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
 
 
 
