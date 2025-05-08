@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import EmiCalculator from "./calculator/calculator";
 import LottieAnimation from "./ LottieAnimation";
 import Partner from "./Component/Partner/Partner";
+import Homesection1 from "./Component/Homesections/page"
 import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
 
@@ -437,6 +438,7 @@ function Page() {
         </div>
 
       </div>
+      <Homesection1 />
       <hr />
       <EmiCalculator />
       <section className="py-16  text-center">

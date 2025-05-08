@@ -82,8 +82,9 @@ function Navbar() {
       Cookies.remove("user_token");
       Cookies.remove("user_phone");
       Cookies.remove("isLoggedIn");
+      // localStorage.removeItem("userData");
       setIsLoggedIn(false);
-      window.dispatchEvent(new Event("login-status-changed")); // ✅ notify app of logout
+      window.dispatchEvent(new Event("login-status-changed")); 
     } else {
       openModal(); 
     }
