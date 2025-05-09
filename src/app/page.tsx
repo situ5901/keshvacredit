@@ -17,11 +17,10 @@ function Page() {
   const handleClick = () => {
     const token = Cookies.get("user_token");
     const phone = Cookies.get("user_phone");
-
     if (token && phone) {
-      router.push("/short-term-loan"); 
+      router.push("/short-term-loan");
     } else {
-      openModal(); 
+      openModal();
     }
   };
   return (
@@ -490,16 +489,13 @@ function Page() {
               />
             </div>
             <h3 className="text-2xl font-medium">✔</h3>
-<p className="text-gray-500">Fast disbursement</p>
+            <p className="text-gray-500">Fast disbursement</p>
 
 
           </div>
 
         </div>
       </section>
-
-
-
     </>
   );
 }

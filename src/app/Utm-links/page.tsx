@@ -10,7 +10,6 @@ const lenderData = [
     {
         image: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
         lender: "Flot",
-        loanType: "Personal Loan",
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
@@ -21,7 +20,6 @@ const lenderData = [
     {
         image: "https://www.ramfincorp.com/images/logo.png",
         lender: "RamFin",
-        loanType: "Personal Loan",
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
@@ -31,39 +29,33 @@ const lenderData = [
     {
         image: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
         lender: "Zype",
-        loanType: "Personal Loan",
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-
-        applyLink: "/Eligiblity-Zype",
-        detailsLink: "/",
+        applyLink: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
+        detailsLink: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
     },
     {
         image: "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
         lender: "Mpokket",
-        loanType: "Personal Loan",
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-
         applyLink: "https://web.mpokket.in/?utm_source=keshvacredit&utm_medium=keshvacredit",
         detailsLink: "https://web.mpokket.in/?utm_source=keshvacredit&utm_medium=keshvacredit",
     },
     {
         image: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
         lender: "Fatakpay",
-        loanType: "Personal Loan",
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
-        applyLink: "/",
-        detailsLink: "/",
+        applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
+        detailsLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
     },
     {
         image: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
         lender: "olyv",
-        loanType: "Personal Loan",
         interestRate: "Starting @10.99%",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
@@ -73,7 +65,6 @@ const lenderData = [
     {
         image: "https://www.rupee112.com/public/images/brand_logo.png",
         lender: "rupee112",
-        loanType: "personal Loan",
         interestRate: "Starting @12.5%",
         maxLoan: "Up to ₹25 Lakhs",
         benefit: "Low interest & flexible repayment",
@@ -83,7 +74,6 @@ const lenderData = [
     {
         image: "https://www.bharatloan.com/public/images/brand_logo.png",
         lender: "bharatloan",
-        loanType: "personal Loan",
         interestRate: "Starting @12.5%",
         maxLoan: "Up to ₹25 Lakhs",
         benefit: "Low interest & flexible repayment",
@@ -148,10 +138,10 @@ export default function UTMLendersPage() {
     return (
         <div className="min-h-screen px-4 py-8 mt-13">
             <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16 px-6 text-center rounded-2xl">
-                <h1 className="text-4xl font-bold mb-4 animate__animated animate__heartBeat">quick loans</h1>
+                <h1 className="text-4xl font-bold mb-4 animate__animated animate__heartBeat">quick links</h1>
 
                 <p className="text-lg mb-6">
-                    Compare loan offers from trusted partners and apply instantly.
+                    Access quick links to compare loan options, and apply instantly with trusted partners instantly.
                 </p>
                 <a
                     href="#form"
@@ -284,7 +274,6 @@ export default function UTMLendersPage() {
 function LenderCard({
     image,
     lender,
-    loanType,
     interestRate,
     maxLoan,
     benefit,
@@ -293,7 +282,6 @@ function LenderCard({
 }: {
     image: string;
     lender: string;
-    loanType: string;
     interestRate: string;
     maxLoan: string;
     benefit: string;
@@ -307,7 +295,7 @@ function LenderCard({
 
             <Image src={image} alt={lender} width={128} height={80} className="object-contain" />
             <div className="flex-1">
-                <h3 className="font-bold text-lg">{lender} – {loanType}</h3>
+                <h3 className="font-bold text-lg">{lender}</h3>
                 <ul className="text-sm mt-2 space-y-1">
                     <li>• Interest Rate: {interestRate}</li>
                     <li>• Max Loan: {maxLoan}</li>

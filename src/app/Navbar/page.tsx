@@ -164,7 +164,7 @@ function Navbar() {
                 }}
                 className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
-                Quick loans
+                Quick links
               </Link>
             </li>
             <li>
