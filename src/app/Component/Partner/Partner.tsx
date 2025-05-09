@@ -8,15 +8,15 @@ import "slick-carousel/slick/slick-theme.css";
 const Partner = () => {
   const settings = {
     dots: false,
-    infinite: true, // Ensures infinite looping
-    speed: 5000, // Controls transition speed between slides
+    infinite: true,
+    speed: 5000,
     slidesToShow: 6,
     slidesToScroll: 1,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 0, // Set speed to 0 for continuous sliding
-    cssEase: "linear", // Smooth linear transition
-    pauseOnHover: false, // Prevent pausing on hover
-    arrows: false, // Disable arrows
+    autoplay: true,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    pauseOnHover: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -39,19 +39,13 @@ const Partner = () => {
     "https://web.fatakpay.com/assets/images/logo/Logo.svg",
     "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
     "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
-      "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
+    "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
     "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
     "https://www.ramfincorp.com/images/logo.png",
     "https://web.fatakpay.com/assets/images/logo/Logo.svg",
     "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
     "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
-     "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
-    "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
-    "https://www.ramfincorp.com/images/logo.png",
-    "https://web.fatakpay.com/assets/images/logo/Logo.svg",
-    "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
-    "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
-     "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
+    "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
   ];
 
   return (
@@ -75,19 +69,19 @@ const Partner = () => {
               alignItems: "center",
             }}
           >
-            {/* Create a fixed-size square container for the image */}
+            
             <div
               style={{
                 position: "relative",
-                width: "150px", // Fixed width for each image container
-                height: "150px", // Fixed height for each image container
+                width: "150px", 
+                height: "150px", 
               }}
             >
               <Image
                 src={logo}
                 alt={`Partner ${index + 1}`}
-                layout="fill" // Fill the container
-                objectFit="contain" // Scale and maintain aspect ratio
+                layout="fill" 
+                objectFit="contain" 
                 priority
               />
             </div>

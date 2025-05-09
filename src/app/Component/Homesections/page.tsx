@@ -22,7 +22,7 @@ const tabs = [
     label: 'Self Employed', 
     imageSrc: '/loantr2.png',
     heading: 'Quick Loans for Self Employed', 
-    description: 'Our loans are designed for the self-employed, offering financial support to freelancers, entrepreneurs, and small business owners. Whether you need working capital to grow your business, funds to manage cash flow, or money for personal needs, mPokket is here to help. We offer flexible loan options with low-interest rates, quick approvals, and minimal documentation, understanding the unique challenges that self-employed individuals face. Our repayment plans are customizable to suit your business cycle and income patterns, allowing you to focus on growing your business without financial stress.' 
+    description: 'Our loans are designed for the self-employed, offering financial support to freelancers, entrepreneurs, and small business owners. Whether you need working capital to grow your business, funds to manage cash flow, or money for personal needs, mPokket is here to help. We offer flexible loan options with low-interest rates, quick approvals, and minimal documentation, understanding the unique challenges that self-employed individuals face. Our repayment plans are customizable to suit your business cycle and income patterns. ' 
   },
 ];
 
@@ -52,8 +52,6 @@ const LoanSection = () => {
           </button>
         ))}
       </div>
-
-      {/* Card */}
       {activeTabContent && (
         <div className="max-w-5xl mx-auto rounded-xl shadow-md shadow-white overflow-hidden flex flex-col md:flex-row">
           <div className="p-8 flex-1">

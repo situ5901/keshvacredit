@@ -54,7 +54,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className=" p-6 rounded-lg shadow-md">
+            <div className="p-6 rounded-lg shadow-md shadow-white">
               <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
               <form>
                 <div className="mb-4">

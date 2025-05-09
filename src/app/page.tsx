@@ -19,9 +19,9 @@ function Page() {
     const phone = Cookies.get("user_phone");
 
     if (token && phone) {
-      router.push("/short-term-loan"); // ✅ Token & Phone both exist
+      router.push("/short-term-loan"); 
     } else {
-      openModal(); // ❌ If either is missing, open modal
+      openModal(); 
     }
   };
   return (
