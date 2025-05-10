@@ -33,14 +33,14 @@ export default function Contact() {
                 Mobile: +1 (123) 456-7890
               </p>
               <p>
-  Mail:{" "}
-  <a
-    href="mailto:info@keshvacredit.com"
-    className=" hover:underline"
-  >
-    info@keshvacredit.com
-  </a>
-</p>
+                Mail:{" "}
+                <a
+                  href="mailto:info@keshvacredit.com"
+                  className=" hover:underline"
+                >
+                  info@keshvacredit.com
+                </a>
+              </p>
 
 
               <h3 className="text-lg font-bold text-gray-900 dark:text-blue-950">

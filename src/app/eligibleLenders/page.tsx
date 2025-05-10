@@ -135,7 +135,7 @@ const renderLenderCard = (lender: Lender) => (
       </div>
     </div>
 
-    <hr className="my-4 border-dashed border-t-2 border-gray-300" />
+    <hr className="my-4 border-dashed border-t-2 border-gray-500 " />
 
     <div className="flex flex-wrap items-center justify-between gap-4">
       <div className="flex flex-wrap gap-4 text-lg ml-1">

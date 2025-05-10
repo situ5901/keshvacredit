@@ -9,7 +9,7 @@ const lenderData = [
     {
         image: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
         lender: "Flot",
-        interestRate: "Starting @10.99%",
+        interestRate: "Interest Rate - Up to 2% per month",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
@@ -19,7 +19,7 @@ const lenderData = [
     {
         image: "https://www.ramfincorp.com/images/logo.png",
         lender: "RamFin",
-        interestRate: "Starting @10.99%",
+        interestRate: "upto 0.35% to 0.80%  per day",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://applyonline.ramfincorp.com/?utm_source=keshvacredit",
@@ -28,7 +28,7 @@ const lenderData = [
     {
         image: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
         lender: "Zype",
-        interestRate: "Starting @10.99%",
+        interestRate: "upto 1.5% per month",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
@@ -37,7 +37,7 @@ const lenderData = [
     {
         image: "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
         lender: "Mpokket",
-        interestRate: "Starting @10.99%",
+        interestRate: "Upto 39% per annum",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://web.mpokket.in/?utm_source=keshvacredit&utm_medium=keshvacredit",
@@ -46,7 +46,7 @@ const lenderData = [
     {
         image: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
         lender: "Fatakpay",
-        interestRate: "Starting @10.99%",
+        interestRate: "Interest Rate Range - 12% to 35.95% per annum",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
@@ -55,7 +55,7 @@ const lenderData = [
     {
         image: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
         lender: "olyv",
-        interestRate: "Starting @10.99%",
+        interestRate: "Starting 1.5% per month",
         maxLoan: "Up to ₹15 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
@@ -64,7 +64,7 @@ const lenderData = [
     {
         image: "https://www.rupee112.com/public/images/brand_logo.png",
         lender: "rupee112",
-        interestRate: "Starting @12.5%",
+        interestRate: "upto 35 % per annum",
         maxLoan: "Up to ₹25 Lakhs",
         benefit: "Low interest & flexible repayment",
         applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
@@ -73,7 +73,7 @@ const lenderData = [
     {
         image: "https://www.bharatloan.com/public/images/brand_logo.png",
         lender: "bharatloan",
-        interestRate: "Starting @12.5%",
+        interestRate: "upto 35 % per annum",
         maxLoan: "Up to ₹25 Lakhs",
         benefit: "Low interest & flexible repayment",
         applyLink: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
