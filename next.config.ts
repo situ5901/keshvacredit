@@ -13,15 +13,15 @@ const nextConfig = {
       "framerusercontent.com",
       "myflot.com",
       "cdn-icons-gif.flaticon.com",
-    "www.rupee112.com",
-    "www.bharatloan.com",
-    "themoneyfair.com",
-    ], // Ensure via.placeholder.com is added here
+      "www.rupee112.com",
+      "www.bharatloan.com",
+      "themoneyfair.com",
+    ], 
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "pagedone.io", // Allow external images from pagedone.io
-        pathname: "/asset/uploads/**", // Adjust the path if necessary
+        hostname: "pagedone.io", 
+        pathname: "/asset/uploads/**", 
       },
     ],
   },

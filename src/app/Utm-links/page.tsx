@@ -4,7 +4,6 @@ import { submitUserInfo } from "../APIS/UserData/UserInfoApi";
 import React from "react";
 import { useState } from "react";
 
-
 const lenderData = [
 
     {
@@ -202,7 +201,7 @@ export default function UTMLendersPage() {
                                 value={formData.employeeType}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-blue-500"
+                                className=" w-full px-4 py-2 border rounded focus:ring-2 focus:ring-blue-500"
                             >
                                 <option value="">Employee Type</option>
                                 <option value="employee">Employee</option>
