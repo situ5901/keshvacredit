@@ -42,7 +42,7 @@ function About() {
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center items-start">
 
             <div className="flex flex-col items-center">
-              <Image src="https://cdn-icons-gif.flaticon.com/7920/7920939.gif" alt="Fast Approval" width={64} height={64} className="mb-2" />
+              <Image src="https://cdn-icons-gif.flaticon.com/6844/6844383.gif" alt="Fast Approval" width={64} height={64} className="mb-2" />
               <span className="font-semibold text-center">Fast Approval</span>
             </div>
 
@@ -244,7 +244,7 @@ function About() {
       <section className="bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
           <a
-            href="#"
+            href="/Contact"
             className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800"
           >
             <span className="text-xs bg-blue-600 rounded-full px-4 py-1.5 mr-3">
@@ -272,46 +272,12 @@ function About() {
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl">
             Empowering Dreams, Financing the Future
           </h1>
-          <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">
+          <p className="mb-8  text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">
             At Keshvacredit, we connect borrowers with the right lenders,
             leveraging technology and innovation to unlock financial
             opportunities and drive sustainable growth.
           </p>
-          <form className="w-full max-w-md mx-auto">
-            <label
-              htmlFor="default-email"
-              className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-            >
-              Email sign-up
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 rtl:inset-x-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 16"
-                >
-                  <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                  <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                </svg>
-              </div>
-              <input
-                type="email"
-                id="default-email"
-                className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter your email here..."
-                required
-              />
-              <button
-                type="submit"
-                className="absolute right-2.5 bottom-2.5 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-              >
-                Send
-              </button>
-            </div>
-          </form>
+          
         </div>
         <div className="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
       </section>

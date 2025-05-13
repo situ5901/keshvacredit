@@ -19,14 +19,14 @@ export default function Contact() {
 
           <div className="grid md:grid-cols-2 gap-10">
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-blue-950">
+              <h3 className="text-lg font-bold  underline">
                 Our Address
               </h3>
               <p className="   ">
-                8237, SHASTRI NAGAR, AMBEDEKAR COLONY, FATEHABAD-125050, HARYANA
+                233, Thakar Basti,Bagichi Mohalla, Dharamshala Road,Fatehabad-125050
               </p>
 
-              <h3 className="text-lg font-bold text-gray-900 dark:text-blue-950">
+              <h3 className="text-lg font-bold underline">
                 Contact
               </h3>
               <p className="   ">
@@ -43,7 +43,7 @@ export default function Contact() {
               </p>
 
 
-              <h3 className="text-lg font-bold text-gray-900 dark:text-blue-950">
+              <h3 className="text-lg font-bold underline">
                 Working Hours
               </h3>
               <p className="   ">

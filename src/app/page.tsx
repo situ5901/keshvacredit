@@ -128,6 +128,62 @@ function Page() {
         </div>
       </div>
       <Partner />
+      <section className="p-6">
+        <h1 className="text-2xl font-bold mb-4 text-center text-blue-600">Loan Information</h1>
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1 p-4 border rounded-lg shadow-md mb-4">
+            <h2 className="text-xl font-bold mb-2 text-center">Personal Loan</h2>
+            <div className="grid grid-cols-1 gap-4">
+              <div>
+                <h3 className="text-lg font-semibold">Eligibility</h3>
+                <ul className="list-disc list-inside">
+                  <li>Should be an Indian resident</li>
+                  <li>Minimum age: 21 years</li>
+                  <li>Should have required documents</li>
+                  <li>Good credit score</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Documents</h3>
+                <ul className="list-disc list-inside">
+
+                  <li> Your personal loan application should be completely filled with your current photograph</li>
+                  <li>PAN Card is required</li>
+                  <li>Residence proof – Driving Licence, Voter ID, Passport, Utility Bills (Electricity/Water/Gas), Post-paid/Landline Bill</li>
+                  <li>Last 3 months' bank statements of the salary account</li>
+                  <li>Salary slips for the last 3 months</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-1 p-4 border rounded-lg shadow-md mb-4">
+            <h2 className="text-xl font-bold mb-2 text-center">Business Loan</h2>
+            <div className="grid grid-cols-1 gap-4">
+              <div>
+                <h3 className="text-lg font-semibold">Eligibility</h3>
+                <ul className="list-disc list-inside">
+                  <li>Should be an Indian resident</li>
+                  <li>Minimum age: 21 years</li>
+                  <li>Should have required documents</li>
+                  <li>The business should be profit-making for at least 1–2 years</li>
+                  <li>At least 2–3 years of continuous operation</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Documents</h3>
+                <ul className="list-disc list-inside">
+                  <li>Recent bank statements (e.g., last 6 months) for the business account</li>
+                  <li> Proof of business registration (e.g., Certificate of Incorporation, partnership deed, or sole proprietorship declaration).</li>
+                  <li>GST Registration: GST Certificate</li>
+                  <li>Last 3 months' bank statements of the salary account</li>
+                  <li>Salary slips for the last 3 months</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <div>
         <section className=" ">
           <div className="container px-6 py-12 mx-auto">
