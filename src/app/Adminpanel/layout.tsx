@@ -59,10 +59,9 @@ export default function AdminPanelLayout({
             <li className="px-4 py-2 hover:bg-gray-700">
               <Link href="/Adminpanel/settings">Manage Users</Link>
             </li>
-            <li className="px-4 py-2">
+             <li className="px-4 py-2 hover:bg-gray-700">
               <button
                 onClick={handleLogout}
-                className="w-full text-left text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg"
               >
                 Logout
               </button>

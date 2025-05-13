@@ -3,11 +3,10 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import animationOne from "../animations/one.json";
-import animationTwo from "../animations/two.json";
 import animationThree from "../animations/three.json";
 import animationFour from "../animations/four.json";
 
-const animations = [animationOne, animationTwo, animationThree, animationFour];
+const animations = [animationOne, animationThree, animationFour];
 
 const LottieAnimation = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

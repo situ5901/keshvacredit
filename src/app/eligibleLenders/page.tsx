@@ -12,7 +12,7 @@ export type Lender = {
   amount: string;
   interest: string;
   tenure: string;
-  fee: string;
+  support: string;
   features: string[];
   applyLink: string;
 };
@@ -24,9 +24,9 @@ const lenders: Lender[] = [
     logo: "https://www.ramfincorp.com/images/logo.png",
     approval: "Good",
     amount: "Up to ₹3,00,000",
-    interest: "Starting from 22% to 28%",
+    interest: "Starting from 0.35% to 0.80% per day",
     tenure: "Up to 18 months",
-    fee: "Up to 2%",
+    support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/Eligiblity-Ramfin",
   },
@@ -36,9 +36,9 @@ const lenders: Lender[] = [
     logo: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
     approval: "Good",
     amount: "Up to ₹3,00,000",
-    interest: "Starting from 22% to 28%",
+    interest: "Starting from 1.5% per month",
     tenure: "Up to 18 months",
-    fee: "Up to 2%",
+    support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/Eligiblity-Zype",
   },
@@ -51,9 +51,9 @@ const utm: Lender[] = [
     logo: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
     approval: "Good",
     amount: "Up to ₹3,00,000",
-    interest: "Starting from 22% to 28%",
+    interest: "Starting from 2% per month",
     tenure: "Up to 18 months",
-    fee: "Up to 2%",
+    support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink:
       "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
@@ -64,9 +64,9 @@ const utm: Lender[] = [
     logo: "https://www.rupee112.com/public/images/brand_logo.png",
     approval: "Good",
     amount: "Up to ₹3,00,000",
-    interest: "Starting from 22% to 28%",
+    interest: "Starting from 35% per annum",
     tenure: "Up to 18 months",
-    fee: "Up to 2%",
+    support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
   },
@@ -76,9 +76,9 @@ const utm: Lender[] = [
     logo: "https://www.bharatloan.com/public/images/brand_logo.png", 
     approval: "Good",
     amount: "Up to ₹3,00,000",
-    interest: "Starting from 22% to 28%",
+    interest: "Starting from 35% per annum",
     tenure: "Up to 18 months",
-    fee: "Up to 2%",
+    support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=", 
   }
@@ -130,8 +130,8 @@ const renderLenderCard = (lender: Lender) => (
         <p>{lender.tenure}</p>
       </div>
       <div>
-        <p>Processing Fee</p>
-        <p>{lender.fee}</p>
+        <p>support</p>
+        <p>{lender.support}</p>
       </div>
     </div>
 
