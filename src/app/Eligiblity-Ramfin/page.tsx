@@ -57,8 +57,6 @@ const EligibilityForm = () => {
       setResponseMsg(data.message || "✅ Submitted successfully!");
     } catch (error: unknown) {
       let errorMessage = "❌ Something went wrong. Please try again.";
-      
-      // Narrow down error type before accessing properties
       if (
         error &&
         typeof error === "object" &&

@@ -20,6 +20,16 @@
   }
 }
 
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+
 
 
 body {
@@ -30,7 +40,7 @@ body {
 }
 
 .dark body {
-  @apply bg-gray-900 text-gray-100;
+  @apply bg-gray-900 text-white;
 }
 /* custom css for navbar dark and light mode change */
 #navbar {

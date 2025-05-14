@@ -52,46 +52,42 @@ const [popupMessageType, setPopupMessageType] = useState("");
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      // Assuming submitUserInfo returns a promise
-      await submitUserInfo(formData);
+  e.preventDefault();
+  try {
+    await submitUserInfo(formData);
+    const userData = {
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      expiration: new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
+    };
+    localStorage.setItem("userData", JSON.stringify(userData));
 
-      // Save user data to localStorage
-      const userData = {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-      };
-      localStorage.setItem("userData", JSON.stringify(userData));
+    setPopupMessage("Form submitted successfully!");
+    setPopupMessageType("success");
+    showPopup("success", "Form submitted successfully!");
+    setTimeout(() => {
+      router.push("/eligibleLenders");
+    }, 2000);
+  } catch {
+    setPopupMessage("Error submitting form. Please try again.");
+    setPopupMessageType("error");
+    showPopup("error", "Error submitting form. Please try again.");
+  }
 
-      setPopupMessage("Form submitted successfully!");
-      setPopupMessageType("success");
-      showPopup("success", "Form submitted successfully!");
-
-      // Redirect after submission
-      setTimeout(() => {
-        router.push("/eligibleLenders");
-      }, 2000);
-    } catch  {
-      
-      setPopupMessage("Error submitting form. Please try again.");
-      setPopupMessageType("error");
-      showPopup("error", "Error submitting form. Please try again.");
-    }
-
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      employeeType: "",
-      pan: "",
-      pincode: "",
-      loanAmount: "",
-      income: "",
-      dob: "",
-    });
-  };
+  // Reset form data
+  setFormData({
+    name: "",
+    phone: "",
+    email: "",
+    employeeType: "",
+    pan: "",
+    pincode: "",
+    loanAmount: "",
+    income: "",
+    dob: "",
+  });
+};
 
   const showPopup = (type: string, message: string) => {
     const popup = document.createElement("div");
@@ -347,10 +343,7 @@ const [popupMessageType, setPopupMessageType] = useState("");
               </label>
             </div>
           </div>
-
-          {/* Loan Amount and Income Fields */}
           <div className="flex space-x-4 mt-6 gap-5">
-            {/* Loan Amount */}
             <div className="relative flex items-center border-b-2 border-gray-300 dark:border-gray-600 w-1/2">
               <span className="pr-2 absolute left-0 top-1/2 transform -translate-y-1/2">
                 <svg
