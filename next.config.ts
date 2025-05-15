@@ -16,6 +16,7 @@ const nextConfig = {
       "www.rupee112.com",
       "www.bharatloan.com",
       "themoneyfair.com",
+      
     ], 
     remotePatterns: [
       {

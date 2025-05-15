@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import EmiCalculator from "./calculator/calculator";
 import LottieAnimation from "./ LottieAnimation";
 import Partner from "./Component/Partner/Partner";
+import RatingAndReviews from "./Component/Homesections/page2";
+import Howitworks from "./Component/Homesections/page3"
 import Homesection1 from "./Component/Homesections/page"
 import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
@@ -144,7 +146,7 @@ function Page() {
       <section className="p-8  rounded-lg ">
         <h1 className="text-3xl font-extrabold mb-6 text-center text-blue-700">Loan Information</h1>
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 p-6 border-blue-200 border-1 rounded-lg shadow-md shadow-white transition-transform hover:scale-105">
+          <div className="flex-1 p-6 border-black border-1 rounded-lg shadow-md shadow-white transition-transform hover:scale-105">
 
             <h2 className="text-xl font-bold mb-4 text-center ">Personal Loan</h2>
             <div className="grid grid-cols-1 gap-4">
@@ -170,7 +172,7 @@ function Page() {
             </div>
           </div>
 
-          <div className="flex-1 p-6 border-blue-200 border-1 rounded-lg shadow-md shadow-white transition-transform hover:scale-105">
+          <div className="flex-1 p-6 border-black border-1 rounded-lg shadow-md shadow-white transition-transform hover:scale-105">
 
             <h2 className="text-xl font-bold mb-4 text-center ">Business Loan</h2>
             <div className="grid grid-cols-1 gap-4">
@@ -199,23 +201,36 @@ function Page() {
         </div>
       </section>
 
-<hr
-            className="h-1 bg-blue-500 mx-auto border-none"
-            style={{
-                backgroundImage: `repeating-linear-gradient(
-                    135deg,
-                    transparent 0px,
-                    transparent 5px,
-                    #3498db 5px,
-                    #3498db 10px
-                )`,
-            }}
-        />
+      <hr
+        className="h-1 w-3/4 mx-auto border-none rounded-lg animate-pulse"
+        style={{
+          backgroundImage: `linear-gradient(
+            135deg,
+            #3498db 25%,
+            transparent 25%,
+            transparent 50%,
+            #3498db 50%,
+            #3498db 75%,
+            transparent 75%
+        )`,
+          backgroundSize: "20px 20px",
+          animation: "moveGradient 3s linear infinite",
+        }}
+      />
+
+      <style jsx>{`
+    @keyframes moveGradient {
+        0% { background-position: 0 0; }
+        100% { background-position: 20px 20px; }
+    }
+`}</style>
+
 
       <div>
         <section className="mb-1">
           <div className="container px-6 py-12 mx-auto">
             <div className="grid items-center gap-8 xl:grid-cols-5">
+              {/* Left Section - Text */}
               {/* Left Section - Text */}
               <motion.div
                 className="max-w-2xl mx-auto my-8 space-y-6 text-center xl:col-span-2 xl:text-left"
@@ -226,12 +241,29 @@ function Page() {
                 <h2 className="text-4xl font-extrabold leading-tight">
                   Instant Funds, Endless Possibilities
                 </h2>
-                <p className="text-lg  opacity-80">
+                <p className="text-lg opacity-80">
                   Get quick access to funds whenever you need them! Fast approvals,
                   hassle-free processing, and secure transactions make fulfilling
                   your financial needs easier than ever.
                 </p>
+                {/* Full-width Image above the heading (hidden on mobile) */}
+                {/* <div className="w-full mb-4 hidden md:block">
+  <Image
+    src="/allavailable.png"
+    alt="Instant Funds"
+    width={800}   // Reduced width
+    height={200}  // Reduced height
+    className="object-cover rounded-lg mx-auto"
+    unoptimized
+  />
+</div> */}
+
+
+
               </motion.div>
+
+
+
 
               {/* Right Section - Cards */}
               <div className="p-6 xl:col-span-3">
@@ -539,13 +571,19 @@ function Page() {
       <Homesection1 />
       <hr />
       <EmiCalculator />
+ 
+         <Howitworks/>
+        <RatingAndReviews />
+      
+   
+
       <section className="py-16  text-center">
         <h2 className="text-3xl font-semibold  mb-8">Our Statistics </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 relative">
               <Image
-                src="https://cdn-icons-gif.flaticon.com/14251/14251538.gif" 
+                src="https://cdn-icons-gif.flaticon.com/14251/14251538.gif"
                 alt="happy customer"
                 fill
                 className="rounded-full shadow-lg object-cover"
@@ -557,7 +595,7 @@ function Page() {
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 relative">
               <Image
-                src="https://cdn-icons-gif.flaticon.com/15370/15370761.gif" 
+                src="https://cdn-icons-gif.flaticon.com/15370/15370761.gif"
                 alt="relationship"
                 fill
                 className="rounded-full shadow-lg object-cover"
@@ -569,7 +607,7 @@ function Page() {
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 relative">
               <Image
-                src="https://cdn-icons-gif.flaticon.com/7994/7994401.gif" 
+                src="https://cdn-icons-gif.flaticon.com/7994/7994401.gif"
                 alt="bank"
                 fill
                 className="rounded-full shadow-lg object-cover"
@@ -581,7 +619,7 @@ function Page() {
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 relative">
               <Image
-                src="https://cdn-icons-gif.flaticon.com/10051/10051256.gif" 
+                src="https://cdn-icons-gif.flaticon.com/10051/10051256.gif"
                 alt="business"
                 fill
                 className="rounded-full shadow-lg object-cover"

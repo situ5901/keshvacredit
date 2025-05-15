@@ -1,8 +1,8 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { eligiblyramfin } from "../APIS/UserData/UserInfoApi";
+import { useRouter } from 'next/router';  // Import useRouter
 
 interface FormData {
   name: string;
@@ -26,14 +26,18 @@ const EligibilityForm = () => {
   });
 
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
-
-  // Auto-hide popup after 2 seconds
+  const router = useRouter();
   useEffect(() => {
     if (responseMsg) {
       const timer = setTimeout(() => setResponseMsg(null), 2000);
       return () => clearTimeout(timer);
     }
-  }, [responseMsg]);
+    if (responseMsg === "✅ Submitted successfully!") {
+      router.push("/");  
+    } else if (responseMsg && responseMsg !== "✅ Submitted successfully!") {
+      router.push("/eligibleLenders"); 
+    }
+  }, [responseMsg, router]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -72,7 +76,7 @@ const EligibilityForm = () => {
       } else {
         console.error("Submission error:", error);
       }
-      
+
       setResponseMsg(errorMessage);
     }
 
