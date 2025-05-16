@@ -10,12 +10,16 @@ import Lottie from "lottie-react";
 import RatingAndReviews from "../Component/Homesections/page2";
 import Howitworks from "../Component/Homesections/page3"
 import Frequent from "../Component/Homesections/page4"
+import Popup from "../Component/Popup";
 
 function Page() {
   const router = useRouter();
 
   // Declare all hooks at the top
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupType, setPopupType] = useState<"success" | "error">("success");
+  const [popupMessage, setPopupMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -27,11 +31,6 @@ function Page() {
     income: "",
     dob: "",
   });
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const [popupMessage, setPopupMessage] = useState("");
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const [popupMessageType, setPopupMessageType] = useState("");
-
 
   // Check localStorage on component mount
   useEffect(() => {
@@ -66,16 +65,16 @@ const [popupMessageType, setPopupMessageType] = useState("");
     };
     localStorage.setItem("userData", JSON.stringify(userData));
 
+    setPopupType("success");
     setPopupMessage("Form submitted successfully!");
-    setPopupMessageType("success");
-    showPopup("success", "Form submitted successfully!");
+    setShowPopup(true);
     setTimeout(() => {
       router.push("/eligibleLenders");
     }, 2000);
   } catch {
+    setPopupType("error");
     setPopupMessage("Error submitting form. Please try again.");
-    setPopupMessageType("error");
-    showPopup("error", "Error submitting form. Please try again.");
+    setShowPopup(true);
   }
 
   // Reset form data
@@ -91,37 +90,6 @@ const [popupMessageType, setPopupMessageType] = useState("");
     dob: "",
   });
 };
-
-  const showPopup = (type: string, message: string) => {
-    const popup = document.createElement("div");
-    popup.innerText = message;
-
-    if (type === "success") {
-      popup.style.backgroundColor = "green";
-      popup.style.color = "white";
-    } else {
-      popup.style.backgroundColor = "red";
-      popup.style.color = "white";
-    }
-
-    popup.style.position = "fixed";
-    popup.style.top = "20px";
-    popup.style.right = "20px";
-    popup.style.padding = "10px 20px";
-    popup.style.borderRadius = "5px";
-    popup.style.fontSize = "14px";
-    popup.style.zIndex = "1000";
-    popup.style.transition = "opacity 0.5s ease-in-out";
-
-    document.body.appendChild(popup);
-
-    setTimeout(() => {
-      popup.style.opacity = "0";
-      setTimeout(() => {
-        popup.remove();
-      }, 500);
-    }, 3000);
-  };
 
   // Conditional return after all hooks are declared
   if (loading) {
@@ -141,6 +109,13 @@ const [popupMessageType, setPopupMessageType] = useState("");
 
   return (
     <>
+      {showPopup && (
+        <Popup
+          type={popupType}
+          message={popupMessage}
+          onClose={() => setShowPopup(false)}
+        />
+      )}
       <div className="justify-center mb-20 items-center min-h-screen">
         <div className="mt-24 mx-auto max-w-[90%] md:max-w-[50rem] text-center text-[28px] md:text-[34px]">
           <h1 className="font-bold text-[34px]">
