@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const states = [
   "Andhra Pradesh",
@@ -50,6 +51,7 @@ const formatStateForUrl = (stateName: string): string =>
 function Footer() {
   const router = useRouter();
   const { openModal } = useModal();
+  const [learnOpen, setLearnOpen] = useState<boolean>(false);
 
   const handleClickLoan = () => {
     const token = Cookies.get("user_token");
@@ -172,22 +174,34 @@ function Footer() {
         </div>
 
         <hr className="w-full sm:mx-auto mt-1 mb-2 " />
+        <div className="w-full text-center relative">
+          <span className="text-sm  block">
+            © 2025 Keshvacredit™. All Rights Reserved.
+          </span>
+          {/* Toggle */}
+          <button
+            onClick={() => setLearnOpen(!learnOpen)}
+            className="inline-flex items-center  font-bold text-sm hover:text-blue-400 focus:outline-none"
+          >
+          Click for more loan option&apos;s&nbsp;{learnOpen ? "▲" : "▼"}
+          </button>
 
-        {/* Footer Bottom: State Links and Copyright */}
-        <div className="text-center py-4">
-          <ul className="flex flex-wrap justify-center gap-2 mb-4">
-            {states.map((stateName) => (
-              <li key={stateName}>
-                <Link
-                  href={`/loans/${formatStateForUrl(stateName)}`}
-                 className=" hover:text-blue-800 hover:underline text-sm"
-                >
-                 || Personal Loan in {stateName} ||
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <span className="text-sm">© 2025 Keshvacredit™. All Rights Reserved.</span>
+          {/* Expanded links */}
+          {learnOpen && (
+            <ul className="flex flex-wrap justify-center gap-2 mt-4 mb-4 px-4">
+              {states.map((stateName: string) => (
+                <li key={stateName}>
+                  <Link
+                    href={`/loans/${formatStateForUrl(stateName)}`}
+                    className="text-sm  hover:text-blue-400 hover:underline"
+                  >
+                    <h1>|| Personal Loan in {stateName} ||</h1>
+                  
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </footer>

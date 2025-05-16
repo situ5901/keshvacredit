@@ -119,7 +119,7 @@ function Page() {
       <div className="justify-center mb-20 items-center min-h-screen">
         <div className="mt-24 mx-auto max-w-[90%] md:max-w-[50rem] text-center text-[28px] md:text-[34px]">
           <h1 className="font-bold text-[34px]">
-            personal Loans starting at{" "}
+            Business Loans starting at{" "}
             <span className="text-blue-700">10.25%* </span> Interest Rates.
           </h1>
           <ul className="text-[16px] md:text-[18px] font-medium ml-4 md:ml-8 mt-2 text-left list-disc">
