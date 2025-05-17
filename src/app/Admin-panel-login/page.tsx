@@ -11,7 +11,7 @@ export default function Login() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-
+//
     const staticUsername = 'admin'
     const staticPassword = 'parveen123'
 
