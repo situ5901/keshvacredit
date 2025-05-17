@@ -89,7 +89,7 @@ function page() {
       </p>
       <ul className="list-inside mb-4">
         <li><strong>Name:</strong> Vishal Grewal</li>
-        <li><strong>Email:</strong> info@keshvacredit.com</li>
+        <li><strong>Email:</strong> keshvacredit@gmail.com</li>
         <li><strong>Phone:</strong> 8607205215</li>
         <li><strong>Address:</strong> KeshvaCredit Pvt. Ltd, 8237, SHASTRI NAGAR, AMBEDEKAR COLONY, FATEHABAD, FATEHABAD (FATEHABAD), FATEHABAD-125050, HARYANA</li>
       </ul>

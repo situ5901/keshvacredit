@@ -29,16 +29,14 @@ export default function Contact() {
               <h3 className="text-lg font-bold underline">
                 Contact
               </h3>
-              <p className="   ">
-                Mobile: +1 (123) 456-7890
-              </p>
+            
               <p>
                 Mail:{" "}
                 <a
-                  href="mailto:info@keshvacredit.com"
+                  href="mailto:keshvacredit@gmail.com"
                   className=" hover:underline"
                 >
-                  info@keshvacredit.com
+                  keshvacredit@gmail.com
                 </a>
               </p>
 

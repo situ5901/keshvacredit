@@ -98,7 +98,7 @@ export default function HowItWorks() {
                   <div
                     className={`flex flex-col items-center p-8 rounded-2xl shadow-xl transition-transform duration-500 ease-in-out w-full min-h-[22rem] md:min-h-[24rem] lg:min-h-[26rem] ${
                       isActive
-                        ? 'bg-blue-600 text-white scale-105'
+                        ? 'bg-gray-800 text-white scale-105'
                         : 'bg-white text-blue-900'
                     }`}
                   >

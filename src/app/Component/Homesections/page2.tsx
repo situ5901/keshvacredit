@@ -5,19 +5,89 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const reviews = [
-  { name: 'Vishal Grewal', text: 'Loan disbursement in less than 24 hours is not what I had expected but this is amazing. Thank you very much, Indialends team.', rating: 5 },
+  { name: 'parveen chouhan', text: 'Loan disbursement in less than 24 hours is not what I had expected but this is amazing. Thank you very much, Indialends team.', rating: 5 },
   { name: 'pardeep kumar', text: "Highly satisfied with overall loan disbursement experience. Haven't seen any platform giving so many choices to cater to financial needs. Highly recommended!", rating: 5 },
-  { name: 'amit kumar', text: 'The customer support was extremely helpful and guided me through the entire process.', rating: 4 },
-  { name: 'Nikhil Gupta', text: 'Smooth experience, transparent fees, and quick approval. Highly recommend!', rating: 5 },
-  { name: 'Ridhi Yadav', text: 'Easy application, and funds received on time. Very satisfied!', rating: 4 },
-  { name: 'Vikram Patil', text: 'Good interest rates and flexible repayment options.', rating: 4 },
-  { name: 'Meera Joshi', text: 'The platform is user-friendly and secure.', rating: 5 },
-  { name: 'Nikita', text: 'Great experience overall, would use again.', rating: 4 },
-  { name: 'Shagun Mehta', text: 'Very professional service and fast disbursement.', rating: 5 },
+  {
+    name: 'Aryan Verma',
+    text: 'The process was smooth and quick. Minimal paperwork and clear instructions made it hassle-free. Approval was fast, and the flexible repayment options made managing finances easier. Highly recommended!',
+    rating: 5
+  },
+  {
+    name: 'Pooja Sharma',
+    text: 'Fantastic experience! The digital application process saved time, and customer support was very professional. Transparent fees, no hidden charges, and quick disbursement made it highly reliable. Will recommend to others.',
+    rating: 5
+  },
+  {
+    name: 'Simran Kaur',
+    text: 'This platform changed my view of online loans. Safe, user-friendly, and quick disbursement. Clear updates and flexible repayment options made the experience stress-free. Perfect for urgent financial needs!',
+    rating: 5
+  },
+  {
+    name: 'Karan Singh',
+    text: 'Reliable and easy-to-use platform! Smooth application, helpful customer support, and flexible repayment plans. Competitive interest rates and fast approval make it a great choice for financial assistance.',
+    rating: 4
+  },
+  {
+    name: 'Sneha Kapoor',
+    text: 'Streamlined application with minimal documentation. Quick approval and no hidden charges. Transparent process from start to finish, making it simple to plan repayments. A hassle-free and reliable service!',
+    rating: 5
+  },
+  {
+    name: 'Rahul Mehta',
+    text: 'Superb service! The entire loan process was smooth, from application to disbursement. Minimal documentation and prompt support made it stress-free. Highly appreciate the flexible repayment options offered.',
+    rating: 5
+  },
+  {
+    name: 'Priya Nair',
+    text: 'User-friendly platform with transparent fees. The quick disbursement process and flexible payment terms impressed me. Customer support was helpful throughout. Highly recommend this reliable financial solution to everyone.',
+    rating: 4
+  },
+  {
+    name: 'Ankit Sharma',
+    text: 'Applying for a loan has never been easier. The platform is intuitive, and the approval process is fast. Competitive interest rates and professional support make it a top choice!',
+    rating: 5
+  },
+  {
+    name: 'Neha Malhotra',
+    text: 'Seamless experience from start to finish. Fast approval, clear terms, and flexible repayment made it hassle-free. Customer support was responsive and addressed all my queries. Highly recommend this service!',
+    rating: 5
+  },
+  {
+    name: 'Rohan Bhatia',
+    text: 'Exceptional platform! Quick and hassle-free application, minimal paperwork, and fast disbursement. The flexible repayment structure and low interest rates made it an excellent choice for personal finance needs.',
+    rating: 5
+  },
+  {
+    name: 'Kriti Desai',
+    text: 'Highly satisfied with the efficient process and professional support. The approval was quick, and funds were transferred without any delays. Flexible repayment options made managing finances much easier. Great experience!',
+    rating: 4
+  },
+  {
+    name: 'Vikas Jha',
+    text: 'Quick approval and disbursement! The platform is reliable and transparent, with no hidden fees. Customer support was prompt and helpful, making it a smooth and satisfying experience overall.',
+    rating: 5
+  },
+  {
+    name: 'Riya Goswami',
+    text: 'Highly professional and responsive service. The application process was simple, and I got approved quickly. Flexible repayment options and competitive rates make it the best choice for financial assistance.',
+    rating: 4
+  },
+  {
+    name: 'Sahil Arora',
+    text: 'A reliable and efficient platform for quick loans. The digital process saved time, and the customer support team was excellent. I’m really happy with the overall experience. Highly recommended!',
+    rating: 5
+  },
+  {
+    name: 'Tanya Mishra',
+    text: 'Great experience! The online application was easy, and the approval came within hours. Flexible repayment and clear instructions made it hassle-free. Will definitely use this platform again if needed.',
+    rating: 4
+  }
+
+
 ];
 
 const sliderSettings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
   autoplay: true,

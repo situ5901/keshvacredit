@@ -26,6 +26,15 @@ function Page() {
       openModal();
     }
   };
+   const handleClickbusiness = () => {
+    const token = Cookies.get("user_token");
+    const phone = Cookies.get("user_phone");
+    if (token && phone) {
+      router.push("/business-loan");
+    } else {
+      openModal();
+    }
+  };
   const cards = [
     {
       title: "Your Trust is Enough",
@@ -35,7 +44,7 @@ function Page() {
     {
       title: "Fast Support, Anytime",
       description:
-        "Stuck with something? Contact us at info@keshvacredit.com. Quick responses, reliable solutions!",
+        "Stuck with something? Contact us at keshvacredit@gmail.com. Quick responses, reliable solutions!",
     },
     {
       title: "Unlimited Credit Access",
@@ -81,7 +90,7 @@ function Page() {
 
               <button
                 type="button"
-                onClick={handleClick}
+                onClick={handleClickbusiness}
                 className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-xs px-2 py-1 text-center me-2 mb-2 w-64 relative overflow-hidden"
               >
                 <div className="flex flex-col items-center">

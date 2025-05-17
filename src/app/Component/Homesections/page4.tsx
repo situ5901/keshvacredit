@@ -57,6 +57,7 @@ const faqs = [
     answer:
       'Defaulting on a personal loan can have serious financial consequences, including legal action, a drastic drop in your credit score, and difficulties obtaining credit in the future. Lenders may also initiate recovery proceedings or involve collection agencies. It’s crucial to communicate with your lender if you face repayment issues, as they may offer options like restructuring, moratorium, or temporary payment relief.',
   },
+  
 ];
 
 
@@ -68,7 +69,7 @@ export default function FAQAccordion() {
   };
 
   return (
-    <section className="max-w-4xl mx-auto py-12 px-4">
+    <section className="max-w-5xl mx-auto py-12 px-4">
       <h2 className="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqs.map((item, idx) => {
@@ -80,7 +81,7 @@ export default function FAQAccordion() {
             >
               <button
                 onClick={() => toggle(idx)}
-                className="w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50"
+                className="w-full flex justify-between items-center p-4 "
               >
                 <span className="text-left text-lg font-medium">
                   {item.question}
@@ -92,7 +93,7 @@ export default function FAQAccordion() {
                 )}
               </button>
               {isOpen && (
-                <div className="p-4 bg-gray-50 text-gray-700">
+                <div className="p-4 ">
                   <p>{item.answer}</p>
                 </div>
               )}

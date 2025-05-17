@@ -30,16 +30,16 @@ export default function StateLoanPage() {
 </h1>
 
       
-      <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+      <div className=" rounded-lg shadow-md p-6 mb-8">
         <h2 className="text-2xl font-semibold mb-4">Loan Options in {stateName}</h2>
-        <p className="text-gray-600 mb-4">
+        <p className=" mb-4">
           Looking for a personal loan in {stateName}? We offer competitive loan options tailored to your needs.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <div className="border rounded-lg p-4">
             <h3 className="text-xl font-semibold mb-2">Quick Personal Loans</h3>
-            <ul className="list-disc list-inside text-gray-600">
+            <ul className="list-disc list-inside ">
               <li>Fast approval process</li>
               <li>Competitive interest rates</li>
               <li>Flexible repayment terms</li>
@@ -49,7 +49,7 @@ export default function StateLoanPage() {
           
           <div className="border rounded-lg p-4">
             <h3 className="text-xl font-semibold mb-2">Why Choose Us</h3>
-            <ul className="list-disc list-inside text-gray-600">
+            <ul className="list-disc list-inside ">
               <li>Trusted by thousands in {stateName}</li>
               <li>24/7 customer support</li>
               <li>Secure and confidential process</li>
@@ -60,9 +60,9 @@ export default function StateLoanPage() {
       </div>
       <Shortterm />
 
-      <div className="bg-blue-50 rounded-lg p-6">
+      <div className=" rounded-lg p-6 border-1">
         <h2 className="text-2xl font-semibold mb-4">Ready to Apply?</h2>
-        <p className="text-gray-600 mb-4">
+        <p className=" mb-4">
           Get started with your personal loan application in {stateName} today.
         </p>
         <Link 

@@ -79,7 +79,7 @@ const Page = () => {
       </p>
 
       <p className="mb-6">
-        <strong>16. Grievance Redressal:</strong> If you have any complaints or feedback, you can submit them in writing or via email to info@keshvacredit.com. We will make every effort to address your concerns.
+        <strong>16. Grievance Redressal:</strong> If you have any complaints or feedback, you can submit them in writing or via email to keshvacredit@gmail.com We will make every effort to address your concerns.
       </p>
     </div>
   );
