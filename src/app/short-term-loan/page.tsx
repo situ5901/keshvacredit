@@ -6,7 +6,8 @@ import { Route, Router } from "lucide-react";
 import { submitUserInfo } from "../APIS/UserData/UserInfoApi";
 import { useRouter } from "next/navigation"; // Changed from next/router to next/navigation
 import Loading from "../../animations/Loading.json"
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import RatingAndReviews from "../Component/Homesections/page2";
 import Howitworks from "../Component/Homesections/page3"
 import Frequent from "../Component/Homesections/page4"

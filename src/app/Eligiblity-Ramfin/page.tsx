@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { eligiblyramfin } from "../APIS/UserData/UserInfoApi";
-import { useRouter } from 'next/router';  // Import useRouter
+import { useRouter } from 'next/navigation'; // Correct import for App Router
+
 
 interface FormData {
   name: string;

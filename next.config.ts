@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+   devIndicators: false, 
   images: {
     domains: [
       "pagedone.io",
@@ -16,6 +17,7 @@ const nextConfig = {
       "www.rupee112.com",
       "www.bharatloan.com",
       "themoneyfair.com",
+      "i.postimg.cc",
       
     ], 
     remotePatterns: [

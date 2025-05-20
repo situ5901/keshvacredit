@@ -50,8 +50,8 @@ const handleVerifyOtp = async () => {
     const token = response?.token;
 
     if (token) {
-      Cookies.set("user_token", token);     // ✅ Token Save
-      Cookies.set("user_phone", phone);     // ✅ Phone Save
+      Cookies.set("user_token", token);     
+      Cookies.set("user_phone", phone);    
       showMessage("OTP Verified Successfully!", "success");
       setTimeout(closeModal, 1000);
     } else {

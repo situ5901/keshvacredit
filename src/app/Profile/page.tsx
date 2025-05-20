@@ -24,8 +24,6 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const phone = Cookies.get('user_phone');
-    console.log("📞 Phone from cookie:", phone);
-
     if (phone) {
       axios
         .post('https://keshvacredit.com/api/v1/api/getUsers', { phone })
@@ -54,7 +52,6 @@ export default function ProfilePage() {
           setLoading(false);
         });
     } else {
-      console.warn("⚠️ No phone number found in cookies.");
       setLoading(false);
     }
   }, []);

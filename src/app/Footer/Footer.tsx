@@ -36,13 +36,8 @@ const states = [
   "Uttarakhand",
   "West Bengal",
   "Delhi",
-  "Jammu and Kashmir",
   "Ladakh",
-  "Andaman and Nicobar Islands",
   "Chandigarh",
-  "Dadra and Nagar Haveli and Daman and Diu",
-  "Lakshadweep",
-  "Puducherry"
 ];
 
 const formatStateForUrl = (stateName: string): string =>
@@ -118,7 +113,7 @@ function Footer() {
                 <li>
                   <Link
                     href="https://www.linkedin.com/company/keshvacredit/"
-                    className="hover:opacity-80 "
+                    className="hover:opacity-80 hover:underline "
                   >
                     Linkedin
                   </Link>
@@ -126,7 +121,7 @@ function Footer() {
                 <li>
                   <Link
                     href="https://www.facebook.com/share/1ATVmsgGNK/"
-                    className="hover:opacity-80 "
+                    className="hover:opacity-80 hover:underline"
                   >
                     Facebook
                   </Link>
@@ -134,7 +129,7 @@ function Footer() {
                 <li>
                   <Link
                     href="https://www.instagram.com/keshva_credit"
-                    className="hover:opacity-80 "
+                    className="hover:opacity-80 hover:underline "
                   >
                     Instagram
                   </Link>
@@ -142,7 +137,7 @@ function Footer() {
                 <li>
                   <Link
                     href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19"
-                    className="hover:opacity-80 "
+                    className="hover:opacity-80 hover:underline"
                   >
                     WhatsApp
                   </Link>
@@ -154,13 +149,13 @@ function Footer() {
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>
               <ul className="font-medium">
-                <li className="mb-4">
+                <li className="mb-4 hover:underline">
                   <Link href="/Privacy">Privacy Policy</Link>
                 </li>
-                <li className="mb-4">
+                <li className="mb-4 hover:underline">
                   <Link href="/Lendercontact">Lender Contacts</Link>
                 </li>
-                <li className="mb-4">
+                <li className="mb-4 hover:underline">
                   <Link href="/grivience">Lender Grievances</Link>
                 </li>
                 <li>
@@ -183,7 +178,7 @@ function Footer() {
             onClick={() => setLearnOpen(!learnOpen)}
             className="inline-flex items-center  font-bold text-sm hover:text-blue-400 focus:outline-none"
           >
-          Click for more loan option&apos;s&nbsp;{learnOpen ? "▲" : "▼"}
+            Click for more loan option&apos;s&nbsp;{learnOpen ? "▲" : "▼"}
           </button>
 
           {/* Expanded links */}
@@ -196,7 +191,7 @@ function Footer() {
                     className="text-sm  hover:text-blue-400 hover:underline"
                   >
                     <h1>|| Personal Loan in {stateName} ||</h1>
-                  
+
                   </Link>
                 </li>
               ))}

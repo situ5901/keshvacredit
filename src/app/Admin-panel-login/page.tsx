@@ -16,7 +16,6 @@ export default function Login() {
     const staticPassword = 'parveen123'
 
     if (username === staticUsername && password === staticPassword) {
-      // ✅ Set cookie on successful login
       Cookies.set('admin_login', 'true', { expires: 7 }) 
       router.push('/Adminpanel')
     } else {

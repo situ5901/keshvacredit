@@ -39,8 +39,6 @@ export default function Contact() {
                   keshvacredit@gmail.com
                 </a>
               </p>
-
-
               <h3 className="text-lg font-bold underline">
                 Working Hours
               </h3>

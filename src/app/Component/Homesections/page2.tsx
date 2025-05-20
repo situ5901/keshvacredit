@@ -110,7 +110,7 @@ const RatingAndReviews = () => (
       <Slider {...sliderSettings} className="-mx-3">
         {reviews.map((review, index) => (
           <div key={index} className="px-3">
-            <div className="h-72 flex flex-col justify-between p-6 bg-white rounded-2xl shadow-md">
+            <div className="h-72 flex flex-col justify-between p-6 border-amber-300 border-1 bg-white rounded-2xl shadow-md">
               <div>
                 <div className="flex mb-4">
                   {[...Array(review.rating)].map((_, i) => (

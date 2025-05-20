@@ -26,7 +26,7 @@ function Page() {
       openModal();
     }
   };
-   const handleClickbusiness = () => {
+  const handleClickbusiness = () => {
     const token = Cookies.get("user_token");
     const phone = Cookies.get("user_phone");
     if (token && phone) {
@@ -234,13 +234,10 @@ function Page() {
     }
 `}</style>
 
-
       <div>
         <section className="mb-1">
           <div className="container px-6 py-12 mx-auto">
             <div className="grid items-center gap-8 xl:grid-cols-5">
-              {/* Left Section - Text */}
-              {/* Left Section - Text */}
               <motion.div
                 className="max-w-2xl mx-auto my-8 space-y-6 text-center xl:col-span-2 xl:text-left"
                 initial={{ opacity: 0, x: -100 }}
@@ -255,25 +252,17 @@ function Page() {
                   hassle-free processing, and secure transactions make fulfilling
                   your financial needs easier than ever.
                 </p>
-                {/* Full-width Image above the heading (hidden on mobile) */}
-                {/* <div className="w-full mb-4 hidden md:block">
-  <Image
-    src="/allavailable.png"
-    alt="Instant Funds"
-    width={800}   // Reduced width
-    height={200}  // Reduced height
-    className="object-cover rounded-lg mx-auto"
-    unoptimized
-  />
-</div> */}
-
-
-
+                <div className="w-full mb-4 hidden md:block">
+                  <Image
+                    src="/allloan.png"
+                    alt="Instant Funds"
+                    width={800}
+                    height={50}
+                    className="h-[500px] w-auto object-contain rounded-lg mx-auto"
+                    unoptimized
+                  />
+                </div>
               </motion.div>
-
-
-
-
               {/* Right Section - Cards */}
               <div className="p-6 xl:col-span-3">
                 <div className="grid gap-8 md:grid-cols-2">
@@ -469,7 +458,6 @@ function Page() {
             </div>
           </div>
         </div>
-
         {/* Right Side (Stats) */}
         <div className="py-8 px-4 md:py-12 md:px-8 w-full">
           <div className="mx-auto max-w-7xl">
@@ -575,17 +563,12 @@ function Page() {
             </div>
           </div>
         </div>
-
       </div>
       <Homesection1 />
       <hr />
       <EmiCalculator />
- 
-         <Howitworks/>
-        <RatingAndReviews />
-      
-   
-
+      <Howitworks />
+      <RatingAndReviews />
       <section className="py-16  text-center">
         <h2 className="text-3xl font-semibold  mb-8">Our Statistics </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
@@ -636,10 +619,7 @@ function Page() {
             </div>
             <h3 className="text-2xl font-medium">✔</h3>
             <p className="text-gray-500">Fast disbursement</p>
-
-
           </div>
-
         </div>
       </section>
     </>
