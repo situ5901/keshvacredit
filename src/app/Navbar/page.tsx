@@ -104,7 +104,7 @@ function Navbar() {
         >
           <Image
             src="/logo.png"
-            className="h-10"
+            className="h-10 object-cover"
             width={150}
             height={150}
             alt="Logo"

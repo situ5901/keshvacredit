@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { eligiblyramfin } from "../APIS/UserData/UserInfoApi";
-import { useRouter } from 'next/navigation'; // Correct import for App Router
-
+import { useRouter } from "next/navigation";
 
 interface FormData {
   name: string;
@@ -27,16 +26,19 @@ const EligibilityForm = () => {
   });
 
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
   const router = useRouter();
+
   useEffect(() => {
-    if (responseMsg) {
-      const timer = setTimeout(() => setResponseMsg(null), 2000);
+    if (!responseMsg) return;
+
+    // Redirect if lead created
+    if (responseMsg.toLowerCase().includes("lead created")) {
+      router.push("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
+    } else {
+      // Show error and clear message after 3 seconds
+      const timer = setTimeout(() => setResponseMsg(null), 3000);
       return () => clearTimeout(timer);
-    }
-    if (responseMsg === "✅ Submitted successfully!") {
-      router.push("/");  
-    } else if (responseMsg && responseMsg !== "✅ Submitted successfully!") {
-      router.push("/eligibleLenders"); 
     }
   }, [responseMsg, router]);
 
@@ -57,11 +59,13 @@ const EligibilityForm = () => {
         ...formData,
         partnerid: "keshvacredit",
       };
-
       const data = await eligiblyramfin(payload);
-      setResponseMsg(data.message || "✅ Submitted successfully!");
+      setIsSuccess(true);
+      setResponseMsg(data.message || "Submitted successfully");
     } catch (error: unknown) {
-      let errorMessage = "❌ Something went wrong. Please try again.";
+      let errorMessage = "Something went wrong. Please try again.";
+      setIsSuccess(false);
+
       if (
         error &&
         typeof error === "object" &&
@@ -69,11 +73,9 @@ const EligibilityForm = () => {
         error.response &&
         typeof error.response === "object"
       ) {
-        const errResponse = (error as { response?: { data?: { apiError?: { message?: string } } } })
-          .response;
+        const errResponse = (error as { response?: { data?: { apiError?: { message?: string } } } }).response;
         console.error("Submission error:", errResponse?.data || error);
-        errorMessage =
-          errResponse?.data?.apiError?.message || errorMessage;
+        errorMessage = errResponse?.data?.apiError?.message || errorMessage;
       } else {
         console.error("Submission error:", error);
       }
@@ -95,20 +97,27 @@ const EligibilityForm = () => {
   return (
     <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border">
       {responseMsg && (
-        <div className="fixed top-20 right-7 z-50 bg-white border border-gray-300 px-4 py-2 rounded-lg shadow-lg text-sm text-gray-800 animate-slide-in">
-          {responseMsg}
+        <div
+          className={`fixed top-20 right-5 z-50 px-6 py-4 rounded-lg shadow-md transition-all duration-500 text-sm flex items-center gap-3 ${
+            isSuccess
+              ? "bg-green-50 text-green-800 border border-green-300"
+              : "bg-red-50 text-red-800 border border-red-300"
+          }`}
+        >
+          <span className="text-lg">{isSuccess ? "✅" : "❌"}</span>
+          <p>{responseMsg}</p>
         </div>
       )}
 
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-3">
         <Image
           src="https://www.ramfincorp.com/images/logo.png"
-          alt="Zype Logo"
+          alt="RamFin Logo"
           width={120}
           height={40}
           className="object-contain"
         />
-        <span>Form</span>
+        <span>Eligibility Form</span>
       </h2>
 
       <form
@@ -177,12 +186,13 @@ const EligibilityForm = () => {
           name="employeeType"
           value={formData.employeeType}
           onChange={handleChange}
-          className="findrop border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="">Select Employee Type</option>
           <option value="Salaried">Salaried</option>
           <option value="Self Employed">Self Employed</option>
         </select>
+
         <button
           type="submit"
           className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"

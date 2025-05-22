@@ -32,7 +32,7 @@ export default function ProfilePage() {
           setProfileData({
             name: user.name || '',
             dateOfBirth: user.dob || '',
-            income: user.income || '',
+            income: user.income || '',  
             email: user.email || '',
             phone: user.phone || '',
             pan: user.pan || '',
@@ -87,7 +87,6 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      {/* Uncomment these sections if you need them later: hh
 
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Residential Information</h2>
@@ -103,15 +102,6 @@ export default function ProfilePage() {
           {renderField('Company Name', 'companyName')}
         </div>
       </section>
-
-      <section>
-        <h2 className="text-xl font-semibold mb-2">Applications Applied For</h2>
-        <div className="border border-gray-200 rounded p-4">
-          <p className="text-gray-700">No applications found.</p>
-        </div>
-      </section>
-
-      */}
     </div>
   );
 }

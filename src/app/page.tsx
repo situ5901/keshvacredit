@@ -63,7 +63,7 @@ function Page() {
         <div className="gap-26 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div className="font-light  sm:text-lg  mt-10">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold ">
-              Empowering Every Indian with Instant Loans
+              Empowering Every Indian with <span className="text-[#e5a74a]" >Instant Loans</span>
             </h2>
             <p className="mb-4 ">
               Quick approvals, minimal documentation, and seamless disbursal.
@@ -87,7 +87,6 @@ function Page() {
                   <span className="animate-blink text-xs mt-0.5">Click to Apply</span>
                 </div>
               </button>
-
               <button
                 type="button"
                 onClick={handleClickbusiness}
@@ -182,7 +181,6 @@ function Page() {
           </div>
 
           <div className="flex-1 p-6 border-black border-1 rounded-lg shadow-md shadow-white transition-transform hover:scale-105">
-
             <h2 className="text-xl font-bold mb-4 text-center ">Business Loan</h2>
             <div className="grid grid-cols-1 gap-4">
               <div>
@@ -388,7 +386,7 @@ function Page() {
       <div className="flex flex-col md:flex-row justify-center items-center p-6 gap-5">
         <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
           <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight ">
               instant personal loan 2025
             </h5>
           </a>
@@ -409,7 +407,7 @@ function Page() {
 
         <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
           <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight ">
               instant business loan 2025
             </h5>
           </a>
@@ -572,8 +570,8 @@ function Page() {
       <section className="py-16  text-center">
         <h2 className="text-3xl font-semibold  mb-8">Our Statistics </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          <div className="flex flex-col items-center">
-            <div className="w-20 h-20 relative">
+          <div className="flex flex-col items-center ">
+            <div className="w-20 h-20 relative border-2 border-gray-300 rounded-full">
               <Image
                 src="https://cdn-icons-gif.flaticon.com/14251/14251538.gif"
                 alt="happy customer"
@@ -585,7 +583,7 @@ function Page() {
             <p className="text-gray-500">Happy Customers</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 relative">
+            <div className="w-20 h-20 relative border-2 border-gray-300 rounded-full">
               <Image
                 src="https://cdn-icons-gif.flaticon.com/15370/15370761.gif"
                 alt="relationship"
@@ -597,7 +595,7 @@ function Page() {
             <p className="text-gray-500">Relationship</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 relative">
+            <div className="w-20 h-20 relative border-2 border-gray-300 rounded-full">
               <Image
                 src="https://cdn-icons-gif.flaticon.com/7994/7994401.gif"
                 alt="bank"
@@ -609,7 +607,7 @@ function Page() {
             <p className="text-gray-500"> NBFCs</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 relative">
+            <div className="w-20 h-20 relative border-2 border-gray-300 rounded-full">
               <Image
                 src="https://cdn-icons-gif.flaticon.com/10051/10051256.gif"
                 alt="business"

@@ -1,8 +1,8 @@
 "use client";
-
 import React, { useState } from "react";
-import Image from "next/image"; 
-import { eligiblyzype } from "../APIS/UserData/UserInfoApi"; 
+import Image from "next/image";
+import { eligiblyzype } from "../APIS/UserData/UserInfoApi";
+import { useRouter } from "next/navigation";
 
 const EligibilityForm = () => {
   const [formData, setFormData] = useState({
@@ -11,11 +11,17 @@ const EligibilityForm = () => {
     email: "",
     dob: "",
     pancard: "",
-    loanAmount: "",
     employeeType: "",
+    income: "",
+    orgName: "",
   });
 
+  const [popupVisible, setPopupVisible] = useState(false);
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
+  const [status, setStatus] = useState<string | null>(null);
+  const [offer, setOffer] = useState<number | null>(null);
+
+  const router = useRouter();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -32,20 +38,45 @@ const EligibilityForm = () => {
 
     try {
       const payload = {
-        ...formData,
+        name: formData.name,
+        mobileNumber: formData.mobile,
+        email: formData.email,
+        dob: formData.dob,
+        panNumber: formData.pancard,
+        income: Number(formData.income),
+        employmentType: formData.employeeType,
+        orgName: formData.orgName,
         partnerid: "keshvacredit",
       };
 
       const data = await eligiblyzype(payload);
-      setResponseMsg(data.message || "✅ Submitted successfully!");
+
+      // Show only the API response message exactly
+      setResponseMsg(data.message);
+      setStatus(data.status || null);
+      setOffer(data.offer || null);
+      setPopupVisible(true);
+
+      setTimeout(() => {
+        setPopupVisible(false);
+        if (data.status === "ACCEPT") {
+          router.push("https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3");
+        } else {
+          router.push("/eligibleLenders");
+        }
+      }, 3000);
     } catch {
-      // Removed unused 'error' to fix ESLint warning
       setResponseMsg("❌ Something went wrong. Please try again.");
+      setPopupVisible(true);
+      setTimeout(() => {
+        setPopupVisible(false);
+        router.push("/eligibleLenders");
+      }, 3000);
     }
   };
 
   return (
-    <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border">
+    <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border relative">
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-3">
         <Image
           src="https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp"
@@ -109,27 +140,37 @@ const EligibilityForm = () => {
           className="uppercase border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
+        <select
+          name="employeeType"
+          value={formData.employeeType}
+          onChange={handleChange}
+          required
+          className="findrop border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">Select Employee Type</option>
+          <option value="salaried">Salaried</option>
+          <option value="self employed">Self Employed</option>
+        </select>
+
         <input
           type="number"
-          name="loanAmount"
-          placeholder="Desired Loan Amount"
-          value={formData.loanAmount}
+          name="income"
+          placeholder="Monthly Income"
+          value={formData.income}
           onChange={handleChange}
           required
           className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        <select
-          name="employeeType"
-          value={formData.employeeType}
+        <input
+          type="text"
+          name="orgName"
+          placeholder="Company / Business Name"
+          value={formData.orgName}
           onChange={handleChange}
-          className="findrop border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-         <option value="">Select Employee Type</option> {/* This is a placeholder */}
-<option value="Salaried">Salaried</option>
-<option value="Self Employed">Self Employed</option>
-
-        </select>
+          required
+          className="col-span-1 md:col-span-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
 
         <button
           type="submit"
@@ -139,8 +180,21 @@ const EligibilityForm = () => {
         </button>
       </form>
 
-      {responseMsg && (
-        <p className="text-center text-sm text-green-600 mt-5">{responseMsg}</p>
+      {/* Popup to show API response */}
+      {popupVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md text-center">
+            <h3 className="text-lg font-semibold mb-2">Response</h3>
+            <p className="text-green-600 font-medium">{responseMsg}</p>
+            {status && <p className="text-blue-600">Status: {status}</p>}
+            {offer && (
+              <p className="text-purple-600">
+                Eligible Loan Offer: ₹{offer.toLocaleString()}
+              </p>
+            )}
+            <p className="text-gray-500 mt-3 text-sm">Proceed to next steps...</p>
+          </div>
+        </div>
       )}
     </div>
   );

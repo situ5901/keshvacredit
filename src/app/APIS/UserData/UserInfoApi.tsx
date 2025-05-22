@@ -93,7 +93,7 @@ export const eligiblyramfin = async (userData: object) => {
 };
 export const eligiblyzype = async (userData: object) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/zypeeligibly`, userData, {
+    const response = await axios.post(`${API_BASE_URL}/zypewebAPI`, userData, {
       headers: {
         "Content-Type": "application/json",
       },
