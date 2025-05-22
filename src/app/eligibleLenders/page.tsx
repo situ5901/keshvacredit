@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 export type Lender = {
   id: string;
@@ -17,10 +19,10 @@ export type Lender = {
   applyLink: string;
 };
 
-const lenders: Lender[] = [
+const allLenders: Lender[] = [
   {
     id: "ramfin",
-    name: "RamFin",
+    name: "Ramfin",
     logo: "https://www.ramfincorp.com/images/logo.png",
     approval: "Good",
     amount: "Up to ₹3,00,000",
@@ -42,25 +44,57 @@ const lenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/Eligiblity-Zype",
   },
-];
-
-const utm: Lender[] = [
   {
-    id: "Flot",
-    name: "flot",
-    logo: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
+    id: "Mpokket",
+    name: "mpokket",
+    logo: "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
     approval: "Good",
     amount: "Up to ₹3,00,000",
-    interest: "Starting from 2% per month",
+    interest: "Upto 39% per annum",
     tenure: "Up to 18 months",
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink:
-      "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
+    applyLink: "https://web.mpokket.in/?utm_source=keshvacredit&utm_medium=keshvacredit",
+  },
+  {
+    id: "FatakPay",
+    name: "Fatakpay",
+    logo: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: " Range - 12% to 35.95% per annum",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium=",
+  },
+  {
+    id: "smartCoin",
+    name: "Smartcoin",
+    logo: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: " Starting 1.5% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
+  },
+  {
+    id: "flot",
+    name: "Flot",
+    logo: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Up to 2% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium={medium}&utm_campaign={campaign}",
   },
   {
     id: "rupee112",
-    name: "rupee112",
+    name: "Rupee112",
     logo: "https://www.rupee112.com/public/images/brand_logo.png",
     approval: "Good",
     amount: "Up to ₹3,00,000",
@@ -73,16 +107,15 @@ const utm: Lender[] = [
   {
     id: "bharatloan",
     name: "BharatLoan",
-    logo: "https://www.bharatloan.com/public/images/brand_logo.png", 
+    logo: "https://www.bharatloan.com/public/images/brand_logo.png",
     approval: "Good",
     amount: "Up to ₹3,00,000",
     interest: "Starting from 35% per annum",
     tenure: "Up to 18 months",
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=", 
-  }
-  
+    applyLink: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
+  },
 ];
 
 const renderLenderCard = (lender: Lender) => (
@@ -130,12 +163,12 @@ const renderLenderCard = (lender: Lender) => (
         <p>{lender.tenure}</p>
       </div>
       <div>
-        <p>support</p>
+        <p>Support</p>
         <p>{lender.support}</p>
       </div>
     </div>
 
-    <hr className="my-4 border-dashed border-t-2 border-gray-500 " />
+    <hr className="my-4 border-dashed border-t-2 border-gray-500" />
 
     <div className="flex flex-wrap items-center justify-between gap-4">
       <div className="flex flex-wrap gap-4 text-lg ml-1">
@@ -165,11 +198,28 @@ const renderLenderCard = (lender: Lender) => (
 
 export default function Page() {
   const router = useRouter();
+  const [eligibleLenders, setEligibleLenders] = useState<Lender[]>([]);
 
   useEffect(() => {
     const userData = localStorage.getItem("userData");
     if (!userData) {
       router.push("/short-term-loan");
+    }
+
+    const phone = Cookies.get("user_phone");
+    if (phone) {
+      axios
+        .post("https://keshvacredit.com/api/v1/eligibility/lenderlist", { phone })
+        .then((res) => {
+          const lenderNames = res.data.data.map((name: string) => name.toLowerCase());
+          const filtered = allLenders.filter((lender) =>
+            lenderNames.includes(lender.name.toLowerCase())
+          );
+          setEligibleLenders(filtered);
+        })
+        .catch((err) => {
+          console.error("Failed to fetch lenders:", err);
+        });
     }
   }, [router]);
 
@@ -178,12 +228,13 @@ export default function Page() {
       <h1 className="mt-10 text-2xl font-bold mb-2">Select Lender</h1>
       <p className="mb-6">Here are the offers that best suit your needs</p>
 
-      {lenders.map(renderLenderCard)}
-
-      <h1 className="mt-16 text-2xl font-bold mb-2">Quick Loans</h1>
-      <p className="mb-6">Other quick loan options you may consider:</p>
-
-      {utm.map(renderLenderCard)}
+      {eligibleLenders.length > 0 ? (
+        eligibleLenders.map(renderLenderCard)
+      ) : (
+        <p className="text-center text-lg mt-10">
+          Loading eligible lenders...
+        </p>
+      )}
     </div>
   );
 }
