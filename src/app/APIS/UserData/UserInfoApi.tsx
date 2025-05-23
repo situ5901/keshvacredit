@@ -1,5 +1,8 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+interface User {
+  phone: string;
+}
 
 
  const API_BASE_URL = "https://keshvacredit.com/api/v1/api";
@@ -102,6 +105,15 @@ export const eligiblyzype = async (userData: object) => {
   } catch (error) {
     console.error("Error submitting Application:", error);
     throw error;
+  }
+};
+
+export const getUserData = async (phone: string): Promise<User | null> => {
+  try {
+    const res = await axios.post('https://keshvacredit.com/api/v1/api/getUsers', { phone });
+    return res.data as User;
+  } catch{
+    return null;
   }
 };
 

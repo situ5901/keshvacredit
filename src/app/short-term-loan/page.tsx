@@ -4,6 +4,7 @@ import { useState } from "react";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Route, Router } from "lucide-react";
 import { submitUserInfo } from "../APIS/UserData/UserInfoApi";
+import { getUserData  } from "../APIS/UserData/UserInfoApi";
 import { useRouter } from "next/navigation"; // Changed from next/router to next/navigation
 import Loading from "../../animations/Loading.json"
 import dynamic from "next/dynamic";
@@ -12,6 +13,7 @@ import RatingAndReviews from "../Component/Homesections/page2";
 import Howitworks from "../Component/Homesections/page3"
 import Frequent from "../Component/Homesections/page4"
 import Popup from "../Component/Popup";
+import Cookies from 'js-cookie';
 
 function Page() {
   const router = useRouter();
@@ -34,13 +36,23 @@ function Page() {
   });
 
   // Check localStorage on component mount
-  useEffect(() => {
-    const userData = localStorage.getItem("userData");
-    if (userData) {
-      router.push("/eligibleLenders"); // Redirect if user data exists
-    } else {
-      setLoading(false);
-    }
+   useEffect(() => {
+    const fetchUser = async () => {
+      const phone = Cookies.get('user_phone');
+      if (phone) {
+        const user = await getUserData(phone);
+        if (user && user.phone) {
+          localStorage.setItem('userData', JSON.stringify(user));
+          router.push('/eligibleLenders');
+        } else {
+          setLoading(false);
+        }
+      } else {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
   }, [router]);
 
   // Define event handlers (declared after hooks are set up)
@@ -74,7 +86,7 @@ function Page() {
     }, 2000);
   } catch {
     setPopupType("error");
-    setPopupMessage("Error submitting form. Please try again.");
+    setPopupMessage("Error submitting form. Please fill all deatils correctly.");
     setShowPopup(true);
   }
 
