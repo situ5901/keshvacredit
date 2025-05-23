@@ -8,22 +8,26 @@ const steps = [
   {
     title: 'Provide Basic Details',
     imgSrc: '/how1.png',
-    description: 'Enter your personal and financial information so we can tailor the best loan options for you.',
+    description:
+      'Enter your personal and financial information so we can tailor the best loan options for you.',
   },
   {
     title: 'Choose From Best Offers',
     imgSrc: '/how2.png',
-    description: 'Compare curated loan offers from top lenders and pick the one that fits your requirements.',
+    description:
+      'Compare curated loan offers from top lenders and pick the one that fits your requirements.',
   },
   {
     title: 'Complete Application Online',
     imgSrc: '/how3.png',
-    description: 'Fill out the application form, upload documents, and submit everything online in minutes.',
+    description:
+      'Fill out the application form, upload documents, and submit everything online in minutes.',
   },
   {
     title: 'Get Money in Your Bank',
     imgSrc: '/how4.png',
-    description: 'After approval, receive the funds directly into your bank account within 24 hours.',
+    description:
+      'After approval, receive the funds directly into your bank account within 24 hours.',
   },
 ];
 
@@ -56,15 +60,15 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section className="py-16 ">
+    <section className="py-16">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-2">How It Works</h2>
         <p className="mb-4 text-lg md:text-xl">
           Get your loan disbursed into your bank account in 4 simple steps.
         </p>
 
-        {/* Progress only on sm+ */}
-        <div className="hidden sm:flex items-center justify-center mb-8 w-full gap-x-4">
+        {/* Progress Bar (Desktop only) */}
+        <div className="hidden lg:flex items-center justify-center mb-8 w-full gap-x-4">
           {steps.map((_, idx) => (
             <React.Fragment key={idx}>
               <div
@@ -88,22 +92,27 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* Slider on sm+ */}
-        <div className="hidden sm:block overflow-visible -mx-3">
+        {/* Desktop Slider */}
+        <div className="hidden lg:block overflow-visible -mx-3">
           <Slider {...sliderSettings} className="px-3">
             {steps.map((step, idx) => {
               const isActive = idx === activeStep;
               return (
-                <div key={idx} className="px-3 h-[450px] mt-5">
+                <div key={idx} className="px-3 mt-5">
                   <div
-                    className={`flex flex-col items-center p-8 rounded-2xl shadow-xl transition-transform duration-500 ease-in-out w-full min-h-[22rem] md:min-h-[24rem] lg:min-h-[26rem] ${
+                    className={`flex flex-col items-center p-8 rounded-2xl shadow-xl transition-transform duration-500 ease-in-out w-full h-[400px] mb-5 ${
                       isActive
                         ? 'bg-gray-800 text-white scale-105'
                         : 'bg-white text-blue-900'
                     }`}
                   >
                     <div className="relative w-32 h-32 mb-4">
-                      <Image src={step.imgSrc} alt={step.title} fill style={{ objectFit: 'contain' }} />
+                      <Image
+                        src={step.imgSrc}
+                        alt={step.title}
+                        fill
+                        style={{ objectFit: 'contain' }}
+                      />
                     </div>
                     <h3 className="font-semibold text-center text-lg mb-2">{step.title}</h3>
                     <p className="text-center text-sm md:text-base mt-2 px-2">
@@ -116,20 +125,32 @@ export default function HowItWorks() {
           </Slider>
         </div>
 
-        {/* Vertical list on mobile */}
-        <div className="sm:hidden flex flex-col space-y-4">
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center p-6 rounded-2xl shadow-md w-full"
-            >
-              <div className="relative w-24 h-24 mb-4">
-                <Image src={step.imgSrc} alt={step.title} fill style={{ objectFit: 'contain' }} />
+        {/* Mobile + Tablet Vertical Zooming Steps */}
+        <div className="lg:hidden flex flex-col space-y-6 mt-6">
+          {steps.map((step, idx) => {
+            const isActive = idx === activeStep;
+            return (
+              <div
+                key={idx}
+                className={`flex flex-col items-center p-6 rounded-2xl shadow-md w-full transition-all duration-500 ease-in-out ${
+                  isActive
+                    ? 'scale-105 bg-gray-800 text-white'
+                    : 'scale-100 bg-white text-blue-900'
+                }`}
+              >
+                <div className="relative w-24 h-24 mb-4">
+                  <Image
+                    src={step.imgSrc}
+                    alt={step.title}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
+                <h3 className="font-semibold text-center text-lg mb-2">{step.title}</h3>
+                <p className="text-center text-sm px-4">{step.description}</p>
               </div>
-              <h3 className="font-semibold text-center text-lg mb-2">{step.title}</h3>
-              <p className="text-center text-sm px-4">{step.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

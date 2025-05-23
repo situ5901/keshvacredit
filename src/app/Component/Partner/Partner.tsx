@@ -45,7 +45,7 @@ const Partner = () => {
     },
       {
       src: "https://i.postimg.cc/sgkVCJpQ/download.png",
-      url: "",
+      url: "/",
     },
     {
       src: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
@@ -70,6 +70,10 @@ const Partner = () => {
       {
       src: "https://www.rupee112.com/public/images/brand_logo.png",
       url: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
+    },
+      {
+      src: "https://www.kamakshimoney.com/index_files/finpath-loan-logo.svg",
+      url: "/",
     },
   ];
 

@@ -3,77 +3,135 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import * as XLSX from 'xlsx';
+
+type ExcelRow = (string | number | null | undefined)[]; // Each cell can be string, number, or empty
+type ApiResponseItem = {
+  phone: string;
+  status: 'Duplicate' | 'Not Duplicate' | string; // extend if needed
+};
+type ApiResponse = {
+  data: ApiResponseItem[];
+};
 
 export default function PartnerDashboard() {
   const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const [uploadMessage, setUploadMessage] = useState<string>('');
-  const [duplicatesCount, setDuplicatesCount] = useState<number>(0);
-  const [notDuplicatesCount, setNotDuplicatesCount] = useState<number>(0);
+  const [processing, setProcessing] = useState<boolean>(false);
+  const [duplicates, setDuplicates] = useState<ExcelRow[]>([]);
+  const [notDuplicates, setNotDuplicates] = useState<ExcelRow[]>([]);
+  const [headers, setHeaders] = useState<string[]>([]);
+  const [phoneColumnIndex, setPhoneColumnIndex] = useState<number | null>(null);
 
-  // Check if the user is logged in
   useEffect(() => {
     const isLoggedIn = Cookies.get('partner_login');
     if (!isLoggedIn) {
-      router.push('/Partner-login');
+      router.push('/partnerlogin');
     }
   }, [router]);
 
-  // Handle Logout
   const handleLogout = () => {
     Cookies.remove('partner_login');
-    router.push('/Partner-login');
+    router.push('/partnerlogin');
   };
 
-  // Handle File Change
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] || null;
     setFile(selectedFile);
+    setUploadMessage('');
   };
 
-  // Handle Excel File Upload
   const handleUpload = async () => {
     if (!file) {
       setUploadMessage('Please select a file to upload.');
       return;
     }
 
-    const formData = new FormData();
-    formData.append('file', file);
+    setProcessing(true);
+    setUploadMessage('Processing...');
 
     try {
-      const response = await fetch('YOUR_API_URL_HERE', { // Replace with your API URL
+      const data = await file.arrayBuffer();
+      const workbook = XLSX.read(data, { type: 'array' });
+      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+      const jsonData: ExcelRow[] = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+      const headers = jsonData[0] as string[];
+      const rows = jsonData.slice(1);
+      setHeaders(headers);
+
+      const keywords = ['phone', 'mobile', 'number', 'contact', 'phonenumber', 'mobilenumber'];
+      const detectedIndex = headers.findIndex((h) =>
+        keywords.some((keyword) => String(h).toLowerCase().replace(/[^a-z]/g, '').includes(keyword))
+      );
+
+      if (detectedIndex === -1) {
+        setUploadMessage('❌ No phone-related column (e.g., phone, mobile, number) found in the Excel file.');
+        setProcessing(false);
+        return;
+      }
+
+      setPhoneColumnIndex(detectedIndex);
+
+      const phoneNumbers = rows
+        .map((row) => row[detectedIndex])
+        .filter(
+          (num): num is string | number =>
+            (typeof num === 'string' || typeof num === 'number') && String(num).trim().length >= 10
+        )
+        .map((num) => String(num).trim());
+
+      if (phoneNumbers.length === 0) {
+        setUploadMessage('❌ No valid phone numbers found in the file.');
+        setProcessing(false);
+        return;
+      }
+
+      const response = await fetch('https://keshvacredit.com/api/v1/getAll/check-data', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone: phoneNumbers }),
       });
 
       if (response.ok) {
-        const data = await response.json();
-        setUploadMessage('File uploaded successfully!');
+        const result: ApiResponse = await response.json();
+        const phoneStatusMap = new Map<string, string>(result.data.map((item) => [item.phone, item.status]));
 
-        // Update counts from response
-        setDuplicatesCount(data.duplicates.length);
-        setNotDuplicatesCount(data.notDuplicates.length);
+        const duplicatesList: ExcelRow[] = [];
+        const notDuplicatesList: ExcelRow[] = [];
 
-        // Save file URLs for download
-        Cookies.set('duplicate_file', data.duplicateFileUrl);
-        Cookies.set('not_duplicate_file', data.notDuplicateFileUrl);
+        rows.forEach((row) => {
+          const phoneCell = row[detectedIndex];
+          if (typeof phoneCell !== 'string' && typeof phoneCell !== 'number') return;
+          const phone = String(phoneCell).trim();
+          const status = phoneStatusMap.get(phone);
+          if (status === 'Duplicate') {
+            duplicatesList.push(row);
+          } else if (status === 'Not Duplicate') {
+            notDuplicatesList.push(row);
+          }
+        });
+
+        setDuplicates(duplicatesList);
+        setNotDuplicates(notDuplicatesList);
+        setUploadMessage('✅ Processing completed successfully!');
       } else {
-        setUploadMessage(`Upload failed: ${response.statusText}`);
+        setUploadMessage(`❌ Upload failed: ${response.statusText}`);
       }
-    } catch {
-      setUploadMessage('Error uploading file.');
+    } catch (error) {
+      console.error('Upload Error:', error);
+      setUploadMessage('❌ Error processing file.');
     }
+
+    setProcessing(false);
   };
 
-  // Download File
-  const handleDownload = (fileType: 'duplicate' | 'not_duplicate') => {
-    const fileUrl = Cookies.get(`${fileType}_file`);
-    if (fileUrl) {
-      window.open(fileUrl, '_blank');
-    } else {
-      setUploadMessage('File not available for download.');
-    }
+  const downloadExcel = (rows: ExcelRow[], fileName: string) => {
+    const ws = XLSX.utils.aoa_to_sheet([headers, ...rows]);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Data');
+    XLSX.writeFile(wb, `${fileName}.xlsx`);
   };
 
   return (
@@ -87,7 +145,6 @@ export default function PartnerDashboard() {
             You’ve entered the <span className="font-semibold text-blue-600">Partner Dashboard</span>.
           </p>
 
-          {/* Logout Button */}
           <button
             onClick={handleLogout}
             className="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg shadow-md hover:bg-red-600 transition"
@@ -95,8 +152,7 @@ export default function PartnerDashboard() {
             Logout
           </button>
 
-          {/* Excel Upload Section */}
-          <div className="mt-10 bg-gradient-to-r from-white via-gray-50 to-white rounded-2xl p-6 border border-dashed border-purple-300 shadow-inner text-left space-y-4 text-gray-700">
+          <div className="bg-gradient-to-r from-white via-gray-50 to-white rounded-2xl p-6 border border-dashed border-purple-300 shadow-inner text-left space-y-4 text-gray-700">
             <h2 className="text-2xl font-bold text-purple-600">📂 Upload Excel File</h2>
             <input
               type="file"
@@ -107,43 +163,63 @@ export default function PartnerDashboard() {
             <button
               onClick={handleUpload}
               className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg shadow-md hover:bg-blue-700 transition"
+              disabled={processing}
             >
-              Upload File
+              {processing ? 'Processing...' : 'Upload File'}
             </button>
             {uploadMessage && (
-              <p className="text-green-500 mt-2">{uploadMessage}</p>
+              <p
+                className={`text-sm mt-2 text-center ${
+                  uploadMessage.startsWith('✅')
+                    ? 'text-green-600'
+                    : uploadMessage.startsWith('❌')
+                    ? 'text-red-600'
+                    : 'text-blue-600'
+                }`}
+              >
+                {uploadMessage}
+              </p>
             )}
           </div>
 
-          {/* Status Boxes */}
-          <div className="flex justify-center gap-6 mt-8">
-            {/* Duplicate Status Box */}
-            <div className="flex flex-col items-center p-6 bg-red-100 text-red-800 rounded-xl shadow-md w-60">
-              <h3 className="text-xl font-semibold">Status: Duplicate</h3>
-              <p className="text-2xl font-bold">{duplicatesCount}</p>
-              <button
-                onClick={() => handleDownload('duplicate')}
-                className="mt-3 px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-              >
-                Download Duplicates
-              </button>
-            </div>
+          {!processing && phoneColumnIndex !== null && (duplicates.length > 0 || notDuplicates.length > 0) && (
+            <div className="flex justify-center gap-6 mt-8 flex-wrap">
+              <div className="flex flex-col items-center p-6 bg-red-100 text-red-800 rounded-xl shadow-md w-72">
+                <h3 className="text-xl font-semibold">Status: Duplicate</h3>
+                <p className="text-2xl font-bold">{duplicates.length}</p>
+                <button
+                  onClick={() => downloadExcel(duplicates, 'Duplicates')}
+                  className="mt-3 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+                >
+                  Download Duplicates
+                </button>
+                <div className="text-sm mt-2 text-left max-h-40 overflow-y-auto w-full">
+                  {duplicates.slice(0, 5).map((row, index) => (
+                    <p key={index}>{row[phoneColumnIndex]}</p>
+                  ))}
+                </div>
+              </div>
 
-            {/* Not Duplicate Status Box */}
-            <div className="flex flex-col items-center p-6 bg-green-100 text-green-800 rounded-xl shadow-md w-60">
-              <h3 className="text-xl font-semibold">Status: Not Duplicate</h3>
-              <p className="text-2xl font-bold">{notDuplicatesCount}</p>
-              <button
-                onClick={() => handleDownload('not_duplicate')}
-                className="mt-3 px-3 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
-              >
-                Download Not Duplicates
-              </button>
+              <div className="flex flex-col items-center p-6 bg-green-100 text-green-800 rounded-xl shadow-md w-72">
+                <h3 className="text-xl font-semibold">Status: Not Duplicate</h3>
+                <p className="text-2xl font-bold">{notDuplicates.length}</p>
+                <button
+                  onClick={() => downloadExcel(notDuplicates, 'Not_Duplicates')}
+                  className="mt-3 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
+                >
+                  Download Not Duplicates
+                </button>
+                <div className="text-sm mt-2 text-left max-h-40 overflow-y-auto w-full">
+                  {notDuplicates.slice(0, 5).map((row, index) => (
+                    <p key={index}>{row[phoneColumnIndex]}</p>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="mt-5 bg-gray-100 p-4 rounded-lg text-gray-600">
-            <p>Manage your data, track duplicates, and download filtered results.</p>
+            <p>Track duplicates, and download filtered results.</p>
           </div>
         </div>
       </div>

@@ -1,21 +1,31 @@
 "use client";
-import React from "react";
+
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import EmiCalculator from "./calculator/calculator";
 import LottieAnimation from "./ LottieAnimation";
 import Partner from "./Component/Partner/Partner";
 import RatingAndReviews from "./Component/Homesections/page2";
-import Howitworks from "./Component/Homesections/page3"
-import Homesection1 from "./Component/Homesections/page"
+import Howitworks from "./Component/Homesections/page3";
+import Homesection1 from "./Component/Homesections/page";
 import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
-import { motion } from 'framer-motion';
-
+import { motion } from "framer-motion";
+const Homelottie = dynamic(() => import("./Homelottie"), { ssr: false });
 
 function Page() {
+  const [isLoading, setIsLoading] = useState(true); 
   const { openModal } = useModal();
   const router = useRouter();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); 
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleClick = () => {
     const token = Cookies.get("user_token");
@@ -26,6 +36,7 @@ function Page() {
       openModal();
     }
   };
+
   const handleClickbusiness = () => {
     const token = Cookies.get("user_token");
     const phone = Cookies.get("user_phone");
@@ -35,6 +46,7 @@ function Page() {
       openModal();
     }
   };
+
   const cards = [
     {
       title: "Your Trust is Enough",
@@ -57,21 +69,31 @@ function Page() {
         "We uphold the highest data security standards, ensuring privacy with RBI-approved financial institutions.",
     },
   ];
+
+  if (isLoading) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center">
+        <Homelottie />
+      </div>
+    );
+  }
+
   return (
     <>
       <section className="py-8 px-4 md:py-1 md:px-8 w-full gap-8">
         <div className="gap-26 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-          <div className="font-light  sm:text-lg  mt-10">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold ">
-              Empowering Every Indian with <span className="text-[#e5a74a]" >Instant Loans</span>
+          <div className="font-light sm:text-lg mt-10">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold">
+              Empowering Every Indian with{" "}
+              <span className="text-[#e5a74a]">Instant Loans</span>
             </h2>
-            <p className="mb-4 ">
+            <p className="mb-4">
               Quick approvals, minimal documentation, and seamless disbursal.
               Small loans or big, we ensure financial access at the pace you
               need, empowering every Indian with hassle-free loan solutions
               tailored to their needs.
             </p>
-            <p className="">
+            <p>
               We are strategists, designers and developers. Innovators and
               problem solvers. Small enough to be simple and quick.
             </p>
@@ -83,8 +105,12 @@ function Page() {
                 className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-xs px-2 py-2 text-center me-2 mb-2 w-64 relative overflow-hidden"
               >
                 <div className="flex flex-col items-center">
-                  <span className="animate-pulse text-sm font-semibold">Personal Loan</span>
-                  <span className="animate-blink text-xs mt-0.5">Click to Apply</span>
+                  <span className="animate-pulse text-sm font-semibold">
+                    Personal Loan
+                  </span>
+                  <span className="animate-blink text-xs mt-0.5">
+                    Click to Apply
+                  </span>
                 </div>
               </button>
               <button
@@ -93,12 +119,15 @@ function Page() {
                 className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-xs px-2 py-1 text-center me-2 mb-2 w-64 relative overflow-hidden"
               >
                 <div className="flex flex-col items-center">
-                  <span className="animate-pulse text-sm font-semibold">Business Loan</span>
-                  <span className="animate-blink text-xs mt-0.5">Click to Apply</span>
+                  <span className="animate-pulse text-sm font-semibold">
+                    Business Loan
+                  </span>
+                  <span className="animate-blink text-xs mt-0.5">
+                    Click to Apply
+                  </span>
                 </div>
               </button>
             </div>
-
           </div>
           <div className="grid grid-cols-2 gap-4 mt-8">
             <LottieAnimation />
@@ -625,23 +654,3 @@ function Page() {
 }
 
 export default Page;
-
-// import React from 'react'
-//
-// function page() {
-//   return (
-//     <div>
-//      <section className="h-screen flex items-center justify-center    dark:bg-gray-900">
-//     <div className="py-8 px-4 mx-auto max-w-screen-md text-center lg:py-16 lg:px-12">
-//         <svg className="mx-auto mb-4 w-10 h-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M331.8 224.1c28.29 0 54.88 10.99 74.86 30.97l19.59 19.59c40.01-17.74 71.25-53.3 81.62-96.65c5.725-23.92 5.34-47.08 .2148-68.4c-2.613-10.88-16.43-14.51-24.34-6.604l-68.9 68.9h-75.6V97.2l68.9-68.9c7.912-7.912 4.275-21.73-6.604-24.34c-21.32-5.125-44.48-5.51-68.4 .2148c-55.3 13.23-98.39 60.22-107.2 116.4C224.5 128.9 224.2 137 224.3 145l82.78 82.86C315.2 225.1 323.5 224.1 331.8 224.1zM384 278.6c-23.16-23.16-57.57-27.57-85.39-13.9L191.1 158L191.1 95.99l-127.1-95.99L0 63.1l96 127.1l62.04 .0077l106.7 106.6c-13.67 27.82-9.251 62.23 13.91 85.39l117 117.1c14.62 14.5 38.21 14.5 52.71-.0016l52.75-52.75c14.5-14.5 14.5-38.08-.0016-52.71L384 278.6zM227.9 307L168.7 247.9l-148.9 148.9c-26.37 26.37-26.37 69.08 0 95.45C32.96 505.4 50.21 512 67.5 512s34.54-6.592 47.72-19.78l119.1-119.1C225.5 352.3 222.6 329.4 227.9 307zM64 472c-13.25 0-24-10.75-24-24c0-13.26 10.75-24 24-24S88 434.7 88 448C88 461.3 77.25 472 64 472z"/></svg>
-//         <h1 className="mb-4 text-4xl font-bold tracking-tight leading-none    lg:mb-6 md:text-5xl xl:text-6xl dark:text-white">Under Maintenance</h1>
-//         <p className="font-light text-gray-500 md:text-lg xl:text-xl   ">Our Enterprise administrators are performing scheduled maintenance.</p>
-//     </div>
-// </section>
-//
-//     </div>
-//   )
-// }
-//
-// export default page
-//
