@@ -13,10 +13,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
-  title: "Welcome to Keshvacredit",
-  description: "Keshvacredit offers seamless and reliable financial solutions, empowering you with quick access to loans . Explore a range of services designed to meet your unique financial needs, all in one place.",
+  title: "KeshvaCredit - Instant Loans and Financial Solutions",
+  description:
+    "KeshvaCredit offers seamless and reliable financial solutions, empowering you with quick access to loans. Explore a range of services tailored to your financial needs.",
+  keywords: ["KeshvaCredit", "instant loan", "financial services", "business loan", "personal loan"],
+  metadataBase: new URL("https://keshvacredit.com"),
+  openGraph: {
+    title: "KeshvaCredit - Instant Loans and Financial Solutions",
+    description:
+      "Quick and easy financial solutions with KeshvaCredit. Apply for personal or business loans online today.",
+    url: "https://keshvacredit.com",
+    siteName: "KeshvaCredit",
+    type: "website",
+    locale: "en_US",
+  },
+  robots: "index, follow",
+  authors: [{ name: "KeshvaCredit Team", url: "https://keshvacredit.com" }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -31,7 +44,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ClientLayout>{children}</ClientLayout>
-        
       </body>
     </html>
   );
