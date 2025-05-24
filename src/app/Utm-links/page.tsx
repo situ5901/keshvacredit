@@ -1,38 +1,20 @@
 "use client";
 import Image from "next/image";
 import { submitUserInfo } from "../APIS/UserData/UserInfoApi";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 const lenderData = [
-
     {
-        image: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
-        lender: "Flot",
-        interestRate: " Up to 2% per month",
-        maxLoan: "Up to ₹2 Lakhs",
+        image: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
+        lender: "olyv",
+        interestRate: "Starting 1.5% per month",
+        maxLoan: "Up to ₹4 Lakhs",
         benefit: "Fast approval with minimal documents",
-        applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
-        detailsLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
-    },
-
-    {
-        image: "https://www.ramfincorp.com/images/logo.png",
-        lender: "RamFin",
-        interestRate: "upto 0.35% to 0.80%  per day",
-        maxLoan: "Up to ₹5 Lakhs",
-        benefit: "Fast approval with minimal documents",
-        applyLink: "https://applyonline.ramfincorp.com/?utm_source=keshvacredit",
-        detailsLink: "https://applyonline.ramfincorp.com/?utm_source=keshvacredit",
-    },
-    {
-        image: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
-        lender: "Zype",
-        interestRate: "upto 1.5% per month",
-        maxLoan: "Up to ₹3 Lakhs",
-        benefit: "Fast approval with minimal documents",
-        applyLink: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
-        detailsLink: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
+        applyLink: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
+        detailsLink: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
     },
     {
         image: "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
@@ -44,6 +26,24 @@ const lenderData = [
         detailsLink: "https://web.mpokket.in/?utm_source=keshvacredit&utm_medium=keshvacredit",
     },
     {
+        image: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
+        lender: "Zype",
+        interestRate: "upto 1.5% per month",
+        maxLoan: "Up to ₹3 Lakhs",
+        benefit: "Fast approval with minimal documents",
+        applyLink: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
+        detailsLink: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
+    },
+    {
+        image: "https://www.ramfincorp.com/images/logo.png",
+        lender: "RamFin",
+        interestRate: "upto 0.35% to 0.80%  per day",
+        maxLoan: "Up to ₹5 Lakhs",
+        benefit: "Fast approval with minimal documents",
+        applyLink: "https://applyonline.ramfincorp.com/?utm_source=keshvacredit",
+        detailsLink: "https://applyonline.ramfincorp.com/?utm_source=keshvacredit",
+    },
+    {
         image: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
         lender: "Fatakpay",
         interestRate: "Interest Rate Range - 12% to 35.95% per annum",
@@ -52,15 +52,7 @@ const lenderData = [
         applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
         detailsLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
     },
-    {
-        image: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
-        lender: "olyv",
-        interestRate: "Starting 1.5% per month",
-        maxLoan: "Up to ₹4 Lakhs",
-        benefit: "Fast approval with minimal documents",
-        applyLink: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
-        detailsLink: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
-    },
+
     {
         image: "https://www.rupee112.com/public/images/brand_logo.png",
         lender: "rupee112",
@@ -79,6 +71,15 @@ const lenderData = [
         applyLink: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
         detailsLink: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
     },
+    {
+        image: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
+        lender: "Flot",
+        interestRate: " Up to 2% per month",
+        maxLoan: "Up to ₹2 Lakhs",
+        benefit: "Fast approval with minimal documents",
+        applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
+        detailsLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
+    },
 
 ];
 
@@ -95,6 +96,13 @@ export default function UTMLendersPage() {
         dob: "",
 
     });
+
+    useEffect(() => {
+  AOS.init({
+    duration: 200,
+    once: true,     
+  });
+}, []);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -136,7 +144,7 @@ export default function UTMLendersPage() {
 
     return (
         <div className="min-h-screen px-4 py-8 mt-13">
-            <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16 px-6 text-center rounded-2xl">
+            <section data-aos="flip-down" className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16 px-6 text-center rounded-2xl">
                 <h1 className="text-4xl font-bold mb-4 animate__animated animate__heartBeat">quick links</h1>
 
                 <p className="text-lg mb-6">
@@ -159,7 +167,7 @@ export default function UTMLendersPage() {
                 </div>
 
                 {/* Right: Apply Form */}
-                <div className="w-full lg:w-1/3 rounded-2xl shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] h-[800px] overflow-y-auto">
+                <div data-aos="zoom-in" className="w-full lg:w-1/3 rounded-2xl shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] h-[800px] overflow-y-auto">
 
                     <div id="form" className=" flex flex-col items-center justify-center  p-4">
                         <h1 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-indigo-600 mb-2">
@@ -288,7 +296,7 @@ function LenderCard({
     detailsLink: string;
 }) {
     return (
-        <div className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
+        <div data-aos="zoom-in" className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
 
 
 

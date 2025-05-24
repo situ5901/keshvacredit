@@ -1,12 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 export default function EmiCalculator() {
   const [loanAmount, setLoanAmount] = useState<number>(100000);
   const [interestRate, setInterestRate] = useState<number>(10);
   const [loanTenure, setLoanTenure] = useState<number>(12);
+    useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true,
+      });
+    }, []);
 
   const calculateEMI = () => {
     const monthlyRate = interestRate / 12 / 100;
@@ -44,7 +53,7 @@ export default function EmiCalculator() {
           </h1>
         </div>
 
-        <div className="w-full  p-6 shadow-md flex flex-col md:flex-row gap-4">
+        <div data-aos="zoom-in" className="w-full  p-6 shadow-md flex flex-col md:flex-row gap-4">
           <div className="w-full md:w-1/2 bg-blue-950 text-amber-50 p-4 rounded-xl shadow-md">
             <h2 className="text-xl font-bold mb-2">EMI Calculator</h2>
             <div className="grid grid-cols-1 gap-3">
@@ -93,7 +102,7 @@ export default function EmiCalculator() {
           </div>
 
           {/* EMI Result & Chart */}
-          <div className="w-full md:w-1/2 bg-white p-4 rounded-xl shadow-md border border-gray-300">
+          <div data-aos="zoom-out"  className="w-full md:w-1/2 bg-white p-4 rounded-xl shadow-md border border-gray-300">
             <h2 className="text-xl font-bold mb-2 text-blue-950">EMI Result</h2>
             <hr />
             <div className="grid grid-cols-1 md:grid-cols-3 text-black gap-4 text-sm">

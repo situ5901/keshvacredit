@@ -1,103 +1,156 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import loanAnimation from "../../animations/loan.json";
-import 'animate.css';
 import Partner from "../Component/Partner/Partner";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+
 function About() {
+   useEffect(() => {
+      AOS.init({
+       duration: 800,
+      once: false, 
+      mirror: true,
+      });
+    }, []);
+
   return (
-    <div className="">
+    <div>
       {/* Hero Section */}
       <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
         <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
           <h1
-            className="mb-4 text-3xl font-extrabold tracking-tight leading-tight text-white animate__animated animate__bounce md:text-5xl lg:text-6xl"
-            style={{ animationDuration: '5s' }}
+            className="mb-4 text-3xl font-extrabold tracking-tight leading-tight text-white md:text-5xl lg:text-6xl"
+            style={{ animationDuration: "5s" }}
+            data-aos="bounce"
           >
             1ST Loan Marketplace – Simplifying Your Loan Journey
           </h1>
 
-
-          <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+          <p
+            className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48"
+            data-aos="fade-down"
+            data-aos-delay="200"
+          >
             Simplifying the Borrowing Experience with Instant Approvals, Best
             Interest Rates, and Trusted Lenders for Personal, Business, and
             Emergency Loans.
           </p>
         </div>
       </section>
-   
 
       {/* What Makes Us Special Section */}
       <section className="py-20 ">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold  animate__animated animate__fadeInDown">
+          <h2 className="text-4xl font-bold" data-aos="fade-down">
             What Makes Us Special
           </h2>
-          <p className="mt-4  text-lg animate__animated animate__fadeInDown animate__delay-1s max-w-4xl mx-auto">
-            At <strong>KeshvaCredit</strong>, we believe that financial solutions should be simple, transparent, and tailored to your needs. That’s why we’ve built a platform designed for convenience, speed, and trust. Whether you’re applying for a loan or exploring financial products, KeshvaCredit empowers you with seamless digital experiences and complete peace of mind.
+          <p
+            className="mt-4 text-lg max-w-4xl mx-auto"
+            data-aos="fade-down"
+            data-aos-delay="200"
+          >
+            At <strong>KeshvaCredit</strong>, we believe that financial solutions
+            should be simple, transparent, and tailored to your needs. That’s
+            why we’ve built a platform designed for convenience, speed, and
+            trust. Whether you’re applying for a loan or exploring financial
+            products, KeshvaCredit empowers you with seamless digital
+            experiences and complete peace of mind.
           </p>
 
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center items-start">
-
-            <div className="flex flex-col items-center">
-              <Image src="https://cdn-icons-gif.flaticon.com/6844/6844383.gif" alt="Fast Approval" width={64} height={64} className="mb-2" />
+            <div className="flex flex-col items-center" data-aos="fade-up">
+              <Image
+                src="https://cdn-icons-gif.flaticon.com/6844/6844383.gif"
+                alt="Fast Approval"
+                width={64}
+                height={64}
+                className="mb-2"
+              />
               <span className="font-semibold text-center">Fast Approval</span>
             </div>
 
-            <div className="flex flex-col items-center">
-              <Image src="https://cdn-icons-png.flaticon.com/128/7325/7325279.png" alt="Quick Disbursal" width={64} height={64} className="mb-2" />
+            <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+              <Image
+                src="https://cdn-icons-png.flaticon.com/128/7325/7325279.png"
+                alt="Quick Disbursal"
+                width={64}
+                height={64}
+                className="mb-2"
+              />
               <span className="font-semibold text-center">Quick Disbursal</span>
             </div>
 
-            <div className="flex flex-col items-center">
-              <Image src="https://cdn-icons-png.flaticon.com/128/4660/4660937.png" alt="100% Paperless" width={64} height={64} className="mb-2" />
+            <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+              <Image
+                src="https://cdn-icons-png.flaticon.com/128/4660/4660937.png"
+                alt="100% Paperless"
+                width={64}
+                height={64}
+                className="mb-2"
+              />
               <span className="font-semibold text-center">100% Paperless</span>
             </div>
 
-            <div className="flex flex-col items-center">
-              <Image src="https://cdn-icons-png.flaticon.com/128/3875/3875894.png" alt="Wide Product Range" width={64} height={64} className="mb-2" />
+            <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+              <Image
+                src="https://cdn-icons-png.flaticon.com/128/3875/3875894.png"
+                alt="Wide Product Range"
+                width={64}
+                height={64}
+                className="mb-2"
+              />
               <span className="font-semibold text-center">Wide Product Range</span>
             </div>
 
-            <div className="flex flex-col items-center">
-              <Image src="https://cdn-icons-png.flaticon.com/128/5579/5579459.png" alt="Hassle-free Docs" width={64} height={64} className="mb-2" />
+            <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+              <Image
+                src="https://cdn-icons-png.flaticon.com/128/5579/5579459.png"
+                alt="Hassle-free Docs"
+                width={64}
+                height={64}
+                className="mb-2"
+              />
               <span className="font-semibold text-center">Hassle-free Docs</span>
             </div>
 
-            <div className="flex flex-col items-center">
-              <Image src="https://cdn-icons-gif.flaticon.com/6569/6569170.gif" alt="Safe Data" width={64} height={64} className="mb-2" />
+            <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="500">
+              <Image
+                src="https://cdn-icons-gif.flaticon.com/6569/6569170.gif"
+                alt="Safe Data"
+                width={64}
+                height={64}
+                className="mb-2"
+              />
               <span className="font-semibold text-center">Safe Data Ecosystem</span>
             </div>
-
           </div>
-
         </div>
       </section>
-
-
 
       {/* Who We Are Section */}
       <section className="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
         <div className="px-4 lg:px-[10%]">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2 text-center lg:text-left">
-              <h2 className="text-4xl font-bold text-gray-800 animate__animated animate__fadeInLeft">
-                Who We Are
-              </h2>
-              <p className="mt-4 text-gray-700 text-lg animate__animated animate__fadeInLeft animate__delay-1s">
-                At KeshvaCredit, we revolutionize the lending experience by connecting borrowers with trusted lenders. Our dynamic platform makes securing a loan—be it personal, business, or emergency—fast, transparent, and stress-free.
+            <div className="lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
+              <h2 className="text-4xl font-bold text-gray-800">Who We Are</h2>
+              <p className="mt-4 text-gray-700 text-lg" data-aos="fade-left" data-aos-delay="200">
+                At KeshvaCredit, we revolutionize the lending experience by
+                connecting borrowers with trusted lenders. Our dynamic platform
+                makes securing a loan—be it personal, business, or emergency—fast,
+                transparent, and stress-free.
               </p>
-
             </div>
-            <div className="lg:w-1/2 flex items-center justify-center animate__animated animate__fadeInRight">
+            <div className="lg:w-1/2 flex items-center justify-center" data-aos="fade-right">
               <Lottie animationData={loanAnimation} loop={true} className="w-full h-full" />
             </div>
           </div>
         </div>
       </section>
-
 
       {/* Partners Section */}
       <section className="py-20 mt-5">
@@ -105,97 +158,23 @@ function About() {
       </section>
       <hr />
 
-      {/* Collaboration Section */}
-      {/* <section className="py-24 -mt-16 relative">
-        <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-          <div className="w-full justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
-            <div className="w-full justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
-              <div className="pt-24 flex justify-center">
-                <Image
-                  className="rounded-xl object-cover"
-                  src="/situ.jpg"
-                  alt="Team members working"
-                  width={500}
-                  height={500}
-                />
-              </div>
-              <div className="flex flex-col justify-center gap-y-6">
-                <Image
-                  className="rounded-xl object-cover"
-                  src="/firls.jpeg"
-                  alt="Successful collaboration"
-                  width={500}
-                  height={500}
-                />
-                <Image
-                  className="rounded-xl object-cover"
-                  src="/gi.jpg"
-                  alt="Successful collaboration"
-                  width={500}
-                  height={300}
-                />
-              </div>
-            </div>
-            <div className="w-full -mt-6 flex-col justify-center lg:items-start items-center gap-10 inline-flex">
-              <div className="w-full flex-col justify-center items-start gap-8 flex">
-                <div className="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
-                  <h2 className=" text-4xl font-bold leading-normal lg:text-start text-center">
-                    Empowering Each Other to Succeed
-                  </h2>
-                  <p className=" text-base font-normal leading-relaxed lg:text-start text-center">
-                    Every project we&rsquo;ve undertaken has been a
-                    collaborative effort, where every person involved has left
-                    their mark.
-                  </p>
-                </div>
-                <div className="w-full lg:justify-start justify-center items-center sm:gap-10 gap-5 inline-flex">
-                  <div className="flex-col justify-start items-start inline-flex">
-                    <h3 className=" text-4xl font-bold">33+</h3>
-                    <h6 className=" text-base font-normal">
-                      Years of Experience
-                    </h6>
-                  </div>
-                  <div className="flex-col justify-start items-start inline-flex">
-                    <h4 className="text-gray-900 text-4xl font-bold">13+</h4>
-                    <h6 className="text-gray-500 text-base font-normal">
-                      Trusted Lending
-                    </h6>
-                  </div>
-                  <div className="flex-col justify-start items-start inline-flex">
-                    <h4 className="text-gray-900 text-4xl font-bold">500K+</h4>
-                    <h6 className="text-gray-500 text-base font-normal">
-                      Happy Customers
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <button className="sm:w-fit w-full px-3.5 py-2 bg-indigo-600 hover:bg-indigo-800 transition-all duration-700 ease-in-out rounded-lg shadow-md justify-center items-center flex">
-                <span className="px-1.5 text-white text-sm font-medium leading-6">
-                  Read More
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* How It Works Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center ">
-            <h2 className="text-4xl font-bold text-gray-800 animate__animated animate__fadeInDown">
+            <h2 className="text-4xl font-bold text-gray-800" data-aos="fade-down">
               How It Works
             </h2>
-            <p className="mt-4 text-gray-600 text-lg animate__animated animate__fadeInDown animate__delay-1s">
+            <p className="mt-4 text-gray-600 text-lg" data-aos="fade-down" data-aos-delay="200">
               Our simple three-step process gets you from application to approved—fast.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Step 1: Choose Loan */}
-            <div className="flex flex-col items-center animate__animated animate__fadeInUp">
+            <div className="flex flex-col items-center" data-aos="fade-up">
               <div className="w-35 h-35 relative">
                 <Image
-                  src="https://cdn-icons-gif.flaticon.com/16664/16664304.gif" // Replace with an image representing loan selection
+                  src="https://cdn-icons-gif.flaticon.com/16664/16664304.gif"
                   alt="Select Loan"
                   fill
                   className="rounded-full shadow-lg object-cover"
@@ -207,10 +186,10 @@ function About() {
               </p>
             </div>
             {/* Step 2: Instant Approval */}
-            <div className="flex flex-col items-center animate__animated animate__fadeInUp animate__delay-1s">
+            <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
               <div className="w-32 h-32 relative">
                 <Image
-                  src="https://cdn-icons-gif.flaticon.com/17904/17904955.gif" // Replace with an image of instant approval iconography
+                  src="https://cdn-icons-gif.flaticon.com/17904/17904955.gif"
                   alt="Instant Approval"
                   fill
                   className="rounded-full shadow-lg object-cover"
@@ -222,10 +201,10 @@ function About() {
               </p>
             </div>
             {/* Step 3: Receive Funds */}
-            <div className="flex flex-col items-center animate__animated animate__fadeInUp animate__delay-2s">
+            <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
               <div className="w-32 h-32 relative">
                 <Image
-                  src="https://cdn-icons-gif.flaticon.com/11321/11321408.gif" // Replace with an image indicating fund transfer
+                  src="https://cdn-icons-gif.flaticon.com/11321/11321408.gif"
                   alt="Receive Funds"
                   fill
                   className="rounded-full shadow-lg object-cover"
@@ -241,7 +220,7 @@ function About() {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+     <section className="bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
           <a
             href="/Contact"
@@ -281,8 +260,6 @@ function About() {
         </div>
         <div className="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
       </section>
-
-      {/* Footer Tagline */}
       <div className="h-10">
         <div className="flex items-center my-4">
           <div className="flex-grow border-t border-gray-300"></div>

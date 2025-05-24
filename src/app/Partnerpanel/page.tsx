@@ -5,10 +5,10 @@ import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import * as XLSX from 'xlsx';
 
-type ExcelRow = (string | number | null | undefined)[]; // Each cell can be string, number, or empty
+type ExcelRow = (string | number | null | undefined)[]; 
 type ApiResponseItem = {
   phone: string;
-  status: 'Duplicate' | 'Not Duplicate' | string; // extend if needed
+  status: 'Duplicate' | 'Not Duplicate' | string; 
 };
 type ApiResponse = {
   data: ApiResponseItem[];
@@ -87,7 +87,6 @@ export default function PartnerDashboard() {
         setProcessing(false);
         return;
       }
-
       const response = await fetch('https://keshvacredit.com/api/v1/getAll/check-data', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

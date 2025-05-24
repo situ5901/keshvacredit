@@ -33,7 +33,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
       if (isNowLoggedIn && !isLoggedIn) {
         setIsLoggedIn(true);
-        setChatMessages([{ type: "bot", text: "Thanks for login in keshvacredit" }]);
+        setChatMessages([{ type: "bot", text: "Thanks for login in keshvacredit how can I help you." }]);
         router.refresh();
       } else {
         setIsLoggedIn(isNowLoggedIn);
@@ -210,7 +210,7 @@ function LayoutContent({
         )}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center border border-black text-white bg-white rounded-full w-16 h-16 hover:bg-blue-800 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
+          className="flex items-center justify-center border border-black text-white bg-white rounded-full w-16 h-16 hover:bg-blue-200 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
         >
           <Lottie animationData={animationData} loop autoplay className="w-10 h-10" />
         </button>
