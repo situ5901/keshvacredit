@@ -212,7 +212,7 @@ function LayoutContent({
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center justify-center border border-black text-white bg-white rounded-full w-16 h-16 hover:bg-blue-200 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
         >
-          <Lottie animationData={animationData} loop autoplay className="w-10 h-10" />
+          <Lottie animationData={animationData} loop autoplay className="w-8 h-8" />
         </button>
       </div>
     </>

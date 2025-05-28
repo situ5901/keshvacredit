@@ -21,28 +21,16 @@ export type Lender = {
 
 const allLenders: Lender[] = [
   {
-    id: "ramfin",
-    name: "Ramfin",
-    logo: "https://www.ramfincorp.com/images/logo.png",
+    id: "smartCoin",
+    name: "Smartcoin",
+    logo: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
     approval: "Good",
     amount: "Up to ₹3,00,000",
-    interest: "Starting from 0.35% to 0.80% per day",
+    interest: " Starting 1.5% per month",
     tenure: "Up to 18 months",
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "/Eligiblity-Ramfin",
-  },
-  {
-    id: "zype",
-    name: "Zype",
-    logo: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
-    approval: "Good",
-    amount: "Up to ₹3,00,000",
-    interest: "Starting from 1.5% per month",
-    tenure: "Up to 18 months",
-    support: "24/7 customer support",
-    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "/Eligiblity-Zype",
+    applyLink: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
   },
   {
     id: "Mpokket",
@@ -57,6 +45,30 @@ const allLenders: Lender[] = [
     applyLink: "https://web.mpokket.in/?utm_source=keshvacredit&utm_medium=keshvacredit",
   },
   {
+    id: "zype",
+    name: "Zype",
+    logo: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Starting from 1.5% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "/Eligiblity-Zype",
+  },
+  {
+    id: "ramfin",
+    name: "Ramfin",
+    logo: "https://www.ramfincorp.com/images/logo.png",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Starting from 0.35% to 0.80% per day",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "/Eligiblity-Ramfin",
+  },
+  {
     id: "FatakPay",
     name: "Fatakpay",
     logo: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
@@ -68,33 +80,10 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium=",
   },
+
   {
-    id: "smartCoin",
-    name: "Smartcoin",
-    logo: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
-    approval: "Good",
-    amount: "Up to ₹3,00,000",
-    interest: " Starting 1.5% per month",
-    tenure: "Up to 18 months",
-    support: "24/7 customer support",
-    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
-  },
-  {
-    id: "flot",
-    name: "Flot",
-    logo: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
-    approval: "Good",
-    amount: "Up to ₹3,00,000",
-    interest: "Up to 2% per month",
-    tenure: "Up to 18 months",
-    support: "24/7 customer support",
-    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium={medium}&utm_campaign={campaign}",
-  },
-  {
-    id: "rupee112",
-    name: "Rupee112",
+    id: "Rupee",
+    name: "Rupee",
     logo: "https://www.rupee112.com/public/images/brand_logo.png",
     approval: "Good",
     amount: "Up to ₹3,00,000",
@@ -115,6 +104,18 @@ const allLenders: Lender[] = [
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
+  },
+  {
+    id: "flot",
+    name: "Flot",
+    logo: "https://myflot.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FlogoImage.176890a7.png&w=384&q=75",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Up to 2% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium={medium}&utm_campaign={campaign}",
   },
 ];
 
@@ -200,28 +201,33 @@ export default function Page() {
   const router = useRouter();
   const [eligibleLenders, setEligibleLenders] = useState<Lender[]>([]);
 
-  useEffect(() => {
-    const userData = localStorage.getItem("userData");
-    if (!userData) {
-      router.push("/short-term-loan");
-    }
+ useEffect(() => {
+  const userData = localStorage.getItem("userData");
+  if (!userData) {
+    router.push("/short-term-loan");
+  }
 
-    const phone = Cookies.get("user_phone");
-    if (phone) {
-      axios
-        .post("https://keshvacredit.com/api/v1/eligibility/lenderlist", { phone })
-        .then((res) => {
-          const lenderNames = res.data.data.map((name: string) => name.toLowerCase());
-          const filtered = allLenders.filter((lender) =>
-            lenderNames.includes(lender.name.toLowerCase())
-          );
-          setEligibleLenders(filtered);
-        })
-        .catch((err) => {
-          console.error("Failed to fetch lenders:", err);
-        });
-    }
-  }, [router]);
+  const phone = Cookies.get("user_phone");
+  if (phone) {
+    axios
+      .post("https://keshvacredit.com/api/v1/eligibility/lenderlist", { phone })
+      .then((res) => {
+        const lenderNames = res.data.data.map((item: { name: string }) =>
+          item.name.toLowerCase()
+        );
+
+        const filtered = allLenders.filter((lender) =>
+          lenderNames.includes(lender.name.toLowerCase())
+        );
+
+        setEligibleLenders(filtered);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch lenders:", err);
+      });
+  }
+}, [router]);
+
 
   return (
     <div className="max-w-[90rem] mx-auto px-4 py-12">

@@ -67,6 +67,10 @@ const Partner = () => {
       src: "https://www.bharatloan.com/public/images/brand_logo.png",
       url: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
     },
+     {
+      src: "https://i.postimg.cc/j2rPwGvT/download.png",
+      url: "https://salaryontime.com/apply-now?utm_source=Keshvacredit&utm_medium=Keywords&utm_campaign=Keywords&utm_term=Keywords",
+    },
       {
       src: "https://www.rupee112.com/public/images/brand_logo.png",
       url: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
@@ -75,6 +79,7 @@ const Partner = () => {
       src: "https://www.kamakshimoney.com/index_files/finpath-loan-logo.svg",
       url: "/",
     },
+   
   ];
 
   return (

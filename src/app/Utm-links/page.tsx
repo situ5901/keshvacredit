@@ -35,6 +35,15 @@ const lenderData = [
         detailsLink: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
     },
     {
+        image: "https://i.postimg.cc/j2rPwGvT/download.png",
+        lender: "salaryontime",
+        interestRate: "upto 2.9166% per month",
+        maxLoan: "Up to ₹3 Lakhs",
+        benefit: "Fast approval with minimal documents",
+        applyLink: "https://salaryontime.com/apply-now?utm_source=Keshvacredit&utm_medium=Keywords&utm_campaign=Keywords&utm_term=Keywords",
+        detailsLink: "https://salaryontime.com/apply-now?utm_source=Keshvacredit&utm_medium=Keywords&utm_campaign=Keywords&utm_term=Keywords",
+    },
+    {
         image: "https://www.ramfincorp.com/images/logo.png",
         lender: "RamFin",
         interestRate: "upto 0.35% to 0.80%  per day",
@@ -98,11 +107,11 @@ export default function UTMLendersPage() {
     });
 
     useEffect(() => {
-  AOS.init({
-    duration: 200,
-    once: true,     
-  });
-}, []);
+        AOS.init({
+            duration: 1500,
+            once: true,
+        });
+    }, []);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -167,7 +176,7 @@ export default function UTMLendersPage() {
                 </div>
 
                 {/* Right: Apply Form */}
-                <div data-aos="zoom-in" className="w-full lg:w-1/3 rounded-2xl shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] h-[800px] overflow-y-auto">
+                <div data-aos="zoom-in"  className="w-full lg:w-1/3 rounded-2xl shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] h-[800px] overflow-y-auto">
 
                     <div id="form" className=" flex flex-col items-center justify-center  p-4">
                         <h1 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-indigo-600 mb-2">
@@ -296,10 +305,7 @@ function LenderCard({
     detailsLink: string;
 }) {
     return (
-        <div data-aos="zoom-in" className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
-
-
-
+        <div className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
             <Image src={image} alt={lender} width={128} height={80} className="object-contain" />
             <div className="flex-1">
                 <h3 className="font-bold text-lg">{lender}</h3>

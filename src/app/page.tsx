@@ -199,7 +199,7 @@ function Page() {
       <section data-aos="fade-up" className="p-8  rounded-lg ">
         <h1 className="text-3xl font-extrabold mb-6 text-center text-blue-700">Loan Information</h1>
         <div className="flex flex-col md:flex-row gap-6">
-          <div data-aos="flip-left" className="flex-1 p-6 border-black border-1 rounded-lg shadow-md shadow-white transition-transform hover:scale-105">
+          <div data-aos="flip-left" className="flex-1 p-6 border-black border-1 rounded-lg shadow-md shadow-white ">
 
             <h2 className="text-xl font-bold mb-4 text-center ">Personal Loan</h2>
             <div className="grid grid-cols-1 gap-4">
@@ -225,7 +225,7 @@ function Page() {
             </div>
           </div>
 
-          <div data-aos="flip-right" className="flex-1 p-6 border-black border-1 rounded-lg shadow-md shadow-white transition-transform hover:scale-105">
+          <div data-aos="flip-right" className="flex-1 p-6 border-black border-1 rounded-lg shadow-md shadow-white">
             <h2 className="text-xl font-bold mb-4 text-center ">Business Loan</h2>
             <div className="grid grid-cols-1 gap-4">
               <div>
@@ -580,7 +580,7 @@ function Page() {
                     key={index}
                     className="flex flex-col items-center sm:flex-row w-full space-y-6 sm:space-y-0 sm:space-x-6"
                     data-aos="zoom-in"
-                  
+
                   >
                     <div className="flex size-10 md:size-12 items-center justify-center rounded-lg bg-indigo-600 shadow-lg">
                       <svg
@@ -608,7 +608,11 @@ function Page() {
       <Homesection1 />
       <hr />
       <EmiCalculator />
-      <Howitworks />
+      <section className="text-center justify-center items-center p-8">
+        <Howitworks />
+      </section>
+
+
       <RatingAndReviews />
       <section
         className="py-16  text-center">
