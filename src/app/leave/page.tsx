@@ -9,7 +9,7 @@ export default function LeaveForm() {
     department: '',
     phone: '',
     email: '',
-    reason: '', 
+    reason: '',
     otherReason: '',
     fromDate: '',
     toDate: '',
@@ -17,8 +17,6 @@ export default function LeaveForm() {
     comments: '',
   });
   const [status, setStatus] = useState<string | null>(null);
-
-  // On checkbox change - only one reason allowed, so set reason to clicked value or '' if unchecked
   const handleReasonChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;
     setFormData(prev => ({
@@ -95,9 +93,13 @@ export default function LeaveForm() {
 
   return (
     <form
-  onSubmit={handleSubmit}
-  className="relative z-10 max-w-4xl mx-auto mt-20 p-4 mb-2 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/10"
->
+      onSubmit={handleSubmit}
+      className="relative z-10 max-w-4xl mx-auto  p-4  backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/10"
+       style={{
+              boxShadow:
+                '0 0 0 2px rgba(100, 149, 237, 0.4), 0 4px 12px rgba(138, 43, 226, 0.2)',
+            }}
+    >
 
       <h1 className="text-3xl font-extrabold text-center bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2">
         Leave Application Form
@@ -110,6 +112,7 @@ export default function LeaveForm() {
           value={formData.firstName}
           onChange={handleInputChange}
           placeholder="First Name"
+           required
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <input
@@ -124,12 +127,13 @@ export default function LeaveForm() {
           name="department"
           value={formData.department}
           onChange={handleInputChange}
+           required
           className="findrop w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="" disabled>
             Select Department
           </option>
-          {['Developer', 'Calling', 'Management'].map(opt => (
+          {['Development', 'Calling', 'Management'].map(opt => (
             <option key={opt} value={opt}>
               {opt}
             </option>
@@ -149,6 +153,7 @@ export default function LeaveForm() {
           value={formData.email}
           onChange={handleInputChange}
           placeholder="Email"
+           required
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
@@ -164,6 +169,7 @@ export default function LeaveForm() {
                 value={r}
                 checked={formData.reason === r}
                 onChange={handleInputChange}
+                 required
                 className="accent-purple-500 w-4 h-4"
               />
               {r} Leave
@@ -211,18 +217,17 @@ export default function LeaveForm() {
       />
 
       <textarea
-  name="comments"
-  value={formData.comments}
-  onChange={handleInputChange}
-  placeholder="Comments"
-  rows={2}  // changed from 4 to 2
-  className="mt-4 w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
-/>
+        name="comments"
+        value={formData.comments}
+        onChange={handleInputChange}
+        placeholder="Comments"
+        rows={2}
+        className="mt-4 w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
+      />
 
 
       <motion.button
         type="submit"
-        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.97 }}
         className="mt-6 w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold py-3 rounded-xl shadow-inner hover:shadow-xl transition-all"
         disabled={status === 'sending'}

@@ -26,7 +26,7 @@ function Contact() {
         {/* Contact form centered */}
         <div
           className="max-w-2xl mx-auto p-6 rounded-lg shadow-md shadow-white mb-16"
-          data-aos="fade-up"
+          data-aos="zoom-in"
         >
           <h2 className="text-2xl font-bold mb-4 text-center">Ready to Get Started?</h2>
           <form>
@@ -75,7 +75,7 @@ function Contact() {
         {/* Address + Map below form */}
         <div className="grid md:grid-cols-2 gap-10">
           {/* Left side: Address */}
-          <div className="space-y-4" data-aos="fade-right">
+          <div className="space-y-4" data-aos="zoom-in">
             <h3 className="text-lg font-bold underline">Our Address</h3>
             <p>
               233, Thakar Basti, Bagichi Mohalla, Dharamshala Road,
@@ -98,7 +98,7 @@ function Contact() {
           {/* Right side: Map */}
           <div
             className="rounded-lg overflow-hidden shadow-md shadow-white"
-            data-aos="fade-left"
+            data-aos="zoom-in"
             style={{ minHeight: "350px" }}
           >
             <iframe

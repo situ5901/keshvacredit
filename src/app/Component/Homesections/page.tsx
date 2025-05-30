@@ -1,8 +1,6 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import 'aos/dist/aos.css';
-import AOS from 'aos';
 
 const tabs = [
   { 
@@ -31,14 +29,6 @@ const tabs = [
 const LoanSection = () => {
   const [activeTab, setActiveTab] = useState<string>('students');
 
-   useEffect(() => {
-    AOS.init({
-     duration: 2800,
-    once: false, 
-    mirror: true,
-    });
-  }, []);
-
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
   };
@@ -46,7 +36,7 @@ const LoanSection = () => {
   const activeTabContent = tabs.find(tab => tab.id === activeTab);
 
   return (
-    <section data-aos="zoom-in" className="py-12">
+    <section className="py-12">
       <h2 className="text-3xl font-semibold text-center mb-8">Loan for Everyone</h2>
 
       {/* Tabs */}

@@ -5,8 +5,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const reviews = [
-  { name: 'parveen chouhan', text: 'Loan disbursement in less than 24 hours is not what I had expected but this is amazing. Thank you very much, Indialends team.', rating: 5 },
-  { name: 'pardeep kumar', text: "Highly satisfied with overall loan disbursement experience. Haven't seen any platform giving so many choices to cater to financial needs. Highly recommended!", rating: 5 },
+  {
+    name: 'parveen chouhan',
+    text: 'Loan disbursement in less than 24 hours is not what I had expected but this is amazing. Thank you very much, keshvacredit team.',
+    rating: 5
+  },
+  {
+    name: 'pardeep 80B',
+    text: "Highly satisfied with overall loan disbursement experience. Haven't seen any platform giving so many choices to cater to financial needs. Highly recommended!",
+    rating: 5
+  },
   {
     name: 'Aryan Verma',
     text: 'The process was smooth and quick. Minimal paperwork and clear instructions made it hassle-free. Approval was fast, and the flexible repayment options made managing finances easier. Highly recommended!',

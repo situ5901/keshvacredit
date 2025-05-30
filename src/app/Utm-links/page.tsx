@@ -152,7 +152,7 @@ export default function UTMLendersPage() {
     };
 
     return (
-        <div className="min-h-screen px-4 py-8 mt-13">
+        <div className="min-h-screen  px-4 py-8 mt-13">
             <section data-aos="flip-down" className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16 px-6 text-center rounded-2xl">
                 <h1 className="text-4xl font-bold mb-4 animate__animated animate__heartBeat">quick links</h1>
 

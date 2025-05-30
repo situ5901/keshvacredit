@@ -12,7 +12,6 @@ import Howitworks from "./Component/Homesections/page3";
 import Homesection1 from "./Component/Homesections/page";
 import { useModal } from "@/app/context/ModalContext";
 import Cookies from "js-cookie";
-import { motion } from "framer-motion";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 const Homelottie = dynamic(() => import("./Homelottie"), { ssr: false });
@@ -25,7 +24,7 @@ function Page() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -82,7 +81,7 @@ function Page() {
 
   if (isLoading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center">
+      <div className="cursor-wait h-screen w-full flex items-center justify-center">
         <Homelottie />
       </div>
     );
@@ -93,7 +92,7 @@ function Page() {
       <section className="py-8 px-4 md:py-1 md:px-8 w-full gap-8">
         <div className="gap-26 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div className="font-light sm:text-lg mt-10">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold">
+            <h2 data-aos="fade-down" className="mb-4 text-4xl tracking-tight font-extrabold">
               Empowering Every Indian with{" "}
               <span className="text-[#e5a74a]">Instant Loans</span>
             </h2>
@@ -147,24 +146,21 @@ function Page() {
       <div className="flex justify-center">
         <div className="grid grid-cols-1 justify-center -mt-14 md:grid-cols-2 lg:grid-cols-4 gap-6 p-5">
           {cards.map((card, index) => (
-            <motion.a
+            <a
               key={index}
               href="#"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
               className="block max-w-sm p-6 border rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105"
             >
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-800">
                 {card.title}
               </h5>
               <p className="font-normal text-gray-600">{card.description}</p>
-            </motion.a>
+            </a>
           ))}
         </div>
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-between p-8">
+
+      <div className=" flex flex-col md:flex-row items-center justify-between p-8">
         {/* Left Side - Title & Subtitle */}
         <div
           className="md:w-1/2 text-center md:text-left"
@@ -278,139 +274,84 @@ function Page() {
     }
 `}</style>
 
-      <div data-aos="fade-up">
-        <section className="mb-1">
-          <div className="container px-6 py-12 mx-auto">
-            <div className="grid items-center gap-8 xl:grid-cols-5">
-              <div
-                className="max-w-2xl mx-auto my-8 space-y-6 text-center xl:col-span-2 xl:text-left"
-              >
-                <h2 className="text-4xl font-extrabold leading-tight">
+      <div>
+        <section className="mb-1 p-5">
+          <div className="container px-4 py-8 mx-auto">
+            <div className="grid items-center gap-6 xl:grid-cols-5">
+              {/* Left Section */}
+              <div className="max-w-xl mx-auto space-y-4 text-center xl:col-span-2 xl:text-left">
+                <h2 className="text-2xl font-bold leading-snug">
                   Instant Funds, Endless Possibilities
                 </h2>
-                <p className="text-lg opacity-80">
+                <p className="text-base opacity-80">
                   Get quick access to funds whenever you need them! Fast approvals,
                   hassle-free processing, and secure transactions make fulfilling
                   your financial needs easier than ever.
                 </p>
-                <div className="w-full mb-4 hidden md:block">
-                  <Image
-                    src="/allloan.png"
-                    alt="Instant Funds"
-                    width={800}
-                    height={50}
-                    className="h-[500px] w-auto object-contain rounded-lg mx-auto"
-                    unoptimized
-                  />
-                </div>
+                {/* <div className="w-full mb-4 hidden md:block">
+            <Image
+              src="/allloan11.png"
+              alt="Instant Funds"
+              width={600}
+              height={300}
+              className="h-[300px] w-auto object-contain rounded-lg mx-auto"
+              unoptimized
+            />
+          </div> */}
               </div>
 
               {/* Right Section - Cards */}
-              <div className="p-6 xl:col-span-3">
-                <div className="grid gap-8 md:grid-cols-2">
-                  {/* Personal Loan */}
-                  <div className="grid content-center gap-8" data-aos="flip-left" data-aos-duration="500">
-                    <div className="p-6 rounded-xl shadow-lg border-2 border-gray-300 dark:border-gray-700 hover:shadow-2xl transition-all">
-                      <p className="text-lg">
-                        Get instant personal loans with KeshvaCredit at competitive
-                        rates. Enjoy a seamless application process, minimal
-                        documentation, and quick approvals. Your data remains 100%
-                        secure with our strict security policies and trusted
-                        RBI-regulated partners. Apply now and achieve your financial
-                        goals effortlessly!
-                      </p>
-                      <div className="flex items-center mt-4 space-x-4">
+              <div className="p-4 xl:col-span-3">
+                <div className="grid gap-6 md:grid-cols-2">
+                  {/* Loan Cards (4 total) */}
+                  {[
+                    {
+                      title: "Personal Loan",
+                      text:
+                        "Get instant personal loans with KeshvaCredit at competitive rates.  minimal docs, quick approval & RBI-regulated partners.",
+                      icon:
+                        "https://www.getzype.com/wp-content/uploads/2025/02/Personal-Loan-Instant-Disbursal-1.svg",
+                    },
+                    {
+                      title: "Home Loan",
+                      text:
+                        "Affordable home loans at competitive interest rates. Quick approval, minimal paperwork, flexible options, and RBI-backed partners.",
+                      icon:
+                        "https://www.getzype.com/wp-content/uploads/2025/02/Collateral-Free-Loans.svg",
+                    },
+                    {
+                      title: "Credit Card",
+                      text:
+                        "Borrow up to your limit for purchases or bills. Repay monthly. Flexible and secure credit tool for all needs.",
+                      icon:
+                        "https://www.getzype.com/wp-content/uploads/2025/02/Affordable-Interest-Rate.svg",
+                    },
+                    {
+                      title: "Business Loan",
+                      text:
+                        "Enjoy smooth transactions, premium perks, cashback and secure RBI-backed loan services. Low interest, high rewards.",
+                      icon:
+                        "https://www.getzype.com/wp-content/uploads/2025/02/Flexible-repayment-options.svg",
+                    },
+                  ].map((card, i) => (
+                    <div
+                      key={i}
+                      className="p-4 rounded-lg shadow-md border border-gray-300 dark:border-gray-700 hover:shadow-lg transition-all text-sm"
+                    >
+                      <p>{card.text}</p>
+                      <div className="flex items-center mt-3 space-x-3">
                         <Image
-                          src="https://www.getzype.com/wp-content/uploads/2025/02/Personal-Loan-Instant-Disbursal-1.svg"
-                          alt="Personal Loan"
-                          width={50}
-                          height={50}
+                          src={card.icon}
+                          alt={card.title}
+                          width={40}
+                          height={40}
                           unoptimized
-                          className="w-12 h-12 bg-center bg-cover rounded-full"
+                          className="w-10 h-10 rounded-full"
                         />
-                        <div>
-                          <p className="text-lg font-semibold">Personal Loan</p>
-                        </div>
+                        <p className="font-medium">{card.title}</p>
                       </div>
                     </div>
-
-                    {/* Home Loan */}
-                    <div className="p-6 rounded-xl shadow-lg border-2 border-gray-300 dark:border-gray-700 hover:shadow-2xl transition-all" data-aos="flip-left" data-aos-duration="500">
-                      <p className="text-lg">
-                        Get affordable home loans with KeshvaCredit at competitive
-                        interest rates. Enjoy quick approvals, minimal paperwork, and
-                        flexible repayment options. Our RBI-regulated partners ensure a
-                        hassle-free, secure borrowing experience. Trust us to make
-                        your homeownership dreams a reality with complete financial
-                        peace of mind.
-                      </p>
-                      <div className="flex items-center mt-4 space-x-4">
-                        <Image
-                          src="https://www.getzype.com/wp-content/uploads/2025/02/Collateral-Free-Loans.svg"
-                          alt="Home Loan"
-                          width={50}
-                          height={50}
-                          unoptimized
-                          className="w-12 h-12 bg-center bg-cover rounded-full"
-                        />
-                        <div>
-                          <p className="text-lg font-semibold">Home Loan</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Credit Card and Business Loan */}
-                  <div className="grid content-center gap-8" data-aos="flip-right" data-aos-duration="500">
-                    {/* Credit Card */}
-                    <div className="p-6 rounded-xl shadow-lg border-2 border-gray-300 dark:border-gray-700 hover:shadow-2xl transition-all">
-                      <p className="text-lg">
-                        A credit card is a financial tool that allows users to borrow
-                        money from a bank or financial institution to make purchases,
-                        pay bills, or withdraw cash. It operates on a revolving credit
-                        system, where users can spend up to a pre-approved limit and
-                        repay the amount either in full or through monthly installments.
-                      </p>
-                      <div className="flex items-center mt-4 space-x-4">
-                        <Image
-                          src="https://www.getzype.com/wp-content/uploads/2025/02/Affordable-Interest-Rate.svg"
-                          alt="Credit Card"
-                          width={50}
-                          height={50}
-                          unoptimized
-                          className="w-12 h-12 bg-center bg-cover rounded-full"
-                        />
-                        <div>
-                          <p className="text-lg font-semibold">Credit Card</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Business Loan */}
-                    <div className="p-6 rounded-xl shadow-lg border-2 border-gray-300 dark:border-gray-700 hover:shadow-2xl transition-all" data-aos="flip-right" data-aos-duration="500">
-                      <p className="text-lg">
-                        Unlock exclusive benefits with KeshvaCredit! Enjoy seamless
-                        transactions, top-tier security, and exciting rewards. With our
-                        RBI-governed partners, your financial safety is guaranteed.
-                        Experience hassle-free credit card services with cashback, low
-                        interest rates, and premium perks. Apply today and elevate your
-                        financial freedom!
-                      </p>
-                      <div className="flex items-center mt-4 space-x-4">
-                        <Image
-                          src="https://www.getzype.com/wp-content/uploads/2025/02/Flexible-repayment-options.svg"
-                          alt="Business Loan"
-                          width={50}
-                          height={50}
-                          unoptimized
-                          className="w-12 h-12 bg-center bg-cover rounded-full"
-                        />
-                        <div>
-                          <p className="text-lg font-semibold">Business Loan</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -419,7 +360,7 @@ function Page() {
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-center p-6 gap-5">
-        <div data-aos="flip-right" className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+        <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
           <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight ">
               instant personal loan 2025
@@ -440,7 +381,7 @@ function Page() {
           </button>
         </div>
 
-        <div data-aos="flip-left" className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+        <div className="max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
           <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight ">
               instant business loan 2025

@@ -134,94 +134,91 @@ export default function PartnerDashboard() {
   };
 
   return (
-    <div className="rounded-3xl mt-15 flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-8">
-      <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden animate-fadeIn">
-        <div className="p-10 space-y-8 text-center">
-          <h1 className="text-5xl font-extrabold text-gray-800">
-            🚀 Welcome <span className="text-purple-600">Partner</span>!
-          </h1>
-          <p className="text-lg text-gray-600">
-            You’ve entered the <span className="font-semibold text-blue-600">Partner Dashboard</span>.
-          </p>
+    <div className="rounded-2xl mt-18 flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-4">
+ <div className="w-full max-w-xl bg-white rounded-2xl shadow-xl overflow-hidden animate-fadeIn">
+    <div className="p-6 space-y-6 text-center">
+      <p className="text-xl text-gray-600">
+        Welcome to Keshvacredit <span className="font-semibold text-blue-600">Partner Dashboard</span>.
+      </p>
 
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg shadow-md hover:bg-red-600 transition"
+      <button
+        onClick={handleLogout}
+        className="px-3 py-1.5 bg-red-500 text-white text-xs font-medium rounded-md shadow-md hover:bg-red-600 transition"
+      >
+        Logout
+      </button>
+
+      <div className="bg-gradient-to-r from-white via-gray-50 to-white rounded-xl p-4 border border-dashed border-purple-300 shadow-inner text-left space-y-3 text-gray-700">
+        <h2 className="text-lg font-bold text-purple-600">📂 Upload Excel File</h2>
+        <input
+          type="file"
+          accept=".xlsx, .xls"
+          onChange={handleFileChange}
+          className="block w-full p-1 border rounded-md text-sm"
+        />
+        <button
+          onClick={handleUpload}
+          className="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md shadow-md hover:bg-blue-700 transition"
+          disabled={processing}
+        >
+          {processing ? 'Processing...' : 'Upload File'}
+        </button>
+        {uploadMessage && (
+          <p
+            className={`text-xs mt-2 text-center ${
+              uploadMessage.startsWith('✅')
+                ? 'text-green-600'
+                : uploadMessage.startsWith('❌')
+                ? 'text-red-600'
+                : 'text-blue-600'
+            }`}
           >
-            Logout
-          </button>
+            {uploadMessage}
+          </p>
+        )}
+      </div>
 
-          <div className="bg-gradient-to-r from-white via-gray-50 to-white rounded-2xl p-6 border border-dashed border-purple-300 shadow-inner text-left space-y-4 text-gray-700">
-            <h2 className="text-2xl font-bold text-purple-600">📂 Upload Excel File</h2>
-            <input
-              type="file"
-              accept=".xlsx, .xls"
-              onChange={handleFileChange}
-              className="block w-full p-2 border rounded-lg mb-4"
-            />
+      {!processing && phoneColumnIndex !== null && (duplicates.length > 0 || notDuplicates.length > 0) && (
+        <div className="flex justify-center gap-4 mt-6 flex-wrap">
+          <div className="flex flex-col items-center p-4 bg-red-100 text-red-800 rounded-lg shadow w-60">
+            <h3 className="text-base font-semibold">Status: Duplicate</h3>
+            <p className="text-xl font-bold">{duplicates.length}</p>
             <button
-              onClick={handleUpload}
-              className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg shadow-md hover:bg-blue-700 transition"
-              disabled={processing}
+              onClick={() => downloadExcel(duplicates, 'Duplicates')}
+              className="mt-2 px-3 py-1.5 bg-red-500 text-white rounded hover:bg-red-600 text-xs transition"
             >
-              {processing ? 'Processing...' : 'Upload File'}
+              Download Duplicates
             </button>
-            {uploadMessage && (
-              <p
-                className={`text-sm mt-2 text-center ${
-                  uploadMessage.startsWith('✅')
-                    ? 'text-green-600'
-                    : uploadMessage.startsWith('❌')
-                    ? 'text-red-600'
-                    : 'text-blue-600'
-                }`}
-              >
-                {uploadMessage}
-              </p>
-            )}
+            <div className="text-xs mt-2 text-left max-h-32 overflow-y-auto w-full">
+              {duplicates.slice(0, 5).map((row, index) => (
+                <p key={index}>{row[phoneColumnIndex]}</p>
+              ))}
+            </div>
           </div>
 
-          {!processing && phoneColumnIndex !== null && (duplicates.length > 0 || notDuplicates.length > 0) && (
-            <div className="flex justify-center gap-6 mt-8 flex-wrap">
-              <div className="flex flex-col items-center p-6 bg-red-100 text-red-800 rounded-xl shadow-md w-72">
-                <h3 className="text-xl font-semibold">Status: Duplicate</h3>
-                <p className="text-2xl font-bold">{duplicates.length}</p>
-                <button
-                  onClick={() => downloadExcel(duplicates, 'Duplicates')}
-                  className="mt-3 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-                >
-                  Download Duplicates
-                </button>
-                <div className="text-sm mt-2 text-left max-h-40 overflow-y-auto w-full">
-                  {duplicates.slice(0, 5).map((row, index) => (
-                    <p key={index}>{row[phoneColumnIndex]}</p>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center p-6 bg-green-100 text-green-800 rounded-xl shadow-md w-72">
-                <h3 className="text-xl font-semibold">Status: Not Duplicate</h3>
-                <p className="text-2xl font-bold">{notDuplicates.length}</p>
-                <button
-                  onClick={() => downloadExcel(notDuplicates, 'Not_Duplicates')}
-                  className="mt-3 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
-                >
-                  Download Not Duplicates
-                </button>
-                <div className="text-sm mt-2 text-left max-h-40 overflow-y-auto w-full">
-                  {notDuplicates.slice(0, 5).map((row, index) => (
-                    <p key={index}>{row[phoneColumnIndex]}</p>
-                  ))}
-                </div>
-              </div>
+          <div className="flex flex-col items-center p-4 bg-green-100 text-green-800 rounded-lg shadow w-60">
+            <h3 className="text-base font-semibold">Status: Not Duplicate</h3>
+            <p className="text-xl font-bold">{notDuplicates.length}</p>
+            <button
+              onClick={() => downloadExcel(notDuplicates, 'Not_Duplicates')}
+              className="mt-2 px-3 py-1.5 bg-green-500 text-white rounded hover:bg-green-600 text-xs transition"
+            >
+              Download Not Duplicates
+            </button>
+            <div className="text-xs mt-2 text-left max-h-32 overflow-y-auto w-full">
+              {notDuplicates.slice(0, 5).map((row, index) => (
+                <p key={index}>{row[phoneColumnIndex]}</p>
+              ))}
             </div>
-          )}
-
-          <div className="mt-5 bg-gray-100 p-4 rounded-lg text-gray-600">
-            <p>Track duplicates, and download filtered results.</p>
           </div>
         </div>
+      )}
+
+      <div className="mt-4 bg-gray-100 p-3 rounded text-sm text-gray-600">
+        <p>Track duplicates, and download filtered results.</p>
       </div>
     </div>
+  </div>
+</div>
   );
 }
