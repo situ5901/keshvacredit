@@ -33,8 +33,6 @@ function About() {
 
           <p
             className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48"
-            data-aos="fade-down"
-            data-aos-delay="200"
           >
             Simplifying the Borrowing Experience with Instant Approvals, Best
             Interest Rates, and Trusted Lenders for Personal, Business, and
@@ -46,13 +44,11 @@ function About() {
       {/* What Makes Us Special Section */}
       <section className="py-20 ">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold" data-aos="fade-down">
+          <h2 className="text-4xl font-bold">
             What Makes Us Special
           </h2>
           <p
             className="mt-4 text-lg max-w-4xl mx-auto"
-            data-aos="fade-down"
-            data-aos-delay="200"
           >
             At <strong>KeshvaCredit</strong>, we believe that financial solutions
             should be simple, transparent, and tailored to your needs. That’s

@@ -94,11 +94,11 @@ export default function LeaveForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative z-10 max-w-4xl mx-auto  p-4  backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/10"
-       style={{
-              boxShadow:
-                '0 0 0 2px rgba(100, 149, 237, 0.4), 0 4px 12px rgba(138, 43, 226, 0.2)',
-            }}
+      className="relative z-10 max-w-4xl mx-auto  p-4  rounded-3xl shadow-2xl border border-white/10"
+      style={{
+        boxShadow:
+          '0 0 0 2px rgba(100, 149, 237, 0.4), 0 4px 12px rgba(138, 43, 226, 0.2)',
+      }}
     >
 
       <h1 className="text-3xl font-extrabold text-center bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2">
@@ -112,7 +112,7 @@ export default function LeaveForm() {
           value={formData.firstName}
           onChange={handleInputChange}
           placeholder="First Name"
-           required
+          required
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <input
@@ -121,13 +121,14 @@ export default function LeaveForm() {
           value={formData.lastName}
           onChange={handleInputChange}
           placeholder="Last Name"
+          required
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <select
           name="department"
           value={formData.department}
           onChange={handleInputChange}
-           required
+          required
           className="findrop w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="" disabled>
@@ -145,6 +146,7 @@ export default function LeaveForm() {
           value={formData.phone}
           onChange={handleInputChange}
           placeholder="Phone Number"
+          required
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <input
@@ -153,30 +155,34 @@ export default function LeaveForm() {
           value={formData.email}
           onChange={handleInputChange}
           placeholder="Email"
-           required
+          required
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
       <div className="mt-4">
-        <p className="font-semibold  mb-2">Reason for Leave</p>
+        <p className="font-semibold mb-2">Reason for Leave</p>
         <div className="flex flex-row gap-6 flex-wrap">
           {['Emergency', 'Medical', 'Other'].map(r => (
-            <label key={r} className="inline-flex items-center gap-2  hover:text-indigo-600 cursor-pointer select-none">
+            <label
+              key={r}
+              className="inline-flex items-center gap-2 hover:text-indigo-600 cursor-pointer select-none"
+            >
               <input
-                type="checkbox"
+                type="radio"
                 name="reason"
                 value={r}
                 checked={formData.reason === r}
                 onChange={handleInputChange}
-                 required
+                required
                 className="accent-purple-500 w-4 h-4"
               />
               {r} Leave
             </label>
           ))}
         </div>
-        {isOtherSelected && (
+
+        {formData.reason === 'Other' && (
           <input
             type="text"
             name="otherReason"
@@ -188,6 +194,7 @@ export default function LeaveForm() {
         )}
       </div>
 
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
         <input
           type="date"
@@ -195,6 +202,7 @@ export default function LeaveForm() {
           value={formData.fromDate}
           onChange={handleInputChange}
           placeholder="From Date"
+          required
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <input
@@ -203,6 +211,7 @@ export default function LeaveForm() {
           value={formData.toDate}
           onChange={handleInputChange}
           placeholder="To Date"
+          required
           className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
@@ -222,6 +231,7 @@ export default function LeaveForm() {
         onChange={handleInputChange}
         placeholder="Comments"
         rows={2}
+        required
         className="mt-4 w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
       />
 

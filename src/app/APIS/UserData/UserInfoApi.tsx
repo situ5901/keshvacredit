@@ -6,6 +6,7 @@ interface User {
 
 
  const API_BASE_URL = "https://keshvacredit.com/api/v1/api";
+ const API_BASE_URL2 = "https://keshvacredit.com/api/v1/"; 
 // const API_BASE_URL = "http://localhost:5000/api/v1/api";
 export const submitUserInfo = async (userData: object) => {
   try {
@@ -117,4 +118,12 @@ export const getUserData = async (phone: string): Promise<User | null> => {
   }
 };
 
-
+export const getDailyReport = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL2}/employee/getDailyReport`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching daily report:", error);
+    throw error;
+  }
+};

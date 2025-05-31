@@ -42,7 +42,7 @@ function Page() {
       if (phone) {
         const user = await getUserData(phone);
         if (user && user.phone) {
-          localStorage.setItem('userData', JSON.stringify(user));
+          localStorage.setItem("userData", "yes");
           router.push('/eligibleLenders');
         } else {
           setLoading(false);

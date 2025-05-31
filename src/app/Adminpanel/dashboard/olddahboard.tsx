@@ -162,6 +162,8 @@ useEffect(() => {
   <Zype />
   <Fatakpay />
 </div>
+
+
     </div>
   );
 }

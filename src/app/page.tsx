@@ -336,8 +336,9 @@ function Page() {
                   ].map((card, i) => (
                     <div
                       key={i}
-                      className="p-4 rounded-lg shadow-md border border-gray-300 dark:border-gray-700 hover:shadow-lg transition-all text-sm"
+                      className="p-4 rounded-lg shadow-md border border-gray-300 dark:border-gray-700 hover:shadow-lg transition-all text-sm transform hover:scale-105"
                     >
+
                       <p>{card.text}</p>
                       <div className="flex items-center mt-3 space-x-3">
                         <Image

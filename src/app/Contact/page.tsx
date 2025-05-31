@@ -3,15 +3,50 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Careers from "../Careers/page"; // Adjust path as per your project structure
+import Careers from "../Careers/page"; 
+import { Toaster, toast } from "react-hot-toast";
 
 function Contact() {
   useEffect(() => {
     AOS.init({ duration: 1500 });
   }, []);
 
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await fetch("https://keshvacredit.com/api/v1/leaveSend/contactMail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+    const responseText = await res.text();
+
+    if (res.ok) {
+      toast.success(responseText || "Thank you! We will contact you shortly", {
+        position: "top-right",
+      });
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      toast.error(responseText || "Something went wrong!", {
+        position: "top-right",
+      });
+    }
+  };
+
   return (
-    <section className="" id="contact">
+    <section id="contact">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-4 text-center mt-2" data-aos="fade-up">
           <h2 className="font-heading mb-4 font-bold dark:text-blue-500 text-3xl sm:text-5xl">
@@ -23,13 +58,14 @@ function Contact() {
           </p>
         </div>
 
-        {/* Contact form centered */}
         <div
           className="max-w-2xl mx-auto p-6 rounded-lg shadow-md shadow-white mb-16"
           data-aos="zoom-in"
         >
-          <h2 className="text-2xl font-bold mb-4 text-center">Ready to Get Started?</h2>
-          <form>
+          <h2 className="text-2xl font-bold mb-4 text-center">
+            Ready to Get Started?
+          </h2>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="name" className="text-sm font-medium">
                 Your Name
@@ -37,6 +73,9 @@ function Contact() {
               <input
                 type="text"
                 id="name"
+                value={form.name}
+                onChange={handleChange}
+                required
                 className="w-full rounded-md border border-gray-400 py-2 px-3 focus:outline-none focus:border-blue-500"
                 placeholder="Your name"
               />
@@ -48,6 +87,9 @@ function Contact() {
               <input
                 type="email"
                 id="email"
+                value={form.email}
+                onChange={handleChange}
+                required
                 className="w-full rounded-md border border-gray-400 py-2 px-3 focus:outline-none focus:border-blue-500"
                 placeholder="Your email address"
               />
@@ -59,6 +101,9 @@ function Contact() {
               <textarea
                 id="message"
                 rows={5}
+                value={form.message}
+                onChange={handleChange}
+                required
                 className="w-full rounded-md border border-gray-400 py-2 px-3 focus:outline-none focus:border-blue-500"
                 placeholder="Write your message..."
               />
@@ -72,9 +117,7 @@ function Contact() {
           </form>
         </div>
 
-        {/* Address + Map below form */}
         <div className="grid md:grid-cols-2 gap-10">
-          {/* Left side: Address */}
           <div className="space-y-4" data-aos="zoom-in">
             <h3 className="text-lg font-bold underline">Our Address</h3>
             <p>
@@ -85,7 +128,10 @@ function Contact() {
             <h3 className="text-lg font-bold underline">Contact</h3>
             <p>
               Mail:{" "}
-              <a href="mailto:keshvacredit@gmail.com" className="hover:underline">
+              <a
+                href="mailto:keshvacredit@gmail.com"
+                className="hover:underline"
+              >
                 keshvacredit@gmail.com
               </a>
             </p>
@@ -95,7 +141,6 @@ function Contact() {
             <p>Saturday &amp; Sunday: 08:00 - 12:00</p>
           </div>
 
-          {/* Right side: Map */}
           <div
             className="rounded-lg overflow-hidden shadow-md shadow-white"
             data-aos="zoom-in"
@@ -122,6 +167,7 @@ export default function ContactCareersToggle() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 mt-15">
+      <Toaster />
       <div className="flex justify-center space-x-4 mb-8">
         <button
           onClick={() => setActiveTab("contact")}

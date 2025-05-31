@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react'
 import { CheckCircle2 } from 'lucide-react'
-import LeavePage from '../leave/page'
+import LeavePage from './leave'
 
 export default function WorkPanel() {
-  const [form, setForm] = useState({ name: '', work: '', department: '' })
-  const [message, setMessage] = useState('')
+  const [form, setForm] = useState({ name: '', message: '', department: '' })
+  const [popup, setPopup] = useState('')
   const [activeTab, setActiveTab] = useState<'work' | 'leave'>('work')
 
   const handleChange = (
@@ -16,20 +16,44 @@ export default function WorkPanel() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const date = new Date().toISOString().split('T')[0]
-    const res = await fetch('/api/work', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, date }),
-    })
 
-    const data = await res.json()
-    setMessage(data.message)
-    setForm({ name: '', work: '', department: '' })
+    try {
+      const res = await fetch('https://keshvacredit.com/api/v1/employee/dailyRepost', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      const data = await res.json()
+      if (res.ok) {
+        setPopup(data.message || 'Submitted successfully ✅')
+        setForm({ name: '', message: '', department: '' })
+      } else {
+        setPopup(data.message || 'Submission failed ❌')
+      }
+
+      setTimeout(() => {
+        setPopup('')
+      }, 4000)
+    } catch (err) {
+      console.error('Error submitting form:', err)
+      setPopup('Something went wrong ❌')
+      setTimeout(() => {
+        setPopup('')
+      }, 4000)
+    }
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start p-6 pt-4 mt-15">
+    <div className="min-h-screen flex flex-col items-center justify-start p-6 pt-4 mt-15 relative">
+      {/* ✅ Top-right popup */}
+      {popup && (
+        <div className="fixed top-4 right-4 bg-green-100 text-green-800 px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2 z-50">
+          <CheckCircle2 className="w-5 h-5" />
+          <span>{popup}</span>
+        </div>
+      )}
+
       {/* Sticky Tabs */}
       <div className="w-full max-w-xl sticky top-0 z-10  pb-4 pt-2">
         <div className="flex space-x-6 justify-center">
@@ -65,9 +89,8 @@ export default function WorkPanel() {
             }}
           >
             <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-  Daily Work Update
-</h2>
-
+              Daily Work Update
+            </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -101,9 +124,9 @@ export default function WorkPanel() {
               <div>
                 <label className="block text-sm font-medium mb-1">Work Description</label>
                 <textarea
-                  name="work"
+                  name="message"
                   placeholder="What did you do today?"
-                  value={form.work}
+                  value={form.message}
                   onChange={handleChange}
                   required
                   rows={5}
@@ -118,13 +141,6 @@ export default function WorkPanel() {
                 ✅ Submit Work
               </button>
             </form>
-
-            {message && (
-              <div className="flex items-center text-green-700 bg-green-100 rounded-lg p-3 text-sm mt-2">
-                <CheckCircle2 className="w-5 h-5 mr-2" />
-                {message}
-              </div>
-            )}
           </div>
         ) : (
           <LeavePage />

@@ -57,7 +57,7 @@ export default function AdminPanelLayout({
               <Link href="/Adminpanel/users">Analytics</Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-700">
-              <Link href="/Adminpanel/settings">Manage Users</Link>
+              <Link href="/Adminpanel/workupdate">daily-Work-update</Link>
             </li>
              <li className="px-4 py-2 hover:bg-gray-700">
               <button
