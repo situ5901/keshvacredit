@@ -40,10 +40,8 @@
         className="text-5xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"
         data-aos="zoom-in"
       >
-        Become a KeshvaCredit Loan Agent
+        Become a KeshvaCredit partner
       </h1>
-
-      {/* Section 1: About */}
       <section
         className="flex flex-col md:flex-row items-center gap-8 group"
         data-aos="slide-up"
@@ -69,6 +67,13 @@
             customers with the best financial products while building your own
             business and earning attractive commissions.
           </p>
+          <br />
+           <a
+          href="mailto:info@keshvacredit.com?subject=Loan%20Agent%20Collaboration%20Request&body=I%20want%20to%20become%20a%20KeshvaCredit%20loan%20agent."
+          className="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-indigo-700 hover:to-blue-600 text-white font-bold py-4 px-12 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+        >
+          Contact Us to Collaborate
+        </a>
         </div>
       </section>
 

@@ -23,7 +23,7 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-screen mt-15 flex flex-col items-center justify-center bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-400 p-4 sm:p-6">
+    <div className="custom-bg min-h-screen mt-15 flex flex-col items-center justify-center bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-400 p-4 sm:p-6">
       <div className="max-w-md w-full text-center mb-6 sm:mb-8 px-2">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-indigo-900 mb-1 sm:mb-2 drop-shadow-lg">
           Welcome Admin!

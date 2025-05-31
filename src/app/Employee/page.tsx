@@ -2,11 +2,12 @@
 import { useState } from 'react'
 import { CheckCircle2 } from 'lucide-react'
 import LeavePage from './leave'
+import History from './history'
 
 export default function WorkPanel() {
   const [form, setForm] = useState({ name: '', message: '', department: '' })
   const [popup, setPopup] = useState('')
-  const [activeTab, setActiveTab] = useState<'work' | 'leave'>('work')
+  const [activeTab, setActiveTab] = useState<'work' | 'leave' | 'history'>('work')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -16,7 +17,6 @@ export default function WorkPanel() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
     try {
       const res = await fetch('https://keshvacredit.com/api/v1/employee/dailyRepost', {
         method: 'POST',
@@ -32,21 +32,17 @@ export default function WorkPanel() {
         setPopup(data.message || 'Submission failed ❌')
       }
 
-      setTimeout(() => {
-        setPopup('')
-      }, 4000)
+      setTimeout(() => setPopup(''), 4000)
     } catch (err) {
       console.error('Error submitting form:', err)
       setPopup('Something went wrong ❌')
-      setTimeout(() => {
-        setPopup('')
-      }, 4000)
+      setTimeout(() => setPopup(''), 4000)
     }
   }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start p-6 pt-4 mt-15 relative">
-      {/* ✅ Top-right popup */}
+      {/* ✅ Popup */}
       {popup && (
         <div className="fixed top-4 right-4 bg-green-100 text-green-800 px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2 z-50">
           <CheckCircle2 className="w-5 h-5" />
@@ -54,8 +50,8 @@ export default function WorkPanel() {
         </div>
       )}
 
-      {/* Sticky Tabs */}
-      <div className="w-full max-w-xl sticky top-0 z-10  pb-4 pt-2">
+      {/* ✅ Tabs */}
+      <div className="w-full max-w-xl sticky top-0 z-10 pb-4 pt-2">
         <div className="flex space-x-6 justify-center">
           <button
             onClick={() => setActiveTab('work')}
@@ -65,6 +61,15 @@ export default function WorkPanel() {
                 : 'bg-white text-indigo-700 border border-indigo-600 hover:bg-indigo-50'}`}
           >
             📝 Work Update
+          </button>
+          <button
+            onClick={() => setActiveTab('history')}
+            className={`px-6 py-3 rounded-2xl font-semibold transition
+              ${activeTab === 'history'
+                ? 'bg-indigo-600 text-white shadow-lg'
+                : 'bg-white text-indigo-700 border border-indigo-600 hover:bg-indigo-50'}`}
+          >
+            📜update History
           </button>
           <button
             onClick={() => setActiveTab('leave')}
@@ -78,9 +83,9 @@ export default function WorkPanel() {
         </div>
       </div>
 
-      {/* Conditional Content */}
+      {/* ✅ Tab Content */}
       <div className="mt-6 w-full flex justify-center">
-        {activeTab === 'work' ? (
+        {activeTab === 'work' && (
           <div
             className="w-full max-w-xl rounded-2xl p-8 space-y-6"
             style={{
@@ -142,9 +147,10 @@ export default function WorkPanel() {
               </button>
             </form>
           </div>
-        ) : (
-          <LeavePage />
         )}
+
+        {activeTab === 'history' && <History />}
+        {activeTab === 'leave' && <LeavePage />}
       </div>
     </div>
   )

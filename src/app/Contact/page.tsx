@@ -187,7 +187,7 @@ export default function ContactCareersToggle() {
               : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
           }`}
         >
-          Careers
+          Partner with us 
         </button>
       </div>
 

@@ -1,11 +1,9 @@
 "use client";
 import React, {useEffect } from "react";
 import { useState } from "react";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Route, Router } from "lucide-react";
 import { submitUserInfo } from "../APIS/UserData/UserInfoApi";
 import { getUserData  } from "../APIS/UserData/UserInfoApi";
-import { useRouter } from "next/navigation"; // Changed from next/router to next/navigation
+import { useRouter } from "next/navigation"; 
 import Loading from "../../animations/Loading.json"
 import dynamic from "next/dynamic";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -73,7 +71,6 @@ function Page() {
     const userData = {
       name: formData.name,
       phone: formData.phone,
-      email: formData.email,
       expiration: new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
     };
     localStorage.setItem("userData", JSON.stringify(userData));
@@ -147,7 +144,7 @@ function Page() {
 
         <form
           onSubmit={handleSubmit}
-          className="form max-w-lg mx-auto mt-5 -mt-10 p-6 border-2 border-gray-300 mb-20 rounded-lg shadow-2xl shadow-gray-500 dark:shadow-gray-800 gap-3"
+          className="form max-w-lg mx-auto mt-10 p-6 border-2 border-gray-300 mb-20 rounded-lg shadow-2xl shadow-gray-500 dark:shadow-gray-800 gap-3"
         >
           <h1 className="text-center font-bold text-[24px]">
             Basic Information

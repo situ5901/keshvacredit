@@ -22,7 +22,7 @@ export default function LeaveForm() {
     setFormData(prev => ({
       ...prev,
       reason: checked ? value : '',
-      otherReason: checked && value !== 'Other' ? '' : prev.otherReason, // clear otherReason if not other
+      otherReason: checked && value !== 'Other' ? '' : prev.otherReason,
     }));
   };
 
