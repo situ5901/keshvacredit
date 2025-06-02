@@ -79,6 +79,14 @@ const Partner = () => {
       src: "https://www.kamakshimoney.com/index_files/finpath-loan-logo.svg",
       url: "/",
     },
+      {
+      src: "https://www.instantmudra.com/images/logo_official.png",
+      url: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
+    },
+      {
+      src: "https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png",
+      url: "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5",
+    },
    
   ];
 

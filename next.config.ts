@@ -18,6 +18,8 @@ const nextConfig = {
       "www.bharatloan.com",
       "themoneyfair.com",
       "i.postimg.cc",
+      "www.instantmudra.com",
+      "www.chintamanifinlease.com",
       
     ], 
     remotePatterns: [

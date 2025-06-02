@@ -61,6 +61,15 @@ const lenderData = [
         applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
         detailsLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
     },
+    {
+        image: "https://www.instantmudra.com/images/logo_official.png",
+        lender: "instant mudra",
+        interestRate: "starting from 10.99% per annum",
+        maxLoan: "Up to ₹5 Lakhs",
+        benefit: "Fast approval with minimal documents",
+        applyLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
+        detailsLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58 ",
+    },
 
     {
         image: "https://www.rupee112.com/public/images/brand_logo.png",
@@ -88,6 +97,15 @@ const lenderData = [
         benefit: "Fast approval with minimal documents",
         applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
         detailsLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
+    },
+    {
+        image: "https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png",
+        lender: "Chintamani Finlease Limited",
+        interestRate: "Starting from 10.99% per annum",
+        maxLoan: "Up to ₹2 Lakhs (available only in the Delhi-NCR region)",
+        benefit: "Fast approval with minimal documentation",
+        applyLink: "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5",
+        detailsLink: "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5",
     },
 
 ];
@@ -176,7 +194,7 @@ export default function UTMLendersPage() {
                 </div>
 
                 {/* Right: Apply Form */}
-                <div data-aos="zoom-in"  className="w-full lg:w-1/3 rounded-2xl shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] h-[800px] overflow-y-auto">
+                <div data-aos="zoom-in" className="w-full lg:w-1/3 rounded-2xl shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] h-[800px] overflow-y-auto">
 
                     <div id="form" className=" flex flex-col items-center justify-center  p-4">
                         <h1 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-indigo-600 mb-2">

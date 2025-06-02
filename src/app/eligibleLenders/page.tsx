@@ -80,6 +80,18 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium=",
   },
+    {
+    id: "instantmudra",
+    name: "instantmudra",
+    logo: "https://www.instantmudra.com/images/logo_official.png",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: " Range - 12% to 35.95% per annum",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
+  },
 
   {
     id: "Rupee",
@@ -116,6 +128,18 @@ const allLenders: Lender[] = [
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium={medium}&utm_campaign={campaign}",
+  },
+   {
+    id: "chintamanifinlease",
+    name: "chintamanifinlease",
+    logo: "https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Up to 2% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: [" (available in Delhi-NCR region)", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5",
   },
 ];
 
