@@ -1,11 +1,11 @@
 "use client";
 
- import React, { useEffect, useState } from "react";
- import Image from "next/image";
- import AOS from "aos";
- import "aos/dist/aos.css";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
- export default function LoanAgentPage() {
+export default function LoanAgentPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16 space-y-28 font-sans text-gray-800 mt-10">
+    <div className="max-w-6xl mx-auto px-6 py-16 space-y-28 font-sans  mt-10">
       {/* Title */}
       <h1
         className="text-5xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"
@@ -68,12 +68,12 @@
             business and earning attractive commissions.
           </p>
           <br />
-           <a
-          href="mailto:info@keshvacredit.com?subject=Loan%20Agent%20Collaboration%20Request&body=I%20want%20to%20become%20a%20KeshvaCredit%20loan%20agent."
-          className="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-indigo-700 hover:to-blue-600 text-white font-bold py-4 px-12 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-        >
-          Contact Us to Collaborate
-        </a>
+          <a
+            href="mailto:info@keshvacredit.com?subject=KeshvaCredit%20Partnership%20Request&body=I%20want%20to%20become%20a%20KeshvaCredit%20partner."
+            className="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-indigo-700 hover:to-blue-600 text-white font-bold py-4 px-12 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            Contact Us to Collaborate
+          </a>
         </div>
       </section>
 
@@ -86,7 +86,7 @@
           <h2 className="text-3xl font-bold mb-6 text-blue-800">
             Benefits of Collaboration
           </h2>
-          <ul className="list-disc list-inside space-y-4 text-lg text-gray-700">
+          <ul className="text-gray-700 list-disc list-inside space-y-4 text-lg">
             <li>Attractive commissions on every successful loan referral.</li>
             <li>Access to our advanced fintech platform and marketing tools.</li>
             <li>Flexible working hours and remote opportunities.</li>
@@ -127,7 +127,7 @@
           <h2 className="text-3xl font-bold mb-4 text-blue-700">
             Responsibilities of a Loan Agent
           </h2>
-          <ul className="list-disc list-inside space-y-3 text-lg text-gray-700">
+          <ul className="list-disc list-inside space-y-3 text-lg">
             <li>Identify potential customers and educate them about loan products.</li>
             <li>Assist clients in completing loan applications and gathering documents.</li>
             <li>Coordinate with underwriting team to ensure smooth processing.</li>
@@ -144,7 +144,7 @@
       >
         <div className="md:w-1/2">
           <h2 className="text-3xl font-bold mb-6 text-blue-800">Who Should Apply?</h2>
-          <ul className="list-disc list-inside space-y-3 text-lg text-gray-700">
+          <ul className="text-gray-700 list-disc list-inside space-y-3 text-lg">
             <li>Sales professionals looking to diversify their portfolio.</li>
             <li>Financial advisors and consultants wanting to expand offerings.</li>
             <li>Entrepreneurs and freelancers interested in passive income.</li>
@@ -194,14 +194,14 @@
 
       {/* Section 6: Call to Action */}
       <section className="text-center" data-aos="zoom-in">
-        <h2 className="text-4xl font-extrabold mb-6 text-gray-900">
+        <h2 className="text-4xl font-extrabold mb-6 ">
           Ready to Join Us?
         </h2>
-        <p className="text-lg text-gray-700 mb-8 max-w-xl mx-auto leading-relaxed">
+        <p className="text-lg  mb-8 max-w-xl mx-auto leading-relaxed">
           Take the first step towards a rewarding partnership with KeshvaCredit. Reach out to us today and let&apos;s grow together!
         </p>
         <a
-          href="mailto:info@keshvacredit.com?subject=Loan%20Agent%20Collaboration%20Request&body=I%20want%20to%20become%20a%20KeshvaCredit%20loan%20agent."
+          href="mailto:info@keshvacredit.com?subject=KeshvaCredit%20Partnership%20Request&body=I%20want%20to%20become%20a%20KeshvaCredit%20partner."
           className="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-indigo-700 hover:to-blue-600 text-white font-bold py-4 px-12 rounded-lg shadow-lg transition-transform transform hover:scale-105"
         >
           Contact Us to Collaborate
@@ -209,4 +209,4 @@
       </section>
     </div>
   );
- }
+}

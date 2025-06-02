@@ -137,8 +137,8 @@ function Contact() {
             </p>
 
             <h3 className="text-lg font-bold underline">Working Hours</h3>
-            <p>Monday - Friday: 08:00 - 17:00</p>
-            <p>Saturday &amp; Sunday: 08:00 - 12:00</p>
+            <p>Monday - Friday: 09:00 AM - 05:00 PM</p>
+            <p>Saturday &amp; Sunday: 09:00 AM - 01:00 PM</p>
           </div>
 
           <div

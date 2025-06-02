@@ -413,7 +413,7 @@ function Page() {
       <div className="flex flex-col md:flex-row h-auto md:h-[85vh]">
         <div
           className="w-full md:w-[30%] p-4 flex justify-center items-center"
-          data-aos="flip-up"
+          data-aos=""
         >
           <div className="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2rem] h-[400px] w-[200px] md:h-[500px] md:w-[250px]">
             <div className="rounded-[1.5rem] overflow-hidden w-[180px] h-[380px] md:w-[230px] md:h-[480px]">
@@ -558,9 +558,9 @@ function Page() {
       <RatingAndReviews />
       <section
         className="py-16  text-center">
-        <h2 data-aos="fade-up" className="text-3xl font-semibold  mb-8">Our Statistics </h2>
+        <h2 className="text-3xl font-semibold  mb-8">Our Statistics </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          <div data-aos="zoom-in-left" className="flex flex-col items-center ">
+          <div data-aos="flip-right" className="flex flex-col items-center ">
             <div className="w-20 h-20 relative border-2 border-gray-300 rounded-full">
               <Image
                 src="https://cdn-icons-gif.flaticon.com/14251/14251538.gif"
@@ -572,7 +572,7 @@ function Page() {
             <h3 className="text-2xl font-medium ">60000+</h3>
             <p className="text-gray-500">Happy Customers</p>
           </div>
-          <div data-aos="zoom-in-right" className="flex flex-col items-center">
+          <div data-aos="flip-left" className="flex flex-col items-center">
             <div className="w-20 h-20 relative border-2 border-gray-300 rounded-full">
               <Image
                 src="https://cdn-icons-gif.flaticon.com/15370/15370761.gif"
@@ -584,7 +584,7 @@ function Page() {
             <h3 className="text-2xl font-medium ">50+</h3>
             <p className="text-gray-500">Relationship</p>
           </div>
-          <div data-aos="zoom-in-left" className="flex flex-col items-center">
+          <div data-aos="flip-right" className="flex flex-col items-center">
             <div className="w-20 h-20 relative border-2 border-gray-300 rounded-full">
               <Image
                 src="https://cdn-icons-gif.flaticon.com/7994/7994401.gif"
@@ -596,7 +596,7 @@ function Page() {
             <h3 className="text-2xl font-medium ">30+</h3>
             <p className="text-gray-500"> NBFCs</p>
           </div>
-          <div data-aos="zoom-in-right" className="flex flex-col items-center">
+          <div data-aos="flip-left" className="flex flex-col items-center">
             <div className="w-20 h-20 relative border-2 border-gray-300 rounded-full">
               <Image
                 src="https://cdn-icons-gif.flaticon.com/10051/10051256.gif"
