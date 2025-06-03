@@ -9,7 +9,8 @@ const Page = () => {
       </h1>
 
       <p className="mb-6">
-        <strong>1. Introduction:</strong> KeshvaCredit Private Limited (hereinafter referred to as &ldquo;KeshvaCredit,&rdquo; &ldquo;Company,&rdquo; &ldquo;We,&rdquo; or &ldquo;Us&rdquo;) is a company incorporated under Indian law with its registered office at 8237, SHASTRI NAGAR, AMBEDEKAR COLONY, FATEHABAD-125050, HARYANA. We operate the website and mobile application under the brand name ‘KeshvaCredit’ (collectively referred to as the “Platform”)
+        <strong>1. Introduction:</strong> KeshvaCredit Services Private Limited (hereinafter referred to as &ldquo;KeshvaCredit,&rdquo; &ldquo;Company,&rdquo; &ldquo;We,&rdquo; or &ldquo;Us&rdquo;) is a company incorporated under Indian law with its registered office at  233, Thakar Basti, Bagichi Mohalla, Dharamshala Road,
+              Fatehabad-125050. We operate the website and mobile application under the brand name ‘KeshvaCredit’ (collectively referred to as the “Platform”)
       </p>
       <p className="mb-6">
      By using the Platform, you (the &ldquo;User&rdquo;) agree to these Terms &amp; Conditions along with our Privacy Policy, which governs your usage of the Platform. If you do not agree to any part of these terms, you should refrain from using the Platform. The Platform enables Users to access various financial products offered by KeshvaCredit’s financial partners, such as loans, credit cards, and insurance.

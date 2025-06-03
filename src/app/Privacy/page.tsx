@@ -11,7 +11,7 @@ function page() {
 
       <p className="mb-4">
         This Privacy Policy (&ldquo;Policy&rdquo;)
-        outlines how KeshvaCredit Private Limited and its affiliates, successors, and assigns (“KeshvaCredit,” “We,” “Us,” or “Our”) collect, use, store, and disclose your personal information. This Policy applies to our website www.KeshvaCredit.com and the KeshvaCredit mobile application (together, the “Platform”).
+        outlines how KeshvaCredit Services Private Limited and its affiliates, successors, and assigns (“KeshvaCredit,” “We,” “Us,” or “Our”) collect, use, store, and disclose your personal information. This Policy applies to our website www.KeshvaCredit.com and the KeshvaCredit mobile application (together, the “Platform”).
       </p>
 
       <p className="mb-4">
@@ -91,7 +91,8 @@ function page() {
         <li><strong>Name:</strong> Vishal Grewal</li>
         <li><strong>Email:</strong> keshvacredit@gmail.com</li>
         <li><strong>Phone:</strong> 8607205215</li>
-        <li><strong>Address:</strong> KeshvaCredit Pvt. Ltd, 8237, SHASTRI NAGAR, AMBEDEKAR COLONY, FATEHABAD, FATEHABAD (FATEHABAD), FATEHABAD-125050, HARYANA</li>
+        <li><strong>Address:</strong> KeshvaCredit services Pvt. Ltd,  233, Thakar Basti, Bagichi Mohalla, Dharamshala Road,
+              Fatehabad-125050 HARYANA</li>
       </ul>
       <p className="mb-4">We will respond to your requests within 48 hours.</p>
 

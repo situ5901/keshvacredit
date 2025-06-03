@@ -22,9 +22,36 @@ const lenders = [
     name: "Mpokket",
     website: "https://www.mpokket.in/contact",
   },
-  {
-    name: "Olyv",
+   {
+    name: "olyv",
     website: "https://www.olyv.co.in/contactus",
+  },
+  {
+    name: "Kamakshi Money",
+    website: "https://www.kamakshimoney.com/contact.html",
+  },
+   {
+    name: "SalaryOnTime",
+    website: "https://salaryontime.com/contact-salaryontime",
+  },
+   {
+    name: "Instant Mudra",
+    website: "https://www.instantmudra.com/contact.php",
+  }, {
+    name: "Rupee112",
+    website: "https://www.rupee112.com/contact-us",
+  },
+   {
+    name: "Bharat Loan",
+    website: "https://www.bharatloan.com/contact-us",
+  },
+   {
+    name: "LoanTap",
+    website: "https://loantap.in/contact-us/",
+  },
+   {
+    name: "Chintamani Finlease",
+    website: "https://www.chintamanifinlease.com/home/contact-us",
   },
 ];
 
@@ -39,7 +66,7 @@ function LenderContactPage() {
         {lenders.map((lender, idx) => (
           <div
             key={idx}
-            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-6 flex flex-col justify-between items-center text-center transition-transform transform hover:scale-105 hover:shadow-2xl"
+            className="bg-white/10 border-2 backdrop-blur-md   rounded-2xl shadow-xl p-6 flex flex-col justify-between items-center text-center transition-transform transform hover:scale-105 hover:shadow-2xl"
           >
             <h2 className="text-xl font-semibold mb-4">{lender.name}</h2>
             <a
