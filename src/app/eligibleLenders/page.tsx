@@ -80,7 +80,7 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium=",
   },
-    {
+  {
     id: "instantmudra",
     name: "instantmudra",
     logo: "https://www.instantmudra.com/images/logo_official.png",
@@ -129,7 +129,7 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium={medium}&utm_campaign={campaign}",
   },
-   {
+  {
     id: "chintamanifinlease",
     name: "chintamanifinlease",
     logo: "https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png",
@@ -225,32 +225,32 @@ export default function Page() {
   const router = useRouter();
   const [eligibleLenders, setEligibleLenders] = useState<Lender[]>([]);
 
- useEffect(() => {
-  const userData = localStorage.getItem("userData");
-  if (!userData) {
-    router.push("/short-term-loan");
-  }
+  useEffect(() => {
+    const userData = localStorage.getItem("userData");
+    if (!userData) {
+      router.push("/short-term-loan");
+    }
 
-  const phone = Cookies.get("user_phone");
-  if (phone) {
-    axios
-      .post("https://keshvacredit.com/api/v1/eligibility/lenderlist", { phone })
-      .then((res) => {
-        const lenderNames = res.data.data.map((item: { name: string }) =>
-          item.name.toLowerCase()
-        );
+    const phone = Cookies.get("user_phone");
+    if (phone) {
+      axios
+        .post("https://keshvacredit.com/api/v1/eligibility/lenderlist", { phone })
+        .then((res) => {
+          const lenderNames = res.data.data.map((item: { name: string }) =>
+            item.name.toLowerCase()
+          );
 
-        const filtered = allLenders.filter((lender) =>
-          lenderNames.includes(lender.name.toLowerCase())
-        );
+          const filtered = allLenders.filter((lender) =>
+            lenderNames.includes(lender.name.toLowerCase())
+          );
 
-        setEligibleLenders(filtered);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch lenders:", err);
-      });
-  }
-}, [router]);
+          setEligibleLenders(filtered);
+        })
+        .catch((err) => {
+          console.error("Failed to fetch lenders:", err);
+        });
+    }
+  }, [router]);
 
 
   return (

@@ -101,7 +101,7 @@ const Partner = () => {
         {logos.map((logo, index) => (
           <div
             key={index}
-            className="partner-logo"
+             className="partner-logo transition-transform duration-300 hover:scale-110"
             style={{
               padding: "0 10px",
               display: "flex",

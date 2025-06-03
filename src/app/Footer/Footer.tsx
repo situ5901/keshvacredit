@@ -76,104 +76,104 @@ function Footer() {
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
-  {/* Resources Section */}
-  <div>
-    <h2 className="mb-6 text-sm font-semibold uppercase">Resources</h2>
-    <ul className="font-medium">
-      <li className="mb-4">
-        <Link href="/creditcard" className="hover:underline">
-          Credit Card
-        </Link>
-      </li>
-      <li className="mb-4">
-        <button onClick={handleClickLoan} className="hover:underline text-left">
-          Personal Loan
-        </button>
-      </li>
-      <li className="mb-4">
-        <button onClick={handleClickLoan} className="hover:underline text-left">
-          Business Loan
-        </button>
-      </li>
-    </ul>
-  </div>
+            {/* Resources Section */}
+            <div>
+              <h2 className="mb-6 text-sm font-semibold uppercase">Resources</h2>
+              <ul className="font-medium">
+                <li className="mb-4">
+                  <Link href="/creditcard" className="hover:underline">
+                    Credit Card
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <button onClick={handleClickLoan} className="hover:underline text-left">
+                    Personal Loan
+                  </button>
+                </li>
+                <li className="mb-4">
+                  <button onClick={handleClickLoan} className="hover:underline text-left">
+                    Business Loan
+                  </button>
+                </li>
+              </ul>
+            </div>
 
-  {/* Social Section */}
-  <div className="ml-3">
-    <h2 className="mb-6 text-sm font-semibold">FOLLOW US</h2>
-    <ul className="font-medium flex flex-col gap-4">
-      <li>
-        <Link
-          href="https://www.linkedin.com/company/keshvacredit/"
-          className="hover:opacity-80 hover:underline "
-        >
-          Linkedin
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="https://www.facebook.com/share/1ATVmsgGNK/"
-          className="hover:opacity-80 hover:underline"
-        >
-          Facebook
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="https://www.instagram.com/keshva_credit"
-          className="hover:opacity-80 hover:underline "
-        >
-          Instagram
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19"
-          className="hover:opacity-80 hover:underline"
-        >
-          WhatsApp
-        </Link>
-      </li>
-    </ul>
-  </div>
+            {/* Social Section */}
+            <div className="ml-3">
+              <h2 className="mb-6 text-sm font-semibold">FOLLOW US</h2>
+              <ul className="font-medium flex flex-col gap-4">
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/company/keshvacredit/"
+                    className="hover:opacity-80 hover:underline "
+                  >
+                    Linkedin
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.facebook.com/share/1ATVmsgGNK/"
+                    className="hover:opacity-80 hover:underline"
+                  >
+                    Facebook
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.instagram.com/keshva_credit"
+                    className="hover:opacity-80 hover:underline "
+                  >
+                    Instagram
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19"
+                    className="hover:opacity-80 hover:underline"
+                  >
+                    WhatsApp
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-  {/* Legal Section */}
-  <div>
-    <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>
-    <ul className="font-medium">
-      <li className="mb-4 hover:underline">
-        <Link href="/Privacy">Privacy Policy</Link>
-      </li>
-      <li className="mb-4 hover:underline">
-        <Link href="/Lendercontact">Lender Contacts</Link>
-      </li>
-      <li className="mb-4 hover:underline">
-        <Link href="/grivience">Lender Grievances</Link>
-      </li>
-      <li>
-        <Link href="/terms" className="hover:underline">
-          Terms & Conditions
-        </Link>
-      </li>
-    </ul>
-  </div>
+            {/* Legal Section */}
+            <div>
+              <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>
+              <ul className="font-medium">
+                <li className="mb-4 hover:underline">
+                  <Link href="/Privacy">Privacy Policy</Link>
+                </li>
+                <li className="mb-4 hover:underline">
+                  <Link href="/Lendercontact">Lender Contacts</Link>
+                </li>
+                <li className="mb-4 hover:underline">
+                  <Link href="/grivience">Lender Grievances</Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="hover:underline">
+                    Terms & Conditions
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-  {/* Important Links Section */}
-  <div>
-    <h2 className="mb-6 text-sm font-semibold uppercase">other</h2>
-    <ul className="font-medium">
-      <li className="mb-4 hover:underline">
-        <Link href="/Careers">carrers</Link>
-      </li>
-      <li className="mb-4 hover:underline">
-        <Link href="/Contact">contact us </Link>
-      </li>
-       <li className="mb-4 hover:underline">
-        <Link href="/faq">FAQ</Link>
-      </li>
-    </ul>
-  </div>
-</div>
+            {/* Important Links Section */}
+            <div>
+              <h2 className="mb-6 text-sm font-semibold uppercase">other</h2>
+              <ul className="font-medium">
+                <li className="mb-4 hover:underline">
+                  <Link href="/Careers">carrers</Link>
+                </li>
+                <li className="mb-4 hover:underline">
+                  <Link href="/Contact">contact us </Link>
+                </li>
+                <li className="mb-4 hover:underline">
+                  <Link href="/faq">FAQ</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
 
         </div>
 

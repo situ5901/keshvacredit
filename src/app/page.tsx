@@ -553,8 +553,6 @@ function Page() {
       <section className="text-center justify-center items-center p-8">
         <Howitworks />
       </section>
-
-
       <RatingAndReviews />
       <section
         className="py-16  text-center">

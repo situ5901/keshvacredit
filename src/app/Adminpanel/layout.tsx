@@ -24,7 +24,7 @@ export default function AdminPanelLayout({
 
   // Close sidebar on route change
   useEffect(() => {
-   
+
     router.prefetch("/Adminpanel/dashboard");
     router.prefetch("/Adminpanel/users");
     router.prefetch("/Adminpanel/settings");
@@ -34,9 +34,8 @@ export default function AdminPanelLayout({
     <div className="flex min-h-screen">
       {/* Sidebar */}
       <aside
-        className={`min-h-screen fixed md:static mt-18 top-0 left-0  h-full w-64 bg-gray-800 text-white transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 transition-transform duration-300 ease-in-out`}
+        className={` fixed md:static mt-18 top-0 left-0   w-64 bg-gray-800 text-white transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
         <div className="flex items-center justify-between p-4 md:justify-start md:space-x-2 border-b border-gray-700">
           <span className="text-lg font-semibold">Admin Panel</span>
@@ -59,7 +58,7 @@ export default function AdminPanelLayout({
             <li className="px-4 py-2 hover:bg-gray-700">
               <Link href="/Adminpanel/workupdate">daily-Work-update</Link>
             </li>
-             <li className="px-4 py-2 hover:bg-gray-700">
+            <li className="px-4 py-2 hover:bg-gray-700">
               <button
                 onClick={handleLogout}
               >
@@ -77,7 +76,7 @@ export default function AdminPanelLayout({
           <button onClick={toggleSidebar} aria-label="Toggle Sidebar">
             <Menu size={24} />
           </button>
-                 </div>
+        </div>
         <main className="p-4 md:p-6 mt-1 md:mt-12">{children}</main>
       </div>
     </div>

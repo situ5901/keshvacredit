@@ -53,11 +53,11 @@ export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setActiveStep((prev) => (prev + 1) % steps.length);
     }, 3000);
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearTimeout(timer);
+  }, [activeStep]);
 
   return (
     <section className="py-16">
@@ -94,24 +94,25 @@ export default function HowItWorks() {
 
         {/* Desktop Slider */}
         <div className="hidden lg:block overflow-visible -mx-3">
-          <Slider {...sliderSettings} className="px-3">
+          <Slider {...sliderSettings} className="px-3" aria-label="Loan steps carousel">
             {steps.map((step, idx) => {
               const isActive = idx === activeStep;
               return (
                 <div key={idx} className="px-3 mt-5">
                   <div
-                    className={`flex flex-col items-center p-8 rounded-2xl shadow-xl transition-transform duration-500 ease-in-out w-full h-[400px] mb-5 ${
+                    className={`flex flex-col items-center p-8 rounded-2xl shadow-xl transition-all duration-500 ease-in-out w-full min-h-[400px] mb-5 ${
                       isActive
                         ? 'bg-gray-800 text-white scale-105'
                         : 'bg-white text-blue-900'
                     }`}
                   >
-                    <div className="relative w-32 h-32 mb-4">
+                    <div className="mb-4">
                       <Image
                         src={step.imgSrc}
                         alt={step.title}
-                        fill
-                        style={{ objectFit: 'contain' }}
+                        width={128}
+                        height={128}
+                        className="object-contain"
                       />
                     </div>
                     <h3 className="font-semibold text-center text-lg mb-2">{step.title}</h3>
@@ -125,7 +126,7 @@ export default function HowItWorks() {
           </Slider>
         </div>
 
-        {/* Mobile + Tablet Vertical Zooming Steps */}
+        {/* Mobile + Tablet Vertical Steps */}
         <div className="lg:hidden flex flex-col space-y-6 mt-6">
           {steps.map((step, idx) => {
             const isActive = idx === activeStep;
@@ -138,12 +139,13 @@ export default function HowItWorks() {
                     : 'scale-100 bg-white text-blue-900'
                 }`}
               >
-                <div className="relative w-24 h-24 mb-4">
+                <div className="mb-4">
                   <Image
                     src={step.imgSrc}
                     alt={step.title}
-                    fill
-                    style={{ objectFit: 'contain' }}
+                    width={96}
+                    height={96}
+                    className="object-contain"
                   />
                 </div>
                 <h3 className="font-semibold text-center text-lg mb-2">{step.title}</h3>
