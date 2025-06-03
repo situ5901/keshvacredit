@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: "https://keshvacredit.com",
     siteName: "KeshvaCredit",
     type: "website",
-    locale: "en_US",
+    locale: "en_IN"
   },
   robots: "index, follow",
   authors: [{ name: "KeshvaCredit Team", url: "https://keshvacredit.com" }],
