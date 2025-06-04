@@ -87,11 +87,6 @@ const Partner = () => {
       src: "https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png",
       url: "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5",
     },
-    {
-      src: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
-      url: "/",
-    },
-   
   ];
 
   return (
