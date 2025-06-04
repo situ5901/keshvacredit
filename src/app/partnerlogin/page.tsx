@@ -93,7 +93,6 @@ export default function PartnerLogin() {
             Your secure partner password
           </p>
         </div>
-
         <button
           type="submit"
           className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 text-white py-3 rounded-xl shadow-lg hover:scale-105 transition-transform font-semibold text-sm sm:text-base"

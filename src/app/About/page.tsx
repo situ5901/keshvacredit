@@ -137,10 +137,10 @@ function About() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h2 className="text-4xl font-bold text-gray-800" data-aos="fade-down">
+            <h2 className="text-4xl font-bold text-gray-800">
               How It Works
             </h2>
-            <p className="mt-4 text-gray-600 text-lg" data-aos="fade-down" data-aos-delay="200">
+            <p className="mt-4 text-gray-600 text-lg">
               Our simple three-step process gets you from application to
               approval—fast.
             </p>
@@ -185,7 +185,7 @@ function About() {
           </div>
         </div>
       </section>
-
+      <hr />
       {/* Contact Section */}
       <section className="relative bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')]">
         <div className="py-16 px-4 mx-auto max-w-screen-xl text-center relative z-10">
@@ -224,7 +224,7 @@ function About() {
             opportunities and growth.
           </p>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-transparent z-0"></div>
+        <div className="absolute bg-gradient-to-b from-blue-50 to-transparent z-0"></div>
       </section>
 
       <div className="h-10">

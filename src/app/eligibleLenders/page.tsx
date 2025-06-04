@@ -129,6 +129,18 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium={medium}&utm_campaign={campaign}",
   },
+   {
+    id: "Moneyview",
+    name: "Moneyview",
+    logo: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "	Starting from 1.16% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "/",
+  },
   {
     id: "chintamanifinlease",
     name: "chintamanifinlease",
