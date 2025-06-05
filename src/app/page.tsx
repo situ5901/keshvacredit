@@ -100,11 +100,9 @@ function Page() {
               Quick approvals, minimal documentation, and seamless disbursal.
               Small loans or big, we ensure financial access at the pace you
               need, empowering every Indian with hassle-free loan solutions
-              tailored to their needs.
-            </p>
-            <p>
-              We are strategists, designers and developers. Innovators and
-              problem solvers. Small enough to be simple and quick.
+              tailored to their needs. <br />
+              We are strategists developers,Innovators and
+              problem solvers.Quick Loans, Simplified. Compare & Apply Instantly. 
             </p>
             <br />
             <div className="flex gap-8">
@@ -564,6 +562,7 @@ function Page() {
                 src="https://cdn-icons-gif.flaticon.com/14251/14251538.gif"
                 alt="happy customer"
                 fill
+                unoptimized
                 className="rounded-full shadow-lg object-cover"
               />
             </div>
@@ -576,6 +575,7 @@ function Page() {
                 src="https://cdn-icons-gif.flaticon.com/15370/15370761.gif"
                 alt="relationship"
                 fill
+                unoptimized
                 className="rounded-full shadow-lg object-cover"
               />
             </div>
@@ -588,6 +588,7 @@ function Page() {
                 src="https://cdn-icons-gif.flaticon.com/7994/7994401.gif"
                 alt="bank"
                 fill
+                unoptimized
                 className="rounded-full shadow-lg object-cover"
               />
             </div>
@@ -600,6 +601,7 @@ function Page() {
                 src="https://cdn-icons-gif.flaticon.com/10051/10051256.gif"
                 alt="business"
                 fill
+                unoptimized
                 className="rounded-full shadow-lg object-cover"
               />
             </div>

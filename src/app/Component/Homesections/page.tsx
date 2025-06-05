@@ -5,7 +5,7 @@ import Image from 'next/image';
 const tabs = [
   { 
     id: 'students', 
-    label: 'Working Students', 
+    label: 'For Students', 
     imageSrc: '/loantr2.png', 
     heading: 'Quick Loans for Students',
     description: 'KeshvaCredit offers loans specifically designed for students who need quick financial assistance. Whether you’re looking for funds to pay for tuition fees, purchase textbooks, or cover personal expenses, we have you covered. With minimal paperwork and fast processing, we understand that students have tight budgets and need flexible repayment plans. Our loans offer a simple application process, quick approvals, and low-interest rates, helping you manage your educational and personal finances stress-free.' 
@@ -37,7 +37,7 @@ const LoanSection = () => {
 
   return (
     <section className="py-12">
-      <h2 className="text-3xl font-semibold text-center mb-8">Loan for Everyone</h2>
+      <h1 className="text-3xl font-semibold text-center mb-8">Your Trusted Partner for Every Loan Need.</h1>
 
       {/* Tabs */}
       <div className="max-w-3xl mx-auto flex rounded-full p-1 mb-10 shadow-md shadow-gray-300">

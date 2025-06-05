@@ -73,7 +73,9 @@ function Footer() {
                 alt="Logo"
               />
             </Link>
+            <p className="text-xl  mt-2 font-bold uppercase">SAFE AND SECURE</p>
           </div>
+
 
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
             {/* Resources Section */}
@@ -206,6 +208,13 @@ function Footer() {
               ))}
             </ul>
           )}
+          {/* <div className="flex flex-wrap  gap-6 justify-center text-sm text-black">
+            <a href="https://myaadhaar.uidai.gov.in/" target="_blank" className="hover:underline">Download Aadhaar Card</a>
+            <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" className="hover:underline">Check PAN Card Status</a>
+            <a href="https://www.bankifsccode.com/" target="_blank" className="hover:underline">Find Bank IFSC Code</a>
+            <a href="https://uidai.gov.in/my-aadhaar/get-aadhaar.html" target="_blank" className="hover:underline">Check Aadhaar Status</a>
+            <a href="https://www.cibil.com/" target="_blank" className="hover:underline">View Your CIBIL Score</a>
+          </div> */}
         </div>
       </div>
     </footer>

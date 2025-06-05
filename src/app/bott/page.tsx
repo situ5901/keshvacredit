@@ -156,7 +156,7 @@ export default function Bot() {
             )}
             <div className="flex gap-2 items-center">
                 <a
-                    href="https://wa.me/8901229195"
+                   href="https://wa.me/918901229195"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center border border-green-500 text-white bg-green-500 rounded-full w-12 h-12 hover:bg-green-600 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"

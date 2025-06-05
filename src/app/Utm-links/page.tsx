@@ -175,7 +175,7 @@ export default function UTMLendersPage() {
                 <h1 className="text-4xl font-bold mb-4 animate__animated animate__heartBeat">quick links</h1>
 
                 <p className="text-lg mb-6">
-                    Access quick links to compare loan options, and apply instantly with trusted partners instantly.
+                   Financial Freedom Starts with the Right Loan. We Help You Find It.Your Trusted Partner for Every Loan Need.
                 </p>
                 <a
                     href="#form"

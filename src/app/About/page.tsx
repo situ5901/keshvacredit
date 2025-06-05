@@ -32,7 +32,7 @@ function About() {
           <p className="mb-8 text-lg text-gray-300 lg:text-xl sm:px-8 lg:px-48">
             Simplifying the Borrowing Experience with Instant Approvals, Best
             Interest Rates, and Trusted Lenders for Personal, Business, and
-            Emergency Loans.
+            Emergency Loans.Unlock Your Loan Options.India&apos;s Top Lender Compared 
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ function About() {
           <p className="mt-4 text-lg max-w-4xl mx-auto">
             At <strong>KeshvaCredit</strong>, we believe financial solutions
             should be simple, transparent, and tailored. We empower you with
-            seamless digital experiences and peace of mind.
+            seamless digital experiences and peace of mind.Compare Loans, Get More. Your Best Rates, All in One Place.
           </p>
 
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -109,7 +109,7 @@ function About() {
               <p className="mt-4 text-gray-700 text-lg">
                 At KeshvaCredit, we revolutionize the lending experience by
                 connecting borrowers with trusted lenders. We make securing a
-                loan—personal, business, or emergency—fast and stress-free.
+                loan—personal, business, or emergency—fast and stress-free.Your Fastest Path to the Right Loan.
               </p>
             </div>
             <div
@@ -150,7 +150,7 @@ function About() {
               {
                 src: "https://cdn-icons-gif.flaticon.com/16664/16664304.gif",
                 title: "Select Loan",
-                desc: "Browse our diverse loan options to find what fits.",
+                desc: "Your Dream Loan is Just a Click Away. Compare & Conquer.",
               },
               {
                 src: "https://cdn-icons-gif.flaticon.com/17904/17904955.gif",

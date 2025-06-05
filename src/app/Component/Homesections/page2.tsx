@@ -114,7 +114,7 @@ const RatingAndReviews = () => (
   <section className="py-12">
     <div className="max-w-6xl mx-auto px-4">
       <h2 className="text-2xl font-bold mb-2">Rating & Reviews</h2>
-      <p className="mb-8">The results speak for themselves, see our reviews from happy users</p>
+      <p className="mb-8">India&apos;s  Top Loan Aggregator. Your Best Rates, Nationwide . <br /> The results speak for themselves, see our reviews from happy users ....</p>
       <Slider {...sliderSettings} className="-mx-3">
         {reviews.map((review, index) => (
           <div key={index} className="px-3">
