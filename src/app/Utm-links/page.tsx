@@ -61,6 +61,16 @@ const lenderData = [
         applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
         detailsLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
     },
+       {
+        image: "https://clickmyloan.com/images/logo.png",
+        lender: "click my loan",
+        interestRate: "upto 24% per annum",
+        maxLoan: "Up to ₹5 Lakhs",
+        benefit: "Fast approval with minimal documents",
+        applyLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome ",
+        detailsLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome ",
+    },
+    
     {
         image: "https://www.instantmudra.com/images/logo_official.png",
         lender: "instant mudra",

@@ -19,6 +19,7 @@ const nextConfig = {
       "i.postimg.cc",
       "www.instantmudra.com",
       "www.chintamanifinlease.com",
+      "clickmyloan.com",
       
     ], 
     remotePatterns: [

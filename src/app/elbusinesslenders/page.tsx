@@ -1,81 +1,129 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 
 const lenders = [
   {
+    id: 1,
     name: "CapitalEase",
-    rate: "12% p.a.",
+    logo: "/1.png",
+    approval: "92%",
     amount: "Up to ₹50 Lakhs",
-    time: "1–5 years",
-    logo: "/1.png",
+    interest: "12% p.a.",
+    tenure: "1–5 years",
+    support: "24/7 Chat",
+    features: ["Quick Disbursal", "Low Paperwork", "Flexible Tenure"],
+    applyLink: "/apply/capitalease",
   },
   {
+    id: 2,
     name: "BizFund Pro",
-    rate: "11.5% p.a.",
-    amount: "Up to ₹30 Lakhs",
-    time: "6 months–4 years",
     logo: "/1.png",
+    approval: "89%",
+    amount: "Up to ₹30 Lakhs",
+    interest: "11.5% p.a.",
+    tenure: "6 months–4 years",
+    support: "Phone & Email",
+    features: ["No Collateral", "Online Tracking", "Quick Approval"],
+    applyLink: "/apply/bizfundpro",
   },
   {
+    id: 3,
     name: "Udaan Finance",
-    rate: "10.75% p.a.",
-    amount: "Up to ₹25 Lakhs",
-    time: "1–3 years",
     logo: "/1.png",
+    approval: "95%",
+    amount: "Up to ₹25 Lakhs",
+    interest: "10.75% p.a.",
+    tenure: "1–3 years",
+    support: "Dedicated Manager",
+    features: ["Low Interest", "Prepayment Options", "Digital KYC"],
+    applyLink: "/apply/udaanfinance",
   },
 ];
 
 const BusinessLendersPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-white py-14 px-4">
-      <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mb-12 drop-shadow-md">
-        💼 Business Loan Lenders
+    <div className="min-h-screen py-16 px-6  mt-10">
+      <h1 className="text-5xl font-bold text-center  mb-16">
+        Business Loan Lenders 🏢
       </h1>
 
-      <div className="grid grid-cols-1 gap-10 max-w-4xl mx-auto">
-        {lenders.map((lender, idx) => (
+      <div className="space-y-10">
+        {lenders.map((lender) => (
           <div
-            key={idx}
-            className="relative bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-300"
+            key={lender.id}
+            className="max-w-6xl mx-auto rounded-xl border border-slate-200 bg-white shadow-md hover:shadow-lg transition-all duration-300 p-8"
           >
-            {/* Accent Gradient Strip */}
-            <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-pink-500" />
+            <div className="flex flex-wrap items-center justify-between gap-6">
+              {/* Logo Section */}
+              <div className="flex items-center gap-4">
+                <div className="w-28 h-28 flex items-center justify-center overflow-hidden">
 
-            <div className="p-8 flex flex-col items-center text-center bg-white/70 backdrop-blur-md">
-              <Image
-                src={lender.logo}
-                alt={lender.name}
-                className="w-24 h-24 object-contain mb-5 rounded-xl shadow-md"
-              />
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                {lender.name}
-              </h2>
-
-              <div className="space-y-1 text-gray-600 text-sm font-medium">
-                <p>
-                  <span className="text-blue-600 font-semibold">Interest:</span>{" "}
-                  {lender.rate}
-                </p>
-                <p>
-                  <span className="text-blue-600 font-semibold">Amount:</span>{" "}
-                  {lender.amount}
-                </p>
-                <p>
-                  <span className="text-blue-600 font-semibold">Tenure:</span>{" "}
-                  {lender.time}
-                </p>
+                  <Image
+                    src={lender.logo}
+                    alt={`${lender.name} Logo`}
+                    width={112}
+                    height={112}
+                    className="object-contain"
+                  />
+                </div>
+                <h2 className="text-2xl font-bold text-slate-800">{lender.name}</h2>
               </div>
 
-              <button className="mt-6 px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-blue-500 text-white font-semibold tracking-wide shadow-md hover:brightness-110 hover:scale-105 transition-all duration-300 animate-pulse">
-                🚀 Apply Now
-              </button>
+              {/* Key Info */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-slate-700 font-medium">
+                <div>
+                  <p className="text-slate-500">Approval</p>
+                  <p className="text-lg font-semibold">{lender.approval}</p>
+                </div>
+                <div>
+                  <p className="text-slate-500">Loan Amount</p>
+                  <p className="text-lg font-semibold">{lender.amount}</p>
+                </div>
+                <div>
+                  <p className="text-slate-500">Interest</p>
+                  <p className="text-lg font-semibold">{lender.interest}</p>
+                </div>
+                <div>
+                  <p className="text-slate-500">Tenure</p>
+                  <p className="text-lg font-semibold">{lender.tenure}</p>
+                </div>
+                <div>
+                  <p className="text-slate-500">Support</p>
+                  <p className="text-lg font-semibold">{lender.support}</p>
+                </div>
+              </div>
             </div>
 
-            {/* Floating Tag */}
-            <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-xs px-3 py-1 rounded-full font-semibold text-white shadow">
-              ⭐ Top Pick
+            {/* Divider */}
+            <hr className="my-6 border-dashed border-gray-300" />
+
+            {/* Features and CTA */}
+            <div className="flex flex-wrap items-center justify-between gap-6">
+              <div className="flex flex-wrap gap-4">
+                {lender.features.map((feature, idx) => (
+                  <span
+                    key={idx}
+                    className="flex items-center gap-2 bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm"
+                  >
+                    <Image
+                      src="https://cdn-icons-png.flaticon.com/128/10407/10407098.png"
+                      alt="Feature"
+                      width={20}
+                      height={20}
+                    />
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              <Link
+                href={lender.applyLink}
+                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-6 py-3 rounded-full transition"
+              >
+                🚀 Apply Now
+              </Link>
             </div>
           </div>
         ))}

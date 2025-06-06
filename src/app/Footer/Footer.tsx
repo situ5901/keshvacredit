@@ -58,6 +58,16 @@ function Footer() {
       openModal();
     }
   };
+  const handleClickbusiness = () => {
+    const token = Cookies.get("user_token");
+    const phone = Cookies.get("user_phone");
+
+    if (token && phone) {
+      router.push("/business-loan");
+    } else {
+      openModal();
+    }
+  };
 
   return (
     <footer id="footer" className="border-t transition-colors duration-300">
@@ -83,19 +93,24 @@ function Footer() {
               <h2 className="mb-6 text-sm font-semibold uppercase">Resources</h2>
               <ul className="font-medium">
                 <li className="mb-4">
-                  <Link href="/creditcard" className="hover:underline">
-                    Credit Card
-                  </Link>
-                </li>
-                <li className="mb-4">
                   <button onClick={handleClickLoan} className="hover:underline text-left">
                     Personal Loan
                   </button>
                 </li>
                 <li className="mb-4">
-                  <button onClick={handleClickLoan} className="hover:underline text-left">
+                  <button onClick={handleClickbusiness} className="hover:underline text-left">
                     Business Loan
                   </button>
+                </li>
+                <li className="mb-4">
+                  <Link href="/creditcard" className="hover:underline">
+                    Credit Card
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link href="/goldloan" className="hover:underline">
+                    Gold Loan
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -173,6 +188,9 @@ function Footer() {
                 <li className="mb-4 hover:underline">
                   <Link href="/faq">FAQ</Link>
                 </li>
+                <li className="mb-4 hover:underline">
+                  <Link href="/blog">Blogs</Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -208,13 +226,13 @@ function Footer() {
               ))}
             </ul>
           )}
-          {/* <div className="flex flex-wrap  gap-6 justify-center text-sm text-black">
+          <div className="flex flex-wrap  gap-6 justify-center text-sm ">
             <a href="https://myaadhaar.uidai.gov.in/" target="_blank" className="hover:underline">Download Aadhaar Card</a>
             <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" className="hover:underline">Check PAN Card Status</a>
             <a href="https://www.bankifsccode.com/" target="_blank" className="hover:underline">Find Bank IFSC Code</a>
             <a href="https://uidai.gov.in/my-aadhaar/get-aadhaar.html" target="_blank" className="hover:underline">Check Aadhaar Status</a>
             <a href="https://www.cibil.com/" target="_blank" className="hover:underline">View Your CIBIL Score</a>
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>

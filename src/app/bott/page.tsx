@@ -161,7 +161,7 @@ export default function Bot() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center border border-green-500 text-white bg-green-500 rounded-full w-12 h-12 hover:bg-green-600 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
                 >
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.52 3.48A11.83 11.83 0 0012 0 12 12 0 000 12a11.85 11.85 0 001.64 6.05L0 24l6.21-1.63A11.93 11.93 0 0012 24a12 12 0 0012-12 11.83 11.83 0 00-3.48-8.52zM12 22a9.93 9.93 0 01-5.05-1.38l-.36-.22-3.68.97.98-3.57-.24-.37A9.92 9.92 0 1122 12a9.93 9.93 0 01-10 10zm5.12-7.25c-.27-.14-1.63-.8-1.88-.9s-.44-.14-.63.14-.72.9-.88 1.09-.33.2-.6.07a8.21 8.21 0 01-2.4-1.48 9.02 9.02 0 01-1.66-2.06c-.17-.3 0-.46.13-.6.13-.13.3-.33.45-.5a2 2 0 00.3-.5.54.54 0 000-.52c-.06-.14-.61-1.47-.84-2-.22-.53-.45-.45-.62-.46h-.52a1 1 0 00-.72.34A3 3 0 005 9.12a5.21 5.21 0 00.19 2.73c.27.66 1.63 2.63 3.78 4.06A13.47 13.47 0 0014 17.4c.9.27 1.72.23 2.36.14a3 3 0 002-.85 2.55 2.55 0 00.54-1.5c0-.2-.1-.28-.36-.4z" />
                     </svg>
                 </a>
@@ -170,7 +170,7 @@ export default function Bot() {
                     onClick={() => setIsOpen(!isOpen)}
                     className="flex items-center justify-center border border-black text-white bg-white rounded-full w-12 h-12 hover:bg-blue-200 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
                 >
-                    <Lottie animationData={animationData} loop autoplay className="w-6 h-6" />
+                    <Lottie animationData={animationData} loop autoplay className="w-8 h-8" />
                 </button>
             </div>
 
