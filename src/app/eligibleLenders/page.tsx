@@ -81,6 +81,19 @@ const allLenders: Lender[] = [
     applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium=",
   },
   {
+    id: "clickmyloan",
+    name: "clickmyloan",
+    logo: "https://clickmyloan.com/images/logo.png",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: " upto 24% per annum",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome",
+  },
+
+  {
     id: "instantmudra",
     name: "instantmudra",
     logo: "https://www.instantmudra.com/images/logo_official.png",
@@ -129,7 +142,7 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium={medium}&utm_campaign={campaign}",
   },
-   {
+  {
     id: "Moneyview",
     name: "Moneyview",
     logo: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",

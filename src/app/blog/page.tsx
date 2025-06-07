@@ -2,7 +2,19 @@ import Link from "next/link";
 
 const blogs = [
 
-   {
+ {
+  id: 3,
+  title: "How AI Is Revolutionizing Personal Finance in India",
+  image:
+    "https://img.freepik.com/free-photo/futuristic-robot-interacting-with-money_23-2151612625.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740",
+  description:
+    "Explore how Artificial Intelligence is transforming personal finance in India—from AI-powered budgeting and instant loans to rural financial inclusion and smart customer service. Learn about the benefits, risks, and the future of money management in the digital era.",
+  link: "/blog/ai-finance-india",
+  tag: "AI",
+  date: "June 7, 2025",
+},
+
+  {
     id: 2,
     title: "Personal Loan Guide: Everything You Need to Know",
     image:
@@ -53,9 +65,9 @@ export default function BlogSection() {
               </div>
 
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-700 transition-colors mb-2">
+                <h1 className="text-xl font-semibold text-gray-800 group-hover:text-blue-700 transition-colors mb-2">
                   {blog.title}
-                </h3>
+                </h1>
                 <p className="text-gray-600 text-sm flex-grow">{blog.description}</p>
                 <div className="mt-4">
                   <span className="text-blue-600 text-sm font-semibold underline">
