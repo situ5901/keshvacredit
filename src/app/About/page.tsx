@@ -104,7 +104,7 @@ function About() {
       <section className="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
         <div className="px-4 lg:px-[10%]">
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
+            <div className="lg:w-1/2 text-center lg:text-left" >
               <h2 className="text-4xl font-bold text-gray-800">Who We Are</h2>
               <p className="mt-4 text-gray-700 text-lg">
                 At KeshvaCredit, we revolutionize the lending experience by
@@ -114,7 +114,7 @@ function About() {
             </div>
             <div
               className="lg:w-1/2 flex justify-center items-center max-w-[350px] w-full mx-auto"
-              data-aos="fade-right"
+           
             >
               <Lottie
                 animationData={loanAnimation}

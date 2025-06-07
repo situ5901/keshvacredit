@@ -36,7 +36,7 @@ function Page() {
                 const user = await getUserData(phone);
                 if (user && user.phone) {
                     localStorage.setItem("userData", "yes");
-                    window.location.href = "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1";
+                    window.location.href = "https://click.mpkt.to/jr2q?af_xp=text&pid=keshvacredit&c=keshvacredit";
                 } else {
                     setLoading(false);
                 }
@@ -75,7 +75,7 @@ function Page() {
 
             setTimeout(() => {
                 setShowPopup(false);
-                window.open("https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1");
+                window.open("https://click.mpkt.to/jr2q?af_xp=text&pid=keshvacredit&c=keshvacredit");
             }, 2000);
         } catch (error: any) { // Catch the error object
             setPopupType("error");
@@ -128,8 +128,8 @@ function Page() {
             <div className="justify-center mb-20 items-center min-h-screen">
                 <div className="mt-24 mx-auto max-w-[90%] md:max-w-[50rem] text-center text-[28px] md:text-[34px]">
                     <h1 className="font-bold text-[34px]">
-                        olyv personal Loans starting at{" "}
-                        <span className="text-blue-700">1.5%* per month</span> Interest Rates.
+                        mPokket personal Loans starting at{" "}
+                        <span className="text-blue-700">39% per annum</span> Interest Rates.
                     </h1>
                     <ul className="text-[16px] md:text-[18px] font-medium ml-4 md:ml-8 mt-2 text-left list-disc">
                         <li>Minimal Documentation</li>
@@ -137,7 +137,6 @@ function Page() {
                         <li>Lowest interest rate guaranteed</li>
                     </ul>
                 </div>
-
                 <form
                     onSubmit={handleSubmit}
                     className="form max-w-lg mx-auto mt-10 p-6 border-2 border-gray-300 mb-20 rounded-lg shadow-2xl shadow-gray-500 dark:shadow-gray-800 gap-3"
@@ -285,10 +284,6 @@ function Page() {
                         </label>
                     </div>
 
-
-
-
-
                     {/* Submit Button */}
                     <div className="mt-6">
                         <button type="submit" className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg text-xl font-bold">
@@ -296,6 +291,7 @@ function Page() {
                         </button>
                     </div>
                 </form>
+
             </div>
             <section>
                 <Howitworks />

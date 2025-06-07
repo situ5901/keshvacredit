@@ -90,7 +90,7 @@ function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
             {/* Resources Section */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase">Resources</h2>
+              <h2 className="mb-6 text-sm font-semibold uppercase underline">Resources</h2>
               <ul className="font-medium">
                 <li className="mb-4">
                   <button onClick={handleClickLoan} className="hover:underline text-left">
@@ -102,22 +102,27 @@ function Footer() {
                     Business Loan
                   </button>
                 </li>
+                  <li className="mb-4">
+                  <Link href="/directlender" className="hover:underline">
+                    Direct lender loan
+                  </Link>
+                </li>
                 <li className="mb-4">
                   <Link href="/creditcard" className="hover:underline">
                     Credit Card
                   </Link>
                 </li>
-                <li className="mb-4">
+               <li className="mb-4">
                   <Link href="/goldloan" className="hover:underline">
                     Gold Loan
                   </Link>
-                </li>
+                </li> 
               </ul>
             </div>
 
             {/* Social Section */}
             <div className="ml-3">
-              <h2 className="mb-6 text-sm font-semibold">FOLLOW US</h2>
+              <h2 className="mb-6 text-sm font-semibold italic uppercase underline ">FOLLOW US</h2>
               <ul className="font-medium flex flex-col gap-4">
                 <li>
                   <Link
@@ -151,12 +156,20 @@ function Footer() {
                     WhatsApp
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="https://www.youtube.com/@KeshvaCreditFilmy"
+                    className="hover:opacity-80 hover:underline"
+                  >
+                  youtube
+                  </Link>
+                </li>
               </ul>
             </div>
 
             {/* Legal Section */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>
+              <h2 className="mb-6 text-sm font-semibold uppercase underline">Legal</h2>
               <ul className="font-medium">
                 <li className="mb-4 hover:underline">
                   <Link href="/Privacy">Privacy Policy</Link>
@@ -177,7 +190,7 @@ function Footer() {
 
             {/* Important Links Section */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase">other</h2>
+              <h2 className="mb-6 text-sm font-semibold uppercase underline">other</h2>
               <ul className="font-medium">
                 <li className="mb-4 hover:underline">
                   <Link href="/Careers">carrers</Link>
