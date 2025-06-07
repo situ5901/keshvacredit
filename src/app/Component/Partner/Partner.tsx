@@ -40,7 +40,7 @@ const Partner = () => {
       url: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
     },
     {
-      src: "https://www.ramfincorp.com/images/logo.png",
+      src: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
       url: "https://applyonline.ramfincorp.com/?utm_source=keshvacredit",
     },
       {

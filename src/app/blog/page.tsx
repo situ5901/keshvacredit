@@ -2,17 +2,17 @@ import Link from "next/link";
 
 const blogs = [
 
- {
-  id: 3,
-  title: "How AI Is Revolutionizing Personal Finance in India",
-  image:
-    "https://img.freepik.com/free-photo/futuristic-robot-interacting-with-money_23-2151612625.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740",
-  description:
-    "Explore how Artificial Intelligence is transforming personal finance in India—from AI-powered budgeting and instant loans to rural financial inclusion and smart customer service. Learn about the benefits, risks, and the future of money management in the digital era.",
-  link: "/blog/ai-finance-india",
-  tag: "AI",
-  date: "June 7, 2025",
-},
+  {
+    id: 3,
+    title: "How AI Is Revolutionizing Personal Finance in India",
+    image:
+      "https://img.freepik.com/free-photo/futuristic-robot-interacting-with-money_23-2151612625.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740",
+    description:
+      "Explore how Artificial Intelligence is transforming personal finance in India—from AI-powered budgeting and instant loans to rural financial inclusion and smart customer service. Learn about the benefits, risks, and the future of money management in the digital era.",
+    link: "/blog/blog3",
+    tag: "AI",
+    date: "June 7, 2025",
+  },
 
   {
     id: 2,
@@ -40,9 +40,9 @@ const blogs = [
 
 export default function BlogSection() {
   return (
-    <section className="bg-gradient-to-b from-white to-gray-100 py-16 mt-5">
+    <section className="bg-gradient-to-b py-16 mt-5">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-14 text-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-14">
           ✍️ Latest Blog Posts
         </h2>
 

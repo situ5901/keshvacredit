@@ -5,7 +5,7 @@ import Image from "next/image";
 const lenders = [
   {
     name: "ramfin corporation",
-    image: "https://www.ramfincorp.com/images/logo.png",
+    image: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
     GrievanceOfficername: "Saourav Kumar",
     email: "info@ramfincorp.com",
   },

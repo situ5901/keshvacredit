@@ -44,7 +44,7 @@ const lenderData = [
         detailsLink: "https://salaryontime.com/apply-now?utm_source=Keshvacredit&utm_medium=Keywords&utm_campaign=Keywords&utm_term=Keywords",
     },
     {
-        image: "https://www.ramfincorp.com/images/logo.png",
+        image: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
         lender: "RamFin",
         interestRate: "upto 0.35% to 0.80%  per day",
         maxLoan: "Up to ₹5 Lakhs",

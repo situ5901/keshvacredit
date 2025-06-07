@@ -59,7 +59,7 @@ const allLenders: Lender[] = [
   {
     id: "ramfin",
     name: "Ramfin",
-    logo: "https://www.ramfincorp.com/images/logo.png",
+    logo: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
     approval: "Good",
     amount: "Up to ₹3,00,000",
     interest: "Starting from 0.35% to 0.80% per day",
