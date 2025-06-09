@@ -192,17 +192,17 @@ function Footer() {
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase underline">other</h2>
               <ul className="font-medium">
-                <li className="mb-4 hover:underline">
-                  <Link href="/Careers">carrers</Link>
+                 <li className="mb-4 hover:underline">
+                  <Link href="/blog">Our Blogs</Link>
                 </li>
                 <li className="mb-4 hover:underline">
-                  <Link href="/Contact">contact us </Link>
+                  <Link href="/Careers">Carrers</Link>
+                </li>
+                <li className="mb-4 hover:underline">
+                  <Link href="/Contact">Contact us </Link>
                 </li>
                 <li className="mb-4 hover:underline">
                   <Link href="/faq">FAQ</Link>
-                </li>
-                <li className="mb-4 hover:underline">
-                  <Link href="/blog">Blogs</Link>
                 </li>
               </ul>
             </div>

@@ -1,7 +1,17 @@
 import Link from "next/link";
 
 const blogs = [
-
+  {
+    id: 4,
+    title: "How to Increase Your CIBIL Score in 2025",
+    image:
+      "https://img.freepik.com/free-vector/businessman-pushing-credit-score-speedometer-from-poor-good-tiny-person-improving-personal-credit-history-with-efforts-flat-vector-illustration-business-reputation-customer-loan-concept_74855-20943.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740",
+    description:
+      "Learn practical and effective ways to boost your CIBIL score in 2025. From timely payments to smart credit usage and report monitoring, this guide helps you build a strong financial foundation and unlock better loan opportunities.",
+    link: "/blog/blog4",
+    tag: "Finance",
+    date: "June 9, 2025",
+  },
   {
     id: 3,
     title: "How AI Is Revolutionizing Personal Finance in India",
@@ -13,7 +23,6 @@ const blogs = [
     tag: "AI",
     date: "June 7, 2025",
   },
-
   {
     id: 2,
     title: "Personal Loan Guide: Everything You Need to Know",

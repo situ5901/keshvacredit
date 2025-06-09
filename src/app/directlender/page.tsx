@@ -10,7 +10,11 @@ export default function DirectLenderPage() {
 
   return (
     <div className="min-h-screen p-6 mt-16 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-extrabold mb-8">Direct Lender</h1>
+     <h1 className="text-3xl font-extrabold mb-2">Direct Lender</h1>
+<p className=" text-base ">
+  Explore our trusted network of direct lenders offering quick and hassle-free loans tailored to your financial needs.
+</p>
+
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {folders.map((folder) => (
           <div key={folder} className="mt-5 shadow-md p-4 bg-gray-600 rounded-lg">
