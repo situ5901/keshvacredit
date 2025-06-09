@@ -129,7 +129,7 @@ function Page() {
                 <div className="mt-24 mx-auto max-w-[90%] md:max-w-[50rem] text-center text-[28px] md:text-[34px]">
                     <h1 className="font-bold text-[34px]">
                         Bharatloan personal Loans starting at{" "}
-                        <span className="text-blue-700">35% per annum</span> Interest Rates.
+                        <span className="text-blue-700">35% per annum </span> Interest Rates.
                     </h1>
                     <ul className="text-[16px] md:text-[18px] font-medium ml-4 md:ml-8 mt-2 text-left list-disc">
                         <li>Minimal Documentation</li>
@@ -174,7 +174,6 @@ function Page() {
                         </div>
                     </div>
 
-                    {/* Email & Employee Type */}
                     <div className="flex space-x-4 mt-6 gap-5">
                         <div className="relative flex items-center border-b-2 border-gray-300 w-1/2">
                             <span className="absolute left-0 top-1/2 transform -translate-y-1/2 pl-1">
@@ -206,7 +205,6 @@ function Page() {
                         </div>
                     </div>
 
-                    {/* PAN & Pincode */}
                     <div className="flex space-x-4 mt-6 gap-5">
                         <div className="relative flex items-center border-b-2 border-gray-300 w-1/2">
                             <span className="absolute left-0 top-1/2 transform -translate-y-1/2 pl-1">
