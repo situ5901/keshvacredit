@@ -3,7 +3,7 @@ export default function PersonalLoanBlog() {
   return (
     <main className="p-6 max-w-4xl mx-auto mt-15">
       <h1 className="text-4xl font-bold mb-4">Everything You Need to Know About Personal Loans</h1>
-      <p className="text-gray-500 mb-6">Published on June 6, 2025</p>
+      <p className="text-gray-500 mb-6">Published on april 16, 2025</p>
 
       <img
         src="https://img.freepik.com/free-photo/couple-making-plans-remodel-household_23-2148814636.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740"

@@ -2,6 +2,18 @@ import Link from "next/link";
 
 const blogs = [
   {
+  id: 5,
+  title: "UPI Credit: The Next Big Thing in Indian Lending?",
+  image:
+    "https://img.freepik.com/free-vector/instant-credit-abstract-concept-illustration_335657-2392.jpg?w=740",
+  description:
+    "Explore how UPI Credit is reshaping the Indian lending space in 2025. From instant approvals to seamless integration with daily transactions, this blog dives into why UPI-based credit could be a game changer for borrowers and lenders alike.",
+  link: "/blog/blog5",
+  tag: "Finance",
+  date: "June 9, 2025",
+},
+
+  {
     id: 4,
     title: "How to Increase Your CIBIL Score in 2025",
     image:
@@ -10,7 +22,7 @@ const blogs = [
       "Learn practical and effective ways to boost your CIBIL score in 2025. From timely payments to smart credit usage and report monitoring, this guide helps you build a strong financial foundation and unlock better loan opportunities.",
     link: "/blog/blog4",
     tag: "Finance",
-    date: "June 9, 2025",
+    date: "may 19, 2025",
   },
   {
     id: 3,
@@ -21,7 +33,7 @@ const blogs = [
       "Explore how Artificial Intelligence is transforming personal finance in India—from AI-powered budgeting and instant loans to rural financial inclusion and smart customer service. Learn about the benefits, risks, and the future of money management in the digital era.",
     link: "/blog/blog3",
     tag: "AI",
-    date: "June 7, 2025",
+    date: "may 7, 2025",
   },
   {
     id: 2,
@@ -32,7 +44,7 @@ const blogs = [
       "Understand personal loans, eligibility, interest rates, and required documents. This blog explains how to apply smartly, manage EMIs, and boost your credit score. Whether it's for medical bills or emergencies, learn safe borrowing tips and avoid common mistakes .",
     link: "/blog/blog2",
     tag: "Loans",
-    date: "June 6, 2025",
+    date: "april 16, 2025",
   },
   {
     id: 1,
@@ -43,7 +55,7 @@ const blogs = [
       "Discover smart ways to reduce your tax burden legally through deductions under Section 80C, home loan benefits, and insurance premiums. Learn how to optimize your salary, claim exemptions, and invest wisely. This blog helps you save more while staying fully compliant with the Income Tax Act.",
     link: "/blog/blog1",
     tag: "Finance",
-    date: "June 5, 2025",
+    date: "april 5, 2025",
   }
 ];
 

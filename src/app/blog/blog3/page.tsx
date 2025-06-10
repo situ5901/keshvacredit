@@ -6,7 +6,7 @@ export default function AiFinanceBlog() {
       <h1 className="text-4xl font-bold mb-4">
         How AI Is Revolutionizing Personal Finance in India
       </h1>
-      <p className="text-gray-500 mb-6">Published on June 7, 2025</p>
+      <p className="text-gray-500 mb-6">Published on may 7, 2025</p>
 
       <img
         src="https://img.freepik.com/free-vector/ai-finance-digital-transformation-concept_53876-116889.jpg?w=1060&t=st=1717741304~exp=1717741904~hmac=fakehash"

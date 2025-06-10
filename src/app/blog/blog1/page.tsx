@@ -3,7 +3,7 @@ export default function SaveTaxBlog() {
   return (
     <main className="p-6 max-w-4xl mx-auto mt-15">
       <h1 className="text-4xl font-bold mb-4">How to Save Tax Legally</h1>
-      <p className="text-gray-500 mb-6">Published on June 5, 2025</p>
+      <p className="text-gray-500 mb-6">Published on april 5, 2025</p>
 
       <img
         src="https://img.freepik.com/free-vector/business-service-tag-with-smartphone-coins_24877-53393.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740"

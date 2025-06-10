@@ -197,7 +197,7 @@ function Page() {
                                 name="employeeType"
                                 value={formData.employeeType}
                                 onChange={handleChange}
-                                className="block py-2.5 pl-8 w-full text-sm border-0 focus:outline-none peer bg-transparent"
+                                className="custom-select block py-2.5 pl-8 w-full text-sm border-0 focus:outline-none peer bg-transparent"
                             >
                                 <option value="">Select Employee Type</option>
                                 <option value="employee">Employee</option>

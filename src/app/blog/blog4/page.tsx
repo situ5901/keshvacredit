@@ -7,7 +7,7 @@ export default function IncreaseCIBILScoreBlog() {
       <h1 className="text-4xl font-bold mb-4">
         How to Increase Your CIBIL Score in 2025
       </h1>
-      <p className="text-gray-500 mb-6">Published on June 9, 2025</p>
+      <p className="text-gray-500 mb-6">Published on may 19, 2025</p>
 
       <img
         src="https://img.freepik.com/free-vector/modern-credit-score-scale-meter-concept-design_1017-53354.jpg"
