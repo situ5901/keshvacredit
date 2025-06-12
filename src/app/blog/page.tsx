@@ -2,16 +2,28 @@ import Link from "next/link";
 
 const blogs = [
   {
-  id: 5,
-  title: "UPI Credit: The Next Big Thing in Indian Lending?",
-  image:
-    "https://img.freepik.com/free-vector/instant-credit-abstract-concept-illustration_335657-2392.jpg?w=740",
-  description:
-    "Explore how UPI Credit is reshaping the Indian lending space in 2025. From instant approvals to seamless integration with daily transactions, this blog dives into why UPI-based credit could be a game changer for borrowers and lenders alike.",
-  link: "/blog/blog5",
-  tag: "Finance",
-  date: "June 9, 2025",
-},
+    id: 6,
+    title: "Gold, Stocks, or Crypto: Where Should You Invest ₹10,000?",
+    image:
+      "https://img.freepik.com/free-photo/loan-mortgage-payment-property-concept_53876-124868.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_hybrid&w=740",
+    description:
+      "Confused about where to invest your first ₹10,000? This blog breaks down gold, stocks, and crypto—comparing risk, returns, liquidity, and strategy. Find out which option suits your financial goals best in 2025.",
+    link: "/blog/blog6",
+    tag: "Finance",
+    date: "June 12, 2025",
+  },
+
+  {
+    id: 5,
+    title: "UPI Credit: The Next Big Thing in Indian Lending?",
+    image:
+      "https://img.freepik.com/free-vector/instant-credit-abstract-concept-illustration_335657-2392.jpg?w=740",
+    description:
+      "Explore how UPI Credit is reshaping the Indian lending space in 2025. From instant approvals to seamless integration with daily transactions, this blog dives into why UPI-based credit could be a game changer for borrowers and lenders alike.",
+    link: "/blog/blog5",
+    tag: "Finance",
+    date: "June 9, 2025",
+  },
 
   {
     id: 4,

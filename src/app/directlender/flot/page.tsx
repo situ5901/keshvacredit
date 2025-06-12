@@ -216,10 +216,14 @@ function Page() {
                                 type="text"
                                 name="pan"
                                 value={formData.pan}
-                                onChange={handleChange}
-                                className="block py-2.5 pl-8 w-full text-sm bg-transparent border-0 focus:outline-none peer"
+                                onChange={(e) => {
+                                    e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+                                    handleChange(e); // use the real event
+                                }}
+                                className="block py-2.5 pl-8 w-full text-sm bg-transparent border-0 focus:outline-none peer uppercase"
                                 placeholder="PAN Number"
                             />
+
                         </div>
                         <div className="relative flex items-center border-b-2 border-gray-300 w-1/2">
                             <span className="absolute left-0 top-1/2 transform -translate-y-1/2 pl-1">

@@ -48,7 +48,7 @@ const MultiStepFormPage: React.FC = () => {
     loanAmount: "",
     income: "",
     dob: "",
-    loanType: "business", 
+    loanType: "business",
     businessName: "",
     businessType: "",
     businessVintage: "",
@@ -124,7 +124,10 @@ const MultiStepFormPage: React.FC = () => {
       case 2:
         return (
           <div className="grid gap-4">
-            <input name="pan" value={formData.pan} onChange={handleChange} placeholder="PAN Number" className="px-4 py-2 border rounded-lg" />
+            <input name="pan" value={formData.pan} onChange={(e) => {
+              e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+              handleChange(e); // use the real event
+            }} placeholder="PAN Number" className="px-4 py-2 border rounded-lg" />
             <input name="pincode" value={formData.pincode} onChange={handleChange} placeholder="Pincode" className="px-4 py-2 border rounded-lg" />
             <input name="dob" type="date" value={formData.dob} onChange={handleChange} className="px-4 py-2 border rounded-lg" />
           </div>
