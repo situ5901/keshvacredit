@@ -8,8 +8,17 @@ import AOS from 'aos';
 
 const lenderData = [
     {
+        image: "https://www.rupee112.com/public/images/brand_logo.png",
+        lender: "Rupee112",
+        interestRate: "upto 35 % per annum",
+        maxLoan: "Up to ₹3 Lakhs",
+        benefit: "Low interest & flexible repayment",
+        applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
+        detailsLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
+    },
+    {
         image: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
-        lender: "olyv",
+        lender: "Olyv",
         interestRate: "Starting 1.5% per month",
         maxLoan: "Up to ₹4 Lakhs",
         benefit: "Fast approval with minimal documents",
@@ -55,44 +64,33 @@ const lenderData = [
     {
         image: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
         lender: "Fatakpay",
-        interestRate: "Interest Rate Range - 12% to 35.95% per annum",
+        interestRate: "Range 12%to35.95% per annum",
         maxLoan: "Up to ₹5 Lakhs",
         benefit: "Fast approval with minimal documents",
-        applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
-        detailsLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium= ",
+        applyLink: "/Utm-links/fatakpay/",
+        detailsLink: "/Utm-links/fatakpay/",
     },
-       {
+    {
         image: "https://clickmyloan.com/images/logo.png",
-        lender: "click my loan",
+        lender: "Click My Loan",
         interestRate: "upto 24% per annum",
         maxLoan: "Up to ₹5 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome ",
         detailsLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome ",
     },
-    
     {
         image: "https://www.instantmudra.com/images/logo_official.png",
-        lender: "instant mudra",
+        lender: "Instant Mudra",
         interestRate: "starting from 10.99% per annum",
         maxLoan: "Up to ₹5 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
         detailsLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58 ",
     },
-
-    {
-        image: "https://www.rupee112.com/public/images/brand_logo.png",
-        lender: "rupee112",
-        interestRate: "upto 35 % per annum",
-        maxLoan: "Up to ₹3 Lakhs",
-        benefit: "Low interest & flexible repayment",
-        applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
-        detailsLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
-    },
     {
         image: "https://www.bharatloan.com/public/images/brand_logo.png",
-        lender: "bharatloan",
+        lender: "Bharatloan",
         interestRate: "upto 35 % per annum",
         maxLoan: "Up to ₹3 Lakhs",
         benefit: "Low interest & flexible repayment",
@@ -185,7 +183,7 @@ export default function UTMLendersPage() {
                 <h1 className="text-4xl font-bold mb-4 animate__animated animate__heartBeat">quick links</h1>
 
                 <p className="text-lg mb-6">
-                   Financial Freedom Starts with the Right Loan. We Help You Find It.Your Trusted Partner for Every Loan Need.
+                    Financial Freedom Starts with the Right Loan. We Help You Find It.Your Trusted Partner for Every Loan Need.
                 </p>
                 <a
                     href="#form"

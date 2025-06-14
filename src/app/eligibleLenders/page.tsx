@@ -20,6 +20,19 @@ export type Lender = {
 };
 
 const allLenders: Lender[] = [
+
+ {
+    id: "Rupee",
+    name: "Rupee",
+    logo: "https://www.rupee112.com/public/images/brand_logo.png",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Starting from 35% per annum",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
+  },
   {
     id: "smartCoin",
     name: "Smartcoin",
@@ -104,19 +117,6 @@ const allLenders: Lender[] = [
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
-  },
-
-  {
-    id: "Rupee",
-    name: "Rupee",
-    logo: "https://www.rupee112.com/public/images/brand_logo.png",
-    approval: "Good",
-    amount: "Up to ₹3,00,000",
-    interest: "Starting from 35% per annum",
-    tenure: "Up to 18 months",
-    support: "24/7 customer support",
-    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
   },
   {
     id: "bharatloan",

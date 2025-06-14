@@ -91,6 +91,10 @@ const Partner = () => {
       src: "https://clickmyloan.com/images/logo.png",
       url: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome",
     },
+     {
+      src: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
+      url: "/",
+    },
   ];
 
   return (

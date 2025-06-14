@@ -1,6 +1,17 @@
 import Link from "next/link";
 
 const blogs = [
+   {
+    id: 7,
+    title: "What is BNPL and How It Works in 2025: A Complete Guide for Smart Shoppers",
+    image:
+      "https://img.freepik.com/free-vector/isometric-laptop-with-shopping-cart-keypad_1262-16544.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_hybrid&w=740",
+    description:
+      "BNPL (Buy Now, Pay Later) is changing how Indians shop online. This blog explains how BNPL works, who should use it, its pros and cons, and how it compares with credit cards. Discover if it’s the right payment method for you in 2025.",
+    link: "/blog/blog7",
+    tag: "Investment",
+    date: "June 12, 2025",
+  },
   {
     id: 6,
     title: "Gold, Stocks, or Crypto: Where Should You Invest ₹10,000?",
@@ -9,7 +20,7 @@ const blogs = [
     description:
       "Confused about where to invest your first ₹10,000? This blog breaks down gold, stocks, and crypto—comparing risk, returns, liquidity, and strategy. Find out which option suits your financial goals best in 2025.",
     link: "/blog/blog6",
-    tag: "Finance",
+    tag: "Investment",
     date: "June 12, 2025",
   },
 
@@ -17,7 +28,7 @@ const blogs = [
     id: 5,
     title: "UPI Credit: The Next Big Thing in Indian Lending?",
     image:
-      "https://img.freepik.com/free-vector/instant-credit-abstract-concept-illustration_335657-2392.jpg?w=740",
+      "https://img.freepik.com/free-photo/pay-goods-by-credit-card-through-smartphone-coffee-shop_1150-18770.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_hybrid&w=740",
     description:
       "Explore how UPI Credit is reshaping the Indian lending space in 2025. From instant approvals to seamless integration with daily transactions, this blog dives into why UPI-based credit could be a game changer for borrowers and lenders alike.",
     link: "/blog/blog5",
@@ -51,7 +62,7 @@ const blogs = [
     id: 2,
     title: "Personal Loan Guide: Everything You Need to Know",
     image:
-      "https://img.freepik.com/free-vector/premium-cash-reward-bonus-work-done-best-employee-rewarding-promotion-order-efficiency-stimulation-boss-subordinate-cartoon-characters_335657-2984.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740",
+      "https://img.freepik.com/free-photo/happy-couple-having-meeting-with-real-estate-agent-analyzing-blueprints-while-communicating_637285-3822.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_hybrid&w=740",
     description:
       "Understand personal loans, eligibility, interest rates, and required documents. This blog explains how to apply smartly, manage EMIs, and boost your credit score. Whether it's for medical bills or emergencies, learn safe borrowing tips and avoid common mistakes .",
     link: "/blog/blog2",

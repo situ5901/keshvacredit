@@ -122,7 +122,7 @@ function Footer() {
 
             {/* Social Section */}
             <div className="ml-3">
-              <h2 className="mb-6 text-sm font-semibold italic uppercase underline ">FOLLOW US</h2>
+              <h2 className="mb-6 text-sm font-semibold  uppercase underline ">FOLLOW US</h2>
               <ul className="font-medium flex flex-col gap-4">
                 <li>
                   <Link
