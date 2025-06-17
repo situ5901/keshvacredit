@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { eligiblyramfin } from "../APIS/UserData/UserInfoApi";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 interface FormData {
   name: string;
@@ -29,28 +31,67 @@ const EligibilityForm = () => {
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
   const router = useRouter();
 
-  useEffect(() => {
-    if (!responseMsg) return;
-
-    // Redirect if lead created
-    if (responseMsg.toLowerCase().includes("lead created")) {
-      router.push("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
-    } else {
-      // Show error and clear message after 3 seconds
-      const timer = setTimeout(() => setResponseMsg(null), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [responseMsg, router]);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const extractMessage = (res: any): string => {
+    if (res?.apiError?.message) return res.apiError.message;
+    if (res?.message) return res.message;
+    if (res?.error) return res.error;
+    return "Something went wrong.";
   };
+
+  const handleSubmitAuto = useCallback(
+    async (autoData: FormData) => {
+      try {
+        const payload = {
+          ...autoData,
+          partnerid: "keshvacredit",
+        };
+        const data = await eligiblyramfin(payload);
+        setIsSuccess(true);
+        setResponseMsg(extractMessage(data));
+        if (data.message?.toLowerCase().includes("lead created")) {
+          router.push("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
+        }
+      } catch (error: any) {
+        const errRes = error?.response?.data || { error: "Server error" };
+        setIsSuccess(false);
+        setResponseMsg(extractMessage(errRes));
+      }
+    },
+    [router]
+  );
+
+  useEffect(() => {
+    const phone = Cookies.get("user_phone");
+    if (phone) {
+      axios
+        .post("https://keshvacredit.com/api/v1/api/getUsers", { phone })
+        .then((res) => {
+          const user = res.data;
+          setFormData((prev) => {
+            const updated = {
+              ...prev,
+              name: user.name || "",
+              mobile: user.phone || "",
+              email: user.email || "",
+              dob: user.dob || "",
+              pancard: user.pan || "",
+              loanAmount: user.income || "",
+              employeeType: user.employment || "",
+            };
+            const allFilled = Object.values(updated).every((v) => v !== "");
+            if (allFilled) {
+              setTimeout(() => {
+                handleSubmitAuto(updated);
+              }, 2000);
+            }
+            return updated;
+          });
+        })
+        .catch((err) => {
+          console.error("Auto-fill error:", err);
+        });
+    }
+  }, [handleSubmitAuto]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,26 +102,14 @@ const EligibilityForm = () => {
       };
       const data = await eligiblyramfin(payload);
       setIsSuccess(true);
-      setResponseMsg(data.message || "Submitted successfully");
-    } catch (error: unknown) {
-      let errorMessage = "Something went wrong. Please try again.";
-      setIsSuccess(false);
-
-      if (
-        error &&
-        typeof error === "object" &&
-        "response" in error &&
-        error.response &&
-        typeof error.response === "object"
-      ) {
-        const errResponse = (error as { response?: { data?: { apiError?: { message?: string } } } }).response;
-        console.error("Submission error:", errResponse?.data || error);
-        errorMessage = errResponse?.data?.apiError?.message || errorMessage;
-      } else {
-        console.error("Submission error:", error);
+      setResponseMsg(extractMessage(data));
+      if (data.message?.toLowerCase().includes("lead created")) {
+        router.push("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
       }
-
-      setResponseMsg(errorMessage);
+    } catch (error: any) {
+      const errRes = error?.response?.data || { error: "Server error" };
+      setIsSuccess(false);
+      setResponseMsg(extractMessage(errRes));
     }
 
     setFormData({
@@ -94,11 +123,21 @@ const EligibilityForm = () => {
     });
   };
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border">
       {responseMsg && (
         <div
-          className={`fixed top-20 right-5 z-50 px-6 py-4 rounded-lg shadow-md transition-all duration-500 text-sm flex items-center gap-3 ${
+          className={`fixed top-0 right-0 m-4 z-50 px-6 py-4 rounded-lg shadow-md text-sm flex items-center gap-3 ${
             isSuccess
               ? "bg-green-50 text-green-800 border border-green-300"
               : "bg-red-50 text-red-800 border border-red-300"
@@ -131,7 +170,7 @@ const EligibilityForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="col-span-1 md:col-span-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="col-span-1 md:col-span-2 border border-gray-300 rounded-lg px-4 py-3"
         />
 
         <input
@@ -141,7 +180,7 @@ const EligibilityForm = () => {
           value={formData.mobile}
           onChange={handleChange}
           required
-          className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-300 rounded-lg px-4 py-3"
         />
 
         <input
@@ -150,7 +189,7 @@ const EligibilityForm = () => {
           placeholder="Email Address"
           value={formData.email}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-300 rounded-lg px-4 py-3"
         />
 
         <input
@@ -159,7 +198,7 @@ const EligibilityForm = () => {
           value={formData.dob}
           onChange={handleChange}
           required
-          className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-300 rounded-lg px-4 py-3"
         />
 
         <input
@@ -169,7 +208,7 @@ const EligibilityForm = () => {
           value={formData.pancard}
           onChange={handleChange}
           required
-          className="uppercase border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="uppercase border border-gray-300 rounded-lg px-4 py-3"
         />
 
         <input
@@ -179,14 +218,14 @@ const EligibilityForm = () => {
           value={formData.loanAmount}
           onChange={handleChange}
           required
-          className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-300 rounded-lg px-4 py-3"
         />
 
         <select
           name="employeeType"
           value={formData.employeeType}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-300 rounded-lg px-4 py-3"
         >
           <option value="">Select Employee Type</option>
           <option value="Salaried">Salaried</option>
@@ -195,7 +234,7 @@ const EligibilityForm = () => {
 
         <button
           type="submit"
-          className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+          className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg"
         >
           Submit
         </button>

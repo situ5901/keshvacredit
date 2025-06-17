@@ -1,6 +1,18 @@
 import Link from "next/link";
 
 const blogs = [
+  {
+  id: 8,
+  title: "Top 10 Fintech Companies in India (2025 Edition)",
+  image:
+    "https://img.freepik.com/free-photo/businessman-analyzing-finance-graphs_53876-42950.jpg?w=740",
+  description:
+    "Explore the leading fintech innovators in India in 2025. From digital payments to lending and investments, discover how companies like PhonePe, Paytm, Razorpay, and KeshvaCredit are reshaping finance for millions.",
+  link: "/blog/blog8",
+  tag: "Fintech",
+  date: "June 16, 2025",
+},
+
    {
     id: 7,
     title: "What is BNPL and How It Works in 2025: A Complete Guide for Smart Shoppers",

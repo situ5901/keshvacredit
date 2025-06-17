@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { submitUserInfo } from "../APIS/UserData/UserInfoApi";
 import { getUserData } from "../APIS/UserData/UserInfoApi";
@@ -12,10 +12,11 @@ import Howitworks from "../Component/Homesections/page3"
 import Frequent from "../Component/Homesections/page4"
 import Popup from "../Component/Popup";
 import Cookies from 'js-cookie';
-import { LuUser, LuPhone, LuMail, LuCreditCard, LuMapPin, LuBriefcase, LuCalendarDays, LuDollarSign, LuWallet } from "react-icons/lu";
+import { LuUser, LuPhone, LuMail, LuCreditCard, LuMapPin, LuBriefcase, LuCalendarDays, LuIndianRupee, LuWallet } from "react-icons/lu";
 
 function Page() {
   const router = useRouter();
+  const dobRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState<"success" | "error">("success");
@@ -31,6 +32,22 @@ function Page() {
     income: "",
     dob: "",
   });
+  useEffect(() => {
+  const getCookie = (name: string) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+   if (parts.length === 2) {
+      return parts.pop()?.split(";").shift() || "";
+    }
+    return "";
+  };
+
+  const phoneFromCookie = getCookie("user_phone");
+  if (phoneFromCookie) {
+    setFormData((prev) => ({ ...prev, phone: phoneFromCookie }));
+  }
+}, []);
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -61,31 +78,22 @@ function Page() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      await submitUserInfo(formData);
-      const userData = {
-        name: formData.name,
-        phone: formData.phone,
-        expiration: new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
-      };
-      localStorage.setItem("userData", JSON.stringify(userData));
+  e.preventDefault();
+  try {
+    await submitUserInfo(formData);
 
-      setPopupType("success");
-      setPopupMessage("Form submitted successfully!");
-      setShowPopup(true);
-      setTimeout(() => {
-        router.push("/eligibleLenders");
-      }, 2000);
-    } catch (error: any) {
-      setPopupType("error");
-      if (error.response && error.response.data && error.response.data.error) {
-        setPopupMessage(error.response.data.error);
-      } else {
-        setPopupMessage("Error submitting form. Please fill all details correctly.");
-      }
-      setShowPopup(true);
-    }
+    const userData = {
+      name: formData.name,
+      phone: formData.phone,
+      expiration: new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
+    };
+    localStorage.setItem("userData", JSON.stringify(userData));
+
+    setPopupType("success");
+    setPopupMessage("Form submitted successfully!");
+    setShowPopup(true);
+
+    // ✅ Only reset form after success
     setFormData({
       name: "",
       phone: "",
@@ -97,7 +105,21 @@ function Page() {
       income: "",
       dob: "",
     });
-  };
+
+    setTimeout(() => {
+      router.push("/eligibleLenders");
+    }, 2000);
+  } catch (error: any) {
+    setPopupType("error");
+    if (error.response?.data?.error) {
+      setPopupMessage(error.response.data.error);
+    } else {
+      setPopupMessage("Error submitting form. Please fill all details correctly.");
+    }
+    setShowPopup(true);
+  }
+};
+
   if (loading) {
     return (
       <div className="flex flex-col justify-center items-center min-h-screen">
@@ -107,7 +129,7 @@ function Page() {
           className="w-[300px] md:w-[450px] h-[450px] mx-auto"
         />
         <p className="mt-4 text-xl font-semibold text-gray-700">
-          Fetching Eligible Lenders...
+          Fetching your data... Please wait.
         </p>
       </div>
     );
@@ -255,7 +277,7 @@ function Page() {
             </div>
             <div className="relative flex items-center border-b-2 border-gray-300 w-1/2">
               <span className="absolute left-0 top-1/2 transform -translate-y-1/2 pl-1">
-                <LuDollarSign className="w-5 h-5" />
+                <LuIndianRupee className="w-5 h-5" />
               </span>
               <input
                 type="number"
@@ -269,24 +291,27 @@ function Page() {
           </div>
 
           {/* DOB */}
-          <div className="relative w-full mt-6">
-            <LuCalendarDays className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
+          <div
+            className="relative w-full mt-6 cursor-pointer"
+            onClick={() => dobRef.current?.showPicker?.() || dobRef.current?.focus()}
+          >
+            <LuCalendarDays className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5 pointer-events-none" />
             <input
+              ref={dobRef}
               type="date"
+              id="dob"
               name="dob"
               value={formData.dob}
               onChange={handleChange}
-              placeholder=" "
               className="peer block w-full pl-10 pr-2 pt-5 pb-1 text-sm bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:border-blue-600"
             />
             <label
               htmlFor="dob"
-              className="absolute left-10 top-2 text-sm text-gray-500 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:transform peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600"
+              className="absolute left-10 top-2 text-sm text-gray-500 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm pointer-events-none"
             >
               Date of Birth
             </label>
           </div>
-
           {/* Submit Button */}
           <div className="mt-6">
             <button type="submit" className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg text-xl font-bold">

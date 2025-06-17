@@ -83,7 +83,7 @@ function Footer() {
                 alt="Logo"
               />
             </Link>
-            <p className="text-xl  mt-2 font-bold uppercase">SAFE AND SECURE</p>
+            <p className="text-sm text-center  mt-2 font-bold uppercase">SAFE AND SECURE</p>
           </div>
 
 
@@ -161,7 +161,7 @@ function Footer() {
                     href="https://www.youtube.com/@KeshvaCreditFilmy"
                     className="hover:opacity-80 hover:underline"
                   >
-                  youtube
+                    YouTube
                   </Link>
                 </li>
               </ul>

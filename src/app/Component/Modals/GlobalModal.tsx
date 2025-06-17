@@ -1,14 +1,17 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useModal } from "../../context/ModalContext";
 import { sendOtp, verifyOtp } from "../../APIS/UserData/UserInfoApi"; // update the path as needed
 import Cookies from "js-cookie";
+import Link from "next/link";
 
 const GlobalModal: React.FC = () => {
   const { isOpen, closeModal } = useModal();
   const [step, setStep] = useState<"phone" | "otp">("phone");
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
+const [consentChecked, setConsentChecked] = useState(false);
   const [message, setMessage] = useState<{
     text: string;
     type: "success" | "error";
@@ -126,24 +129,48 @@ const handleVerifyOtp = async () => {
 
             {step === "otp" && (
               <>
-                <p>Enter the 6-digit OTP sent to {phone}.</p>
-                <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-                  <input
-                    type="text"
-                    maxLength={6}
-                    className="w-full p-3 text-center tracking-widest outline-none"
-                    placeholder="Enter OTP"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
-                  />
-                </div>
-                <button
-                  onClick={handleVerifyOtp}
-                  className="w-full py-3 rounded-lg bg-green-600 text-white"
-                >
-                  Verify OTP
-                </button>
-              </>
+  <p>Enter the 6-digit OTP sent to {phone}.</p>
+
+  <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden mb-4">
+    <input
+      type="text"
+      maxLength={6}
+      className="w-full p-3 text-center tracking-widest outline-none"
+      placeholder="Enter OTP"
+      value={otp}
+      onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
+    />
+  </div>
+
+  <div className="flex items-start gap-2 mb-4">
+    <input
+      type="checkbox"
+      id="consent"
+      className="mt-1"
+      checked={consentChecked}
+      onChange={(e) => setConsentChecked(e.target.checked)}
+    />
+ <label htmlFor="consent" className="text-sm">
+  By checking this box, you provide your explicit consent to <strong>KeshvaCredit</strong> to access your credit report and score from credit bureaus, in accordance with our{" "}
+  <Link href="/terms" className="text-blue-600 underline" >
+    Terms and Conditions
+  </Link>.
+</label>
+
+
+  </div>
+
+  <button
+    onClick={handleVerifyOtp}
+    disabled={!consentChecked}
+    className={`w-full py-3 rounded-lg text-white ${
+      consentChecked ? "bg-green-600 hover:bg-green-700" : "bg-gray-400 cursor-not-allowed"
+    }`}
+  >
+    Verify OTP
+  </button>
+</>
+
             )}
           </div>
         </motion.div>

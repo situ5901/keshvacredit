@@ -20,8 +20,7 @@ export type Lender = {
 };
 
 const allLenders: Lender[] = [
-
- {
+  {
     id: "Rupee",
     name: "Rupee",
     logo: "https://www.rupee112.com/public/images/brand_logo.png",
@@ -33,6 +32,43 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
   },
+  // {
+  //   id: "Moneyview",
+  //   name: "Moneyview",
+  //   logo: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
+  //   approval: "Good",
+  //   amount: "Up to ₹3,00,000",
+  //   interest: "	Starting from 1.16% per month",
+  //   tenure: "Up to 18 months",
+  //   support: "24/7 customer support",
+  //   features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+  //   applyLink: "/lenderapi/moneyview",
+  // },
+  {
+    id: "zype",
+    name: "Zype",
+    logo: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Starting from 1.5% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "/Eligiblity-Zype",
+  },
+    {
+    id: "Ramfin",
+    name: "Ramfin",
+    logo: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "upto 0.35% to 0.80%  per day",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "/Eligiblity-Ramfin",
+  },
+
   {
     id: "smartCoin",
     name: "Smartcoin",
@@ -57,33 +93,10 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://web.mpokket.in/?utm_source=keshvacredit&utm_medium=keshvacredit",
   },
-  {
-    id: "zype",
-    name: "Zype",
-    logo: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
-    approval: "Good",
-    amount: "Up to ₹3,00,000",
-    interest: "Starting from 1.5% per month",
-    tenure: "Up to 18 months",
-    support: "24/7 customer support",
-    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "/Eligiblity-Zype",
-  },
-  {
-    id: "ramfin",
-    name: "Ramfin",
-    logo: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
-    approval: "Good",
-    amount: "Up to ₹3,00,000",
-    interest: "Starting from 0.35% to 0.80% per day",
-    tenure: "Up to 18 months",
-    support: "24/7 customer support",
-    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "/Eligiblity-Ramfin",
-  },
+
   {
     id: "FatakPay",
-    name: "Fatakpay",
+    name: "FatakPay",
     logo: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
     approval: "Good",
     amount: "Up to ₹3,00,000",
@@ -104,6 +117,18 @@ const allLenders: Lender[] = [
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome",
+  },
+  {
+    id: "salaryontime",
+    name: "salaryontime",
+    logo: "https://i.postimg.cc/j2rPwGvT/download.png",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: " upto 24% per annum",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "https://salaryontime.com/apply-now?utm_source=Keshvacredit&utm_medium=Keywords&utm_campaign=Keywords&utm_term=Keywords",
   },
 
   {
@@ -141,18 +166,6 @@ const allLenders: Lender[] = [
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://myflot.com/?utm_source=Keshvacredit&utm_medium={medium}&utm_campaign={campaign}",
-  },
-  {
-    id: "Moneyview",
-    name: "Moneyview",
-    logo: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
-    approval: "Good",
-    amount: "Up to ₹3,00,000",
-    interest: "	Starting from 1.16% per month",
-    tenure: "Up to 18 months",
-    support: "24/7 customer support",
-    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "/",
   },
   {
     id: "chintamanifinlease",
@@ -249,6 +262,8 @@ const renderLenderCard = (lender: Lender) => (
 export default function Page() {
   const router = useRouter();
   const [eligibleLenders, setEligibleLenders] = useState<Lender[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [notEligible, setNotEligible] = useState(false);
 
   useEffect(() => {
     const userData = localStorage.getItem("userData");
@@ -261,34 +276,46 @@ export default function Page() {
       axios
         .post("https://keshvacredit.com/api/v1/eligibility/lenderlist", { phone })
         .then((res) => {
-          const lenderNames = res.data.data.map((item: { name: string }) =>
-            item.name.toLowerCase()
-          );
+          const data = res.data?.data || [];
 
-          const filtered = allLenders.filter((lender) =>
-            lenderNames.includes(lender.name.toLowerCase())
-          );
+          if (data.length === 0) {
+            setNotEligible(true);
+          } else {
+            const lenderNames = data.map((item: { name: string }) =>
+              item.name.toLowerCase()
+            );
 
-          setEligibleLenders(filtered);
+            const filtered = allLenders.filter((lender) =>
+              lenderNames.includes(lender.name.toLowerCase())
+            );
+
+            setEligibleLenders(filtered);
+          }
         })
         .catch((err) => {
           console.error("Failed to fetch lenders:", err);
-        });
+        })
+        .finally(() => setLoading(false));
     }
   }, [router]);
-
 
   return (
     <div className="max-w-[90rem] mx-auto px-4 py-12">
       <h1 className="mt-10 text-2xl font-bold mb-2">Select Lender</h1>
       <p className="mb-6">Here are the offers that best suit your needs</p>
 
-      {eligibleLenders.length > 0 ? (
+      {loading ? (
+        <p className="text-center text-lg mt-10">Loading eligible lenders...</p>
+      ) : notEligible ? (
+        <p className="text-center text-lg mt-10 text-yellow-600 font-medium flex items-center justify-center gap-2">
+          <img src="https://img.freepik.com/free-vector/hand-drawn-facepalm-illustration_23-2150189575.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_hybrid&w=740" alt="Sad face" className="w-6 h-6" />
+          Currently, you're not eligible. We recommend reaching out to our support team for further assistance and guidance.
+        </p>
+
+      ) : eligibleLenders.length > 0 ? (
         eligibleLenders.map(renderLenderCard)
       ) : (
-        <p className="text-center text-lg mt-10">
-          Loading eligible lenders...
-        </p>
+        <p className="text-center text-lg mt-10">No matching lenders found.</p>
       )}
     </div>
   );
