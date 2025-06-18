@@ -164,6 +164,14 @@ function Footer() {
                     YouTube
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="https://x.com/KeshvaCredit?s=09"
+                    className="hover:opacity-80 hover:underline"
+                  >
+                    X (Twitter)
+                  </Link>
+                </li>
               </ul>
             </div>
 

@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /Admin-panel-login
+Disallow: /Adminpanel
+Disallow: /Employee
+Disallow: /APIS
+Disallow: /partnerlogin
+Disallow: /Partnerpanel
+
+Sitemap: https://keshvacredit.com/sitemap.xml

@@ -4,7 +4,7 @@ export default function TopFintechBlog() {
     return (
         <main className="p-6 max-w-4xl mx-auto mt-15">
             <h1 className="text-4xl font-bold mb-4">
-                Top 10 Fintech Companies in India (2025 Edition)
+                Top 10 Fintech Companies in India
             </h1>
             <p className="text-gray-500 mb-6">Published on June 16, 2025</p>
 

@@ -1,19 +1,30 @@
 import Link from "next/link";
 
 const blogs = [
-  {
-  id: 8,
-  title: "Top 10 Fintech Companies in India (2025 Edition)",
-  image:
-    "https://img.freepik.com/free-photo/businessman-analyzing-finance-graphs_53876-42950.jpg?w=740",
-  description:
-    "Explore the leading fintech innovators in India in 2025. From digital payments to lending and investments, discover how companies like PhonePe, Paytm, Razorpay, and KeshvaCredit are reshaping finance for millions.",
-  link: "/blog/blog8",
-  tag: "Fintech",
-  date: "June 16, 2025",
-},
 
-   {
+{
+  id: 9,
+  title: "30-Day Digital Detox: What I Gained by Logging Off Social Media",
+  image:
+    "https://img.freepik.com/free-photo/relaxed-woman-sitting-nature_53876-144377.jpg?w=740",
+  description:
+    "A personal journey through a 30-day break from social media—discover how unplugging boosted my focus, mental health, sleep, and real-life connections. A must-read for anyone feeling digitally drained.",
+  link: "/blog/blog9",
+  tag: "Lifestyle",
+  date: "June 18, 2025",
+} ,
+  {
+    id: 8,
+    title: "Top 10 Fintech Companies in India (2025 Edition)",
+    image:
+      "https://img.freepik.com/free-photo/businessman-analyzing-finance-graphs_53876-42950.jpg?w=740",
+    description:
+      "Explore the leading fintech innovators in India in 2025. From digital payments to lending and investments, discover how companies like PhonePe, Paytm, Razorpay, and KeshvaCredit are reshaping finance for millions.",
+    link: "/blog/blog8",
+    tag: "Fintech",
+    date: "June 16, 2025",
+  },
+  {
     id: 7,
     title: "What is BNPL and How It Works in 2025: A Complete Guide for Smart Shoppers",
     image:
@@ -35,7 +46,6 @@ const blogs = [
     tag: "Investment",
     date: "June 12, 2025",
   },
-
   {
     id: 5,
     title: "UPI Credit: The Next Big Thing in Indian Lending?",
@@ -47,7 +57,6 @@ const blogs = [
     tag: "Finance",
     date: "June 9, 2025",
   },
-
   {
     id: 4,
     title: "How to Increase Your CIBIL Score in 2025",
