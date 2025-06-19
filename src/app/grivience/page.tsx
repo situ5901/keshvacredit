@@ -26,7 +26,7 @@ const lenders = [
     name: "olyv",
     image:
       "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
-    GrievanceOfficername: "Ravi kumar",
+    GrievanceOfficername: "Moushumi Mukherjee",
     email: "grievance@smartcoin.co.in",
   },
 ];

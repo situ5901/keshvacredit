@@ -28,11 +28,14 @@ const EligibilityForm = () => {
     annualFamilyIncome: "",
     loanPurpose: "",
     maritalStatus: "",
+    consentValue: "",
+    consentText: "I hereby consent for Whizdm Finance Pvt Ltd to use my information for loan processing purposes."
   });
 
   const [popupVisible, setPopupVisible] = useState(false);
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
   const [fullApiResponse, setFullApiResponse] = useState<any>(null);
+  const [isStepReady, setIsStepReady] = useState(false);
 
   const router = useRouter();
 
@@ -60,6 +63,12 @@ const EligibilityForm = () => {
         .catch((err) => console.error("Error fetching user:", err));
     }
   }, []);
+
+  useEffect(() => {
+    const requiredFields = ["name", "mobile", "email", "dob", "pancard", "income", "pincode", "employeeType"];
+    const allFilled = requiredFields.every((key) => formData[key as keyof typeof formData]);
+    if (step === 1 && allFilled) setIsStepReady(true);
+  }, [formData, step]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -93,6 +102,8 @@ const EligibilityForm = () => {
         name: formData.name,
         loanPurpose: formData.loanPurpose,
         maritalStatus: formData.maritalStatus,
+        consentValue: formData.consentValue,
+        consentText: formData.consentText
       };
 
       const res = await fetch("https://keshvacredit.com/api/v1/LenderAPIs/moneyview/lead", {
@@ -103,7 +114,7 @@ const EligibilityForm = () => {
 
       const data = await res.json();
       setFullApiResponse(data);
-      setResponseMsg("Our team will contact you soon.");
+      setResponseMsg(data.message);
       setPopupVisible(true);
     } catch (error) {
       console.error("Submit error:", error);
@@ -119,16 +130,22 @@ const EligibilityForm = () => {
     { name: "dob", placeholder: "Date of Birth", type: "date" },
     { name: "pancard", placeholder: "PAN Card Number", type: "text" },
     { name: "income", placeholder: "Declared Income", type: "number" },
+    { name: "pincode", placeholder: "Pincode", type: "text" },
+    { name: "employeeType", placeholder: "Employment Type", type: "text" },
+  ];
+
+  const loanPurposes = [
+    "Travel", "Vacation", "Marriage", "Functions at home", "New home", "Construction", "Old home", "Renovation",
+    "Furniture for home", "Household expenses", "Car purchase", "Two wheeler purchase", "Education", "Business expense",
+    "Medical expense", "Repay credit card bill", "Repay other loans", "Other Personal"
   ];
 
   const additionalFields = [
     { name: "employerName", placeholder: "Company/Org Name", type: "text" },
-    { name: "pincode", placeholder: "Pincode", type: "text" },
     { name: "state", placeholder: "State", type: "text" },
     { name: "city", placeholder: "City", type: "text" },
     { name: "addressLine1", placeholder: "Address Line 1", type: "text" },
     { name: "addressLine2", placeholder: "Address Line 2", type: "text" },
-    { name: "loanPurpose", placeholder: "Loan Purpose", type: "text" },
   ];
 
   return (
@@ -139,7 +156,10 @@ const EligibilityForm = () => {
       </h2>
 
       <form
-        onSubmit={step === 2 ? handleSubmit : (e) => { e.preventDefault(); setStep(2); }}
+        onSubmit={step === 2 ? handleSubmit : (e) => {
+          e.preventDefault();
+          if (isStepReady) setStep(2);
+        }}
         className="grid grid-cols-1 md:grid-cols-2 gap-5"
       >
         {(step === 1 ? basicFields : additionalFields).map(({ name, ...rest }) => (
@@ -156,22 +176,40 @@ const EligibilityForm = () => {
 
         {step === 2 && (
           <>
-            {[
-              { name: "employeeType", options: ["salaried", "self employed"], label: "Employment Type" },
-              { name: "incomeMode", options: ["cash", "cheque", "online"], label: "Income Mode" },
-              { name: "gender", options: ["male", "female", "others"], label: "Gender" },
-              {
-                name: "educationLevel",
-                options: ["LESSTHAN10TH", "PASSED10TH", "PASSED12TH", "DIPLOMA", "GRADUATION", "POSTGRADUATION", "PHD"],
-                label: "Education Level",
-              },
-              {
-                name: "annualFamilyIncome",
-                options: ["Less than 1 lakh", "1-3 lakhs", "More than 3 lakhs"],
-                label: "Annual Family Income",
-              },
-              { name: "maritalStatus", options: ["single", "married"], label: "Marital Status" },
-            ].map(({ name, options, label }) => (
+            <select
+              name="loanPurpose"
+              value={formData.loanPurpose}
+              onChange={handleChange}
+              required
+              className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select Loan Purpose</option>
+              {loanPurposes.map((purpose) => (
+                <option key={purpose} value={purpose}>{purpose}</option>
+              ))}
+            </select>
+
+            {[{
+              name: "incomeMode",
+              options: ["cash", "cheque", "online"],
+              label: "Income Mode"
+            }, {
+              name: "gender",
+              options: ["male", "female", "others"],
+              label: "Gender"
+            }, {
+              name: "educationLevel",
+              options: ["POSTGRADUATION", "GRADUATION", "LESSTHAN10TH"],
+              label: "Education Level"
+            }, {
+              name: "annualFamilyIncome",
+              options: ["Less than 1 lakh", "1-3 lakhs", "More than 3 lakhs"],
+              label: "Annual Family Income"
+            }, {
+              name: "maritalStatus",
+              options: ["single", "married"],
+              label: "Marital Status"
+            }].map(({ name, options, label }) => (
               <select
                 key={name}
                 name={name}
@@ -186,6 +224,13 @@ const EligibilityForm = () => {
                 ))}
               </select>
             ))}
+
+            <div className="col-span-1 md:col-span-2 text-sm text-gray-700">
+              <label className="flex items-start gap-2">
+                <input type="checkbox"  readOnly className="mt-1" />
+                I hereby consent for Whizdm Finance Pvt Ltd to use my information for loan processing purposes.
+              </label>
+            </div>
           </>
         )}
 
@@ -201,16 +246,7 @@ const EligibilityForm = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md text-center">
             <h3 className="text-lg font-semibold mb-2">🎉 Congratulations!</h3>
-            <p className="text-blue-600 font-medium">Application submitted successfully.</p>
-            <p className="mt-2 text-gray-600 text-sm">{responseMsg}</p>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.whizdm.moneyview.loans"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg"
-            >
-              Download MV App
-            </a>
+            <p className="text-blue-600 font-medium">{responseMsg}</p>
           </div>
         </div>
       )}

@@ -25,7 +25,6 @@ const EligibilityForm = () => {
 
   const router = useRouter();
 
-  // Auto-fill logic
   useEffect(() => {
     const phone = Cookies.get("user_phone");
     if (phone) {
@@ -52,7 +51,7 @@ const EligibilityForm = () => {
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -63,7 +62,6 @@ const EligibilityForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       const payload = {
         name: formData.name,
@@ -127,11 +125,7 @@ const EligibilityForm = () => {
 
         <input type="text" name="pancard" placeholder="PAN Card Number" value={formData.pancard} onChange={handleChange} required className="uppercase border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
-        <select name="employeeType" value={formData.employeeType} onChange={handleChange} required className="findrop border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <option value="">Select Employee Type</option>
-          <option value="salaried">Salaried</option>
-          <option value="self employed">Self Employed</option>
-        </select>
+        <input type="text" name="employeeType" placeholder="Employment Type (e.g. Salaried)" value={formData.employeeType} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
         <input type="number" name="income" placeholder="Monthly Income" value={formData.income} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
 

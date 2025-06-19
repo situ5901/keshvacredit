@@ -47,9 +47,14 @@ const EligibilityForm = () => {
         };
         const data = await eligiblyramfin(payload);
         setIsSuccess(true);
-        setResponseMsg(extractMessage(data));
-        if (data.message?.toLowerCase().includes("lead created")) {
-          router.push("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
+        const msg = extractMessage(data);
+        if (msg.toLowerCase().includes("lead created")) {
+          setResponseMsg("🎉 Congratulations! Your application has been submitted successfully. Proceeding to next step...");
+          setTimeout(() => {
+            router.push("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
+          }, 3000);
+        } else {
+          setResponseMsg(msg);
         }
       } catch (error: any) {
         const errRes = error?.response?.data || { error: "Server error" };
@@ -82,7 +87,7 @@ const EligibilityForm = () => {
             if (allFilled) {
               setTimeout(() => {
                 handleSubmitAuto(updated);
-              }, 2000);
+              }, 1000);
             }
             return updated;
           });
@@ -102,9 +107,14 @@ const EligibilityForm = () => {
       };
       const data = await eligiblyramfin(payload);
       setIsSuccess(true);
-      setResponseMsg(extractMessage(data));
-      if (data.message?.toLowerCase().includes("lead created")) {
-        router.push("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
+      const msg = extractMessage(data);
+      if (msg.toLowerCase().includes("lead created")) {
+        setResponseMsg("🎉 Congratulations! Your application has been submitted successfully. Proceeding to next step...");
+        setTimeout(() => {
+          router.push("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
+        }, 3000);
+      } else {
+        setResponseMsg(msg);
       }
     } catch (error: any) {
       const errRes = error?.response?.data || { error: "Server error" };
@@ -135,15 +145,18 @@ const EligibilityForm = () => {
 
   return (
     <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border">
-      {responseMsg && (
-        <div
-          className={`fixed top-0 right-0 m-4 z-50 px-6 py-4 rounded-lg shadow-md text-sm flex items-center gap-3 ${
-            isSuccess
-              ? "bg-green-50 text-green-800 border border-green-300"
-              : "bg-red-50 text-red-800 border border-red-300"
-          }`}
-        >
-          <span className="text-lg">{isSuccess ? "✅" : "❌"}</span>
+      {responseMsg && isSuccess && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="max-w-md w-full px-6 py-5 rounded-xl text-center shadow-lg bg-green-50 text-green-800 border border-green-300">
+            <div className="text-3xl mb-3">🎉</div>
+            <p className="text-base font-semibold">{responseMsg}</p>
+          </div>
+        </div>
+      )}
+
+      {responseMsg && isSuccess === false && (
+        <div className="fixed top-0 right-0 m-4 z-50 px-6 py-4 rounded-lg shadow-md text-sm flex items-center gap-3 bg-red-50 text-red-800 border border-red-300">
+          <span className="text-lg">❌</span>
           <p>{responseMsg}</p>
         </div>
       )}
