@@ -37,7 +37,7 @@ function Page() {
                 const user = await getUserData(phone);
                 if (user && user.phone) {
                     localStorage.setItem("userData", "yes");
-                    window.location.href = "https://applyonline.ramfincorp.com/?utm_source=keshvacredit";
+                    window.location.href = "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome";
                 } else {
                     setLoading(false);
                 }
@@ -76,7 +76,7 @@ function Page() {
 
             setTimeout(() => {
                 setShowPopup(false);
-                window.open("https://applyonline.ramfincorp.com/?utm_source=keshvacredit");
+                window.open("https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome");
             }, 2000);
         } catch (error: any) { // Catch the error object
             setPopupType("error");

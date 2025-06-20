@@ -3,8 +3,6 @@ import Cookies from "js-cookie";
 interface User {
   phone: string;
 }
-
-
  const API_BASE_URL = "https://keshvacredit.com/api/v1/api";
  const API_BASE_URL2 = "https://keshvacredit.com/api/v1/"; 
 // const API_BASE_URL = "http://localhost:5000/api/v1/api";

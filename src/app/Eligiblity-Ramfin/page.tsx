@@ -85,9 +85,7 @@ const EligibilityForm = () => {
             };
             const allFilled = Object.values(updated).every((v) => v !== "");
             if (allFilled) {
-              setTimeout(() => {
-                handleSubmitAuto(updated);
-              }, 1000);
+              handleSubmitAuto(updated);
             }
             return updated;
           });

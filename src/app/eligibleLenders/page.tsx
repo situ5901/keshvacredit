@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -186,7 +185,7 @@ export default function Page() {
   const [eligibleLenders, setEligibleLenders] = useState<Lender[]>([]);
   const [loading, setLoading] = useState(true);
   const [notEligible, setNotEligible] = useState(false);
-  const [loadingBtn, setLoadingBtn] = useState<string | null>(null); // Track which button is loading
+  const [loadingBtn, setLoadingBtn] = useState<string | null>(null); 
 
   const handleApplyClick = (lender: Lender) => {
     setLoadingBtn(lender.id);

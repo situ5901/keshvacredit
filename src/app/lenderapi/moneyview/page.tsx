@@ -23,7 +23,6 @@ const EligibilityForm = () => {
     pincode: "",
     city: "",
     addressLine1: "",
-    addressLine2: "",
     state: "",
     annualFamilyIncome: "",
     loanPurpose: "",
@@ -34,8 +33,9 @@ const EligibilityForm = () => {
 
   const [popupVisible, setPopupVisible] = useState(false);
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
-  const [fullApiResponse, setFullApiResponse] = useState<any>(null);
   const [isStepReady, setIsStepReady] = useState(false);
+  const [consentChecked, setConsentChecked] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const router = useRouter();
 
@@ -46,19 +46,28 @@ const EligibilityForm = () => {
         .post("https://keshvacredit.com/api/v1/api/getUsers", { phone })
         .then((res) => {
           const user = res.data;
-          setFormData((prev) => ({
-            ...prev,
-            name: user.name || "",
-            mobile: user.phone || "",
-            email: user.email || "",
-            dob: user.dob || "",
-            pancard: user.pan || "",
-            income: user.income || "",
-            employeeType: user.employment || "",
-            city: user.city || "",
-            state: user.state || "",
-            pincode: user.pincode || "",
-          }));
+          setFormData((prev) => {
+            const updated = {
+              ...prev,
+              name: user.name || "",
+              mobile: user.phone || "",
+              email: user.email || "",
+              dob: user.dob || "",
+              pancard: user.pan || "",
+              income: user.income || "",
+              employeeType: user.employment || "",
+              city: user.city || "",
+              state: user.state || "",
+              pincode: user.pincode || "",
+            };
+            const requiredFields = ["name", "mobile", "email", "dob", "pancard", "income", "pincode", "employeeType"];
+            const allFilled = requiredFields.every((key) => updated[key as keyof typeof formData]);
+            if (allFilled) {
+              setStep(2);
+              setIsStepReady(true);
+            }
+            return updated;
+          });
         })
         .catch((err) => console.error("Error fetching user:", err));
     }
@@ -96,14 +105,13 @@ const EligibilityForm = () => {
         pincode: formData.pincode,
         city: formData.city,
         addressLine1: formData.addressLine1,
-        addressLine2: formData.addressLine2,
         state: formData.state,
         annualFamilyIncome: formData.annualFamilyIncome,
         name: formData.name,
         loanPurpose: formData.loanPurpose,
         maritalStatus: formData.maritalStatus,
         consentValue: formData.consentValue,
-        consentText: formData.consentText
+        consentText: formData.consentText,
       };
 
       const res = await fetch("https://keshvacredit.com/api/v1/LenderAPIs/moneyview/lead", {
@@ -113,15 +121,46 @@ const EligibilityForm = () => {
       });
 
       const data = await res.json();
-      setFullApiResponse(data);
-      setResponseMsg(data.message);
+      const messages: string[] = [];
+      let success = false;
+
+      const savedData = data?.savedData;
+
+      // Top-level message
+      if (data?.success === false && data?.msg) {
+        messages.push(data.msg);
+      } else if (data?.success === true && data?.msg) {
+        messages.push(data.msg);
+        success = true;
+      }
+
+      // Nested messages
+      if (savedData) {
+        const nestedMessages = [
+          savedData?.dedupe?.message,
+          savedData?.lead?.message,
+          savedData?.offers?.message,
+          savedData?.journeyUrl?.message,
+        ].filter(Boolean);
+        messages.push(...nestedMessages);
+
+        // Success from nested fields
+        if (savedData?.lead?.status === "success" || savedData?.lead?.code === "0000") {
+          success = true;
+        }
+      }
+
+      setIsSuccess(success);
+      setResponseMsg(messages.length > 0 ? messages.join("\n") : "No response message found.");
       setPopupVisible(true);
     } catch (error) {
       console.error("Submit error:", error);
+      setIsSuccess(false);
       setResponseMsg("There was an error submitting the form.");
       setPopupVisible(true);
     }
   };
+
 
   const basicFields = [
     { name: "name", placeholder: "Full Name", type: "text" },
@@ -134,18 +173,17 @@ const EligibilityForm = () => {
     { name: "employeeType", placeholder: "Employment Type", type: "text" },
   ];
 
-  const loanPurposes = [
-    "Travel", "Vacation", "Marriage", "Functions at home", "New home", "Construction", "Old home", "Renovation",
-    "Furniture for home", "Household expenses", "Car purchase", "Two wheeler purchase", "Education", "Business expense",
-    "Medical expense", "Repay credit card bill", "Repay other loans", "Other Personal"
-  ];
-
   const additionalFields = [
     { name: "employerName", placeholder: "Company/Org Name", type: "text" },
     { name: "state", placeholder: "State", type: "text" },
     { name: "city", placeholder: "City", type: "text" },
     { name: "addressLine1", placeholder: "Address Line 1", type: "text" },
-    { name: "addressLine2", placeholder: "Address Line 2", type: "text" },
+  ];
+
+  const loanPurposes = [
+    "Travel", "Vacation", "Marriage", "Functions at home", "New home", "Construction", "Old home", "Renovation",
+    "Furniture for home", "Household expenses", "Car purchase", "Two wheeler purchase", "Education", "Business expense",
+    "Medical expense", "Repay credit card bill", "Repay other loans", "Other Personal"
   ];
 
   return (
@@ -154,6 +192,21 @@ const EligibilityForm = () => {
         <Image src="https://moneyview.in/images/mv-green-logo-v3Compressed.svg" alt="Logo" width={120} height={40} />
         <span>Eligibility Form</span>
       </h2>
+
+      {step === 2 && (
+        <button
+          onClick={() => setStep(1)}
+          className="flex items-center gap-1  hover:text-blue-800 font-medium transition-all duration-300 mb-4"
+          title="Back to Basic Details"
+        >
+          <span className="text-xl font-extrabold ">⇚ Back</span>
+
+        </button>
+
+
+      )}
+
+      <h3 className="text-xl font-semibold mb-4">{step === 1 ? "Basic Details" : "Additional Details"}</h3>
 
       <form
         onSubmit={step === 2 ? handleSubmit : (e) => {
@@ -207,7 +260,7 @@ const EligibilityForm = () => {
               label: "Annual Family Income"
             }, {
               name: "maritalStatus",
-              options: ["single", "married"],
+              options: ["single", "married", "divorced", "widowed", "separated"],
               label: "Marital Status"
             }].map(({ name, options, label }) => (
               <select
@@ -227,8 +280,19 @@ const EligibilityForm = () => {
 
             <div className="col-span-1 md:col-span-2 text-sm text-gray-700">
               <label className="flex items-start gap-2">
-                <input type="checkbox"  readOnly className="mt-1" />
-                I hereby consent for Whizdm Finance Pvt Ltd to use my information for loan processing purposes.
+                <input
+                  type="checkbox"
+                  className="mt-1"
+                  checked={consentChecked}
+                  onChange={(e) => {
+                    setConsentChecked(e.target.checked);
+                    setFormData(prev => ({
+                      ...prev,
+                      consentValue: e.target.checked ? "true" : ""
+                    }));
+                  }}
+                />
+                {formData.consentText}
               </label>
             </div>
           </>
@@ -236,7 +300,11 @@ const EligibilityForm = () => {
 
         <button
           type="submit"
-          className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+          disabled={step === 2 && !consentChecked}
+          className={`col-span-1 md:col-span-2 font-semibold py-3 px-6 rounded-lg transition duration-300 ${step === 2 && !consentChecked
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700 text-white"
+            }`}
         >
           {step === 1 ? "Next" : "Submit"}
         </button>
@@ -245,8 +313,10 @@ const EligibilityForm = () => {
       {popupVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md text-center">
-            <h3 className="text-lg font-semibold mb-2">🎉 Congratulations!</h3>
-            <p className="text-blue-600 font-medium">{responseMsg}</p>
+            {isSuccess && (
+              <h3 className="text-lg font-semibold mb-2 text-green-600">🎉 Congratulations!</h3>
+            )}
+            <pre className="text-blue-600 font-medium whitespace-pre-wrap">{responseMsg}</pre>
           </div>
         </div>
       )}

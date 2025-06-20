@@ -2,16 +2,19 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useModal } from "../../context/ModalContext";
-import { sendOtp, verifyOtp } from "../../APIS/UserData/UserInfoApi"; // update the path as needed
+import { sendOtp, verifyOtp } from "../../APIS/UserData/UserInfoApi";
 import Cookies from "js-cookie";
 import Link from "next/link";
 
 const GlobalModal: React.FC = () => {
   const { isOpen, closeModal } = useModal();
+
   const [step, setStep] = useState<"phone" | "otp">("phone");
-  const [phone, setPhone] = useState("");
-  const [otp, setOtp] = useState("");
-const [consentChecked, setConsentChecked] = useState(false);
+  const [phone, setPhone] = useState<string>("");
+  const [otp, setOtp] = useState<string>("");
+  const [consentChecked, setConsentChecked] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [message, setMessage] = useState<{
     text: string;
     type: "success" | "error";
@@ -24,9 +27,10 @@ const [consentChecked, setConsentChecked] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
+      setStep("phone");
       setPhone("");
       setOtp("");
-      setStep("phone");
+      setConsentChecked(false);
     }
   }, [isOpen]);
 
@@ -34,37 +38,43 @@ const [consentChecked, setConsentChecked] = useState(false);
     if (phone.length !== 10) {
       return showMessage("Invalid Mobile Number!", "error");
     }
+    setIsLoading(true);
     try {
       await sendOtp(phone);
       setStep("otp");
       showMessage("OTP Sent Successfully!", "success");
     } catch (err) {
       showMessage("Failed to send OTP!", "error");
-      console.error(err);
+      console.error("Send OTP Error:", err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-const handleVerifyOtp = async () => {
-  if (otp.length !== 6) {
-    return showMessage("Invalid OTP!", "error");
-  }
-  try {
-    const response = await verifyOtp(phone, otp);
-    const token = response?.token;
-
-    if (token) {
-      Cookies.set("user_token", token);     
-      Cookies.set("user_phone", phone);    
-      showMessage("OTP Verified Successfully!", "success");
-      setTimeout(closeModal, 1000);
-    } else {
-      showMessage("Verification failed!", "error");
+  const handleVerifyOtp = async () => {
+    if (otp.length !== 6) {
+      return showMessage("Invalid OTP!", "error");
     }
-  } catch (err) {
-    showMessage("Invalid OTP! Please try again.", "error");
-    console.error(err);
-  }
-};
+    setIsLoading(true);
+    try {
+      const response = await verifyOtp(phone, otp);
+      const token = response?.token;
+
+      if (token) {
+        Cookies.set("user_token", token);
+        Cookies.set("user_phone", phone);
+        showMessage("OTP Verified Successfully!", "success");
+        setTimeout(closeModal, 1000);
+      } else {
+        showMessage("Verification failed!", "error");
+      }
+    } catch (err) {
+      showMessage("Invalid OTP! Please try again.", "error");
+      console.error("Verify OTP Error:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -84,7 +94,7 @@ const handleVerifyOtp = async () => {
         </motion.div>
       )}
 
-      {/* Main Modal */}
+      {/* Modal Backdrop & Content */}
       <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md z-40">
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
@@ -102,7 +112,7 @@ const handleVerifyOtp = async () => {
           </div>
 
           <div className="mt-4 space-y-4">
-            {step === "phone" && (
+            {step === "phone" ? (
               <>
                 <p>Enter your mobile number to receive an OTP.</p>
                 <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
@@ -120,57 +130,58 @@ const handleVerifyOtp = async () => {
                 </div>
                 <button
                   onClick={handleSendOtp}
-                  className="w-full py-3 rounded-lg bg-blue-600 text-white"
+                  disabled={isLoading}
+                  className="w-full py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50"
                 >
-                  Send OTP
+                  {isLoading ? "Sending OTP..." : "Send OTP"}
                 </button>
               </>
-            )}
-
-            {step === "otp" && (
+            ) : (
               <>
-  <p>Enter the 6-digit OTP sent to {phone}.</p>
+                <p>Enter the 6-digit OTP sent to {phone}.</p>
+                <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden mb-4">
+                  <input
+                    type="text"
+                    maxLength={6}
+                    className="w-full p-3 text-center tracking-widest outline-none"
+                    placeholder="Enter OTP"
+                    value={otp}
+                    onChange={(e) =>
+                      setOtp(e.target.value.replace(/\D/g, ""))
+                    }
+                  />
+                </div>
 
-  <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden mb-4">
-    <input
-      type="text"
-      maxLength={6}
-      className="w-full p-3 text-center tracking-widest outline-none"
-      placeholder="Enter OTP"
-      value={otp}
-      onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
-    />
-  </div>
+                <div className="flex items-start gap-2 mb-4">
+                  <input
+                    type="checkbox"
+                    id="consent"
+                    className="mt-1"
+                    checked={consentChecked}
+                    onChange={(e) => setConsentChecked(e.target.checked)}
+                  />
+                  <label htmlFor="consent" className="text-sm">
+                    By checking this box, you provide your explicit consent to{" "}
+                    <strong>KeshvaCredit</strong> to access your credit report and score
+                    from credit bureaus, in accordance with our{" "}
+                    <Link href="/terms" className="text-blue-600 underline">
+                      Terms and Conditions
+                    </Link>.
+                  </label>
+                </div>
 
-  <div className="flex items-start gap-2 mb-4">
-    <input
-      type="checkbox"
-      id="consent"
-      className="mt-1"
-      checked={consentChecked}
-      onChange={(e) => setConsentChecked(e.target.checked)}
-    />
- <label htmlFor="consent" className="text-sm">
-  By checking this box, you provide your explicit consent to <strong>KeshvaCredit</strong> to access your credit report and score from credit bureaus, in accordance with our{" "}
-  <Link href="/terms" className="text-blue-600 underline" >
-    Terms and Conditions
-  </Link>.
-</label>
-
-
-  </div>
-
-  <button
-    onClick={handleVerifyOtp}
-    disabled={!consentChecked}
-    className={`w-full py-3 rounded-lg text-white ${
-      consentChecked ? "bg-green-600 hover:bg-green-700" : "bg-gray-400 cursor-not-allowed"
-    }`}
-  >
-    Verify OTP
-  </button>
-</>
-
+                <button
+                  onClick={handleVerifyOtp}
+                  disabled={!consentChecked || isLoading}
+                  className={`w-full py-3 rounded-lg text-white ${
+                    consentChecked
+                      ? "bg-green-600 hover:bg-green-700"
+                      : "bg-gray-400 cursor-not-allowed"
+                  }`}
+                >
+                  {isLoading ? "Verifying..." : "Verify OTP"}
+                </button>
+              </>
             )}
           </div>
         </motion.div>
