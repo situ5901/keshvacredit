@@ -129,7 +129,7 @@ function Page() {
           className="w-[300px] md:w-[450px] h-[450px] mx-auto"
         />
         <p className="mt-4 text-xl font-semibold text-gray-700">
-          Fetching your data... Please wait.
+          Fetching your details... Please wait.
         </p>
       </div>
     );

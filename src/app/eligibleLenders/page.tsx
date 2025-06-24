@@ -31,18 +31,18 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
   },
-  //  {
-  //   id: "Moneyview",
-  //   name: "Moneyview",
-  //   logo: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
-  //   approval: "Good",
-  //   amount: "Up to ₹3,00,000",
-  //   interest: "	Starting from 1.16% per month",
-  //   tenure: "Up to 18 months",
-  //   support: "24/7 customer support",
-  //   features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-  //   applyLink: "/lenderapi/moneyview",
-  // },
+  {
+    id: "Moneyview",
+    name: "Moneyview",
+    logo: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "	Starting from 1.16% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "/lenderapi/moneyview",
+  },
   {
     id: "zype",
     name: "Zype",
@@ -55,7 +55,7 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/Eligiblity-Zype",
   },
-    {
+  {
     id: "Ramfin",
     name: "Ramfin",
     logo: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
@@ -185,12 +185,13 @@ export default function Page() {
   const [eligibleLenders, setEligibleLenders] = useState<Lender[]>([]);
   const [loading, setLoading] = useState(true);
   const [notEligible, setNotEligible] = useState(false);
-  const [loadingBtn, setLoadingBtn] = useState<string | null>(null); 
+  const [loadingBtn, setLoadingBtn] = useState<string | null>(null);
 
   const handleApplyClick = (lender: Lender) => {
     setLoadingBtn(lender.id);
     setTimeout(() => {
-      window.location.href = lender.applyLink;
+      setLoadingBtn(null);
+      window.location.assign(lender.applyLink);
     }, 2000);
   };
 
