@@ -41,7 +41,7 @@ const FilterUploadPage = () => {
       const phoneNumbers = data.flat().filter((v) => typeof v === "number");
       console.log("📞 Total phone numbers found:", phoneNumbers.length);
 
-     const results: any[] = [];
+     const results : any[] = [];
      
       for (let i = 0; i < phoneNumbers.length; i += CHUNK_SIZE) {
         const chunk = phoneNumbers.slice(i, i + CHUNK_SIZE);
@@ -97,7 +97,7 @@ const FilterUploadPage = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-20 p-6 mb-5 shadow-md rounded border border-gray-200 bg-white">
+    <div className="max-w-xl mx-auto mt-20 p-6 mb-5 shadow-md rounded border border-gray-200 ">
       <h1 className="text-2xl font-bold mb-6 text-center">📤 Upload Phone Numbers</h1>
 
       <input
@@ -111,7 +111,7 @@ const FilterUploadPage = () => {
         <button
           onClick={handleUpload}
           disabled={loading}
-          className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition"
+          className="w-full bg-blue-600  font-semibold py-2 px-4 rounded hover:bg-blue-700 transition"
         >
           {loading ? "Processing..." : "Upload & Filter"}
         </button>

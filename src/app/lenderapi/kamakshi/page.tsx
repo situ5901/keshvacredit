@@ -11,21 +11,17 @@ interface FormData {
   email: string;
   dob: string;
   pan: string;
-  pincode: string;
-  income: string;
   loanAmount: string;
   employment: string;
 }
 
-const EligibilityForm = () => {
+const KamakshiForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
     email: "",
     dob: "",
     pan: "",
-    pincode: "",
-    income: "",
     loanAmount: "",
     employment: "",
   });
@@ -34,65 +30,63 @@ const EligibilityForm = () => {
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
   const router = useRouter();
 
-  const extractMessage = (res: any): string => {
-    if (res?.apiResponse?.status) return res.apiResponse.status;
-    if (res?.message) return res.message;
-    if (res?.error) return res.error;
-    return "Something went wrong.";
-  };
+const extractMessage = (res: any): string => {
+  if (typeof res === "string") return res;
+  if (res?.msg) return res.msg;
+  if (res?.message) return res.message;
+  if (res?.error?.message) return res.error.message;
+  return "Something went wrong.";
+};
+
 
   const handleSubmitAuto = useCallback(
-  async (autoData: FormData) => {
-    try {
-      const payload = {
-        name: autoData.name,
-        phone: autoData.phone,
-        email: autoData.email,
-        pan: autoData.pan,
-        pincode: autoData.pincode,
-        employment: autoData.employment.toLowerCase(),
-        income: Number(autoData.income),
-        loanAmount: Number(autoData.loanAmount),
-        dob: autoData.dob,
-        gender: "",
-      };
+    async (autoData: FormData) => {
+      try {
+        const payload = {
+          name: autoData.name,
+          email: autoData.email,
+          phone: autoData.phone,
+          pan: autoData.pan,
+          loanAmount: autoData.loanAmount,
+          employment: autoData.employment,
+          dob: autoData.dob,
+        };
 
-      const res = await axios.post(
-        "https://keshvacredit.com/api/v1/LenderAPIs/partner/chintamani",
-        payload,
-        {
-          headers: { "Content-Type": "application/json" },
+        const res = await axios.post(
+          "https://keshvacredit.com/api/v1/LenderAPIs/partner/kamakshi",
+          payload,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const responseData = res.data;
+
+        if (
+          responseData?.msg?.toLowerCase() === "lead created successfully"
+        ) {
+          setIsSuccess(true);
+          setResponseMsg("🎉 Kamakshi lead submitted successfully! proceeding for next step ...");
+          setTimeout(() => {
+            router.push("https://applyonline.kamakshimoney.com/");
+          }, 3000);
+        } else {
+          setIsSuccess(false);
+          setResponseMsg(`❌ ${extractMessage(responseData)}`);
+          setTimeout(() => {
+            router.push("/eligibleLenders");
+          }, 3000);
         }
-      );
-
-      const responseData = res.data;
-      const token = responseData?.apiResponse?.token;
-      const status = responseData?.apiResponse?.status;
-
-      if (token && status === "Profile created successfully") {
-        setIsSuccess(true);
-        setResponseMsg("🎉 Application submitted successfully! Redirecting...");
-        setTimeout(() => {
-          router.push(
-            "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5"
-          );
-        }, 3000);
-      } else {
-        setIsSuccess(false);
-        setResponseMsg(`❌ ${extractMessage(responseData)}`);
-        setTimeout(() => {
-          router.push("/eligibleLenders");
-        }, 3000);
+      } catch (error: any) {
+        const errRes = error?.response?.data || {};
+        setIsSuccess(null);
+        setResponseMsg(extractMessage(errRes));
       }
-    } catch (error: any) {
-      const errRes = error?.response?.data || {};
-      setIsSuccess(null);
-      setResponseMsg(extractMessage(errRes));
-    }
-  },
-  [router]
-);
-
+    },
+    [router]
+  );
 
   useEffect(() => {
     const phone = Cookies.get("user_phone");
@@ -107,8 +101,6 @@ const EligibilityForm = () => {
             email: user.email || "",
             dob: user.dob || "",
             pan: user.pan || "",
-            pincode: user.pincode || "",
-            income: user.income || "",
             loanAmount: user.loanAmount || "",
             employment: user.employment || "",
           };
@@ -161,13 +153,13 @@ const EligibilityForm = () => {
 
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-3">
         <Image
-          src="https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png"
-          alt="chintamani Logo"
+          src="https://www.kamakshimoney.com/index_files/finpath-loan-logo.svg"
+          alt="kamakshi Logo"
           width={120}
           height={40}
           className="object-contain"
         />
-        <span>Chintamani Eligibility Form</span>
+        <span>Kamakshi Eligibility Form</span>
       </h2>
 
       <form
@@ -223,26 +215,6 @@ const EligibilityForm = () => {
         />
 
         <input
-          type="text"
-          name="pincode"
-          placeholder="Pincode"
-          value={formData.pincode}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-3"
-        />
-
-        <input
-          type="number"
-          name="income"
-          placeholder="Monthly Income"
-          value={formData.income}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-3"
-        />
-
-        <input
           type="number"
           name="loanAmount"
           placeholder="Desired Loan Amount"
@@ -275,4 +247,4 @@ const EligibilityForm = () => {
   );
 };
 
-export default EligibilityForm;
+export default KamakshiForm;

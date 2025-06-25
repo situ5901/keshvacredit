@@ -1,18 +1,39 @@
 import Link from "next/link";
 
 const blogs = [
-
-{
-  id: 9,
-  title: "30-Day Digital Detox: What I Gained by Logging Off Social Media",
-  image:
-    "https://img.freepik.com/free-photo/relaxed-woman-sitting-nature_53876-144377.jpg?w=740",
-  description:
-    "A personal journey through a 30-day break from social media—discover how unplugging boosted my focus, mental health, sleep, and real-life connections. A must-read for anyone feeling digitally drained.",
-  link: "/blog/blog9",
-  tag: "Lifestyle",
-  date: "June 18, 2025",
-} ,
+  {
+    id: 11,
+    title: " Understand Where Your Money Goes",
+    image:
+      "https://img.freepik.com/free-photo/bearded-male-suit-holding-cash-money-isolated-grey-background_613910-8523.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740",
+    description:
+      " Most people have a vague idea, but when you sit down and look closely, the reality can be eye-opening. From little purchases to monthly subscriptions, your expenses quickly add up.",
+    link: "/blog/blog11",
+    tag: "Finance",
+    date: "June 24, 2025",
+  },
+  {
+    id: 10,
+    title: "Personal Loan Eligibility India 2025",
+    image:
+      "https://img.freepik.com/free-photo/still-life-documents-stack_23-2151088765.jpg?uid=R200265041&ga=GA1.1.1991524667.1744099371&semt=ais_items_boosted&w=740",
+    description:
+      "Everything you need to know about qualifying for a personal loan in India in 2025—eligibility criteria, credit score, income, documents, and top lender requirements.",
+    link: "/blog/blog10",
+    tag: "Finance",
+    date: "June 24, 2025",
+  },
+  {
+    id: 9,
+    title: "30-Day Digital Detox",
+    image:
+      "https://img.freepik.com/free-photo/relaxed-woman-sitting-nature_53876-144377.jpg?w=740",
+    description:
+      "A personal journey through a 30-day break from social media—discover how unplugging boosted my focus, mental health, sleep, and real-life connections. A must-read for anyone feeling digitally drained.",
+    link: "/blog/blog9",
+    tag: "Lifestyle",
+    date: "June 18, 2025",
+  },
   {
     id: 8,
     title: "Top 10 Fintech Companies in India (2025 Edition)",

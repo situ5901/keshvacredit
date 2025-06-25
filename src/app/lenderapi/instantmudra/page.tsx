@@ -35,64 +35,62 @@ const EligibilityForm = () => {
   const router = useRouter();
 
   const extractMessage = (res: any): string => {
-    if (res?.apiResponse?.status) return res.apiResponse.status;
-    if (res?.message) return res.message;
-    if (res?.error) return res.error;
-    return "Something went wrong.";
+    return res?.msg || res?.message || res?.error || "Something went wrong.";
   };
 
   const handleSubmitAuto = useCallback(
-  async (autoData: FormData) => {
-    try {
-      const payload = {
-        name: autoData.name,
-        phone: autoData.phone,
-        email: autoData.email,
-        pan: autoData.pan,
-        pincode: autoData.pincode,
-        employment: autoData.employment.toLowerCase(),
-        income: Number(autoData.income),
-        loanAmount: Number(autoData.loanAmount),
-        dob: autoData.dob,
-        gender: "",
-      };
+    async (autoData: FormData) => {
+      try {
+        const payload = {
+          name: autoData.name,
+          email: autoData.email,
+          phone: autoData.phone,
+          gender: "male",
+          dob: autoData.dob,
+          pincode: autoData.pincode,
+          income: autoData.income,
+          employment: autoData.employment,
+          pan: autoData.pan,
+        };
 
-      const res = await axios.post(
-        "https://keshvacredit.com/api/v1/LenderAPIs/partner/chintamani",
-        payload,
-        {
-          headers: { "Content-Type": "application/json" },
+        const res = await axios.post(
+          "https://keshvacredit.com/api/v1/LenderAPIs/partner/instant",
+          payload,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const responseData = res.data;
+
+        if (
+          responseData?.status === true &&
+          responseData?.msg === "Data saved successfully!"
+        ) {
+          setIsSuccess(true);
+          setResponseMsg("🎉 Application submitted successfully! Redirecting...");
+          setTimeout(() => {
+            router.push(
+              "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58"
+            );
+          }, 3000);
+        } else {
+          setIsSuccess(false);
+          setResponseMsg(`❌ ${extractMessage(responseData)}`);
+          setTimeout(() => {
+            router.push("/eligibleLenders");
+          }, 3000);
         }
-      );
-
-      const responseData = res.data;
-      const token = responseData?.apiResponse?.token;
-      const status = responseData?.apiResponse?.status;
-
-      if (token && status === "Profile created successfully") {
-        setIsSuccess(true);
-        setResponseMsg("🎉 Application submitted successfully! Redirecting...");
-        setTimeout(() => {
-          router.push(
-            "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5"
-          );
-        }, 3000);
-      } else {
-        setIsSuccess(false);
-        setResponseMsg(`❌ ${extractMessage(responseData)}`);
-        setTimeout(() => {
-          router.push("/eligibleLenders");
-        }, 3000);
+      } catch (error: any) {
+        const errRes = error?.response?.data || {};
+        setIsSuccess(null);
+        setResponseMsg(extractMessage(errRes));
       }
-    } catch (error: any) {
-      const errRes = error?.response?.data || {};
-      setIsSuccess(null);
-      setResponseMsg(extractMessage(errRes));
-    }
-  },
-  [router]
-);
-
+    },
+    [router]
+  );
 
   useEffect(() => {
     const phone = Cookies.get("user_phone");
@@ -161,13 +159,13 @@ const EligibilityForm = () => {
 
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-3">
         <Image
-          src="https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png"
-          alt="chintamani Logo"
+          src="https://www.instantmudra.com/images/logo_official.png"
+          alt="instantmudra Logo"
           width={120}
           height={40}
           className="object-contain"
         />
-        <span>Chintamani Eligibility Form</span>
+        <span>instantmudra Eligibility Form</span>
       </h2>
 
       <form
