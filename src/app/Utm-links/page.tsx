@@ -76,8 +76,17 @@ const lenderData = [
         interestRate: "upto 24% per annum",
         maxLoan: "Up to ₹5 Lakhs",
         benefit: "Fast approval with minimal documents",
-        applyLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome ",
-        detailsLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome ",
+        applyLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome",
+        detailsLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome",
+    },
+       {
+        image: "https://www.creditsea.com/_next/static/media/credit-sea-blue-h-latest.62519644.svg",
+        lender: "CreditSea ",
+        interestRate: "range 14% – 36% per annum",
+        maxLoan: "Up to ₹5 Lakhs",
+        benefit: "Fast approval with minimal documents",
+        applyLink: "https://www.creditsea.com/onboarding/sign-up/enter-mobile?source=31048692",
+        detailsLink: "https://www.creditsea.com/onboarding/sign-up/enter-mobile?source=31048692",
     },
     {
         image: "https://www.instantmudra.com/images/logo_official.png",
@@ -109,7 +118,7 @@ const lenderData = [
     {
         image: "https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png",
         lender: "Chintamani Finlease Limited",
-        interestRate: "Starting from 10.99% per annum",
+        interestRate: "Starting from 25% per annum",
         maxLoan: "Up to ₹2 Lakhs (available only in the Delhi-NCR region)",
         benefit: "Fast approval with minimal documentation",
         applyLink: "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5",
