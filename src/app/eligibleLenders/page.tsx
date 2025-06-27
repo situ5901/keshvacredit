@@ -32,8 +32,8 @@ const allLenders: Lender[] = [
     applyLink: "/lenderapi/rupee",
   },
   {
-    id: "Moneyview",
-    name: "Moneyview",
+    id: "MoneyView",
+    name: "MoneyView",
     logo: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
     approval: "Good",
     amount: "Up to ₹3,00,000",
