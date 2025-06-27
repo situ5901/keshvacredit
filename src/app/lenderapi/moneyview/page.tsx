@@ -256,7 +256,7 @@ const EligibilityForm = () => {
               value={formData.loanPurpose}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="findrop border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="">Select Loan Purpose</option>
               {loanPurposes.map((p) => (
@@ -277,7 +277,7 @@ const EligibilityForm = () => {
                 value={formData[name as keyof typeof formData]}
                 onChange={handleChange}
                 required
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="findrop border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">{label}</option>
                 {options.map((opt) => (
@@ -324,14 +324,14 @@ const EligibilityForm = () => {
           <div className="bg-white rounded-2xl shadow-2xl p-6 w-[90%] max-w-md text-center space-y-4">
             {isSuccess ? (
               <>
-                <Image src="/1.png" alt="Success" width={120} height={120} className="mx-auto" />
+                <Image src="/cong.png" alt="Success" width={120} height={120} className="mx-auto" />
                 <h3 className="text-xl font-bold text-green-600">Congratulations!</h3>
                 <p className="text-gray-700">{responseMsg}</p>
                 <p className="text-sm text-gray-500">We are proceeding to the next steps...</p>
               </>
             ) : (
               <>
-                <Image src="/2.png" alt="Sorry" width={120} height={120} className="mx-auto" />
+                <Image src="/sory.png" alt="Sorry" width={120} height={120} className="mx-auto" />
                 <h3 className="text-xl font-bold text-red-600">We're Sorry!</h3>
                 <p className="text-gray-700">{responseMsg}</p>
               </>
