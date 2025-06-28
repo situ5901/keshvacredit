@@ -40,7 +40,7 @@ const LoanSection = () => {
       <h1 className="text-3xl font-semibold text-center mb-8">Your Trusted Partner for Every Loan Need.</h1>
 
       {/* Tabs */}
-      <div className="max-w-3xl mx-auto flex rounded-full p-1 mb-10 shadow-md shadow-gray-300">
+      <div className="max-w-3xl mx-auto flex rounded-full p-1 mb-10  border-gray-200 shadow-md shadow-gray-300">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -53,7 +53,7 @@ const LoanSection = () => {
         ))}
       </div>
       {activeTabContent && (
-        <div className="max-w-5xl mx-auto rounded-xl shadow-md shadow-white overflow-hidden flex flex-col md:flex-row">
+        <div className="max-w-5xl mx-auto rounded-xl border-2 shadow-md shadow-white overflow-hidden flex flex-col md:flex-row">
           <div className="p-8 flex-1">
             <h3 className="text-2xl font-bold mb-4">{activeTabContent.heading}</h3>
             <p className="mb-6">{activeTabContent.description}</p>

@@ -50,44 +50,26 @@ body {
   @apply bg-gray-900 text-white;
 }
 
-/* custom css for navbar dark and light mode change */
 #navbar {
   @apply bg-white text-gray-900 border-gray-300 transition-colors duration-300;
 }
-
-/* Dark Theme */
 .dark #navbar {
   @apply bg-gray-900 text-white border-gray-700;
 }
 
-/* custom css for menu itemns in navbar dark and light mode change */
-
 .menu-item {
-  /* The default styles are kept as in your Tailwind classes.
-     You can include any shared styles here if needed. */
   padding: 0.5rem 0.75rem;
-  /* equivalent to py-2 px-3 */
   border-radius: 0.375rem;
-  /* equivalent to rounded */
 }
-
-/* Light mode hover styles */
 .menu-item:hover {
   background-color: #3b82f6;
-  /* Tailwind blue-500 */
   color: #ffffff;
-  /* white */
 }
-
-/* Dark mode hover styles */
 .dark .menu-item:hover {
   background-color: #ffffff;
-  /* white */
   color: #000000;
-  /* black */
 }
 
-/* custom css for footer dark and light mode change */
 #footer {
   @apply bg-white text-gray-900 border-t border-gray-300 transition-colors duration-300;
 }
@@ -96,66 +78,39 @@ body {
   @apply bg-gray-900 text-white border-gray-700;
 }
 
-/* ✅ Modal Overlay */
-
-
-/* Default styles */
 .custom-box {
   padding: 1.5rem;
-  /* p-6 */
   border-radius: 1rem;
-  /* rounded-2xl */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  /* shadow-2xl */
   max-width: 32rem;
-  /* max-w-lg */
   width: 100%;
-  /* w-full */
   border: 1px solid #d1d5db;
-  /* border-gray-300 */
   background-color: black;
-  /* Default (Light Mode) */
   color: white;
-  /* Text color for light mode */
 }
-
-/* Dark Mode */
 .dark .custom-box {
   background-color: white;
-  /* Background in dark mode */
   color: black;
-  /* Text color in dark mode */
 }
 
-
-/* global css for short term loan */
 .form {
-
   background-color: #1A202C;
   color: white;
 }
 
-/* Dark mode hover styles */
 .dark .form {
   background-color: #ffffff;
-  /* white */
   color: #000000;
-  /* black */
 }
 
 /* global css for short term loan */
 .custom-profile {
-
   background-color: #012141;
   color: white;
 }
-
-/* Dark mode hover styles */
 .dark .custom-profile {
   background-color: green;
-  /* white */
   color: white;
-  /* black */
 }
 
 .custom-profilepage {
@@ -167,9 +122,7 @@ body {
 /* Dark mode hover styles */
 .dark .custom-profilepage {
   background-color: white;
-  /* white */
   color: black;
-  /* black */
 }
 
 .profile-edit-button {
@@ -181,38 +134,36 @@ body {
 /* Dark mode hover styles */
 .dark .profile-edit-button {
   background-color: white;
-  /* white */
   color: black;
-  /* black */
 }
 
 
 .admin-box {
-
   background-color: #012141;
   color: white;
 }
-
-/* Dark mode hover styles */
 .dark .admin-box {
   background-color: white;
-  /* white */
   color: black;
-  /* black */
 }
 
+/* for using lender api dropdowns */
 .findrop {
-
   background-color: white;
   color: black;
 }
-
-/* Dark mode hover styles */
 .dark .findrop {
   background-color: #101828;
-  /* white */
   color: white;
-  /* black */
+}
+/* for profile dropdown */
+.prdrop2 {
+  background-color: #012141;
+  color: white;
+}
+.dark .prdrop2 {
+  background-color: white;
+  color: black;
 }
 
 /* globals.css */
@@ -220,27 +171,21 @@ body {
   @apply bg-[#1A202C] text-white;
 }
 
-
 .dark .custom-select {
   @apply bg-white text-black;
 }
 
-/* for lender  */
+/* Lender Card Styles */
 .lender {
   background-image:
     url('/lendercard.png'),
     linear-gradient(135deg, #1A202C, #2D3748);
-  /* Dark navy to charcoal */
   background-size: cover;
   background-position: center;
   color: rgb(32, 21, 21);
 }
-
-
-/* Dark mode hover styles */
 .dark .lender {
   background: linear-gradient(110deg, #f1d598, #ffffff);
-  /* Soft pink to white */
   color: #000;
   border-radius: 12px;
   padding: 16px;

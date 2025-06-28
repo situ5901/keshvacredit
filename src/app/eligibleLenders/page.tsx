@@ -152,6 +152,18 @@ const allLenders: Lender[] = [
     features: [" (available in Delhi-NCR region)", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/lenderapi/chintamani",
   },
+    {
+    id: "loantap",
+    name: "loantap",
+    logo: "https://i.postimg.cc/sgkVCJpQ/download.png",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: "Up to 2% per month",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "/lenderapi/loantap",
+  },
   {
     id: "clickmyloan",
     name: "clickmyloan",

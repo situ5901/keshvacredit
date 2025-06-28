@@ -342,10 +342,10 @@ function Page() {
                         <Image
                           src={card.icon}
                           alt={card.title}
-                          width={40}
-                          height={40}
+                          width={64}
+                          height={64}
                           unoptimized
-                          className="w-10 h-10 rounded-full"
+                          className="w-16 h-16 rounded-full"
                         />
                         <p className="font-medium">{card.title}</p>
                       </div>
