@@ -185,6 +185,7 @@ function Page() {
             width={250}
             height={250}
             className="w-50 h-50 bg-center bg-cover rounded-full"
+            unoptimized
           />
         </div>
       </div>
@@ -344,8 +345,8 @@ function Page() {
                           alt={card.title}
                           width={64}
                           height={64}
-                          unoptimized
                           className="w-16 h-16 rounded-full"
+                          unoptimized
                         />
                         <p className="font-medium">{card.title}</p>
                       </div>
@@ -601,8 +602,8 @@ function Page() {
                 src="https://cdn-icons-gif.flaticon.com/10051/10051256.gif"
                 alt="business"
                 fill
-                unoptimized
                 className="rounded-full shadow-lg object-cover"
+                unoptimized
               />
             </div>
             <h3 className="text-2xl font-medium">✔</h3>

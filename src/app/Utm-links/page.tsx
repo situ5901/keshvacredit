@@ -341,7 +341,7 @@ function LenderCard({
 }) {
     return (
         <div className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
-            <Image src={image} alt={lender} width={128} height={80} className="object-contain" />
+            <Image src={image} alt={lender} width={128} height={80} className="object-contain" unoptimized/>
             <div className="flex-1">
                 <h3 className="font-bold text-lg">{lender}</h3>
                 <ul className="text-sm mt-2 space-y-1">

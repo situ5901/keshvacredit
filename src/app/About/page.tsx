@@ -92,6 +92,7 @@ function About() {
                   width={64}
                   height={64}
                   className="mb-2 object-contain max-w-full"
+                  unoptimized
                 />
                 <span className="font-semibold text-center">{item.text}</span>
               </div>
@@ -174,6 +175,7 @@ function About() {
                     alt={item.title}
                     fill
                     className="object-cover"
+                    unoptimized
                   />
                 </div>
                 <h3 className="mt-6 text-2xl font-semibold text-gray-800">

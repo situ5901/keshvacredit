@@ -12,6 +12,7 @@
     "@popperjs/core": "^2.11.8",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
+    "autoprefixer": "^10.4.21",
     "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
@@ -26,6 +27,7 @@
     "lucide-react": "^0.483.0",
     "next": "^15.2.2",
     "nodemailer": "^7.0.3",
+    "postcss": "^8.5.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
@@ -40,7 +42,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/aos": "^3.0.7",
     "@types/file-saver": "^2.0.7",
     "@types/js-cookie": "^3.0.6",
@@ -57,4 +59,5 @@
   "rules": {
     "@next/next/no-img-element": "off"
   }
+  
 }
