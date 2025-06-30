@@ -1,6 +1,18 @@
 import Link from "next/link";
 
 const blogs = [
+ {
+  id: 31,
+  title: "30 Best Instant Personal Loan Apps in India (June 2025)",
+  image:
+    "https://i.postimg.cc/657p5DDv/happy-african-american-entrepreneur-using-mobile-phone-credit-card-from-online-payments-while-workin.jpg",
+  description:
+    "Discover the top 30 instant personal loan apps in India for June 2025. Explore interest rates, eligibility, loan amounts, disbursal timelines, and unique features to find the right app for your financial needs.",
+  link: "/blog/personal-loan-apps",
+  tag: "Loans",
+  date: "June 30, 2025",
+},
+
   {
     id: 11,
     title: " Understand Where Your Money Goes",

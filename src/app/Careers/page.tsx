@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,43 +10,107 @@ export default function PartnershipPage() {
     AOS.init({ duration: 800, once: false });
   }, []);
 
+  const [formData, setFormData] = useState({
+    fullName: "",
+    contactNumber: "",
+    email: "",
+    natureOfBusiness: "",
+    profile: "",
+    products: "",
+    businessVolume: "",
+    website: "",
+    pincode: "",
+    location: "",
+    sourcingLocation: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form Submitted", formData);
+    // API call or action here
+  };
+
   return (
-    <div className="max-w-6xl mx-auto px-6  space-y-28 font-sans">
-      {/* Contact Form */}
-      <section data-aos="fade-down" className=" p-8 rounded-xl shadow-lg">
+    <div className="max-w-6xl mx-auto px-6 space-y-28 font-sans">
+      {/* Contact Form (Replaced) */}
+      <section data-aos="fade-down" className="p-8 rounded-xl shadow-lg">
         <h2 className="text-3xl font-bold text-center mb-6 text-blue-700">
           Partner With Us
         </h2>
-        <form className="grid md:grid-cols-2 gap-6">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="border rounded-lg p-4 w-full"
-          />
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="border rounded-lg p-4 w-full"
-          />
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            className="border rounded-lg p-4 w-full"
-          />
-          <input
-            type="text"
-            placeholder="Organization Name"
-            className="border rounded-lg p-4 w-full"
-          />
-          <textarea
-            placeholder="Your Message"
-            className="border rounded-lg p-4 w-full md:col-span-2"
-            rows={4}
-          ></textarea>
-          <button
-            type="submit"
-            className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 px-12 rounded-lg hover:scale-105 transition-transform md:col-span-2"
+        <form
+          onSubmit={handleSubmit}
+          className="grid md:grid-cols-2 gap-6"
+        >
+          <input type="text" name="fullName" placeholder="Full Name *" value={formData.fullName} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+
+          <input type="text" name="contactNumber" placeholder="Contact Number *" value={formData.contactNumber} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+
+          <input type="email" name="email" placeholder="Email ID *" value={formData.email} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+
+          <select
+            name="natureOfBusiness"
+            value={formData.natureOfBusiness}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
           >
+            <option value="">Nature of Business *</option>
+            <option value="Individual">Individual</option>
+            <option value="Proprietor">Proprietor</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Pvt Ltd">Pvt Ltd</option>
+            <option value="Public Ltd">Public Ltd</option>
+            <option value="HIJF">HIJF</option>
+            <option value="Trust">Trust</option>
+          </select>
+          <select
+            name="Profile"
+            value={formData.profile}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          >
+            <option value="" disabled>Products to be referred *</option>
+            <option value="IFA">IFA</option>
+            <option value="Real estate consultant">Real estate consultant</option>
+            <option value="Lawyer">Lawyer</option>
+            <option value="Interior designer">Interior designer</option>
+            <option value="Broking firm">Broking firm</option>
+            <option value="Real Estate developer">Real Estate developer</option>
+            <option value="Others">Others</option>
+          </select>
+          <select
+            name="products"
+            value={formData.products}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          >
+            <option value="" disabled>Products to be referred *</option>
+            <option value="Home Loan">Home Loan</option>
+            <option value="Business Loan">Business Loan</option>
+            <option value="Personal Loan">Personal Loan</option>
+            <option value="Loan Against Property">Loan Against Property</option>
+            <option value="Loan Against Securities">Loan Against Securities</option>
+            <option value="Digital Loan">Digital Loan</option>
+            <option value="Other">Other</option>
+          </select>
+          <input type="text" name="businessVolume" placeholder="Expected Business Volume *" value={formData.businessVolume} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+
+          <input type="url" name="website" placeholder="Website (If any)" value={formData.website} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+
+          <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+
+          <input type="text" name="pincode" placeholder="Pincode *" value={formData.pincode} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+
+          <input type="text" name="sourcingLocation" placeholder="Business Sourcing Location" value={formData.sourcingLocation} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+
+          <button type="submit" className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
             Submit Request
           </button>
         </form>
