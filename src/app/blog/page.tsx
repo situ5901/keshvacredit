@@ -12,6 +12,8 @@ const blogs = [
   tag: "Loans",
   date: "June 30, 2025",
 },
+
+
   {
     id: 11,
     title: " Understand Where Your Money Goes",
