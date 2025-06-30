@@ -7,27 +7,31 @@ import axios from "axios";
 
 interface FormData {
   name: string;
+  lastName: string;
   phone: string;
   email: string;
   dob: string;
   pan: string;
   pincode: string;
-  income: string;
-  loanAmount: string;
-  employment: string;
+  homeAddress: string;
+  officeAddress: string;
+  typeOfResidence: string;
+  companyName: string;
 }
 
 const EligibilityForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
+    lastName: "",
     phone: "",
     email: "",
     dob: "",
     pan: "",
     pincode: "",
-    income: "",
-    loanAmount: "",
-    employment: "",
+    homeAddress: "",
+    officeAddress: "",
+    typeOfResidence: "",
+    companyName: "",
   });
 
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
@@ -35,64 +39,65 @@ const EligibilityForm = () => {
   const router = useRouter();
 
   const extractMessage = (res: any): string => {
-    if (res?.apiResponse?.status) return res.apiResponse.status;
     if (res?.message) return res.message;
+    if (res?.data?.message) return res.data.message;
+    if (res?.apiResponse?.status) return res.apiResponse.status;
     if (res?.error) return res.error;
     return "Something went wrong.";
   };
 
   const handleSubmitAuto = useCallback(
-  async (autoData: FormData) => {
-    try {
-      const payload = {
-        name: autoData.name,
-        phone: autoData.phone,
-        email: autoData.email,
-        pan: autoData.pan,
-        pincode: autoData.pincode,
-        employment: autoData.employment.toLowerCase(),
-        income: Number(autoData.income),
-        loanAmount: Number(autoData.loanAmount),
-        dob: autoData.dob,
-        gender: "male",
-      };
+    async (autoData: FormData) => {
+      try {
+        const payload = {
+          name: autoData.name.trim(),
+          last_name: autoData.lastName.trim() || "Unknown",
+          phone: autoData.phone,
+          email: autoData.email,
+          pancard: autoData.pan.toUpperCase(),
+          dob: autoData.dob,
+          pincode: autoData.pincode,
+          employType: 1, // Always salaried
+          home_address: autoData.homeAddress,
+          office_address: autoData.officeAddress,
+          type_of_residence: autoData.typeOfResidence,
+          company_name: autoData.companyName,
+        };
 
-      const res = await axios.post(
-        "https://keshvacredit.com/api/v1/LenderAPIs/partner/chintamani",
-        payload,
-        {
-          headers: { "Content-Type": "application/json" },
+        const res = await axios.post(
+          "https://keshvacredit.com/api/v1/LenderAPIs/partner/fatakdcl",
+          payload,
+          { headers: { "Content-Type": "application/json" } }
+        );
+
+        const data = res.data;
+        const eligible = data?.data?.eligibility_status;
+        const message = extractMessage(data);
+        const errorCategory = data?.data?.error_category;
+
+        if (eligible) {
+          setIsSuccess(true);
+          setResponseMsg("🎉 Congratulations! You're eligible. Redirecting...");
+          setTimeout(() => {
+            router.push(
+              "https://web.fatakpay.com/authentication/login?utm_source=576_PPEGA&utm_medium="
+            );
+          }, 3000);
+        } else {
+          setIsSuccess(false);
+          setResponseMsg(`❌ Sorry! ${message}${errorCategory ? ` (${errorCategory})` : ""}`);
+          setTimeout(() => {
+            router.push("/eligibleLenders");
+          }, 3000);
         }
-      );
-
-      const responseData = res.data;
-      const token = responseData?.apiResponse?.token;
-      const status = responseData?.apiResponse?.status;
-
-      if (token && status === "Profile created successfully") {
-        setIsSuccess(true);
-        setResponseMsg("🎉 Application submitted successfully! proceeding for next step.");
-        setTimeout(() => {
-          router.push(
-            "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5"
-          );
-        }, 3000);
-      } else {
-        setIsSuccess(false);
-        setResponseMsg(`❌ ${extractMessage(responseData)}`);
-        setTimeout(() => {
-          router.push("/eligibleLenders");
-        }, 3000);
+      } catch (error: any) {
+        const errRes = error?.response?.data || {};
+        setIsSuccess(null);
+        setResponseMsg(extractMessage(errRes));
       }
-    } catch (error: any) {
-      const errRes = error?.response?.data || {};
-      setIsSuccess(null);
-      setResponseMsg(extractMessage(errRes));
-    }
-  },
-  [router]
-);
-
+    },
+    [router]
+  );
 
   useEffect(() => {
     const phone = Cookies.get("user_phone");
@@ -101,19 +106,22 @@ const EligibilityForm = () => {
         .post("https://keshvacredit.com/api/v1/api/getUsers", { phone })
         .then((res) => {
           const user = res.data;
-          const updated = {
+          const updated: FormData = {
             name: user.name || "",
+            lastName: user.lastName || "",
             phone: user.phone || "",
             email: user.email || "",
             dob: user.dob || "",
             pan: user.pan || "",
             pincode: user.pincode || "",
-            income: user.income || "",
-            loanAmount: user.loanAmount || "",
-            employment: user.employment || "",
+            homeAddress: user.homeAddress || "",
+            officeAddress: user.officeAddress || "",
+            typeOfResidence: user.typeOfResidence || "",
+            companyName: user.company_name || "",
           };
           setFormData(updated);
-          const allFilled = Object.values(updated).every((v) => v !== "");
+
+          const allFilled = Object.values(updated).every((v) => v.trim() !== "");
           if (allFilled) handleSubmitAuto(updated);
         })
         .catch((err) => console.error("Auto-fill error:", err));
@@ -125,14 +133,9 @@ const EligibilityForm = () => {
     await handleSubmitAuto(formData);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -161,113 +164,31 @@ const EligibilityForm = () => {
 
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-3">
         <Image
-          src="https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png"
-          alt="chintamani Logo"
+          src="https://web.fatakpay.com/assets/images/logo/Logo.svg"
+          alt="fatakpay Logo"
           width={120}
           height={40}
           className="object-contain"
         />
-        <span>Chintamani Eligibility Form</span>
+        <span>FatakpayDCl Eligibility Form</span>
       </h2>
 
-      <form
-        onSubmit={handleSubmit}
-        className="grid grid-cols-1 md:grid-cols-2 gap-5"
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="col-span-1 md:col-span-2 border border-gray-300 rounded-lg px-4 py-3"
-        />
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <input type="text" name="name" placeholder="First Name" value={formData.name} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="date" name="dob" value={formData.dob} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="text" name="pan" placeholder="PAN Card Number" value={formData.pan} onChange={handleChange} required className="uppercase border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="text" name="pincode" placeholder="Pincode" value={formData.pincode} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="text" name="homeAddress" placeholder="Home Address" value={formData.homeAddress} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="text" name="officeAddress" placeholder="Office Address" value={formData.officeAddress} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="text" name="typeOfResidence" placeholder="Type of Residence (e.g. Rented)" value={formData.typeOfResidence} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
+        <input type="text" name="companyName" placeholder="Company Name" value={formData.companyName} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-3" />
 
-        <input
-          type="text"
-          name="phone"
-          placeholder="Mobile Number"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-3"
-        />
+        <input type="text" value="Salaried" disabled className="border border-gray-300 rounded-lg px-4 py-3 bg-gray-100 text-gray-500" />
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={formData.email}
-          onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3"
-        />
-
-        <input
-          type="date"
-          name="dob"
-          value={formData.dob}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-3"
-        />
-
-        <input
-          type="text"
-          name="pan"
-          placeholder="PAN Card Number"
-          value={formData.pan}
-          onChange={handleChange}
-          required
-          className="uppercase border border-gray-300 rounded-lg px-4 py-3"
-        />
-
-        <input
-          type="text"
-          name="pincode"
-          placeholder="Pincode"
-          value={formData.pincode}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-3"
-        />
-
-        <input
-          type="number"
-          name="income"
-          placeholder="Monthly Income"
-          value={formData.income}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-3"
-        />
-
-        <input
-          type="number"
-          name="loanAmount"
-          placeholder="Desired Loan Amount"
-          value={formData.loanAmount}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg px-4 py-3"
-        />
-
-        <select
-          name="employment"
-          value={formData.employment}
-          onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3"
-          required
-        >
-          <option value="">Select Employee Type</option>
-          <option value="Salaried">Salaried</option>
-          <option value="Self Employed">Self Employed</option>
-        </select>
-
-        <button
-          type="submit"
-          className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg"
-        >
+        <button type="submit" className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg">
           Submit
         </button>
       </form>

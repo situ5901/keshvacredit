@@ -102,7 +102,7 @@ const allLenders: Lender[] = [
     tenure: "Up to 18 months",
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium=",
+    applyLink: "/lenderapi/fatakpaydcl",
   },
   {
     id: "salaryontime",

@@ -8,7 +8,6 @@ interface ProfileData {
   dateOfBirth: string;
   income: string;
   gender: string;
-  maritalStatus: string;
   email: string;
   phone: string;
   pan: string;
@@ -26,7 +25,6 @@ export default function ProfilePage() {
     dateOfBirth: '',
     income: '',
     gender: '',
-    maritalStatus: '',
     email: '',
     phone: '',
     pan: '',
@@ -65,7 +63,6 @@ export default function ProfilePage() {
             pincode: user.pincode || '',
             company_name: user.company_name || '',
             gender: user.gender || '',
-            maritalStatus: user.maritalStatus || '',
             loanAmount: user.loanAmount || '',
           });
         })
@@ -88,7 +85,6 @@ export default function ProfilePage() {
         dateOfBirth,
         income,
         gender,
-        maritalStatus,
         pan,
         employment,
         city,
@@ -105,7 +101,6 @@ export default function ProfilePage() {
         dob: dateOfBirth,
         income,
         gender,
-        maritalStatus,
         pan,
         employment,
         city,
@@ -190,7 +185,6 @@ export default function ProfilePage() {
           {renderField('Pan', 'pan')}
           {renderField('Employment', 'employment', 'text', false, ['Salaried', 'Self Employed'])}
           {renderField('Gender', 'gender', 'text', false, ['Male', 'Female', 'Other'])}
-          {renderField('Marital Status', 'maritalStatus', 'text', false, ['Single', 'Married', 'Other'])}
         </div>
       </section>
 

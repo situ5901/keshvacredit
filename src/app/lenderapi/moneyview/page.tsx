@@ -60,6 +60,7 @@ const EligibilityForm = () => {
               city: user.city || "",
               state: user.state || "",
               pincode: user.pincode || "",
+              employerName: user.company_name || "",
             };
             const required = [
               "name",

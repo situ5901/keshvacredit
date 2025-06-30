@@ -97,6 +97,15 @@ const lenderData = [
         applyLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
         detailsLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58 ",
     },
+        {
+        image: "https://static.trustpaisa.com/logos/full.svg",
+        lender: "trustpaisa",
+        interestRate: "range  18.25% to 36% per annum",
+        maxLoan: "Up to ₹1 Lakhs",
+        benefit: "Fast approval with minimal documents",
+        applyLink: "https://trustpaisa.com/?utm_source=KeshvaCreditcredit&utm_medium=cps",
+        detailsLink: "https://trustpaisa.com/?utm_source=KeshvaCreditcredit&utm_medium=cps",
+    },
     {
         image: "https://www.bharatloan.com/public/images/brand_logo.png",
         lender: "Bharatloan",

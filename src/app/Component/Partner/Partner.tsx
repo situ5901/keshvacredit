@@ -95,6 +95,14 @@ const Partner = () => {
       src: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
       url: "/",
     },
+     {
+      src: "https://static.trustpaisa.com/logos/full.svg",
+      url: "https://trustpaisa.com/?utm_source=KeshvaCreditcredit&utm_medium=cps",
+    },
+      {
+      src: "https://www.creditsea.com/_next/static/media/credit-sea-blue-h-latest.62519644.svg",
+      url: "https://www.creditsea.com/onboarding/sign-up/enter-mobile?source=31048692",
+    },
   ];
 
   return (
