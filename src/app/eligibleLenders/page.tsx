@@ -152,7 +152,7 @@ const allLenders: Lender[] = [
     features: [" (available in Delhi-NCR region)", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/lenderapi/chintamani",
   },
-    {
+  {
     id: "loantap",
     name: "loantap",
     logo: "https://i.postimg.cc/sgkVCJpQ/download.png",
@@ -231,6 +231,7 @@ export default function Page() {
               width={128}
               height={128}
               className="w-full h-full object-contain"
+              unoptimized
             />
           </div>
         </div>

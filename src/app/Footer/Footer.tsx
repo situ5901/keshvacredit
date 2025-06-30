@@ -83,7 +83,7 @@ function Footer() {
                 alt="Logo"
               />
             </Link>
-            <p className="text-sm text-center  mt-2 font-bold uppercase">SAFE AND SECURE</p>
+            <p className="text-sm text-center mt-2 font-bold uppercase">SAFE AND SECURE</p>
           </div>
 
 
@@ -204,7 +204,7 @@ function Footer() {
                   <Link href="/blog">Our Blogs</Link>
                 </li>
                 <li className="mb-4 hover:underline">
-                  <Link href="/Careers">Carrers</Link>
+                  <Link href="/Careers">register as partner</Link>
                 </li>
                 <li className="mb-4 hover:underline">
                   <Link href="/Contact">Contact us </Link>

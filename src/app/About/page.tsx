@@ -17,6 +17,76 @@ function About() {
       mirror: true,
     });
   }, []);
+  const logos = [
+    {
+      src: "https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp",
+      url: "https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3",
+    },
+    {
+      src: "https://moneyview.in/images/mv-green-logo-v3Compressed.svg",
+      url: "/",
+    },
+    {
+      src: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
+      url: "https://applyonline.ramfincorp.com/?utm_source=keshvacredit",
+    },
+    {
+      src: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
+      url: "https://web.fatakpay.com/authentication/login?utm_source=558_POVVE&utm_medium=",
+    },
+    {
+      src: "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
+      url: "https://app.olyv.co.in/?utm_source=KeshvaCredit_Web&utm_campaign=KeshvaCredit_1",
+    },
+    {
+      src: "https://myflot.com/_next/static/media/logoImage.176890a7.png",
+      url: "https://myflot.com/?utm_source=Keshvacredit&utm_medium=%7B_medium%7D&utm_campaign=%7B_campaign%7D",
+    },
+    {
+      src: "https://cdn.prod.website-files.com/64ea130f10713e77f6320da4/67ac2defec09b58763dac780_Logo_Full_mPokket_2312_R01.svg",
+      url: "https://web.mpokket.in/?utm_source=keshvacredit&utm_medium=keshvacredit",
+    },
+    {
+      src: "https://www.bharatloan.com/public/images/brand_logo.png",
+      url: "https://www.bharatloan.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
+    },
+    {
+      src: "https://i.postimg.cc/j2rPwGvT/download.png",
+      url: "https://salaryontime.com/apply-now?utm_source=Keshvacredit&utm_medium=Keywords&utm_campaign=Keywords&utm_term=Keywords",
+    },
+    {
+      src: "https://www.rupee112.com/public/images/brand_logo.png",
+      url: "https://www.rupee112.com/apply-now?utm_source=KESHVACREDIT&utm_medium=",
+    },
+    {
+      src: "https://www.kamakshimoney.com/index_files/finpath-loan-logo.svg",
+      url: "/",
+    },
+    {
+      src: "https://i.postimg.cc/3w1mXkY6/imgi-1-logo-official.png",
+      url: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
+    },
+    {
+      src: "https://i.postimg.cc/vmZvTJV5/chnitalogo.png",
+      url: "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5",
+    },
+    {
+      src: "https://clickmyloan.com/images/logo.png",
+      url: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome",
+    },
+    {
+      src: "https://static.trustpaisa.com/logos/full.svg",
+      url: "https://trustpaisa.com/?utm_source=KeshvaCreditcredit&utm_medium=cps",
+    },
+    {
+      src: "https://www.creditsea.com/_next/static/media/credit-sea-blue-h-latest.62519644.svg",
+      url: "https://www.creditsea.com/onboarding/sign-up/enter-mobile?source=31048692",
+    },
+    {
+      src: "https://i.postimg.cc/sgkVCJpQ/download.png",
+      url: "/",
+    },
+  ];
 
   return (
     <div>
@@ -32,7 +102,7 @@ function About() {
           <p className="mb-8 text-lg text-gray-300 lg:text-xl sm:px-8 lg:px-48">
             Simplifying the Borrowing Experience with Instant Approvals, Best
             Interest Rates, and Trusted Lenders for Personal, Business, and
-            Emergency Loans.Unlock Your Loan Options.India&apos;s Top Lender Compared 
+            Emergency Loans.Unlock Your Loan Options.India&apos;s Top Lender Compared
           </p>
         </div>
       </section>
@@ -115,7 +185,7 @@ function About() {
             </div>
             <div
               className="lg:w-1/2 flex justify-center items-center max-w-[350px] w-full mx-auto"
-           
+
             >
               <Lottie
                 animationData={loanAnimation}
@@ -127,10 +197,33 @@ function About() {
         </div>
       </section>
 
-      {/* Partner Section */}
-      <section className="py-20 mt-5">
-        <Partner />
-      </section>
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <h1 className="text-center text-4xl font-bold mb-4">Our Partners</h1>
+        <p className="text-center text-gray-600 mb-10">
+          We work with partners who believe in “quality over quantity” and strive for excellence.
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
+          {logos.map((logo, index) => (
+            <a
+              key={index}
+              href={logo.url}
+              rel="noopener noreferrer"
+              className="transition-transform duration-300 hover:scale-105"
+            >
+              <div data-aos="flip-left" className="relative w-28 h-28 sm:w-32 sm:h-32">
+                <Image
+                  src={logo.src}
+                  alt={`Partner ${index + 1}`}
+                  layout="fill"
+                  objectFit="contain"
+                  unoptimized
+                />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
 
       <hr />
 
@@ -188,6 +281,7 @@ function About() {
         </div>
       </section>
       <hr />
+
       {/* Contact Section */}
       <section className="relative bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')]">
         <div className="py-16 px-4 mx-auto max-w-screen-xl text-center relative z-10">

@@ -20,7 +20,6 @@ export default function PartnershipPage() {
     businessVolume: "",
     website: "",
     pincode: "",
-    location: "",
     sourcingLocation: "",
   });
 
@@ -40,7 +39,7 @@ export default function PartnershipPage() {
       {/* Contact Form (Replaced) */}
       <section data-aos="fade-down" className="p-8 rounded-xl shadow-lg">
         <h2 className="text-3xl font-bold text-center mb-6 text-blue-700">
-          Partner With Us
+          Register as a Partner With Us
         </h2>
         <form
           onSubmit={handleSubmit}
@@ -57,7 +56,7 @@ export default function PartnershipPage() {
             value={formData.natureOfBusiness}
             onChange={handleChange}
             required
-            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+            className="findrop border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
           >
             <option value="">Nature of Business *</option>
             <option value="Individual">Individual</option>
@@ -73,9 +72,9 @@ export default function PartnershipPage() {
             value={formData.profile}
             onChange={handleChange}
             required
-            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+            className="findrop border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
           >
-            <option value="" disabled>Products to be referred *</option>
+            <option value="" disabled>Profile *</option>
             <option value="IFA">IFA</option>
             <option value="Real estate consultant">Real estate consultant</option>
             <option value="Lawyer">Lawyer</option>
@@ -89,7 +88,7 @@ export default function PartnershipPage() {
             value={formData.products}
             onChange={handleChange}
             required
-            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+            className="findrop border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
           >
             <option value="" disabled>Products to be referred *</option>
             <option value="Home Loan">Home Loan</option>
@@ -102,13 +101,11 @@ export default function PartnershipPage() {
           </select>
           <input type="text" name="businessVolume" placeholder="Expected Business Volume *" value={formData.businessVolume} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
 
-          <input type="url" name="website" placeholder="Website (If any)" value={formData.website} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
-
-          <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+          <input type="url" name="website" placeholder="Website*" value={formData.website} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
 
           <input type="text" name="pincode" placeholder="Pincode *" value={formData.pincode} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
 
-          <input type="text" name="sourcingLocation" placeholder="Business Sourcing Location" value={formData.sourcingLocation} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+          <input type="text" name="sourcingLocation" placeholder="Business Sourcing Location*" value={formData.sourcingLocation} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
 
           <button type="submit" className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
             Submit Request
@@ -118,7 +115,7 @@ export default function PartnershipPage() {
 
       {/* Hero Title */}
       <h1
-        className="text-5xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"
+        className="text-3xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"
         data-aos="zoom-in"
       >
         Become a KeshvaCredit Partner
@@ -138,7 +135,7 @@ export default function PartnershipPage() {
           />
         </div>
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold mb-4 text-blue-700">About the Partnership</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-700">About the Partnership</h2>
           <p className="text-lg leading-relaxed">
             Join KeshvaCredit as a strategic partner and help us bring accessible financial solutions to a wider audience.
             Whether you're a business, consultant, or digital platform, collaborate with us to grow together.
@@ -149,7 +146,7 @@ export default function PartnershipPage() {
       {/* Benefits Section */}
       <section className="bg-blue-50 rounded-xl p-8 shadow-md flex flex-col md:flex-row items-center gap-8 group" data-aos="slide-up">
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold mb-6 text-blue-800">Benefits of Partnership</h2>
+          <h2 className="text-2xl font-bold mb-6 text-blue-800">Benefits of Partnership</h2>
           <ul className="text-gray-700 list-disc list-inside space-y-4 text-lg">
             <li>Revenue sharing and performance bonuses.</li>
             <li>Access to KeshvaCredit’s API and digital tools.</li>
@@ -185,7 +182,7 @@ export default function PartnershipPage() {
           />
         </div>
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold mb-4 text-blue-700">Responsibilities</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-700">Responsibilities</h2>
           <ul className="list-disc list-inside space-y-3 text-lg">
             <li>Engage your network with our loan and financial offerings.</li>
             <li>Promote KeshvaCredit services with integrity.</li>
@@ -198,7 +195,7 @@ export default function PartnershipPage() {
       {/* Who Should Partner */}
       <section className="bg-blue-50 rounded-xl p-8 shadow-md flex flex-col md:flex-row items-center gap-8 group" data-aos="slide-up">
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold mb-6 text-blue-800">Who Should Partner?</h2>
+          <h2 className="text-2xl font-bold mb-6 text-blue-800">Who Should Partner?</h2>
           <ul className="text-gray-700 list-disc list-inside space-y-3 text-lg">
             <li>Startups and companies in the financial space.</li>
             <li>Fintech consultants and loan aggregators.</li>
@@ -221,7 +218,7 @@ export default function PartnershipPage() {
 
       {/* Final CTA */}
       <section className="text-center" data-aos="zoom-in">
-        <h2 className="text-4xl font-extrabold mb-6">Ready to Partner With Us?</h2>
+        <h2 className="text-3xl font-extrabold mb-6">Ready to Partner With Us?</h2>
         <p className="text-lg mb-8 max-w-xl mx-auto leading-relaxed">
           Let’s explore how we can work together to create value and make financial solutions more accessible.
         </p>

@@ -80,11 +80,11 @@ const Partner = () => {
       url: "/",
     },
       {
-      src: "https://www.instantmudra.com/images/logo_official.png",
+      src: "https://i.postimg.cc/3w1mXkY6/imgi-1-logo-official.png",
       url: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
     },
       {
-      src: "https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png",
+      src: "https://i.postimg.cc/vmZvTJV5/chnitalogo.png",
       url: "https://www.chintamanifinlease.com/keshvacredit?utm_source=quid945&utm_medium=get&utm_campaign=loan-au7!Sh2dff5",
     },
      {
@@ -138,6 +138,7 @@ const Partner = () => {
                   layout="fill"
                   objectFit="contain"
                   priority
+                  unoptimized
                 />
               </div>
             </a>
