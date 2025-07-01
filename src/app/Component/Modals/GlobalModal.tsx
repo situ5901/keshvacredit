@@ -14,7 +14,6 @@ const GlobalModal: React.FC = () => {
   const [otp, setOtp] = useState<string>("");
   const [consentChecked, setConsentChecked] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
   const [message, setMessage] = useState<{
     text: string;
     type: "success" | "error";
@@ -35,16 +34,21 @@ const GlobalModal: React.FC = () => {
   }, [isOpen]);
 
   const handleSendOtp = async () => {
-    if (phone.length !== 10) {
-      return showMessage("Invalid Mobile Number!", "error");
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      return showMessage("Enter a valid 10-digit mobile number", "error");
     }
+
     setIsLoading(true);
     try {
-      await sendOtp(phone);
+      const res = await sendOtp(phone);
       setStep("otp");
       showMessage("OTP Sent Successfully!", "success");
-    } catch (err) {
-      showMessage("Failed to send OTP!", "error");
+    } catch (err: any) {
+      const msg =
+        err?.response?.data?.message ||
+        err?.message ||
+        "Failed to send OTP!";
+      showMessage(msg, "error");
       console.error("Send OTP Error:", err);
     } finally {
       setIsLoading(false);
@@ -53,8 +57,9 @@ const GlobalModal: React.FC = () => {
 
   const handleVerifyOtp = async () => {
     if (otp.length !== 6) {
-      return showMessage("Invalid OTP!", "error");
+      return showMessage("Enter a valid 6-digit OTP", "error");
     }
+
     setIsLoading(true);
     try {
       const response = await verifyOtp(phone, otp);
@@ -68,8 +73,12 @@ const GlobalModal: React.FC = () => {
       } else {
         showMessage("Verification failed!", "error");
       }
-    } catch (err) {
-      showMessage("Invalid OTP! Please try again.", "error");
+    } catch (err: any) {
+      const msg =
+        err?.response?.data?.message ||
+        err?.message ||
+        "Invalid OTP! Please try again.";
+      showMessage(msg, "error");
       console.error("Verify OTP Error:", err);
     } finally {
       setIsLoading(false);

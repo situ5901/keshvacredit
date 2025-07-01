@@ -57,12 +57,16 @@
     "typescript": "5.8.3"
   },
   "browserslist": [
-    "> 0.2%",
-    "last 2 versions",
-    "not dead",
-    "Chrome >= 49",
-    "Android >= 6"
-  ],
+  "defaults",
+  "last 20 versions",
+  "> 0.1%",
+  "IE >= 9",
+  "Android >= 4.4",
+  "Chrome >= 40",
+  "Safari >= 7",
+  "iOS >= 8",
+  "not dead"
+],
   "eslintConfig": {
     "rules": {
       "@next/next/no-img-element": "off"

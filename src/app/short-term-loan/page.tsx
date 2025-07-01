@@ -82,6 +82,15 @@ function Page() {
   try {
     await submitUserInfo(formData);
 
+    // 🔽 Send email to the user after successful form submission
+    await fetch("https://keshvacredit.com/api/v1/utiles/adsmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: formData.email }),
+    });
+
     const userData = {
       name: formData.name,
       phone: formData.phone,
@@ -93,7 +102,6 @@ function Page() {
     setPopupMessage("Form submitted successfully!");
     setShowPopup(true);
 
-    // ✅ Only reset form after success
     setFormData({
       name: "",
       phone: "",
@@ -119,6 +127,7 @@ function Page() {
     setShowPopup(true);
   }
 };
+
 
   if (loading) {
     return (
