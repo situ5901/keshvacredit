@@ -106,37 +106,40 @@ function Page() {
             </p>
             <br />
             <div className="flex gap-8">
-              <button
-                type="button"
-                onClick={handleClick}
-                className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-xs px-2 py-2 text-center me-2 mb-2 w-64 relative overflow-hidden"
-              >
-                <div className="flex flex-col items-center">
-                  <span className="animate-pulse text-sm font-semibold">
-                    Personal Loan
-                  </span>
-                  <span className="animate-blink text-xs mt-0.5">
-                    Click to Apply
-                  </span>
-                </div>
-              </button>
-              <button
-                type="button"
-                onClick={handleClickbusiness}
-                className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-xs px-2 py-1 text-center me-2 mb-2 w-64 relative overflow-hidden"
-              >
-                <div className="flex flex-col items-center">
-                  <span className="animate-pulse text-sm font-semibold">
-                    Business Loan
-                  </span>
-                  <span className="animate-blink text-xs mt-0.5">
-                    Click to Apply
-                  </span>
-                </div>
-              </button>
-            </div>
+  {/* Personal Loan Button */}
+  <button
+    type="button"
+    onClick={handleClick}
+    className="text-white bg-blue-600 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-xs px-2 py-2 text-center me-2 mb-2 w-64 relative overflow-hidden"
+  >
+    <div className="flex flex-col items-center">
+      <span className="animate-pulse text-sm font-semibold">
+        Personal Loan
+      </span>
+      <span className="animate-blink text-xs mt-0.5">
+        Click to Apply
+      </span>
+    </div>
+  </button>
+
+  {/* Business Loan Button */}
+  <button
+    type="button"
+    onClick={handleClickbusiness}
+    className="text-white bg-green-500 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-xs px-2 py-1 text-center me-2 mb-2 w-64 relative overflow-hidden"
+  >
+    <div className="flex flex-col items-center">
+      <span className="animate-pulse text-sm font-semibold">
+        Business Loan
+      </span>
+      <span className="animate-blink text-xs mt-0.5">
+        Click to Apply
+      </span>
+    </div>
+  </button>
+</div>
+
           </div>
-{/* situ */}
           <div className="grid grid-cols-2 gap-4 mt-8">
             <LottieAnimation />
           </div>

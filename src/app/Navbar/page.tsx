@@ -75,22 +75,22 @@ function Navbar() {
       handleClick(); // Run auth logic
     }
   };
-  
+
 
   const handleAuthClick = () => {
     if (isLoggedIn) {
       Cookies.remove("user_token");
       Cookies.remove("user_phone");
       Cookies.remove("isLoggedIn");
-     localStorage.removeItem("userData");
+      localStorage.removeItem("userData");
       setIsLoggedIn(false);
-      window.dispatchEvent(new Event("login-status-changed")); 
+      window.dispatchEvent(new Event("login-status-changed"));
     } else {
-      openModal(); 
+      openModal();
     }
   };
-  
-  
+
+
 
   return (
     <nav
@@ -132,9 +132,8 @@ function Navbar() {
         </button>
 
         <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } w-full md:flex md:items-center md:w-auto`}
+          className={`${isOpen ? "block" : "hidden"
+            } w-full md:flex md:items-center md:w-auto`}
         >
           <ul className="font-medium flex flex-col md:flex-row md:space-x-8">
             <li>
@@ -160,7 +159,7 @@ function Navbar() {
                 href="/Utm-links"
                 onClick={() => {
                   handleNavItemClick()
-               
+
                 }}
                 className="menu-item block py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
@@ -183,9 +182,9 @@ function Navbar() {
                   onClick={() => {
                     handleNavItemClick()
                     handleClick();
-                 
+
                   }}
-                  
+
                   className="menu-item flex items-center rounded hover:bg-gray-200 dark:hover:bg-gray-700"
                 >
                   <FaUser className="text-lg" />
@@ -203,8 +202,7 @@ function Navbar() {
                   handleNavItemClick();
                   handleAuthClick();
                 }}
-                
-                className="bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-700 shadow-md dark:shadow-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-[5px] md:mt-0 w-[120px] h-[38px] md:w-auto"
+                className="bg-blue-600 text-white hover:bg-blue-700 shadow-md font-medium rounded-lg text-sm px-5 py-2.5 mt-[5px] md:mt-0 w-[120px] h-[38px] md:w-auto"
               >
                 {isLoggedIn ? "Sign Out" : "Sign In"}
               </button>

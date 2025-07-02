@@ -116,8 +116,8 @@ const MultiStepFormPage: React.FC = () => {
             <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email" className="px-4 py-2 border rounded-lg" />
             <select name="employeeType" value={formData.employeeType} onChange={handleChange} className="px-4 py-2 border rounded-lg">
               <option value="">Select Employee Type</option>
-              <option value="employee">Employee</option>
-              <option value="selfEmployed">Self Employed</option>
+              <option value="Salaried">Salaried</option>
+              <option value="Self-employed">Self-employed</option>
             </select>
           </div>
         );

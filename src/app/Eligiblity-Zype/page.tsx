@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -28,48 +28,51 @@ const EligibilityForm = () => {
   const isFormComplete = (data: typeof formData) =>
     Object.values(data).every((val) => val && val.trim() !== "");
 
-  const autoSubmit = async (data: typeof formData) => {
-    if (!isFormComplete(data) || autoSubmitted) return;
+  const autoSubmit = useCallback(
+    async (data: typeof formData) => {
+      if (!isFormComplete(data) || autoSubmitted) return;
 
-    setAutoSubmitted(true);
+      setAutoSubmitted(true);
 
-    try {
-      const payload = {
-        name: data.name,
-        mobileNumber: data.mobile,
-        email: data.email,
-        dob: data.dob,
-        panNumber: data.pancard,
-        income: Number(data.income),
-        employmentType: data.employeeType,
-        orgName: data.orgName,
-        partnerid: "keshvacredit",
-      };
+      try {
+        const payload = {
+          name: data.name,
+          mobileNumber: data.mobile,
+          email: data.email,
+          dob: data.dob,
+          panNumber: data.pancard,
+          income: Number(data.income),
+          employmentType: data.employeeType,
+          orgName: data.orgName,
+          partnerid: "keshvacredit",
+        };
 
-      const res = await eligiblyzype(payload);
-      setResponseMsg(res.message);
-      setStatus(res.status || null);
-      setOffer(res.offer || null);
-      setPopupVisible(true);
+        const res = await eligiblyzype(payload);
+        setResponseMsg(res.message);
+        setStatus(res.status || null);
+        setOffer(res.offer || null);
+        setPopupVisible(true);
 
-      setTimeout(() => {
-        setPopupVisible(false);
-        if (res.status === "ACCEPT") {
-          router.push("https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3");
-        } else {
+        setTimeout(() => {
+          setPopupVisible(false);
+          if (res.status === "ACCEPT") {
+            router.push("https://zype.sng.link/Ajygt/1ba7?_dl=com.zype.mobile&_smtype=3");
+          } else {
+            router.push("/eligibleLenders");
+          }
+        }, 3000);
+      } catch (error) {
+        console.error("Auto submission error:", error);
+        setResponseMsg("❌ Something went wrong. Please try again.");
+        setPopupVisible(true);
+        setTimeout(() => {
+          setPopupVisible(false);
           router.push("/eligibleLenders");
-        }
-      }, 3000);
-    } catch (error) {
-      console.error("Auto submission error:", error);
-      setResponseMsg("❌ Something went wrong. Please try again.");
-      setPopupVisible(true);
-      setTimeout(() => {
-        setPopupVisible(false);
-        router.push("/eligibleLenders");
-      }, 3000);
-    }
-  };
+        }, 3000);
+      }
+    },
+    [autoSubmitted, router]
+  );
 
   useEffect(() => {
     const phone = Cookies.get("user_phone");
@@ -89,13 +92,13 @@ const EligibilityForm = () => {
             orgName: user.company_name || "",
           };
           setFormData(filled);
-          autoSubmit(filled); // auto-submit on autofill
+          autoSubmit(filled);
         })
         .catch((err) => {
           console.error("Auto-fill error:", err);
         });
     }
-  }, []);
+  }, [autoSubmit]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -103,7 +106,7 @@ const EligibilityForm = () => {
     setFormData(updated);
 
     if (isFormComplete(updated)) {
-      autoSubmit(updated); // auto-submit on manual fill
+      autoSubmit(updated);
     }
   };
 

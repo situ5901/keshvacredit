@@ -92,18 +92,7 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/lenderapi/mpokket",
   },
-  {
-    id: "FatakPaydcl",
-    name: "FatakPay",
-    logo: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
-    approval: "Good",
-    amount: "Up to ₹3,00,000",
-    interest: " Range - 12% to 35.95% per annum",
-    tenure: "Up to 18 months",
-    support: "24/7 customer support",
-    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "/lenderapi/fatakpaydcl",
-  },
+
   {
     id: "salaryontime",
     name: "salaryontime",
@@ -116,9 +105,9 @@ const allLenders: Lender[] = [
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/lenderapi/salaryontime",
   },
-   {
-    id: "FatakPaypl",
-    name: "FatakPaypl",
+  {
+    id: "FatakPay",
+    name: "FatakPay",
     logo: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
     approval: "Good",
     amount: "Up to ₹3,00,000",
@@ -163,6 +152,18 @@ const allLenders: Lender[] = [
     support: "24/7 customer support",
     features: [" available in Delhi-NCR region only", "Flexible Repayment", "No Usage Restriction"],
     applyLink: "/lenderapi/chintamani",
+  },
+  {
+    id: "FatakPayDCL",
+    name: "FatakPayDCL",
+    logo: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
+    approval: "Good",
+    amount: "Up to ₹3,00,000",
+    interest: " Range - 12% to 35.95% per annum",
+    tenure: "Up to 18 months",
+    support: "24/7 customer support",
+    features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
+    applyLink: "/lenderapi/fatakpaydcl",
   },
   {
     id: "loantap",
