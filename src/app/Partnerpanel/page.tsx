@@ -89,8 +89,8 @@ export default function PartnerDashboard() {
       setPhoneColumnIndex(detectedIndex);
 
       const BATCH_SIZE = 5000;
-      let duplicatesList: ExcelRow[] = [];
-      let notDuplicatesList: ExcelRow[] = [];
+      const duplicatesList: ExcelRow[] = [];
+      const notDuplicatesList: ExcelRow[] = [];
 
       for (let i = 0; i < rows.length; i += BATCH_SIZE) {
         const batch = rows.slice(i, i + BATCH_SIZE);
