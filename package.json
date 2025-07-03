@@ -56,17 +56,18 @@
     "tailwindcss": "^4",
     "typescript": "5.8.3"
   },
-  "browserslist": [
-  "defaults",
-  "last 20 versions",
-  "> 0.1%",
-  "IE >= 9",
-  "Android >= 4.4",
-  "Chrome >= 40",
-  "Safari >= 7",
-  "iOS >= 8",
-  "not dead"
-],
+   "browserslist": [
+    "> 0.1%",
+    "last 30 versions",
+    "IE >= 9",
+    "Android >= 4.4",
+    "iOS >= 8",
+    "Chrome >= 40",
+    "Firefox >= 30",
+    "Safari >= 7",
+    "Edge >= 12",
+    "not dead"
+  ],
   "eslintConfig": {
     "rules": {
       "@next/next/no-img-element": "off"

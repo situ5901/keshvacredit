@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
 import { User, Lock } from 'lucide-react'
@@ -9,6 +9,13 @@ export default function PartnerLogin() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const router = useRouter()
+
+  useEffect(() => {
+    const isLoggedIn = Cookies.get('partner_login') === 'true';
+    if (isLoggedIn) {
+      router.push('/Partnerpanel');
+    }
+  }, [router]);
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

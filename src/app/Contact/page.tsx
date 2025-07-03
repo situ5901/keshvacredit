@@ -17,6 +17,8 @@ function Contact() {
     message: "",
   });
 
+  const [consent, setConsent] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
@@ -38,6 +40,7 @@ function Contact() {
         position: "top-right",
       });
       setForm({ name: "", email: "", message: "" });
+      setConsent(false);
     } else {
       toast.error(responseText || "Something went wrong!", {
         position: "top-right",
@@ -53,18 +56,12 @@ function Contact() {
             Get in Touch
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-xl">
-            We&apos;d love to hear from you. Fill out the form below and
-            we&apos;ll get back to you soon.
+            We'd love to hear from you. Fill out the form below and we'll get back to you soon.
           </p>
         </div>
 
-        <div
-          className="max-w-2xl mx-auto p-6 rounded-lg shadow-md shadow-white mb-16"
-          data-aos="zoom-in"
-        >
-          <h2 className="text-2xl font-bold mb-4 text-center">
-            Ready to Get Started?
-          </h2>
+        <div className="max-w-2xl mx-auto p-6 rounded-lg shadow-md shadow-white mb-16" data-aos="zoom-in">
+          <h2 className="text-2xl font-bold mb-4 text-center">Ready to Get Started?</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="name" className="text-sm font-medium">
@@ -108,9 +105,30 @@ function Contact() {
                 placeholder="Write your message..."
               />
             </div>
+
+            {/* Consent Checkbox */}
+            <div className="mb-4 flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="consent"
+                checked={consent}
+                onChange={() => setConsent(!consent)}
+                className="w-4 h-4"
+                required
+              />
+              <label htmlFor="consent" className="text-sm">
+                We can contact you via Email, WhatsApp, SMS, RCS or Call
+              </label>
+            </div>
+
             <button
               type="submit"
-              className="w-full bg-blue-800 text-white px-6 py-3 rounded-md"
+              disabled={!consent}
+              className={`w-full px-6 py-3 rounded-md text-white transition ${
+                consent
+                  ? "bg-blue-800 hover:bg-blue-900"
+                  : "bg-gray-400 cursor-not-allowed"
+              }`}
             >
               Send Message
             </button>
