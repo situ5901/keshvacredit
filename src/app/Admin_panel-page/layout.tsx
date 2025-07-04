@@ -25,9 +25,9 @@ export default function AdminPanelLayout({
   // Close sidebar on route change
   useEffect(() => {
 
-    router.prefetch("/Adminpanel/dashboard");
-    router.prefetch("/Adminpanel/users");
-    router.prefetch("/Adminpanel/settings");
+    router.prefetch("/Admin_panel-page/dashboard");
+    router.prefetch("/Admin_panel-page/users");
+    router.prefetch("/Admin_panel-page/settings");
   }, [router]);
 
   return (
@@ -50,13 +50,16 @@ export default function AdminPanelLayout({
         <nav>
           <ul>
             <li className="px-4 py-2 hover:bg-gray-700">
-              <Link href="/Adminpanel/dashboard">Dashboard</Link>
+              <Link href="/Admin_panel-page/dashboard">Dashboard</Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-700">
-              <Link href="/Adminpanel/users">Analytics</Link>
+              <Link href="/Admin_panel-page/users">Analytics</Link>
+            </li>
+             <li className="px-4 py-2 hover:bg-gray-700">
+              <Link href="/Admin_panel-page/moneyviewstatus">Money-View-Status</Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-700">
-              <Link href="/Adminpanel/workupdate">daily-Work-update</Link>
+              <Link href="/Admin_panel-page/workupdate">daily-Work-update</Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-700">
               <button

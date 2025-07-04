@@ -29,6 +29,13 @@ const lenders = [
     GrievanceOfficername: "Moushumi Mukherjee",
     email: "grievance@smartcoin.co.in",
   },
+    {
+    name: "TrustPaisa",
+    image:
+      "https://static.trustpaisa.com/logos/full.svg",
+    GrievanceOfficername: "Sharath Kumar",
+    email: "grievance@trustpaisa.com",
+  },
 ];
 
 function Page() {

@@ -56,7 +56,7 @@
     "tailwindcss": "^4",
     "typescript": "5.8.3"
   },
-   "browserslist": [
+  "browserslist": [
     "> 0.1%",
     "last 30 versions",
     "IE >= 9",

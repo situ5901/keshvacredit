@@ -15,6 +15,10 @@ const lenders = [
     website: "https://www.myflot.com/",
   },
   {
+    name: "Moneyview",
+    website: "https://moneyview.in/contact-us",
+  },
+  {
     name: "FatakPay",
     website: "https://fatakpay.com/contact-us",
   },
@@ -53,6 +57,19 @@ const lenders = [
     name: "Chintamani Finlease",
     website: "https://www.chintamanifinlease.com/home/contact-us",
   },
+  {
+    name: "CreditSea",
+    website: "https://www.creditsea.com/contact-us",
+  },
+  {
+    name: "TrustPaisa",
+    website: "https://trustpaisa.com/",
+  },
+   {
+    name: "Clickmyloan",
+    website: "https://clickmyloan.com/contact",
+  },
+
 ];
 
 function LenderContactPage() {

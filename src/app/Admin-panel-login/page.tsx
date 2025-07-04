@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
 import { User, Lock } from 'lucide-react'
@@ -9,6 +9,12 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const router = useRouter()
+  useEffect(() => {
+    const isLoggedIn = Cookies.get("admin_login");
+    if (isLoggedIn === "true") {
+      router.push("/Admin_panel-page");
+    }
+  }, []);
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -16,7 +22,7 @@ export default function AdminLogin() {
     const staticPassword = 'parveen123'
     if (username === staticUsername && password === staticPassword) {
       Cookies.set('admin_login', 'true', { expires: 7 })
-      router.push('/Adminpanel')
+      router.push('/Admin_panel-page')
     } else {
       setError('Invalid username or password')
     }
