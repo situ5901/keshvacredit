@@ -29,13 +29,19 @@ const lenders = [
     GrievanceOfficername: "Moushumi Mukherjee",
     email: "grievance@smartcoin.co.in",
   },
-    {
+  {
     name: "TrustPaisa",
     image:
       "https://static.trustpaisa.com/logos/full.svg",
     GrievanceOfficername: "Sharath Kumar",
     email: "grievance@trustpaisa.com",
+  }, {
+    name: " FatakPay",
+    image: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
+    GrievanceOfficername: "Ms. Anshika Gupta",
+    email: "escalation@fdplfinance.com",
   },
+
 ];
 
 function Page() {
