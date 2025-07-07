@@ -37,7 +37,7 @@ const lenders = [
     email: "grievance@trustpaisa.com",
   }, {
     name: " FDPL Finance Private Limited",
-    image: "https://web.fatakpay.com/assets/images/logo/Logo.svg",
+    image: "https://www.fdplfinance.com/assets/images/logo/Logo.svg",
     GrievanceOfficername: "Ms. Anshika Gupta",
     email: "escalation@fdplfinance.com",
   },
@@ -59,18 +59,19 @@ function Page() {
           >
             {/* Top Section */}
             <div className="bg-gradient-to-tr from-[#beabd0] to-[#4f46e5] text-white flex flex-col items-center justify-center text-center p-8">
-              <h1 className="text-2xl font-semibold tracking-wide">
-                {lender.name}
-              </h1>
-              <div className="w-[160px] h-[40px] flex items-center justify-center  overflow-hidden">
+
+              <div className="w-[160px] h-[60px] flex items-center justify-center  overflow-hidden">
                 <Image
                   src={lender.image}
                   alt={lender.name}
-                  width={130}
-                  height={100}
+                  width={160}
+                  height={130}
                   className="object-contain"
                 />
               </div>
+              {/* <h2 className="text-xl font-semibold tracking-wide">
+                {lender.name}
+              </h2> */}
             </div>
 
             {/* Bottom Section */}

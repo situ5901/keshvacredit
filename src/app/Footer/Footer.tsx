@@ -223,9 +223,11 @@ function Footer() {
 
         <hr className="w-full sm:mx-auto mt-1 mb-2 " />
         <div className="w-full text-center relative">
-          <span className="text-sm  block">
-            © 2025 Keshvacredit™. All Rights Reserved.
-          </span>
+         <span className="text-sm block">
+  © 2025 Keshvacredit™. All Rights Reserved -
+  CIN: <span className="font-medium">U70200HR2025PTC129612</span>
+</span>
+
           {/* Toggle */}
           <button
             onClick={() => setLearnOpen(!learnOpen)}

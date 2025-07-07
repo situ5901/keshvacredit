@@ -7,7 +7,7 @@ function page() {
 
       <hr className="mb-4" />
 
-      <p className="mb-4 font-semibold">Last Updated: September 24, 2024</p>
+      <p className="mb-4 font-semibold">Last Updated: May 01, 2025</p>
 
       <p className="mb-4">
         This Privacy Policy (&ldquo;Policy&rdquo;)
