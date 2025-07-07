@@ -212,6 +212,9 @@ function Footer() {
                 <li className="mb-4 hover:underline">
                   <Link href="/faq">FAQ</Link>
                 </li>
+                  <li className="mb-4 hover:underline">
+                  <Link href="https://sachet.rbi.org.in/">RBI sachet</Link>
+                </li>
               </ul>
             </div>
           </div>

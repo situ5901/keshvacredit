@@ -175,7 +175,9 @@ export default function PartnerDashboard() {
           const headerRow = allCsvRows[0];
           const dataRows = allCsvRows.slice(1);
 
-          const keywords = ['phone', 'mobile', 'number', 'contact'];
+          const keywords = ['phone', 'mobile', 'number', 'contact',
+            'phonenumber', 'phone_number', 'mobile_number',
+            'contact_number', 'contactnumber', 'mobilenumber'];
           const foundIndex = headerRow.findIndex((h) =>
             keywords.some((k) =>
               String(h).toLowerCase().replace(/[^a-z]/g, '').includes(k)
@@ -230,8 +232,8 @@ export default function PartnerDashboard() {
           const dataRows = allExcelRows.slice(1);
 
           const keywords = ['phone', 'mobile', 'number', 'contact',
-        'phonenumber', 'phone_number', 'mobile_number',
-        'contact_number', 'contactnumber', 'mobilenumber'];
+            'phonenumber', 'phone_number', 'mobile_number',
+            'contact_number', 'contactnumber', 'mobilenumber'];
           const foundIndex = headerRow.findIndex((h) =>
             keywords.some((k) =>
               String(h).toLowerCase().replace(/[^a-z]/g, '').includes(k)
@@ -324,13 +326,12 @@ export default function PartnerDashboard() {
             </button>
             {uploadMessage && (
               <p
-                className={`text-xs mt-2 text-center ${
-                  uploadMessage.startsWith('✅')
+                className={`text-xs mt-2 text-center ${uploadMessage.startsWith('✅')
                     ? 'text-green-600'
                     : uploadMessage.startsWith('❌')
-                    ? 'text-red-600'
-                    : 'text-blue-600'
-                }`}
+                      ? 'text-red-600'
+                      : 'text-blue-600'
+                  }`}
               >
                 {uploadMessage}
               </p>
