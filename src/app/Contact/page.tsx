@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Careers from "../Careers/page"; 
+import Careers from "../Careers/page";
 import { Toaster, toast } from "react-hot-toast";
 
 function Contact() {
@@ -14,6 +14,7 @@ function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
@@ -39,7 +40,7 @@ function Contact() {
       toast.success(responseText || "Thank you! We will contact you shortly", {
         position: "top-right",
       });
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", phone: "", message: "" });
       setConsent(false);
     } else {
       toast.error(responseText || "Something went wrong!", {
@@ -92,6 +93,22 @@ function Contact() {
               />
             </div>
             <div className="mb-4">
+              <label htmlFor="phone" className="text-sm font-medium">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                required
+                className="w-full rounded-md border border-gray-400 py-2 px-3 focus:outline-none focus:border-blue-500"
+                placeholder="Your contact number"
+              />
+            </div>
+
+            <div className="mb-4">
               <label htmlFor="message" className="text-sm font-medium">
                 Message
               </label>
@@ -124,11 +141,10 @@ function Contact() {
             <button
               type="submit"
               disabled={!consent}
-              className={`w-full px-6 py-3 rounded-md text-white transition ${
-                consent
+              className={`w-full px-6 py-3 rounded-md text-white transition ${consent
                   ? "bg-blue-800 hover:bg-blue-900"
                   : "bg-gray-400 cursor-not-allowed"
-              }`}
+                }`}
             >
               Send Message
             </button>
@@ -189,23 +205,21 @@ export default function ContactCareersToggle() {
       <div className="flex justify-center space-x-4 mb-8">
         <button
           onClick={() => setActiveTab("contact")}
-          className={`px-6 py-3 rounded-md font-semibold ${
-            activeTab === "contact"
+          className={`px-6 py-3 rounded-md font-semibold ${activeTab === "contact"
               ? "bg-blue-800 text-white"
               : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
-          }`}
+            }`}
         >
           Contact
         </button>
         <button
           onClick={() => setActiveTab("careers")}
-          className={`px-6 py-3 rounded-md font-semibold ${
-            activeTab === "careers"
+          className={`px-6 py-3 rounded-md font-semibold ${activeTab === "careers"
               ? "bg-blue-800 text-white"
               : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
-          }`}
+            }`}
         >
-          Partner with us 
+          Partner with us
         </button>
       </div>
 

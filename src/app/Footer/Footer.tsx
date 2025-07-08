@@ -102,7 +102,7 @@ function Footer() {
                     Business Loan
                   </button>
                 </li>
-                  <li className="mb-4">
+                <li className="mb-4">
                   <Link href="/directlender" className="hover:underline">
                     Direct lender loan
                   </Link>
@@ -112,11 +112,11 @@ function Footer() {
                     Credit Card
                   </Link>
                 </li>
-               <li className="mb-4">
+                <li className="mb-4">
                   <Link href="/goldloan" className="hover:underline">
                     Gold Loan
                   </Link>
-                </li> 
+                </li>
               </ul>
             </div>
 
@@ -200,7 +200,7 @@ function Footer() {
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase underline">other</h2>
               <ul className="font-medium">
-                 <li className="mb-4 hover:underline">
+                <li className="mb-4 hover:underline">
                   <Link href="/blog">Our Blogs</Link>
                 </li>
                 <li className="mb-4 hover:underline">
@@ -212,7 +212,10 @@ function Footer() {
                 <li className="mb-4 hover:underline">
                   <Link href="/faq">FAQ</Link>
                 </li>
-                  <li className="mb-4 hover:underline">
+                <li className="mb-4 hover:underline">
+                  <Link href="/allcalculators">EMI Calculator</Link>
+                </li>
+                <li className="mb-4 hover:underline">
                   <Link href="https://sachet.rbi.org.in/">RBI sachet</Link>
                 </li>
               </ul>
@@ -223,10 +226,10 @@ function Footer() {
 
         <hr className="w-full sm:mx-auto mt-1 mb-2 " />
         <div className="w-full text-center relative">
-         <span className="text-sm block">
-  © 2025 Keshvacredit™. All Rights Reserved -
-  CIN: <span className="font-medium">U70200HR2025PTC129612</span>
-</span>
+          <span className="text-sm block">
+            © 2025 Keshvacredit™. All Rights Reserved -
+            CIN: <span className="font-medium">U70200HR2025PTC129612</span>
+          </span>
 
           {/* Toggle */}
           <button

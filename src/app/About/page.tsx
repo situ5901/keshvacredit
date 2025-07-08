@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import loanAnimation from "../../animations/loan.json";
-import Partner from "../Component/Partner/Partner";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

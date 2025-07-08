@@ -113,7 +113,7 @@ export default function PartnerDashboard() {
     setUploadMessage('Processing data...');
     setProgress(0);
 
-    const BATCH_SIZE = 5000;
+    const BATCH_SIZE = 7000;
     const tempDuplicates: ExcelRow[] = [];
     const tempNonDuplicates: ExcelRow[] = [];
     let processedCount = 0;
