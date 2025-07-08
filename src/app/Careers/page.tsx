@@ -35,7 +35,7 @@ export default function PartnershipPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 space-y-28 font-sans">
+    <div className="max-w-6xl mx-auto px-6 space-y-28 font-sans mt-15">
       {/* Contact Form (Replaced) */}
       <section data-aos="fade-down" className="p-8 rounded-xl shadow-lg">
         <h2 className="text-3xl font-bold text-center mb-6 text-blue-700">

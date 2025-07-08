@@ -204,7 +204,7 @@ function Footer() {
                   <Link href="/blog">Our Blogs</Link>
                 </li>
                 <li className="mb-4 hover:underline">
-                  <Link href="/Careers">register as partner</Link>
+                  <Link href="/Careers">Register as Partner</Link>
                 </li>
                 <li className="mb-4 hover:underline">
                   <Link href="/Contact">Contact us </Link>
