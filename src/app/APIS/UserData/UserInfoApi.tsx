@@ -125,3 +125,15 @@ export const getDailyReport = async () => {
     throw error;
   }
 };
+
+
+export const partnerApi = async () =>{
+try {
+   const response = await axios.post(`${API_BASE_URL}/partner/page`)
+   if(response) return {status:200}
+   else return null 
+}catch (error) {
+  console.error("Error fetching daily report:", error);
+  throw error;
+}
+}

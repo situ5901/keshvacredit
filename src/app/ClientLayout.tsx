@@ -26,7 +26,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     const disableCopy = (e: ClipboardEvent) => {
       e.preventDefault();
       if (e.clipboardData) {
-        e.clipboardData.setData("text/plain", "bsdk copy mt krr lawdee");
+        e.clipboardData.setData("text/plain", "not allowed");
       }
     };
 
