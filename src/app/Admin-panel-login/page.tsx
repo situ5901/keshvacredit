@@ -9,12 +9,13 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const router = useRouter()
-  useEffect(() => {
-    const isLoggedIn = Cookies.get("admin_login");
-    if (isLoggedIn === "true") {
-      router.push("/Admin_panel-page");
-    }
-  }, []);
+useEffect(() => {
+  const isLoggedIn = Cookies.get("admin_login");
+  if (isLoggedIn === "true") {
+    router.push("/Admin_panel-page");
+  }
+}, [router]); 
+
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

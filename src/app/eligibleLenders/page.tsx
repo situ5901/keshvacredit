@@ -53,7 +53,7 @@ const allLenders: Lender[] = [
     tenure: "Up to 18 months",
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "/Eligiblity-Zype",
+    applyLink: "/lenderapi/Eligiblity-Zype",
   },
   {
     id: "Ramfin",
@@ -65,7 +65,7 @@ const allLenders: Lender[] = [
     tenure: "Up to 18 months",
     support: "24/7 customer support",
     features: ["No Collateral", "Flexible Repayment", "No Usage Restriction"],
-    applyLink: "/Eligiblity-Ramfin",
+    applyLink: "/lenderapi/Eligiblity-Ramfin",
   },
 
   {
@@ -147,7 +147,7 @@ const allLenders: Lender[] = [
     logo: "https://www.chintamanifinlease.com/public/frontend/images/logo/logo.png",
     approval: "Good",
     amount: "Up to ₹3,00,000",
-    interest: "Up to 2% per month",
+    interest: "Starting from 25% per annum",
     tenure: "Up to 18 months",
     support: "24/7 customer support",
     features: [" available in Delhi-NCR region only", "Flexible Repayment", "No Usage Restriction"],

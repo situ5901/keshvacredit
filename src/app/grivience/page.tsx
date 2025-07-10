@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const lenders = [
   {
-    name: "ramfin corporation",
+    name: "Ram Fincorp",
     image: "https://i.postimg.cc/Y03r2Fmb/logo-ramfin.png",
     GrievanceOfficername: "Saourav Kumar",
     email: "info@ramfincorp.com",
@@ -23,7 +23,7 @@ const lenders = [
     email: "support@mpokket.com",
   },
   {
-    name: "olyv",
+    name: "Olyv",
     image:
       "https://framerusercontent.com/images/csl8apTjCrYTK5Qi20a4osUIHw.png?scale-down-to=512",
     GrievanceOfficername: "Moushumi Mukherjee",
@@ -35,7 +35,8 @@ const lenders = [
       "https://static.trustpaisa.com/logos/full.svg",
     GrievanceOfficername: "Sharath Kumar",
     email: "grievance@trustpaisa.com",
-  }, {
+  },
+   {
     name: " FDPL Finance Private Limited",
     image: "https://www.fdplfinance.com/assets/images/logo/Logo.svg",
     GrievanceOfficername: "Ms. Anshika Gupta",

@@ -5,6 +5,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
+import { useModal } from "@/app/context/ModalContext";
+
 
 const lenderData = [
     {
@@ -79,7 +83,7 @@ const lenderData = [
         applyLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome",
         detailsLink: "https://clickmyloan.cloudbankin.com/onboard/?referral_code=caa39346dc#/home/welcome",
     },
-       {
+    {
         image: "https://www.creditsea.com/_next/static/media/credit-sea-blue-h-latest.62519644.svg",
         lender: "CreditSea ",
         interestRate: "range 14% – 36% per annum",
@@ -91,13 +95,13 @@ const lenderData = [
     {
         image: "https://www.instantmudra.com/images/logo_official.png",
         lender: "Instant Mudra",
-        interestRate: "starting from 10.99% per annum",
+        interestRate: "Range - 12% to 35.95% per annum",
         maxLoan: "Up to ₹5 Lakhs",
         benefit: "Fast approval with minimal documents",
         applyLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58",
         detailsLink: "https://www.instantmudra.com/apply_loan.php?utm_source=quid&utm_medium=get&utm_campaign=d70e2e18685f38708e175d780390d064ke58 ",
     },
-        {
+    {
         image: "https://static.trustpaisa.com/logos/full.svg",
         lender: "trustpaisa",
         interestRate: "range  18.25% to 36% per annum",
@@ -137,6 +141,22 @@ const lenderData = [
 ];
 
 export default function UTMLendersPage() {
+    const router = useRouter();
+    const [showConfirm, setShowConfirm] = useState(false);
+    const { openModal } = useModal();
+
+    const handleClick = () => {
+        const token = Cookies.get("user_token");
+        const phone = Cookies.get("user_phone");
+        if (token && phone) {
+            router.push("/eligibleLenders");
+        } else {
+            openModal();
+        }
+    };
+
+
+
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -163,22 +183,33 @@ export default function UTMLendersPage() {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             await submitUserInfo(formData);
             localStorage.setItem(
                 "userData",
-                JSON.stringify({ name: formData.name, phone: formData.phone, email: formData.email })
+                JSON.stringify({
+                    name: formData.name,
+                    phone: formData.phone,
+                    email: formData.email
+                })
             );
+
             showPopup("success", "Form submitted successfully!");
+            setShowConfirm(true); // ✅ Show the custom confirmation popup
+
         } catch (error) {
             console.error(error);
             showPopup("error", "Error submitting form. Please try again.");
         }
-        setFormData({ name: "", phone: "", email: "", employeeType: "", pan: "", pincode: "", loanAmount: "", income: "", dob: "" });
+
+        setFormData({
+            name: "", phone: "", email: "", employeeType: "", pan: "",
+            pincode: "", loanAmount: "", income: "", dob: ""
+        });
     };
+
 
     const showPopup = (type: string, message: string) => {
         const popup = document.createElement("div");
@@ -262,7 +293,7 @@ export default function UTMLendersPage() {
                                 value={formData.employeeType}
                                 onChange={handleChange}
                                 required
-                                className=" w-full px-4 py-2 border rounded focus:ring-2 focus:ring-blue-500"
+                                className="findrop w-full px-4 py-2 border rounded focus:ring-2 focus:ring-blue-500"
                             >
                                 <option value="">Employee Type</option>
                                 <option value="employee">Employee</option>
@@ -324,6 +355,32 @@ export default function UTMLendersPage() {
                                 Submit
                             </button>
                         </form>
+                        {showConfirm && (
+                            <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-[9999]">
+                                <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md text-center">
+                                    <h2 className="text-xl font-semibold text-green-700 mb-4">
+                                        Form Submitted Successfully!
+                                    </h2>
+                                    <p className="mb-6 text-gray-700">Do you want to continue to eligible lenders?</p>
+                                    <div className="flex justify-center gap-4">
+                                        <button
+                                            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                                            onClick={handleClick}
+                                        >
+                                            Yes
+                                        </button>
+
+                                        <button
+                                            className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition"
+                                            onClick={() => setShowConfirm(false)}
+                                        >
+                                            No
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
                     </div>
                 </div>
             </div>
@@ -350,7 +407,7 @@ function LenderCard({
 }) {
     return (
         <div className="rounded-xl border-2 p-4 flex flex-col md:flex-row items-center gap-4 relative shadow-[0_0_10px_2px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-[1.01] hover:shadow-lg">
-            <Image src={image} alt={lender} width={128} height={80} className="object-contain" unoptimized/>
+            <Image src={image} alt={lender} width={128} height={80} className="object-contain" unoptimized />
             <div className="flex-1">
                 <h3 className="font-bold text-lg">{lender}</h3>
                 <ul className="text-sm mt-2 space-y-1">

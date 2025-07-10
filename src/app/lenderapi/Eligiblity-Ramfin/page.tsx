@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
-import { eligiblyramfin } from "../APIS/UserData/UserInfoApi";
+import { eligiblyramfin } from "../../APIS/UserData/UserInfoApi";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import axios from "axios";

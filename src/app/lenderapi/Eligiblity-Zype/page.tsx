@@ -4,7 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-import { eligiblyzype } from "../APIS/UserData/UserInfoApi";
+import { eligiblyzype } from "../../APIS/UserData/UserInfoApi";
 
 const EligibilityForm = () => {
   const [formData, setFormData] = useState({
@@ -25,8 +25,12 @@ const EligibilityForm = () => {
   const [autoSubmitted, setAutoSubmitted] = useState(false);
   const router = useRouter();
 
-  const isFormComplete = (data: typeof formData) =>
-    Object.values(data).every((val) => val && val.trim() !== "");
+  // ✅ FIX: Wrap isFormComplete in useCallback
+  const isFormComplete = useCallback(
+    (data: typeof formData) =>
+      Object.values(data).every((val) => val && val.trim() !== ""),
+    []
+  );
 
   const autoSubmit = useCallback(
     async (data: typeof formData) => {
@@ -71,7 +75,7 @@ const EligibilityForm = () => {
         }, 3000);
       }
     },
-    [autoSubmitted, router]
+    [autoSubmitted, router, isFormComplete] // ✅ Safe dependency
   );
 
   useEffect(() => {

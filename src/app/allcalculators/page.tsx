@@ -82,15 +82,15 @@ export default function EMICalculator() {
     const [activeTab, setActiveTab] = useState('summary');
     const [isCalculating, setIsCalculating] = useState(false);
 
-    useEffect(() => {
-        // Set typical values when loan type changes
-        const details = loanTypeDetails[loanType as keyof typeof loanTypeDetails];
-        if (details) {
-            setInterestRate(details.typicalRate);
-            setPrincipal(Math.min(Math.max(principal, details.minAmount), details.maxAmount));
-            setTenure(Math.min(Math.max(tenure, details.minTenure), details.maxTenure));
-        }
-    }, [loanType]);
+   useEffect(() => {
+  const details = loanTypeDetails[loanType as keyof typeof loanTypeDetails];
+  if (details) {
+    setInterestRate(details.typicalRate);
+    setPrincipal(Math.min(Math.max(principal, details.minAmount), details.maxAmount));
+    setTenure(Math.min(Math.max(tenure, details.minTenure), details.maxTenure));
+  }
+}, [loanType, principal, tenure]); // ✅ added principal & tenure
+
 
     const emi = calculateEMI(principal, interestRate, tenure);
     const totalPayment = emi * tenure;
