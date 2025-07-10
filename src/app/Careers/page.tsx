@@ -50,9 +50,20 @@ export default function PartnershipPage() {
           <input type="text" name="contactNumber" placeholder="Contact Number *" value={formData.contactNumber} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
 
           <input type="email" name="email" placeholder="Email ID *" value={formData.email} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
-
           <select
-            name="natureOfBusiness"
+            name="partnertype"
+            value={formData.natureOfBusiness}
+            onChange={handleChange}
+            required
+            className="findrop border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          >
+            <option value="">Partner type *</option>
+            <option value="Individual">DSA</option>
+            <option value="Proprietor">Agreegator</option>
+            <option value="Partnership">Other</option>
+          </select>
+          <select
+            name="Partner type"
             value={formData.natureOfBusiness}
             onChange={handleChange}
             required
@@ -78,7 +89,6 @@ export default function PartnershipPage() {
             <option value="IFA">IFA</option>
             <option value="Real estate consultant">Real estate consultant</option>
             <option value="Lawyer">Lawyer</option>
-            <option value="Interior designer">Interior designer</option>
             <option value="Broking firm">Broking firm</option>
             <option value="Real Estate developer">Real Estate developer</option>
             <option value="Others">Others</option>
