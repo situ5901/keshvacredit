@@ -13,7 +13,7 @@ export default function PartnerLogin() {
   useEffect(() => {
     const isLoggedIn = Cookies.get('partner_login') === 'true';
     if (isLoggedIn) {
-      router.push('/Partnerpanel');
+      router.push('partnerlogin/panel-part');
     }
   }, [router]);
 
@@ -23,7 +23,7 @@ export default function PartnerLogin() {
     const staticPassword = 'hellokeshvacredit'
     if (username === staticUsername && password === staticPassword) {
       Cookies.set('partner_login', 'true', { expires: 7 })
-      router.push('/Partnerpanel')
+      router.push('partnerlogin/panel-part')
     } else {
       setError('Invalid username or password')
     }

@@ -91,29 +91,29 @@ function Footer() {
             {/* Resources Section */}
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase underline">Resources</h2>
-              <ul className="font-medium">
+              <ul className="text-sm">
                 <li className="mb-4">
-                  <button onClick={handleClickLoan} className="hover:underline text-left">
+                  <button onClick={handleClickLoan} className=" text-left">
                     Personal Loan
                   </button>
                 </li>
                 <li className="mb-4">
-                  <button onClick={handleClickbusiness} className="hover:underline text-left">
+                  <button onClick={handleClickbusiness} className=" text-left">
                     Business Loan
                   </button>
                 </li>
                 <li className="mb-4">
-                  <Link href="/directlender" className="hover:underline">
+                  <Link href="/directlender" className="">
                     Direct lender loan
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/creditcard" className="hover:underline">
+                  <Link href="/creditcard" className="">
                     Credit Card
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/goldloan" className="hover:underline">
+                  <Link href="/goldloan" className="">
                     Gold Loan
                   </Link>
                 </li>
@@ -127,7 +127,6 @@ function Footer() {
                 <li>
                   <Link
                     href="https://www.linkedin.com/company/keshvacredit/"
-                    className="hover:opacity-80 hover:underline "
                   >
                     Linkedin
                   </Link>
@@ -135,7 +134,6 @@ function Footer() {
                 <li>
                   <Link
                     href="https://www.facebook.com/share/1ATVmsgGNK/"
-                    className="hover:opacity-80 hover:underline"
                   >
                     Facebook
                   </Link>
@@ -143,7 +141,6 @@ function Footer() {
                 <li>
                   <Link
                     href="https://www.instagram.com/keshva_credit"
-                    className="hover:opacity-80 hover:underline "
                   >
                     Instagram
                   </Link>
@@ -151,7 +148,6 @@ function Footer() {
                 <li>
                   <Link
                     href="https://whatsapp.com/channel/0029Vb5j8WU65yD5kbrEth19"
-                    className="hover:opacity-80 hover:underline"
                   >
                     WhatsApp
                   </Link>
@@ -159,7 +155,6 @@ function Footer() {
                 <li>
                   <Link
                     href="https://www.youtube.com/@KeshvaCreditFilmy"
-                    className="hover:opacity-80 hover:underline"
                   >
                     YouTube
                   </Link>
@@ -167,7 +162,6 @@ function Footer() {
                 <li>
                   <Link
                     href="https://x.com/KeshvaCredit?s=09"
-                    className="hover:opacity-80 hover:underline"
                   >
                     X (Twitter)
                   </Link>
@@ -178,18 +172,18 @@ function Footer() {
             {/* Legal Section */}
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase underline">Legal</h2>
-              <ul className="font-medium">
-                <li className="mb-4 hover:underline">
+              <ul className="font-small">
+                <li className="mb-4 ">
                   <Link href="/Privacy">Privacy Policy</Link>
                 </li>
-                <li className="mb-4 hover:underline">
+                <li className="mb-4 ">
                   <Link href="/Lendercontact">Lender Contacts</Link>
                 </li>
-                <li className="mb-4 hover:underline">
+                <li className="mb-4 ">
                   <Link href="/grivience">Lender Grievances</Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="hover:underline">
+                  <Link href="/terms" className="">
                     Terms & Conditions
                   </Link>
                 </li>
@@ -200,22 +194,22 @@ function Footer() {
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase underline">other</h2>
               <ul className="font-medium">
-                <li className="mb-4 hover:underline">
+                <li className="mb-4 ">
                   <Link href="/blog">Our Blogs</Link>
                 </li>
-                <li className="mb-4 hover:underline">
+                <li className="mb-4 ">
                   <Link href="/Careers">Register as Partner</Link>
                 </li>
-                <li className="mb-4 hover:underline">
+                <li className="mb-4 ">
                   <Link href="/Contact">Contact us </Link>
                 </li>
-                <li className="mb-4 hover:underline">
+                <li className="mb-4 ">
                   <Link href="/faq">FAQ</Link>
                 </li>
-                <li className="mb-4 hover:underline">
+                <li className="mb-4 ">
                   <Link href="/allcalculators">EMI Calculator</Link>
                 </li>
-                <li className="mb-4 hover:underline">
+                <li className="mb-4 ">
                   <Link href="https://sachet.rbi.org.in/">RBI sachet</Link>
                 </li>
               </ul>
@@ -227,7 +221,7 @@ function Footer() {
         <hr className="w-full sm:mx-auto mt-1 mb-2 " />
         <div className="w-full text-center relative">
           <span className="text-sm block">
-            © 2025 Keshvacredit™. All Rights Reserved -
+            © {new Date().getFullYear()} Keshvacredit™. All Rights Reserved -
             CIN: <span className="font-medium">U70200HR2025PTC129612</span>
           </span>
 
@@ -246,7 +240,7 @@ function Footer() {
                 <li key={stateName}>
                   <Link
                     href={`/loans/${formatStateForUrl(stateName)}`}
-                    className="text-sm  hover:text-blue-400 hover:underline"
+                    className="text-sm  hover:text-blue-400 "
                   >
                     <h1>|| Personal Loan in {stateName} ||</h1>
 
@@ -256,11 +250,11 @@ function Footer() {
             </ul>
           )}
           <div className="flex flex-wrap  gap-6 justify-center text-sm ">
-            <a href="https://myaadhaar.uidai.gov.in/" target="_blank" className="hover:underline">Download Aadhaar Card</a>
-            <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" className="hover:underline">Check PAN Card Status</a>
-            <a href="https://www.bankifsccode.com/" target="_blank" className="hover:underline">Find Bank IFSC Code</a>
-            <a href="https://uidai.gov.in/my-aadhaar/get-aadhaar.html" target="_blank" className="hover:underline">Check Aadhaar Status</a>
-            <a href="https://www.cibil.com/" target="_blank" className="hover:underline">View Your CIBIL Score</a>
+            <a href="https://myaadhaar.uidai.gov.in/" target="_blank" className="">Download Aadhaar Card</a>
+            <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" className="">Check PAN Card Status</a>
+            <a href="https://www.bankifsccode.com/" target="_blank" className="">Find Bank IFSC Code</a>
+            <a href="https://uidai.gov.in/my-aadhaar/get-aadhaar.html" target="_blank" className="">Check Aadhaar Status</a>
+            <a href="https://www.cibil.com/" target="_blank" className="">View Your CIBIL Score</a>
           </div>
         </div>
       </div>

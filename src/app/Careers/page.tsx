@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import toast from "react-hot-toast";
 
 export default function PartnershipPage() {
   useEffect(() => {
@@ -11,60 +12,140 @@ export default function PartnershipPage() {
   }, []);
 
   const [formData, setFormData] = useState({
-    fullName: "",
-    contactNumber: "",
+    name: "",
+    phone: "",
     email: "",
-    natureOfBusiness: "",
+    contact: "",
+    natureofbusiness: "",
     profile: "",
     products: "",
-    businessVolume: "",
+    bussinessvolume: "",
     website: "",
     pincode: "",
-    sourcingLocation: "",
+    soucreoflocation: "",
+    partnerType: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Submitted", formData);
-    // API call or action here
+
+    try {
+      const res = await fetch(
+        "https://keshvacredit.com/api/v1/api/partner/page",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await res.json();
+      if (res.ok) {
+        toast.success("Form submitted successfully!", {
+          position: "top-right",
+        });
+
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          contact: "",
+          natureofbusiness: "",
+          profile: "",
+          products: "",
+          bussinessvolume: "",
+          website: "",
+          pincode: "",
+          soucreoflocation: "",
+          partnerType: "",
+        });
+      } else {
+        console.error("Error submitting form", data);
+        toast.error("Something went wrong!", {
+          position: "top-right",
+        });
+      }
+    } catch (error) {
+      console.error("Submission error", error);
+      toast.error("Network or server error", {
+        position: "top-right",
+      });
+    }
   };
 
   return (
     <div className="max-w-6xl mx-auto px-6 space-y-28 font-sans mt-15">
-      {/* Contact Form (Replaced) */}
       <section data-aos="fade-down" className="p-8 rounded-xl shadow-lg">
         <h2 className="text-3xl font-bold text-center mb-6 text-blue-700">
           Register as a Partner With Us
         </h2>
-        <form
-          onSubmit={handleSubmit}
-          className="grid md:grid-cols-2 gap-6"
-        >
-          <input type="text" name="fullName" placeholder="Full Name *" value={formData.fullName} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
 
-          <input type="text" name="contactNumber" placeholder="Contact Number *" value={formData.contactNumber} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+        <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name *"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          />
 
-          <input type="email" name="email" placeholder="Email ID *" value={formData.email} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Contact Number *"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email ID *"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          />
+
+          <input
+            type="text"
+            name="contact"
+            placeholder="Your Designation *"
+            value={formData.contact}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          />
+
           <select
-            name="partnertype"
-            value={formData.natureOfBusiness}
+            name="partnerType"
+            value={formData.partnerType}
             onChange={handleChange}
             required
             className="findrop border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
           >
-            <option value="">Partner type *</option>
-            <option value="Individual">DSA</option>
-            <option value="Proprietor">Agreegator</option>
-            <option value="Partnership">Other</option>
+            <option value="">Partner Type *</option>
+            <option value="DSA">DSA</option>
+            <option value="Aggregator">Aggregator</option>
+            <option value="Other">Other</option>
           </select>
+
           <select
-            name="Partner type"
-            value={formData.natureOfBusiness}
+            name="natureofbusiness"
+            value={formData.natureofbusiness}
             onChange={handleChange}
             required
             className="findrop border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
@@ -78,14 +159,15 @@ export default function PartnershipPage() {
             <option value="HIJF">HIJF</option>
             <option value="Trust">Trust</option>
           </select>
+
           <select
-            name="Profile"
+            name="profile"
             value={formData.profile}
             onChange={handleChange}
             required
             className="findrop border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
           >
-            <option value="" disabled>Profile *</option>
+            <option value="">Profile *</option>
             <option value="IFA">IFA</option>
             <option value="Real estate consultant">Real estate consultant</option>
             <option value="Lawyer">Lawyer</option>
@@ -93,6 +175,7 @@ export default function PartnershipPage() {
             <option value="Real Estate developer">Real Estate developer</option>
             <option value="Others">Others</option>
           </select>
+
           <select
             name="products"
             value={formData.products}
@@ -100,7 +183,7 @@ export default function PartnershipPage() {
             required
             className="findrop border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
           >
-            <option value="" disabled>Products to be referred *</option>
+            <option value="">Products to be referred *</option>
             <option value="Home Loan">Home Loan</option>
             <option value="Business Loan">Business Loan</option>
             <option value="Personal Loan">Personal Loan</option>
@@ -109,15 +192,49 @@ export default function PartnershipPage() {
             <option value="Digital Loan">Digital Loan</option>
             <option value="Other">Other</option>
           </select>
-          <input type="text" name="businessVolume" placeholder="Expected Business Volume *" value={formData.businessVolume} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
 
-          <input type="url" name="website" placeholder="Website*" value={formData.website} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+          <input
+            type="text"
+            name="bussinessvolume"
+            placeholder="Expected Business Volume *"
+            value={formData.bussinessvolume}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          />
 
-          <input type="text" name="pincode" placeholder="Pincode *" value={formData.pincode} onChange={handleChange} required className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+          <input
+            type="url"
+            name="website"
+            placeholder="Website"
+            value={formData.website}
+            onChange={handleChange}
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          />
 
-          <input type="text" name="sourcingLocation" placeholder="Business Sourcing Location*" value={formData.sourcingLocation} onChange={handleChange} className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2" />
+          <input
+            type="text"
+            name="pincode"
+            placeholder="Pincode *"
+            value={formData.pincode}
+            onChange={handleChange}
+            required
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          />
 
-          <button type="submit" className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+          <input
+            type="text"
+            name="soucreoflocation"
+            placeholder="Business Sourcing Location *"
+            value={formData.soucreoflocation}
+            onChange={handleChange}
+            className="border-b border-gray-400 bg-transparent focus:outline-none px-2 py-2"
+          />
+
+          <button
+            type="submit"
+            className="col-span-1 md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+          >
             Submit Request
           </button>
         </form>
