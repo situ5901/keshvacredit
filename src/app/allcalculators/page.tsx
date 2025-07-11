@@ -15,7 +15,8 @@ import {
     CartesianGrid
 } from 'recharts';
 import { motion } from 'framer-motion';
-import { FiInfo, FiDollarSign, FiPercent, FiCalendar, FiChevronDown } from 'react-icons/fi';
+import { FiInfo,FiPercent, FiCalendar, FiChevronDown } from 'react-icons/fi';
+import { FaRupeeSign } from 'react-icons/fa';
 
 const loanTypes = [
     'Personal Loan',
@@ -173,7 +174,7 @@ export default function EMICalculator() {
                         {/* Principal */}
                         <div className="space-y-2">
                             <label className="block text-sm font-medium  flex items-center gap-1">
-                                <FiDollarSign className="text-indigo-500" /> Loan Amount (₹)
+                                <FaRupeeSign className="text-indigo-500" /> Loan Amount (₹)
                             </label>
                             <input
                                 type="range"

@@ -83,10 +83,10 @@ function Footer() {
                 alt="Logo"
               />
             </Link>
-            <p className="text-sm text-center mt-2 font-bold uppercase">SAFE AND SECURE</p>
+            <p className="text-sm mt-2 font-bold uppercase text-left md:ml-6">
+              SAFE AND SECURE
+            </p>
           </div>
-
-
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
             {/* Resources Section */}
             <div>
@@ -123,7 +123,7 @@ function Footer() {
             {/* Social Section */}
             <div className="ml-3">
               <h2 className="mb-6 text-sm font-semibold  uppercase underline ">FOLLOW US</h2>
-              <ul className="font-medium flex flex-col gap-4">
+              <ul className="text-sm flex flex-col gap-4">
                 <li>
                   <Link
                     href="https://www.linkedin.com/company/keshvacredit/"
@@ -172,7 +172,7 @@ function Footer() {
             {/* Legal Section */}
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase underline">Legal</h2>
-              <ul className="font-small">
+              <ul className="text-sm">
                 <li className="mb-4 ">
                   <Link href="/Privacy">Privacy Policy</Link>
                 </li>
@@ -193,7 +193,7 @@ function Footer() {
             {/* Important Links Section */}
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase underline">other</h2>
-              <ul className="font-medium">
+              <ul className="text-sm">
                 <li className="mb-4 ">
                   <Link href="/blog">Our Blogs</Link>
                 </li>

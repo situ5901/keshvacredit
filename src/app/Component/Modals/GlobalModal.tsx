@@ -95,9 +95,8 @@ const GlobalModal: React.FC = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 50 }}
-          className={`fixed top-5 right-5 px-4 py-2 text-white rounded-md shadow-lg z-50 ${
-            message.type === "success" ? "bg-green-600" : "bg-red-600"
-          }`}
+          className={`fixed top-5 right-5 px-4 py-2 text-white rounded-md shadow-lg z-50 ${message.type === "success" ? "bg-green-600" : "bg-red-600"
+            }`}
         >
           {message.text}
         </motion.div>
@@ -170,9 +169,7 @@ const GlobalModal: React.FC = () => {
                     onChange={(e) => setConsentChecked(e.target.checked)}
                   />
                   <label htmlFor="consent" className="text-sm">
-                    By checking this box, you provide your explicit consent to{" "}
-                    <strong>KeshvaCredit</strong> to access your credit report and score
-                    from credit bureaus, in accordance with our{" "}
+                    By checking this box, you agree to be contacted by <strong>KeshvaCredit</strong> via Email, WhatsApp, SMS, RCS, or Call and you give your explicit consent to us to access your credit report and score from credit bureaus in accordance with our{" "}
                     <Link href="/terms" className="text-blue-600 underline">
                       Terms and Conditions
                     </Link>.
@@ -182,11 +179,10 @@ const GlobalModal: React.FC = () => {
                 <button
                   onClick={handleVerifyOtp}
                   disabled={!consentChecked || isLoading}
-                  className={`w-full py-3 rounded-lg text-white ${
-                    consentChecked
+                  className={`w-full py-3 rounded-lg text-white ${consentChecked
                       ? "bg-green-600 hover:bg-green-700"
                       : "bg-gray-400 cursor-not-allowed"
-                  }`}
+                    }`}
                 >
                   {isLoading ? "Verifying..." : "Verify OTP"}
                 </button>
