@@ -185,12 +185,22 @@ const GlobalModal: React.FC = () => {
                     checked={consentChecked}
                     onChange={(e) => setConsentChecked(e.target.checked)}
                   />
-                  <label htmlFor="consent" className="text-sm">
-                    By checking this box, you agree to be contacted by <strong>KeshvaCredit</strong> via Email, WhatsApp, SMS, RCS, or Call and you give your explicit consent to us to access your credit report and score from credit bureaus in accordance with our{" "}
-                    <Link href="/terms" className="text-blue-600 underline">
-                      Terms and Conditions
-                    </Link>.
+                  <label htmlFor="consent" className="text-sm space-y-2 flex flex-col">
+                    <span>
+                      1. I agree to be contacted by <strong>KeshvaCredit</strong> via Email, WhatsApp, SMS, RCS, or Call.
+                    </span>
+                    <span>
+                      2. I give my explicit consent to Keshvacredit to access my credit report and score from credit bureaus.
+                    </span>
+                    <span>
+                      3. I have read and accepted all your{" "}
+                      <Link href="/terms" className="text-blue-600 underline">
+                        Terms and Conditions
+                      </Link>.
+                    </span>
+
                   </label>
+
                 </div>
 
                 <button
