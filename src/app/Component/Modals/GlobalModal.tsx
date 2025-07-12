@@ -136,10 +136,27 @@ const GlobalModal: React.FC = () => {
                     }
                   />
                 </div>
+
+                <div className="flex items-start gap-2 my-4">
+                  <input
+                    type="checkbox"
+                    id="consent"
+                    className="mt-1"
+                    checked={consentChecked}
+                    onChange={(e) => setConsentChecked(e.target.checked)}
+                  />
+                  <label htmlFor="consent" className="text-sm">
+                    We can contact you via Email, WhatsApp, SMS, RCS or Call
+                  </label>
+                </div>
+
                 <button
                   onClick={handleSendOtp}
-                  disabled={isLoading}
-                  className="w-full py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50"
+                  disabled={!consentChecked || isLoading}
+                  className={`w-full py-3 rounded-lg text-white ${consentChecked
+                    ? "bg-blue-600 hover:bg-blue-700"
+                    : "bg-gray-400 cursor-not-allowed"
+                    }`}
                 >
                   {isLoading ? "Sending OTP..." : "Send OTP"}
                 </button>
@@ -180,8 +197,8 @@ const GlobalModal: React.FC = () => {
                   onClick={handleVerifyOtp}
                   disabled={!consentChecked || isLoading}
                   className={`w-full py-3 rounded-lg text-white ${consentChecked
-                      ? "bg-green-600 hover:bg-green-700"
-                      : "bg-gray-400 cursor-not-allowed"
+                    ? "bg-green-600 hover:bg-green-700"
+                    : "bg-gray-400 cursor-not-allowed"
                     }`}
                 >
                   {isLoading ? "Verifying..." : "Verify OTP"}
