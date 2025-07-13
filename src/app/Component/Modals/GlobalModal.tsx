@@ -177,31 +177,53 @@ const GlobalModal: React.FC = () => {
                   />
                 </div>
 
-                <div className="flex items-start gap-2 mb-4">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    className="mt-1"
-                    checked={consentChecked}
-                    onChange={(e) => setConsentChecked(e.target.checked)}
-                  />
-                  <label htmlFor="consent" className="text-sm space-y-2 flex flex-col">
-                    <span>
+                <div className="flex flex-col gap-2 mb-4">
+                  {/* Point 1 - Permanently ticked */}
+                  <div className="flex items-start gap-2">
+                    <input
+                      type="checkbox"
+                      id="consent1"
+                      className="mt-1"
+                      checked={true}
+                      disabled
+                    />
+                    <label htmlFor="consent1" className="text-sm">
                       1. I agree to be contacted by <strong>KeshvaCredit</strong> via Email, WhatsApp, SMS, RCS, or Call.
-                    </span>
-                    <span>
-                      2. I give my explicit consent to Keshvacredit to access my credit report and score from credit bureaus.
-                    </span>
-                    <span>
+                    </label>
+                  </div>
+
+                  {/* Point 2 - Permanently ticked */}
+                  <div className="flex items-start gap-2">
+                    <input
+                      type="checkbox"
+                      id="consent2"
+                      className="mt-1"
+                      checked={true}
+                      disabled
+                    />
+                    <label htmlFor="consent2" className="text-sm">
+                      2. I give my explicit consent to KeshvaCredit to access my credit report and score from credit bureaus.
+                    </label>
+                  </div>
+
+                  {/* Point 3 - User can toggle */}
+                  <div className="flex items-start gap-2">
+                    <input
+                      type="checkbox"
+                      id="consent3"
+                      className="mt-1"
+                      checked={consentChecked}
+                      onChange={(e) => setConsentChecked(e.target.checked)}
+                    />
+                    <label htmlFor="consent3" className="text-sm">
                       3. I have read and accepted all your{" "}
                       <Link href="/terms" className="text-blue-600 underline">
                         Terms and Conditions
                       </Link>.
-                    </span>
-
-                  </label>
-
+                    </label>
+                  </div>
                 </div>
+
 
                 <button
                   onClick={handleVerifyOtp}

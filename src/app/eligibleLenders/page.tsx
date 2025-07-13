@@ -222,7 +222,15 @@ export default function Page() {
   const [notEligible, setNotEligible] = useState(false);
   const [loadingBtn, setLoadingBtn] = useState<string | null>(null);
 
+  // ✅ When user applies, store lender in localStorage for 30 days
   const handleApplyClick = (lender: Lender) => {
+    const now = new Date().getTime();
+    const expiry = now + 30 * 24 * 60 * 60 * 1000; // 30 days in ms
+
+    const hidden = JSON.parse(localStorage.getItem("hiddenLenders") || "{}");
+    hidden[lender.id] = expiry;
+    localStorage.setItem("hiddenLenders", JSON.stringify(hidden));
+
     setLoadingBtn(lender.id);
     setTimeout(() => {
       setLoadingBtn(null);
@@ -351,9 +359,25 @@ export default function Page() {
             const lenderNames = data.map((item: { name: string }) =>
               item.name.toLowerCase()
             );
-            const filtered = allLenders.filter((lender) =>
-              lenderNames.includes(lender.name.toLowerCase())
-            );
+
+            // ✅ Handle hiding applied lenders
+            const now = new Date().getTime();
+            const hidden = JSON.parse(localStorage.getItem("hiddenLenders") || "{}");
+
+            // Remove expired entries
+            Object.keys(hidden).forEach((key) => {
+              if (hidden[key] < now) {
+                delete hidden[key];
+              }
+            });
+            localStorage.setItem("hiddenLenders", JSON.stringify(hidden));
+
+            const filtered = allLenders
+              .filter((lender) =>
+                lenderNames.includes(lender.name.toLowerCase())
+              )
+              .filter((lender) => !hidden[lender.id]); // hide if stored
+
             setEligibleLenders(filtered);
           }
         })
