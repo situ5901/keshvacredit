@@ -310,11 +310,18 @@ export default function Bot() {
 
       // For fields handled by text input
       if (currentField && currentField.key !== "dob" && currentField.key !== "employeeType") {
-        if (currentField.validation && !currentField.validation(trimmedMessage)) {
+        let valueToValidate = trimmedMessage;
+        // Convert PAN to uppercase BEFORE validation
+        if (currentFormField === "pan") {
+          valueToValidate = trimmedMessage.toUpperCase();
+        }
+
+        if (currentField.validation && !currentField.validation(valueToValidate)) { // Use valueToValidate for validation
           addBotMessage(`Invalid input. Please provide a valid ${currentField.key}. ${currentField.question}`);
           return;
         }
-        setFormData(prev => ({ ...prev, [currentFormField]: trimmedMessage }));
+        // Set the converted value to formData
+        setFormData(prev => ({ ...prev, [currentFormField]: valueToValidate }));
         setTimeout(() => askNextFormQuestion(formFields.findIndex(field => field.key === currentFormField) + 1), 500);
         return;
       }
