@@ -359,7 +359,7 @@ export default function Bot() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute bottom-16 right-0 w-[270px] md:w-[300px] max-w-sm sm:w-64 rounded-lg shadow-lg border overflow-hidden bg-white"
+          className="absolute bottom-16 right-0 w-[300px] md:w-[300px] max-w-sm sm:w-64 rounded-lg shadow-lg border overflow-hidden bg-white"
         >
           {/* Chat Header */}
           <div className="p-3 flex bg-blue-950 text-white justify-between items-center">
@@ -410,7 +410,7 @@ export default function Bot() {
                 </button>
                 <button
                   onClick={() => handleOptionSelect("Self-employed")}
-                  className="p-2 bg-gray-600 text-white rounded-lg text-xs hover:bg-gray-700"
+                  className="p-2 bg-blue-600 text-white rounded-lg text-xs hover:bg-blue-700"
                 >
                   Self-employed
                 </button>

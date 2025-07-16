@@ -1,28 +1,28 @@
 import Link from "next/link";
 
 const blogs = [
-   {
-  id: 13,
-  title: " How Your Phone is Rewiring Your Brain",
-  image:
-    "https://i.postimg.cc/pdnngRxR/adult-person-working-home-computer-night.jpg",
-  description:
-    " In today’s digital world, apps are designed to keep you hooked — every like, ping, and scroll triggers your brain’s reward system. This constant stimulation gives you small doses of dopamine — the brain chemical that makes you feel good — just like sugar or caffeine.",
-  link: "/blog/blog13",
-  tag: "Lifestyle",
-  date: "July 08, 2025",
-},
- {
-  id: 12,
-  title: "30 Best Instant Personal Loan Apps in India (June 2025)",
-  image:
-    "https://i.postimg.cc/657p5DDv/happy-african-american-entrepreneur-using-mobile-phone-credit-card-from-online-payments-while-workin.jpg",
-  description:
-    "Discover the top 30 instant personal loan apps in India for June 2025. Explore interest rates, eligibility, loan amounts, disbursal timelines, and unique features to find the right app for your financial needs.",
-  link: "/blog/blog12",
-  tag: "Loans",
-  date: "June 30, 2025",
-},
+  {
+    id: 13,
+    title: " How Your Phone is Rewiring Your Brain",
+    image:
+      "https://i.postimg.cc/pdnngRxR/adult-person-working-home-computer-night.jpg",
+    description:
+      " In today’s digital world, apps are designed to keep you hooked — every like, ping, and scroll triggers your brain’s reward system. This constant stimulation gives you small doses of dopamine — the brain chemical that makes you feel good — just like sugar or caffeine.",
+    link: "/blog/blog13",
+    tag: "Lifestyle",
+    date: "July 08, 2025",
+  },
+  {
+    id: 12,
+    title: "30 Best Instant Personal Loan Apps in India (June 2025)",
+    image:
+      "https://i.postimg.cc/657p5DDv/happy-african-american-entrepreneur-using-mobile-phone-credit-card-from-online-payments-while-workin.jpg",
+    description:
+      "Discover the top 30 instant personal loan apps in India for June 2025. Explore interest rates, eligibility, loan amounts, disbursal timelines, and unique features to find the right app for your financial needs.",
+    link: "/blog/blog12",
+    tag: "Loans",
+    date: "June 30, 2025",
+  },
 
 
   {

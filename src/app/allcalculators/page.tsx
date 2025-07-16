@@ -273,16 +273,7 @@ export default function EMICalculator() {
                             </div>
                         </div>
 
-                        <div className="flex items-end">
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition-colors"
-                                onClick={handleCalculate}
-                            >
-                                {isCalculating ? 'Calculating...' : 'Calculate EMI'}
-                            </motion.button>
-                        </div>
+                      
                     </div>
 
                     {/* Results */}
