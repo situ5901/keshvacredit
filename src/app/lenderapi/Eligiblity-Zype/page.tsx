@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import axios from "axios";
@@ -23,6 +24,7 @@ const EligibilityForm = () => {
   const [status, setStatus] = useState<string | null>(null);
   const [offer, setOffer] = useState<number | null>(null);
   const [autoSubmitted, setAutoSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // New loading state
   const router = useRouter();
 
   // ✅ FIX: Wrap isFormComplete in useCallback
@@ -37,6 +39,7 @@ const EligibilityForm = () => {
       if (!isFormComplete(data) || autoSubmitted) return;
 
       setAutoSubmitted(true);
+      setIsLoading(true); // Start loading
 
       try {
         const payload = {
@@ -73,6 +76,8 @@ const EligibilityForm = () => {
           setPopupVisible(false);
           router.push("/eligibleLenders");
         }, 3000);
+      } finally {
+        setIsLoading(false); // Stop loading regardless of success or error
       }
     },
     [autoSubmitted, router, isFormComplete] // ✅ Safe dependency
@@ -100,6 +105,7 @@ const EligibilityForm = () => {
         })
         .catch((err) => {
           console.error("Auto-fill error:", err);
+          setIsLoading(false); // Ensure loading stops on error
         });
     }
   }, [autoSubmit]);
@@ -121,6 +127,23 @@ const EligibilityForm = () => {
 
   return (
     <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border relative">
+      {isLoading && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+        </div>
+      )}
+      {popupVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md text-center">
+            <h3 className="text-lg font-semibold mb-2">Eligibility Result</h3>
+            <p className="text-green-600 font-medium">{responseMsg}</p>
+            {status && <p className="text-blue-600">Status: {status}</p>}
+            {offer && <p className="text-purple-600">Eligible Loan Offer: ₹{offer.toLocaleString()}</p>}
+            <p className="text-gray-500 mt-3 text-sm">Proceeding...</p>
+          </div>
+        </div>
+      )}
+
       <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-3">
         <Image
           src="https://www.getzype.com/wp-content/uploads/2024/08/Group-852775729.webp"
@@ -146,18 +169,6 @@ const EligibilityForm = () => {
           Submit
         </button>
       </form>
-
-      {popupVisible && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md text-center">
-            <h3 className="text-lg font-semibold mb-2">Eligibility Result</h3>
-            <p className="text-green-600 font-medium">{responseMsg}</p>
-            {status && <p className="text-blue-600">Status: {status}</p>}
-            {offer && <p className="text-purple-600">Eligible Loan Offer: ₹{offer.toLocaleString()}</p>}
-            <p className="text-gray-500 mt-3 text-sm">Proceeding...</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

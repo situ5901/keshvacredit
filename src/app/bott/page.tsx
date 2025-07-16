@@ -214,7 +214,7 @@ export default function Bot() {
         // Clear all messages
         setChatMessages([]);
         // Display only the success message
-        addBotMessage("Congratulations! Your application has been submitted successfully. click on apply now on your eligible lenders page to process ");
+        addBotMessage("Congratulations! Your application has been submitted successfully. click on apply now on your eligible lenders page to process documentaion ");
 
         // After a short delay, close the bot and redirect
         setTimeout(() => {
@@ -439,12 +439,12 @@ export default function Bot() {
                 >
                   Yes, apply for loan
                 </button>
-               <button
-  onClick={() => window.open("https://wa.me/918901229195", "_blank")}
-  className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm transition duration-200"
->
-  Other Query
-</button>
+                <button
+                  onClick={() => window.open("https://wa.me/918901229195", "_blank")}
+                  className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm transition duration-200"
+                >
+                  Other Query
+                </button>
 
               </div>
             )}
@@ -516,24 +516,24 @@ export default function Bot() {
       )}
       {/* WhatsApp Button */}
       <div className="flex gap-2 items-center">
-      {/* WhatsApp Icon Button */}
-      <a
-        href="https://wa.me/918901229195"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center border border-green-500 text-white bg-green-500 rounded-full w-12 h-12 hover:bg-green-600 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
-      >
-        <FaWhatsapp className="w-8 h-8" />
-      </a>
+        {/* WhatsApp Icon Button */}
+        <a
+          href="https://wa.me/918901229195"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center border border-green-500 text-white bg-green-500 rounded-full w-12 h-12 hover:bg-green-600 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
+        >
+          <FaWhatsapp className="w-8 h-8" />
+        </a>
 
-      {/* Chat Bot Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center border border-black bg-white text-black rounded-full w-12 h-12 hover:bg-blue-200 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
-      >
-        <Lottie animationData={animationData} loop autoplay className="w-8 h-8" />
-      </button>
-    </div>
+        {/* Chat Bot Toggle Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex items-center justify-center border border-black bg-white text-black rounded-full w-12 h-12 hover:bg-blue-200 focus:ring-4 shadow-lg transition-transform transform hover:scale-110"
+        >
+          <Lottie animationData={animationData} loop autoplay className="w-8 h-8" />
+        </button>
+      </div>
     </div>
   );
 }

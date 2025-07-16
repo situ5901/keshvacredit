@@ -8,39 +8,39 @@ import GlobalModal from "./Component/Modals/GlobalModal";
 import Bot from "./bott/page";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  // useEffect(() => {
-  //   const disableInspect = (e: KeyboardEvent) => {
-  //     const key = e.key.toLowerCase();
-  //     if (
-  //       e.key === "F12" ||
-  //       (e.ctrlKey && e.shiftKey && ["i", "j", "c", "u"].includes(key)) ||
-  //       (e.ctrlKey && key === "u")
-  //     ) {
-  //       e.preventDefault();
-  //     }
-  //   };
+  useEffect(() => {
+    const disableInspect = (e: KeyboardEvent) => {
+      const key = e.key.toLowerCase();
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["i", "j", "c", "u"].includes(key)) ||
+        (e.ctrlKey && key === "u")
+      ) {
+        e.preventDefault();
+      }
+    };
 
-  //   const disableRightClick = (e: MouseEvent) => {
-  //     e.preventDefault();
-  //   };
+    const disableRightClick = (e: MouseEvent) => {
+      e.preventDefault();
+    };
 
-  //   const disableCopy = (e: ClipboardEvent) => {
-  //     e.preventDefault();
-  //     if (e.clipboardData) {
-  //       e.clipboardData.setData("text/plain", "not allowed");
-  //     }
-  //   };
+    const disableCopy = (e: ClipboardEvent) => {
+      e.preventDefault();
+      if (e.clipboardData) {
+        e.clipboardData.setData("text/plain", "not allowed");
+      }
+    };
 
-  //   document.addEventListener("keydown", disableInspect);
-  //   document.addEventListener("contextmenu", disableRightClick);
-  //   document.addEventListener("copy", disableCopy);
+    document.addEventListener("keydown", disableInspect);
+    document.addEventListener("contextmenu", disableRightClick);
+    document.addEventListener("copy", disableCopy);
 
-  //   return () => {
-  //     document.removeEventListener("keydown", disableInspect);
-  //     document.removeEventListener("contextmenu", disableRightClick);
-  //     document.removeEventListener("copy", disableCopy);
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener("keydown", disableInspect);
+      document.removeEventListener("contextmenu", disableRightClick);
+      document.removeEventListener("copy", disableCopy);
+    };
+  }, []);
 
   return (
     <ModalProvider>

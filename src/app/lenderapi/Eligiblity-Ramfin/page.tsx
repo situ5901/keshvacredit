@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { eligiblyramfin } from "../../APIS/UserData/UserInfoApi";
@@ -30,6 +31,7 @@ const EligibilityForm = () => {
   const [popupVisible, setPopupVisible] = useState(false);
   const [responseMsg, setResponseMsg] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
+  const [isLoading, setIsLoading] = useState(false); // New loading state
   const router = useRouter();
 
   const extractMessage = (res: any): string => {
@@ -41,6 +43,7 @@ const EligibilityForm = () => {
 
   const handleSubmitAuto = useCallback(
     async (autoData: FormData) => {
+      setIsLoading(true); // Start loading
       try {
         const payload = {
           ...autoData,
@@ -103,6 +106,8 @@ const EligibilityForm = () => {
         setTimeout(() => {
           setPopupVisible(false);
         }, 1000);
+      } finally {
+        setIsLoading(false); // Stop loading regardless of success or error
       }
     },
     [router]
@@ -130,6 +135,7 @@ const EligibilityForm = () => {
         })
         .catch((err) => {
           console.error("Auto-fill error:", err);
+          setIsLoading(false); // Ensure loading stops on error
         });
     }
   }, [handleSubmitAuto]);
@@ -144,11 +150,17 @@ const EligibilityForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true); // Start loading on manual submit
     await handleSubmitAuto(formData);
   };
 
   return (
     <div className="eligibility-form max-w-2xl mx-auto p-8 rounded-2xl shadow-lg mt-20 border relative">
+      {isLoading && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+        </div>
+      )}
       {popupVisible && responseMsg && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className={`bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md text-center border ${

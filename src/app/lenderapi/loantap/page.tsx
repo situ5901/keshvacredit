@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -13,7 +14,7 @@ interface FormData {
   pan: string;
   pincode: string;
   income: string;
-  state: string; 
+  state: string;
   loanAmount: string;
   employment: string;
 }
@@ -54,8 +55,8 @@ const EligibilityForm = () => {
           employment: autoData.employment,
           income: Number(autoData.income),
           dob: autoData.dob,
-          state: autoData.state || "delhi", 
-          gender: "Male", 
+          state: autoData.state || "delhi",
+          gender: "Male",
         };
 
         const res = await axios.post(
@@ -68,9 +69,9 @@ const EligibilityForm = () => {
 
         const data = res.data;
 
-        if (data?.status === "success" && data?.lapp_id) {
+        if (data?.status === "success") {
           setIsSuccess(true);
-          setResponseMsg("🎉 LoanTap application successful! Redirecting...");
+          setResponseMsg("🎉 Application created successfully! Redirecting...");
           setTimeout(() => {
             router.push("https://loantap.in/journey/lapp/APP1836149755208076");
           }, 3000);
@@ -105,7 +106,7 @@ const EligibilityForm = () => {
             pan: user.pan || "",
             pincode: user.pincode || "",
             income: user.income || "",
-            state: user.state || "delhi",
+            state: user.state || "",
             loanAmount: user.loanAmount || "",
             employment: user.employment || "",
           };
@@ -137,11 +138,10 @@ const EligibilityForm = () => {
       {responseMsg && isSuccess !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
           <div
-            className={`max-w-md w-full px-6 py-5 rounded-xl text-center shadow-lg ${
-              isSuccess
+            className={`max-w-md w-full px-6 py-5 rounded-xl text-center shadow-lg ${isSuccess
                 ? "bg-green-50 text-green-800 border border-green-300"
                 : "bg-red-50 text-red-800 border border-red-300"
-            }`}
+              }`}
           >
             <div className="text-3xl mb-3">{isSuccess ? "🎉" : "❌"}</div>
             <p className="text-base font-semibold">{responseMsg}</p>
