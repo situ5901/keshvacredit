@@ -1,6 +1,15 @@
 import Link from "next/link";
 
 const blogs = [
+{
+    id: 14,
+    title: "सर्वश्रेष्ठ पर्सनल लोन बैंक - 2024 गाइड",
+    image: "https://i.postimg.cc/CKZ4FC9f/banking-web-laptop-office.jpg",
+    description: "2024 में पर्सनल लोन लेने के लिए सबसे अच्छे बैंकों की विस्तृत जानकारी। इस गाइड में आप जानेंगे कम प्रोसेसिंग फीस वाले विकल्प और EMI कैलकुलेशन टिप्स। आपातकालीन जरूरतों, शादी, घर की मरम्मत या मेडिकल खर्चों के लिए सही पर्सनल लोन चुनने की संपूर्ण जानकारी।",
+    link: "/blog/blog14",
+    tag: "Finance",
+    date: "July 08, 2025"
+},
   {
     id: 13,
     title: " How Your Phone is Rewiring Your Brain",
@@ -23,8 +32,6 @@ const blogs = [
     tag: "Loans",
     date: "June 30, 2025",
   },
-
-
   {
     id: 11,
     title: " Understand Where Your Money Goes",
