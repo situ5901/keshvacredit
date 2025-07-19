@@ -103,6 +103,10 @@ const Partner = () => {
       src: "https://www.creditsea.com/_next/static/media/credit-sea-blue-h-latest.62519644.svg",
       url: "https://www.creditsea.com/onboarding/sign-up/enter-mobile?source=31048692",
     },
+    {
+      src: "https://i.postimg.cc/0yYdK8bv/logo.png",
+      url: "/",
+    },
   ];
 
   return (

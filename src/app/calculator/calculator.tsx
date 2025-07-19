@@ -117,9 +117,9 @@ export default function EmiCalculator() {
               </label>
               <input
                 type="number"
-                min="1"
+                min="0"
                 value={loanTenure}
-                onChange={(e) => setLoanTenure(Math.max(1, Number(e.target.value)))}
+                onChange={(e) => setLoanTenure(Math.max(0, Number(e.target.value)))}
                 className="w-full p-2 border rounded "
               />
             </div>
